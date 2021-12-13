@@ -6,6 +6,8 @@
 npm run dev
 ```
 
+### Migrate
+
 ```
 npx prisma migrate dev --name my-named-migration
 ```

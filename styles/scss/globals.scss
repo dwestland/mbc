@@ -1,0 +1,142 @@
+:root {
+  --lighter-seafoam: hsl(189, 70%, 97%);
+  --light-seafoam: hsl(189, 70%, 60%);
+  --seafoam: #1f98ad;
+  --dark-seafoam: hsl(189, 70%, 30%);
+  --darker-seafoam: hsl(189, 70%, 20%);
+
+  --ruby: hsl(333, 56%, 44%);
+  --olive: hsl(54, 76%, 22%);
+  --light-olive: hsl(54, 85%, 37%);
+  --lightest-olive: hsl(54, 85%, 85%);
+}
+
+.container {
+  margin: 60px auto;
+  max-width: 1200px;
+  padding: 0 30px;
+}
+
+/* Cam Pages
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.layout {
+  border: 1px solid green;
+  // width: 100%
+}
+
+.cam-container {
+  border: 1px solid lightblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+hr {
+  border-top: 1px solid #BCBCBC;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+hr:after {
+  content: '\1F334';
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 1rem;
+  background: #fff;
+  color: #8c8b8b;
+  font-size: 18px;
+}
+
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.btn {
+  background: var(--seafoam);
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: var(--dark-seafoam);
+  border-radius: 5px;
+  border: 0;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 13px;
+  font: inherit;
+  margin: 0 20px;
+  padding: 5px 15px;
+}
+
+.btn-secondary:hover {
+  opacity: 0.8;
+}
+
+.btn-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-icon svg {
+  margin-right: 5px;
+}
+
+
+/* Show More
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.show-more-wrapper {
+  position: relative;
+
+  .btn {
+    color: black;
+    background: white;
+    border-radius: 1.5em;
+    left: 30%;
+    padding: .5em;
+    text-decoration: none;
+    width: 40%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(104, 76, 76, 0.3);
+
+  }
+  .show, .hide {
+    position: absolute;
+    bottom: -1em;
+    z-index: 100;
+    text-align: center;
+  }
+
+  .hide {display: none;}
+  .show:target {display: none;}
+  .show:target ~ .hide {display: block;}
+  .show:target ~ .panel {
+    max-height: 2000px; 
+  }
+  .show:target ~ .fade {
+    margin-top: 0;
+  }
+
+  .panel {
+    position: relative;
+    margin: 2em auto;
+    width: 70%;
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height .5s ease;
+  }
+  .fade {
+    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%,rgba(white,1) 75%);
+    height: 100px;
+    margin-top: -100px;
+    position: relative;
+  }
+}
