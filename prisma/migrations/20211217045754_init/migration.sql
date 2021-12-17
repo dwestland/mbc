@@ -1,3 +1,6 @@
+-- CreateEnum
+CREATE TYPE "Role" AS ENUM ('USER', 'ADMIN');
+
 -- CreateTable
 CREATE TABLE "accounts" (
     "id" SERIAL NOT NULL,
@@ -37,6 +40,7 @@ CREATE TABLE "users" (
     "image" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "role" "Role" NOT NULL DEFAULT E'USER',
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
@@ -51,6 +55,24 @@ CREATE TABLE "verification_requests" (
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "verification_requests_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "cams" (
+    "id" SERIAL NOT NULL,
+    "title" TEXT NOT NULL,
+    "webcam_url" TEXT NOT NULL,
+    "old_image_url" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "country" TEXT NOT NULL,
+    "state" TEXT,
+    "area" TEXT,
+    "sub_area" TEXT,
+    "author_id" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "cams_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -103,6 +125,9 @@ CREATE UNIQUE INDEX "verification_requests_token_key" ON "verification_requests"
 
 -- CreateIndex
 CREATE UNIQUE INDEX "blogs_title_key" ON "blogs"("title");
+
+-- AddForeignKey
+ALTER TABLE "cams" ADD CONSTRAINT "cams_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "blogs" ADD CONSTRAINT "blogs_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
