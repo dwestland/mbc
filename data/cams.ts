@@ -12,7 +12,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Princeville',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Westin Princeville Cam',
@@ -24,7 +24,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Princeville',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Parrish Poipu Cam',
@@ -35,7 +35,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Poipu',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sheraton Poipu Webcam',
@@ -46,7 +46,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Poipu',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Poipu Beach Hale Cam',
@@ -57,7 +57,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Poipu',
-    authorId: 0,
+    authorId: 1,
   },
   // Lihue Beach Cams
   {
@@ -70,7 +70,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: 'Lihue',
-    authorId: 0,
+    authorId: 1,
   },
   // More
   {
@@ -84,7 +84,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Blue Hawaiian Helicopter Cam, Kauai',
@@ -97,7 +97,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hanalei Bay Cam',
@@ -108,7 +108,7 @@ const cams = [
     state: 'HI',
     area: 'Kauai',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   // Oahu
   // Waikiki Beach Cams
@@ -123,7 +123,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Waikiki',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Moana Surfrider's Beach Cam",
@@ -136,7 +136,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Waikiki',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Waikiki Aquarium Cam',
@@ -148,7 +148,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Waikiki',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Royal Hawaiian Waikiki Surf Cam',
@@ -161,7 +161,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Waikiki',
-    authorId: 0,
+    authorId: 1,
   },
   // Honolulu
   {
@@ -173,7 +173,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Honolulu',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Oahu Traffic Cams',
@@ -184,7 +184,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Honolulu',
-    authorId: 0,
+    authorId: 1,
   },
   // More Oahu Cams
   {
@@ -198,7 +198,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Turtle Bay Cam',
@@ -210,7 +210,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Moana Surfrider Cam',
@@ -221,7 +221,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hyatt Regency Waikiki Beach Resort & Spa',
@@ -235,7 +235,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   // Oahu Surf Cams
   {
@@ -248,7 +248,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Oahu Surf',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Banzai Pipeline Surf Cam',
@@ -260,7 +260,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Oahu Surf',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sunset Beach Surf Cam',
@@ -272,7 +272,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Oahu Surf',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Waimea Bay Surf Cam',
@@ -284,7 +284,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Oahu Surf',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Rocky Point Surf Cam',
@@ -295,7 +295,7 @@ const cams = [
     state: 'HI',
     area: 'Oahu',
     subArea: 'Oahu Surf',
-    authorId: 0,
+    authorId: 1,
   },
   // Maui
   // Kaanapali Beach Cams
@@ -309,7 +309,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Kaanapali',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Maui Kai Beach Cam',
@@ -320,7 +320,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Kaanapali',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Westin Maui Resort Cam',
@@ -331,7 +331,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Kaanapali',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Mahana Honokowai Condo Beach Cam',
@@ -344,7 +344,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Kaanapali',
-    authorId: 0,
+    authorId: 1,
   },
   // North Shore
   {
@@ -357,7 +357,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'North Shore',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Oahu North Shore Pipeline Cam',
@@ -370,7 +370,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'North Shore',
-    authorId: 0,
+    authorId: 1,
   },
   // Napili Beach
   {
@@ -384,7 +384,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Napili',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Royal Kahana Maui Beach Cam',
@@ -398,7 +398,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Napili',
-    authorId: 0,
+    authorId: 1,
   },
   // Lahaina
   {
@@ -411,7 +411,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   // More Maui Cams
   {
@@ -424,7 +424,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Mana Kai Beach Cam',
@@ -435,7 +435,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Kamaole Beach Cam',
@@ -447,7 +447,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   // Maui Surf
   {
@@ -460,7 +460,7 @@ const cams = [
     state: 'HI',
     area: 'Maui',
     subArea: 'Maui Surf',
-    authorId: 0,
+    authorId: 1,
   },
   // Big Island
   // Kona Beach Cams
@@ -474,7 +474,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Kona',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Kona Web Cam',
@@ -486,7 +486,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Kona',
-    authorId: 0,
+    authorId: 1,
   },
   // Waikoloa Coast
   {
@@ -499,7 +499,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Waikoloa Coast',
-    authorId: 0,
+    authorId: 1,
   },
   // More Hawaii Big Island Cams
   {
@@ -512,7 +512,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Waikoloa Beach Cam',
@@ -524,7 +524,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Blue Hawaiian Helicopter Cam, Big Island',
@@ -537,7 +537,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   // Observatory Cams on the Big Island of Hawaii
   {
@@ -551,7 +551,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Observatory Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Mauna Kea Web Cams',
@@ -563,7 +563,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Observatory Cams',
-    authorId: 0,
+    authorId: 1,
   },
   // Volcano Cams
   {
@@ -576,7 +576,7 @@ const cams = [
     state: 'HI',
     area: 'Big Island',
     subArea: 'Volcano Cams',
-    authorId: 0,
+    authorId: 1,
   },
   // CA
   // San Diego
@@ -591,7 +591,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hotel del Coronado Cam',
@@ -603,7 +603,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pacific Beach Coastline Cam',
@@ -617,7 +617,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego',
-    authorId: 0,
+    authorId: 1,
   },
   // Del Mar Beach Cams
   {
@@ -630,7 +630,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Del Mar',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Powerhouse Park Cam',
@@ -641,7 +641,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Del Mar',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Del Mar Surf Cam',
@@ -653,7 +653,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Del Mar',
-    authorId: 0,
+    authorId: 1,
   },
   // Mission Bay Cams
   {
@@ -666,7 +666,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Mission',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Bahia Resort Cam',
@@ -678,7 +678,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Mission',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Ocean Beach Webcam',
@@ -690,7 +690,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'Mission',
-    authorId: 0,
+    authorId: 1,
   },
   // More San Diego Cams
   {
@@ -704,7 +704,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Panda Cam',
@@ -715,7 +715,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Polar Cam',
@@ -727,7 +727,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: '',
-    authorId: 0,
+    authorId: 1,
   },
   // San Diego Surf Cams
   {
@@ -740,7 +740,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Tamarack Surf Cam',
@@ -752,7 +752,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Del Mar Surfline Cam',
@@ -764,7 +764,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Oceanside North Jetty Surf Cam',
@@ -777,7 +777,7 @@ const cams = [
     state: 'CA',
     area: 'San Diego',
     subArea: 'San Diego Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   // Los Angeles
   // Westside - Venice - Santa Monica - Pacific Palisades
@@ -791,7 +791,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Westside - Venice - Santa Monica - Pacific Palisades',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Topanga Streaming Cam',
@@ -803,7 +803,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Westside - Venice - Santa Monica - Pacific Palisades',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pacific Palisades Surf Cam',
@@ -816,7 +816,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Westside - Venice - Santa Monica - Pacific Palisades',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Santa Monica Pier Cam',
@@ -828,7 +828,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Westside - Venice - Santa Monica - Pacific Palisades',
-    authorId: 0,
+    authorId: 1,
   },
   // South Bay Beach Cams
   {
@@ -840,7 +840,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'South Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Long Beach Harbor Cam',
@@ -851,7 +851,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'South Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Long Beach Marina Cam',
@@ -863,7 +863,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'South Bay',
-    authorId: 0,
+    authorId: 1,
   },
   // Catalina Island Cams
   {
@@ -875,7 +875,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Catalina Island',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Catalina Island Casino Cam',
@@ -888,7 +888,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Catalina Island',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Catalina Express Cam',
@@ -899,7 +899,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Catalina Island',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Avalon Bay Cam',
@@ -910,7 +910,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Catalina Island',
-    authorId: 0,
+    authorId: 1,
   },
   // Orange County Beach Cams
   {
@@ -922,7 +922,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Orange County',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Balboa Ferry Cam',
@@ -934,7 +934,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Orange County',
-    authorId: 0,
+    authorId: 1,
   },
   // Laguna Beach Cams
   {
@@ -947,7 +947,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Laguna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'ABC Laguna Beach Cam',
@@ -958,7 +958,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Laguna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Los Angeles Area Surf Cams
   {
@@ -972,7 +972,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Zuma Surf Cam',
@@ -985,7 +985,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Malibu Surf Cam',
@@ -998,7 +998,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Topanga Surf Cam',
@@ -1011,7 +1011,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'El Porto Surf Cam',
@@ -1024,7 +1024,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Manhattan Beach Surf Cam',
@@ -1037,7 +1037,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Torrance Beach - Haggerty's Surf Cam",
@@ -1051,7 +1051,7 @@ const cams = [
     state: 'CA',
     area: 'Los Angeles',
     subArea: 'Los Angeles',
-    authorId: 0,
+    authorId: 1,
   },
   // Central Coast
   // Monterey Bay Cams
@@ -1064,7 +1064,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Monterey Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Big Sur Cam',
@@ -1076,7 +1076,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Monterey Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pebble Beach Cam',
@@ -1089,7 +1089,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Monterey Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Santa Cruz Wharf Cam',
@@ -1101,7 +1101,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Monterey Bay',
-    authorId: 0,
+    authorId: 1,
   },
   // San Luis Obispo Cams
   {
@@ -1113,7 +1113,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'San Luis Obispo',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pismo Beach on the Pier Cam',
@@ -1125,7 +1125,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'San Luis Obispo',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pismo Beach Surf Cam',
@@ -1137,7 +1137,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'San Luis Obispo',
-    authorId: 0,
+    authorId: 1,
   },
   // Santa Barbara Beach Cams
   {
@@ -1150,7 +1150,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Santa Barbara',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Santa Barbara Harbor Cam',
@@ -1162,7 +1162,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Santa Barbara',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Campus Point Surfcam',
@@ -1174,7 +1174,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Santa Barbara',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Leadbetter Beach Surfcam',
@@ -1186,7 +1186,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Santa Barbara',
-    authorId: 0,
+    authorId: 1,
   },
   // Central Coast Surf Cams
   {
@@ -1199,7 +1199,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Central Coast Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Morro Bay Surf Cam',
@@ -1212,7 +1212,7 @@ const cams = [
     state: 'CA',
     area: 'Central Coast',
     subArea: 'Central Coast Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   // San Francisco
   // San Francisco Bay
@@ -1226,7 +1226,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Sam's Cafe Cam",
@@ -1238,7 +1238,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Golden Gate Area Park Webcams',
@@ -1251,7 +1251,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Brisbane Marina Webcam',
@@ -1264,7 +1264,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'San Francisco Panorama',
@@ -1278,7 +1278,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Lawrence Hall of Science Cam',
@@ -1292,7 +1292,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pier 39 Sea Lion Cam',
@@ -1304,7 +1304,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sausalito Cam',
@@ -1315,7 +1315,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Wired Pier Cam',
@@ -1327,7 +1327,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Bay Bridge Cam',
@@ -1338,7 +1338,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'East Beach Webcam',
@@ -1350,7 +1350,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Muir Beach Cam',
@@ -1361,7 +1361,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'CBS San Francisco Traffic Cams',
@@ -1374,7 +1374,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Bay',
-    authorId: 0,
+    authorId: 1,
   },
   // Mendocino Beach Cams
   {
@@ -1387,7 +1387,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'Mendocino',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Headlands Cam',
@@ -1400,7 +1400,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'Mendocino',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Lighthouse Cam',
@@ -1412,7 +1412,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'Mendocino',
-    authorId: 0,
+    authorId: 1,
   },
   // San Francisco Surf Cams
   {
@@ -1426,7 +1426,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'South Ocean Beach',
@@ -1440,7 +1440,7 @@ const cams = [
     state: 'CA',
     area: 'San Francisco',
     subArea: 'San Francisco Surf Cams',
-    authorId: 0,
+    authorId: 1,
   },
   // FL
   // Panhandle
@@ -1455,7 +1455,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Panama City Sandpiper Beach Cam',
@@ -1469,7 +1469,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Panama City Sandpiper West Beach Cam',
@@ -1483,7 +1483,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Schooners' Panama Beach Cam",
@@ -1495,7 +1495,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Schooners' Panama Sunset Cam",
@@ -1507,7 +1507,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Panama City Beach Cam',
@@ -1519,7 +1519,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'St. George Island Streaming Cam',
@@ -1532,7 +1532,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Panama City',
-    authorId: 0,
+    authorId: 1,
   },
   // St. Teresa
   {
@@ -1546,7 +1546,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'St. Teresa',
-    authorId: 0,
+    authorId: 1,
   },
   // Pensacola
   {
@@ -1560,7 +1560,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Pensacola',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pensacola Beach Webcam West',
@@ -1573,7 +1573,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Pensacola',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pensacola Beach Webcam South',
@@ -1586,7 +1586,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Pensacola',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pensacola Beach Cam and Surf Report',
@@ -1598,7 +1598,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Pensacola',
-    authorId: 0,
+    authorId: 1,
   },
   // Gulf Breeze
   {
@@ -1610,7 +1610,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Gulf Breeze',
-    authorId: 0,
+    authorId: 1,
   },
   // Perdido Key
   {
@@ -1624,7 +1624,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Perdido Key',
-    authorId: 0,
+    authorId: 1,
   },
   // Okaloosa Island
   {
@@ -1638,7 +1638,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Okaloosa Island',
-    authorId: 0,
+    authorId: 1,
   },
   // Navarre Beach
   {
@@ -1651,7 +1651,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Navarre Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Navarre Beach Live Skyline Cam',
@@ -1663,7 +1663,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Navarre Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Destin Beach
   {
@@ -1677,7 +1677,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Destin Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Destin Beach Still Cam',
@@ -1688,7 +1688,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Destin Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Sandestin Beach
   {
@@ -1700,7 +1700,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Sandestin Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Cape San Blas
   {
@@ -1713,7 +1713,7 @@ const cams = [
     state: 'FL',
     area: 'Panhandle',
     subArea: 'Cape San Blas',
-    authorId: 0,
+    authorId: 1,
   },
   // Northeast
   // St. Augustine
@@ -1727,7 +1727,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'St. Augustine',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'St. Augustine Beach Stills',
@@ -1740,7 +1740,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'St. Augustine',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'St. Augustine Surf Cam',
@@ -1752,7 +1752,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'St. Augustine',
-    authorId: 0,
+    authorId: 1,
   },
   // Jacksonville Beach
   {
@@ -1767,7 +1767,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'St. Augustine Surf Cam 2',
@@ -1778,7 +1778,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jacksonville Surf Cam (South)',
@@ -1790,7 +1790,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jacksonville Beach Pier Cam',
@@ -1802,7 +1802,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jacksonville Beach Surfline Cam',
@@ -1816,7 +1816,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jacksonville Beach Fluidgroove Surf Cam',
@@ -1828,7 +1828,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Fernandina Beach
   {
@@ -1842,7 +1842,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Amelia Island Surf Cam',
@@ -1854,7 +1854,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Amelia Island Streaming Beach Cam',
@@ -1866,7 +1866,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Jacksonville Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Ponte Vedra Beach
   {
@@ -1880,7 +1880,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Ponte Vedra Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Flagler Beach
   {
@@ -1893,7 +1893,7 @@ const cams = [
     state: 'FL',
     area: 'Northeast',
     subArea: 'Flagler Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // East Central
   // Daytona Beach
@@ -1906,7 +1906,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Daytona Dunlawton Beach Cam',
@@ -1918,7 +1918,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Ponce Inlet Surf Cam',
@@ -1930,7 +1930,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Daytona Beach Sunglow Pier North Cam',
@@ -1942,7 +1942,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Daytona Beach Sunglow Pier South Cam',
@@ -1954,7 +1954,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Daytona Ocean Deck Beach Cam',
@@ -1966,7 +1966,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Daytona Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // New Smyrna Beach
   {
@@ -1978,7 +1978,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'New Smyrna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'New Smyrna Beach Surf Cam',
@@ -1992,7 +1992,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'New Smyrna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'New Smyrna Beach Ocean View Cam',
@@ -2005,7 +2005,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'New Smyrna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'New Smyrna Beach Surf Remote Cam',
@@ -2018,7 +2018,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'New Smyrna Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Cocoa Beach
   {
@@ -2031,7 +2031,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cocoa Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Cocoa Beach Pier South Beach Cam',
@@ -2045,7 +2045,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cocoa Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Cocoa Beach Still Cam',
@@ -2056,7 +2056,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cocoa Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: '2nd Light Streaming Surf Cam',
@@ -2068,7 +2068,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cocoa Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Cocoa Beach Oceanfront Surf Cam',
@@ -2081,7 +2081,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cocoa Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Sebastian Inlet
   {
@@ -2094,7 +2094,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sebastian Inlet Surf Cam',
@@ -2108,7 +2108,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sebastian Inlet Surf Jetty Cam',
@@ -2122,7 +2122,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sebastian Inlet Cam',
@@ -2135,7 +2135,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   // Vero Beach
   {
@@ -2147,7 +2147,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Vero Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Vero Beach Surf Cam',
@@ -2158,7 +2158,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Vero Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Cape Canaveral
   {
@@ -2171,7 +2171,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cape Canaveral',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Port Canaveral Webcam',
@@ -2182,7 +2182,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Cape Canaveral',
-    authorId: 0,
+    authorId: 1,
   },
   // Jetty Park
   {
@@ -2196,7 +2196,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Jetty Park',
-    authorId: 0,
+    authorId: 1,
   },
   // Ormond Beach
   {
@@ -2209,7 +2209,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Lahaina',
-    authorId: 0,
+    authorId: 1,
   },
   // Spanish House
   {
@@ -2224,7 +2224,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Spanish House',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Spanish House Surf Cam',
@@ -2238,7 +2238,7 @@ const cams = [
     state: 'FL',
     area: 'East Central',
     subArea: 'Spanish House',
-    authorId: 0,
+    authorId: 1,
   },
   // Miami
   // Miami Beach
@@ -2252,7 +2252,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Miami Cams',
@@ -2264,7 +2264,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Port of Miami Webcam',
@@ -2275,7 +2275,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Biscayne Bay Miami Cam',
@@ -2287,7 +2287,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Biscayne Bay Webcam',
@@ -2299,7 +2299,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Miami Bear Cut Webcam',
@@ -2311,7 +2311,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'Miami Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // South Beach
   {
@@ -2324,7 +2324,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'South Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'South Beach Live Cam',
@@ -2335,7 +2335,7 @@ const cams = [
     state: 'FL',
     area: 'Miami Beach',
     subArea: 'South Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // South East Florida and The Keys
   // Fort Lauderdale
@@ -2349,7 +2349,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Lauderdale-By-The-Sea Pier Cam',
@@ -2362,7 +2362,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Fort Lauderdale Harbor Webcam',
@@ -2374,7 +2374,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hilton Fort Lauderdale Beach Cam',
@@ -2387,7 +2387,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Marriott Fort Lauderdale Beach Cam',
@@ -2400,7 +2400,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Lauderdale Marina Cam',
@@ -2411,7 +2411,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Lauderdale',
-    authorId: 0,
+    authorId: 1,
   },
   // Fort Pierce Inlet
   {
@@ -2426,7 +2426,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Pierce Inlet',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'St. Lucie County Webcam',
@@ -2438,7 +2438,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Fort Pierce Inlet',
-    authorId: 0,
+    authorId: 1,
   },
   // Jensen Beach
   {
@@ -2451,7 +2451,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Jensen Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Bathtub Beach Webcam',
@@ -2462,7 +2462,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Jensen Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jensen Beach Cam',
@@ -2474,7 +2474,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Jensen Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Jupiter Inlet
   {
@@ -2488,7 +2488,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Jupiter Inlet',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Jupiter Inlet Camera',
@@ -2500,7 +2500,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Jupiter Inlet',
-    authorId: 0,
+    authorId: 1,
   },
   // Boca Raton
   {
@@ -2512,7 +2512,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Boca Raton',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Boca Raton Surf Cam',
@@ -2523,7 +2523,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Boca Raton',
-    authorId: 0,
+    authorId: 1,
   },
   // Hollywood Beach
   {
@@ -2537,7 +2537,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Hollywood Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hollywood Beach Camera',
@@ -2550,7 +2550,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Hollywood Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Crowne Plaza Hollywood Beach Cam',
@@ -2563,7 +2563,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Hollywood Beach',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hollywood Broadwalk Beach Cam',
@@ -2576,7 +2576,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Hollywood Beach',
-    authorId: 0,
+    authorId: 1,
   },
   // Florida Keys
   {
@@ -2590,7 +2590,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Casa Marina',
@@ -2601,7 +2601,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Cheeca Lodge & Spa',
@@ -2612,7 +2612,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Dolphin Research Center',
@@ -2624,7 +2624,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Dolphins Plus Bayside',
@@ -2635,7 +2635,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Florida Keys Community College',
@@ -2646,7 +2646,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Fort Zachary Taylor: Beach Cam',
@@ -2658,7 +2658,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Galleon Marina',
@@ -2669,7 +2669,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Harborside Cam',
@@ -2680,7 +2680,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Hawks Cay Resort',
@@ -2691,7 +2691,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Irish Kevin's: Bar Cam",
@@ -2702,7 +2702,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Irish Kevin's: Stage Cam",
@@ -2713,7 +2713,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Irish Kevin's: Street Cam",
@@ -2724,7 +2724,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Islamorada Cam',
@@ -2735,7 +2735,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Islamorada Sandbar Cam',
@@ -2746,7 +2746,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Island Dolphin Care',
@@ -2757,7 +2757,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key Deer Cam',
@@ -2768,7 +2768,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key Largo Cam',
@@ -2779,7 +2779,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key Largo North Anchorage',
@@ -2790,7 +2790,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key West Butterfly Cam',
@@ -2801,7 +2801,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key West Cam',
@@ -2812,7 +2812,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Key West Marriott Beachside',
@@ -2824,7 +2824,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Live Duval Street',
@@ -2835,7 +2835,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Lower Keys Cam',
@@ -2846,7 +2846,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Mallory Square',
@@ -2857,7 +2857,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Marathon Cam',
@@ -2868,7 +2868,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Margaritaville Key West Resort & Marina',
@@ -2880,7 +2880,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Mile Marker 0',
@@ -2891,7 +2891,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Ocean Key Resort: Bar Ca',
@@ -2902,7 +2902,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Ocean Key Resort: Sunset Pier Cam',
@@ -2913,7 +2913,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Oceans Edge Key West Hotel & Maina',
@@ -2924,7 +2924,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pilot House Marina',
@@ -2935,7 +2935,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Pines & Palms Resort',
@@ -2946,7 +2946,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Rick's Bar",
@@ -2957,7 +2957,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Robbie's Tarpon Cam",
@@ -2968,7 +2968,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Saltwater Angler',
@@ -2979,7 +2979,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Schooner Wharf',
@@ -2990,7 +2990,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sheraton Suites',
@@ -3001,7 +3001,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Sloppy Joe's: Bar Cam",
@@ -3012,7 +3012,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Sloppy Joe's: Crowd Cam",
@@ -3023,7 +3023,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Sloppy Joe's: Stage Cam",
@@ -3034,7 +3034,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Smokin' Tuna Saloon: Bar Cam",
@@ -3045,7 +3045,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: "Smokin' Tuna Saloon: Stage Cam",
@@ -3056,7 +3056,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Southernmost Beach Resort',
@@ -3067,7 +3067,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Southernmost Point',
@@ -3078,7 +3078,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sugarloaf Key',
@@ -3089,7 +3089,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sunset Cam',
@@ -3100,7 +3100,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sunset Key Cottages',
@@ -3111,7 +3111,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Tranquility Bay',
@@ -3122,7 +3122,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Two Friends Karaoke Cam',
@@ -3133,7 +3133,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Wicker Guest House',
@@ -3144,7 +3144,7 @@ const cams = [
     state: 'FL',
     area: 'South East Florida and The Keys',
     subArea: 'Florida Keys',
-    authorId: 0,
+    authorId: 1,
   },
   // Gulf Coast
   // Tampa Bay
@@ -3158,7 +3158,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Tampa Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Indian Shores Beach Cam',
@@ -3171,7 +3171,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Tampa Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Bokeelia Marina Cam',
@@ -3182,7 +3182,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Tampa Bay',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Bradenton Beach Cam',
@@ -3195,7 +3195,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Tampa Bay',
-    authorId: 0,
+    authorId: 1,
   },
   // Sarasota
   {
@@ -3208,7 +3208,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Sarasota',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Siesta Key Beach Cam',
@@ -3219,7 +3219,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Sarasota',
-    authorId: 0,
+    authorId: 1,
   },
   // Fort Myers Beach Cam
   {
@@ -3232,7 +3232,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Fort Myers',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Fort Myers Cam',
@@ -3244,7 +3244,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Fort Myers',
-    authorId: 0,
+    authorId: 1,
   },
   // Cape Haze - Charlotte Harbor
   {
@@ -3257,7 +3257,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Cape Haze - Charlotte Harbor',
-    authorId: 0,
+    authorId: 1,
   },
   // Captiva Island Off of Cape Coral
   {
@@ -3270,7 +3270,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Captiva Island Off of Cape Coral',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Captiva Island Beach Cam',
@@ -3282,7 +3282,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Captiva Island Off of Cape Coral',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sanibel Island Beach Cam',
@@ -3294,7 +3294,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Captiva Island Off of Cape Coral',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Sanibel Island Cam',
@@ -3305,7 +3305,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Captiva Island Off of Cape Coral',
-    authorId: 0,
+    authorId: 1,
   },
   // Vanderbilt south of Cape Coral
   {
@@ -3317,7 +3317,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Vanderbilt south of Cape Coral',
-    authorId: 0,
+    authorId: 1,
   },
   // Naples
   {
@@ -3330,7 +3330,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Naples',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Marco Island Web Cam',
@@ -3342,7 +3342,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Naples',
-    authorId: 0,
+    authorId: 1,
   },
   // Clearwater
   {
@@ -3354,7 +3354,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Clearwater',
-    authorId: 0,
+    authorId: 1,
   },
   {
     title: 'Clearwater Beach Cams',
@@ -3365,7 +3365,7 @@ const cams = [
     state: 'FL',
     area: 'Gulf Coast',
     subArea: 'Clearwater',
-    authorId: 0,
+    authorId: 1,
   },
 ]
 export default cams
