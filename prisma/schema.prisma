@@ -4,7 +4,7 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
 
@@ -51,8 +51,12 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
+  cams Cams[]
+
   blogs    Blogs[]
   blogLike BlogLikes[]
+
+  role Role @default(USER)
 
   @@map(name: "users")
 }
@@ -67,6 +71,29 @@ model VerificationRequest {
   updatedAt  DateTime @default(now()) @map(name: "updated_at")
 
   @@map(name: "verification_requests")
+}
+
+model Cams {
+  id          Int    @id @default(autoincrement())
+  title       String
+  // title       String @unique
+  // slug        String @unique
+  webcamUrl   String @map(name: "webcam_url")
+  oldImageUrl String @map(name: "old_image_url")
+  description String
+  country     String
+  state       String?
+  area        String?
+  subArea     String? @map(name: "sub_area")
+
+  author   User @relation(fields: [authorId], references: [id])
+  authorId Int  @map(name: "author_id")
+
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @default(now()) @map(name: "updated_at")
+
+  @@map(name: "cams")
 }
 
 model Blogs {
@@ -89,13 +116,18 @@ model BlogLikes {
   id   Int     @id @default(autoincrement())
   like Boolean
 
-  user   User @relation(fields: [userId], references: [id])
-  userId Int  @map(name: "user_id")
+  user   User  @relation(fields: [userId], references: [id])
+  userId Int   @map(name: "user_id")
   blog   Blogs @relation(fields: [blogId], references: [id])
-  blogId Int  @map(name: "blog_id")
+  blogId Int   @map(name: "blog_id")
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
 
   @@map(name: "blog_likes")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
