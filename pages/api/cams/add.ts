@@ -35,7 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
     })
 
-    res.status(201).json({ message: 'Blog saved' })
+    res.status(201).json({ message: 'Cam saved' })
   } catch (err) {
     res.status(500).json({ message: 'Sorry, unable to handle request' })
   }
