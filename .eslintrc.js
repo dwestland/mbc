@@ -49,6 +49,9 @@ module.exports = {
     },
     // Module import path mapping
     'import/resolver': {
+      node: {
+        extensions: ['.scss', '.ts', '.tsx'],
+      },
       typescript: {},
     },
   },
