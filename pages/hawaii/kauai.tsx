@@ -1,7 +1,7 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
-// import CamItem from '@/components/CamItem'
+import CamItem from '@/components/CamItem'
 
 interface KauaiPageProps {
   cams: {}
@@ -11,10 +11,11 @@ const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   console.log(
-    '%c KauaiPage cams.cams[0] ',
+    '%c KauaiPage cams.cams ',
     'background: red; color: white',
-    cams.cams[0]
+    cams.cams
   )
+  const boom: any = cams.cams
 
   // const kauaiCams = cams.filter((cam) => cam.area === 'Kauai')
   // const princevilleCams = kauaiCams.filter(
@@ -36,6 +37,13 @@ const KauaiPage = ({
     >
       <div className="layout">
         <h1>Kauai</h1>
+
+        <div className="cam-container">
+          {boom.map((cam) => (
+            <CamItem key={cam.id} cam={cam} />
+          ))}
+        </div>
+
         <p>
           Kauai is one of the most beautiful and lush of the seven Hawaiian
           Islands. Kauai is known as the &#x34;Garden Isle&#x34; because of the
@@ -252,7 +260,7 @@ const KauaiPage = ({
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
   const cams: KauaiPageProps = await res.json()
 
   return {
