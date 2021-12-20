@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
-// import Navbar from './Navbar'
+// import NavbarOld from './Navbar'
 import Header from './Header'
 import Footer from './Footer'
 import Showcase from './Showcase'

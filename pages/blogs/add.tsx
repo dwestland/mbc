@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { useMutation, useQueryClient } from 'react-query'
 import { useSession } from 'next-auth/client'
 import toast, { Toaster } from 'react-hot-toast'
-import Navbar from '@/components/Navbar'
+import NavbarOld from '@/components/NavbarOld'
 import styles from '@/styles/Form.module.css'
 
 // TODO Add React Query
@@ -93,7 +93,7 @@ const AddBlog = () => {
 
   return (
     <div className={`${styles.formPage} container`}>
-      <Navbar />
+      <NavbarOld />
       <h1>Add Blog</h1>
       <Toaster
         toastOptions={{
