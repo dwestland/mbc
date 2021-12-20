@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
-// import NavbarOld from './Navbar'
+import Navbar from './Navbar'
 import Header from './Header'
 import Footer from './Footer'
 import Showcase from './Showcase'
@@ -29,7 +29,7 @@ const Layout: FC<LayoutProps> = ({
         <meta name="description" content={description} />
       </Head>
       <div className={styles.body}>
-        {/* <Navbar /> */}
+        <Navbar />
 
         <Showcase />
         <div className={styles.container}>
