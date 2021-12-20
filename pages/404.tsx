@@ -8,7 +8,7 @@ export default function NotFoundPage() {
   console.log('boom')
 
   return (
-    <Layout title="Page Not Found">
+    <Layout title="Page Not Found" description="404 error, page not found">
       <div className={styles.error}>
         <h1>
           <FaExclamationTriangle /> Page not Found

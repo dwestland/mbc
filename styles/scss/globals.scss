@@ -32,7 +32,7 @@
 }
 
 hr {
-  border-top: 1px solid #BCBCBC;
+  border-top: 1px solid #bcbcbc;
   text-align: center;
   margin: 2rem 0;
 }
@@ -46,6 +46,40 @@ hr:after {
   background: #fff;
   color: #8c8b8b;
   font-size: 18px;
+}
+
+/* Things to Do & Local Links
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.things-and-info {
+  display: flex;
+  width: 100%;
+}
+
+.things {
+  width: 50%;
+}
+
+.info {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .things-and-info {
+    flex-direction: column;
+  }
+  .things {
+    width: 100%;
+  }
+  .info {
+    width: 100%;
+  }
+}
+
+/* Read more text...
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.anchorClass {
+  font-size: smaller;
 }
 
 /* Buttons
@@ -91,7 +125,6 @@ hr:after {
   margin-right: 5px;
 }
 
-
 /* Show More
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .show-more-wrapper {
@@ -102,24 +135,30 @@ hr:after {
     background: white;
     border-radius: 1.5em;
     left: 30%;
-    padding: .5em;
+    padding: 0.5em;
     text-decoration: none;
     width: 40%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(104, 76, 76, 0.3);
-
   }
-  .show, .hide {
+  .show,
+  .hide {
     position: absolute;
     bottom: -1em;
     z-index: 100;
     text-align: center;
   }
 
-  .hide {display: none;}
-  .show:target {display: none;}
-  .show:target ~ .hide {display: block;}
+  .hide {
+    display: none;
+  }
+  .show:target {
+    display: none;
+  }
+  .show:target ~ .hide {
+    display: block;
+  }
   .show:target ~ .panel {
-    max-height: 2000px; 
+    max-height: 2000px;
   }
   .show:target ~ .fade {
     margin-top: 0;
@@ -131,10 +170,14 @@ hr:after {
     width: 70%;
     max-height: 100px;
     overflow: hidden;
-    transition: max-height .5s ease;
+    transition: max-height 0.5s ease;
   }
   .fade {
-    background: linear-gradient(to bottom, rgba(255,255,255, 0) 0%,rgba(white,1) 75%);
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(white, 1) 75%
+    );
     height: 100px;
     margin-top: -100px;
     position: relative;
