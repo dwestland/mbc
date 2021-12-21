@@ -74,17 +74,19 @@ model VerificationRequest {
 }
 
 model Cams {
-  id          Int    @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   title       String
   // title       String @unique
+  slug        String?
   // slug        String @unique
-  webcamUrl   String @map(name: "webcam_url")
-  oldImageUrl String @map(name: "old_image_url")
+  webcamUrl   String  @map(name: "webcam_url")
+  oldImageUrl String  @map(name: "old_image_url")
+  imageUrl    String? @map(name: "image_url")
   description String
   country     String
   state       String?
   area        String?
-  subArea     String? @map(name: "sub_area")
+  subArea     String?  @map(name: "sub_area")
 
   author   User @relation(fields: [authorId], references: [id])
   authorId Int  @map(name: "author_id")

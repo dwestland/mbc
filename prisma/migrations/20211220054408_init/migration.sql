@@ -61,8 +61,10 @@ CREATE TABLE "verification_requests" (
 CREATE TABLE "cams" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
+    "slug" TEXT,
     "webcam_url" TEXT NOT NULL,
     "old_image_url" TEXT NOT NULL,
+    "image_url" TEXT,
     "description" TEXT NOT NULL,
     "country" TEXT NOT NULL,
     "state" TEXT,
