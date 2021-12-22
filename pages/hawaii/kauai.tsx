@@ -8,6 +8,21 @@ interface KauaiPageProps {
   cams: {}
 }
 
+interface Cams {
+  id: number
+  title: string
+  slug: string
+  webcamUrl: string
+  imageUrl: string
+  oldImageUrl: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subArea: string
+  author: string
+}
+
 const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
@@ -16,20 +31,7 @@ const KauaiPage = ({
     'background: red; color: white',
     cams.cams
   )
-  const boom: any = cams.cams
-
-  // const kauaiCams = cams.filter((cam) => cam.area === 'Kauai')
-  // const princevilleCams = kauaiCams.filter(
-  //   (cam) => cam.sub_area === 'Princeville'
-  // )
-  // const poipuCams = kauaiCams.filter((cam) => cam.sub_area === 'Poipu')
-  // const lihueCams = kauaiCams.filter((cam) => cam.sub_area === 'Lihue')
-  // const moreCams = kauaiCams.filter(
-  //   (cam) =>
-  //     cam.sub_area !== 'Princeville' &&
-  //     cam.sub_area !== 'Poipu' &&
-  //     cam.sub_area !== 'Lihue'
-  // )
+  // const boom: {}[] = cams.cams
 
   return (
     <Layout
@@ -50,7 +52,7 @@ const KauaiPage = ({
         </p>
 
         <div className="cam-container">
-          {boom.map((cam) => (
+          {cams.cams.map((cam: Cams) => (
             <CamItem key={cam.id} cam={cam} />
           ))}
         </div>
@@ -192,8 +194,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Official Tourism Kauai Site
-                </a>{' '}
-                Comprehensive website for planning your Kauai vacation
+                </a>
+                &nbsp; Comprehensive website for planning your Kauai vacation
               </li>
               <li>
                 <a
@@ -202,8 +204,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Kauai News
-                </a>{' '}
-                Local Island news
+                </a>
+                &nbsp; Local Island news
               </li>
               <li>
                 <a
@@ -212,8 +214,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Official County Tourism Site
-                </a>{' '}
-                Tourism Site of the County of Kauai
+                </a>
+                &nbsp; Tourism Site of the County of Kauai
               </li>
               <li>
                 <a
@@ -222,8 +224,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Kauai Hiking
-                </a>{' '}
-                Information on hiking in Kauai
+                </a>
+                &nbsp; Information on hiking in Kauai
               </li>
               <li>
                 <a
@@ -232,8 +234,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   State Parks of Kauai
-                </a>{' '}
-                Descriptions of the different State Parks of Kauai
+                </a>
+                &nbsp; Descriptions of the different State Parks of Kauai
               </li>
               <li>
                 <a
@@ -242,8 +244,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   eHawaii.gov
-                </a>{' '}
-                Connecting You to Hawaii State Government
+                </a>
+                &nbsp; Connecting You to Hawaii State Government
               </li>
               <li>
                 <a
@@ -252,8 +254,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Hawaii Golf Network
-                </a>{' '}
-                Lots of information on local golf courses
+                </a>
+                &nbsp; Lots of information on local golf courses
               </li>
               <li>
                 <a
@@ -262,8 +264,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Hawaii&#x27;s Polynesian Cultural Center
-                </a>{' '}
-                Hawaii&#x27;s Polynesian Cultural Center
+                </a>
+                &nbsp; Hawaii&#x27;s Polynesian Cultural Center
               </li>
               <li>
                 <a
@@ -272,8 +274,8 @@ const KauaiPage = ({
                   target="_blank"
                 >
                   Maya Creations
-                </a>{' '}
-                Hand made religious jewelry from Hawaii
+                </a>
+                &nbsp; Hand made religious jewelry from Hawaii
               </li>
             </ul>
           </div>

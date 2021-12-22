@@ -1,25 +1,38 @@
+import React, { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/CamItem.module.scss'
 
-export default function CamItem({ cam }) {
-  console.log('%c cam ', 'background: red; color: white', cam)
+interface CamItemProps {
+  cam: {
+    id: number
+    title: string
+    slug: string
+    webcamUrl: string
+    imageUrl: string
+    oldImageUrl: string
+    description: string
+    country: string
+    state: string
+    area: string
+    subArea: string
+    author: string
+  }
+}
 
-  let imageUrl = cam.image ? API_URL + cam.image.url : '/images/no-image.jpg'
-  // console.log('%c cam.old_image_url ', 'background: blue; color: white', cam.old_image_url)
-
-  // TODO: remove old_image_url after all cam images have been updated
-  imageUrl = cam.old_image_url ? cam.old_image_url : imageUrl
+const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
+  const imageUrl: string =
+    cam.imageUrl ?? cam.oldImageUrl ?? '/images/no-image.jpg'
 
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <a href={cam.url} target="_blank" rel="noreferrer">
+        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <Image src={imageUrl} width={260} height={195} alt={cam.title} />
         </a>
       </div>
       <div className={styles.body}>
-        <a href={cam.url} target="_blank" rel="noreferrer">
+        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <h4>{cam.title}</h4>
         </a>
         {cam.description}
@@ -39,3 +52,5 @@ export default function CamItem({ cam }) {
     </div>
   )
 }
+
+export default CamItem
