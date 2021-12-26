@@ -80,7 +80,7 @@ model Cams {
   slug        String?
   // slug        String @unique
   webcamUrl   String  @map(name: "webcam_url")
-  oldImageUrl String  @map(name: "old_image_url")
+  oldImageUrl String? @map(name: "old_image_url")
   imageUrl    String? @map(name: "image_url")
   description String
   country     String

@@ -63,7 +63,7 @@ CREATE TABLE "cams" (
     "title" TEXT NOT NULL,
     "slug" TEXT,
     "webcam_url" TEXT NOT NULL,
-    "old_image_url" TEXT NOT NULL,
+    "old_image_url" TEXT,
     "image_url" TEXT,
     "description" TEXT NOT NULL,
     "country" TEXT NOT NULL,

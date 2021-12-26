@@ -7,7 +7,7 @@ GET {{baseurl}}/cams HTTP/1.1
 
 
 ### Get cam by ID
-GET {{baseurl}}/cams/7 HTTP/1.1
+GET {{baseurl}}/cams/2 HTTP/1.1
 
 
 ### Add Cam
@@ -18,11 +18,11 @@ Content-Type: application/json
   "data": {
     "title": "My New Title",
     "webcamUrl": "http://www.westland.net",
-    "oldImageUrl": "https://www.mybeachcams.com/images/westinprincevillecam.jpg",
+    "imageUrl": "https://www.mybeachcams.com/images/westinprincevillecam.jpg",
     "description": "This is a live web cam description. This is a live web cam description. This is a live web cam description.",
     "country": "US",
-    "state": "NC",
-    "area": "Outer Banks",
+    "state": "HI",
+    "area": "Kauai",
     "subArea": "Hatteras Island",
     "authorId": 1
   }
