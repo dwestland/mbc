@@ -22,11 +22,12 @@ interface CamItemProps {
 
 const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   const imageUrl: string =
-    cam.imageUrl ?? cam.oldImageUrl ?? '/images/no-image.jpg'
+    cam.imageUrl || cam.oldImageUrl || '/images/no-image.jpg'
 
   return (
     <div className={styles.card}>
       <div className={styles.img}>
+        <h1>{cam.imageUrl}</h1>
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <Image src={imageUrl} width={260} height={195} alt={cam.title} />
         </a>
