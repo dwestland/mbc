@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
 import Navbar from './Navbar'
-import Header from './Header'
+import AdminNav from './AdminNav'
 import Footer from './Footer'
 import Showcase from './Showcase'
 import styles from '@/styles/Layout.module.scss'
@@ -33,9 +33,9 @@ const Layout: FC<LayoutProps> = ({
 
         <Showcase />
         <div className={styles.container}>
-          {/** TODO: Convert Header to AdminMenu:
+          {/** TODO: Convert AdminNav to AdminMenu:
            */}
-          <Header />
+          <AdminNav />
           {children}
         </div>
 

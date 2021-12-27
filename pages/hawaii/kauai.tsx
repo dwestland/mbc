@@ -39,6 +39,7 @@ const KauaiPage = ({
       description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
+        <p className="login">Login / Sign up</p>
         <h1>Kauai</h1>
         <p>
           Kauai is one of the most beautiful and lush of the seven Hawaiian
@@ -297,61 +298,3 @@ export async function getServerSideProps() {
 }
 
 export default KauaiPage
-
-// import { API_URL } from '@/config/index'
-// import Link from 'next/link'
-
-// interface KauaiPageProps {
-//   id: number
-//   title: string
-//   webcamUrl: string
-//   oldImageUrl: string
-//   description: string
-//   country: string
-//   state: string
-//   area: string
-//   subArea: string
-// }
-
-// select: {
-//   id: true,
-//   title: true,
-//   // slug: true,
-//   webcamUrl: true,
-//   oldImageUrl: true,
-//   description: true,
-//   country: true,
-//   state: true,
-//   area: true,
-//   subArea: true,
-
-//   author: {
-//     select: {
-//       id: true,
-//       name: true,
-//       email: true,
-//     },
-//   },
-// },
-
-// console.log(id)
-// console.log(title)
-// console.log(webcamUrl)
-// console.log(oldImageUrl)
-// console.log(description)
-// console.log(country)
-// console.log(state)
-// console.log(area)
-// console.log(subArea)
-
-// const {
-//   id,
-//   title,
-//   webcamUrl,
-//   oldImageUrl,
-//   description,
-//   country,
-//   state,
-//   area,
-//   subArea,
-// } = cams
