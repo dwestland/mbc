@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 
 interface KauaiPageProps {
-  cams: {}
+  cams: {}[]
 }
 
 interface Cams {

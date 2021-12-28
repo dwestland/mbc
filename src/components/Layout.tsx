@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
+import { useSession } from 'next-auth/client'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
 import Navbar from './Navbar'
@@ -18,9 +19,15 @@ const Layout: FC<LayoutProps> = ({
   description,
   children,
 }): JSX.Element => {
-  console.log('boom')
+  const [admin, setAdmin] = useState(false)
 
-  // const router = useRouter()
+  const [session] = useSession()
+
+  useEffect(() => {
+    if (session.role === 'ADMIN') {
+      setAdmin(true)
+    }
+  }, [])
 
   return (
     <div>
@@ -33,9 +40,7 @@ const Layout: FC<LayoutProps> = ({
 
         <Showcase />
         <div className={styles.container}>
-          {/** TODO: Convert AdminNav to AdminMenu:
-           */}
-          <AdminNav />
+          {admin && <AdminNav />}
           {children}
         </div>
 

@@ -23,6 +23,11 @@ export default function Navbar() {
             <a>Add Blog</a>
           </Link>
         </li>
+        <li className={styles.li}>
+          <Link href="/hawaii/kauai">
+            <a>Kauai</a>
+          </Link>
+        </li>
       </ul>
       <hr className={styles.hr} />
     </div>
