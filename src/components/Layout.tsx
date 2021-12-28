@@ -19,13 +19,13 @@ const Layout: FC<LayoutProps> = ({
   description,
   children,
 }): JSX.Element => {
-  const [admin, setAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const [session] = useSession()
 
   useEffect(() => {
-    if (session.role === 'ADMIN') {
-      setAdmin(true)
+    if (session?.role === 'ADMIN') {
+      setIsAdmin(true)
     }
   }, [])
 
@@ -40,7 +40,7 @@ const Layout: FC<LayoutProps> = ({
 
         <Showcase />
         <div className={styles.container}>
-          {admin && <AdminNav />}
+          {isAdmin && <AdminNav />}
           {children}
         </div>
 
