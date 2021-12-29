@@ -10,29 +10,25 @@ const LoginLogOut: React.FC = () => {
     console.log('%c session ', 'background: black; color: white', session)
 
     return (
-      <>
-        Hello, {session.user.name ?? session.user.email}
-        <button type="button" className="btn" onClick={() => signOut()}>
+      <div className="login-logout">
+        Hello, {session.user.name ?? session.user.email}&nbsp;-&nbsp;
+        <button type="button" onClick={() => signOut()}>
           Sign out
         </button>
-      </>
+      </div>
     )
   }
 
   return (
-    <>
-      <button type="button" className="btn" onClick={() => signIn()}>
-        Sign in
+    <div className="login-logout">
+      <button type="button" onClick={() => signIn()}>
+        Sign-in
       </button>
-      <p>Or</p>
-      <button
-        type="button"
-        className="btn button-as-link"
-        onClick={() => signIn()}
-      >
-        Sign up
+      &nbsp;/&nbsp;
+      <button type="button" onClick={() => signIn()}>
+        Sign-up
       </button>
-    </>
+    </div>
   )
 }
 

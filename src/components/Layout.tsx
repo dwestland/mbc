@@ -3,9 +3,10 @@ import { useSession } from 'next-auth/client'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
 import Navbar from './Navbar'
+import Showcase from './Showcase'
+import LoginLogout from '@/components/LoginLogout'
 import AdminNav from './AdminNav'
 import Footer from './Footer'
-import Showcase from './Showcase'
 import styles from '@/styles/Layout.module.scss'
 
 interface LayoutProps {
@@ -37,9 +38,10 @@ const Layout: FC<LayoutProps> = ({
       </Head>
       <div className={styles.body}>
         <Navbar />
-
         <Showcase />
         <div className={styles.container}>
+          <LoginLogout />
+
           {isAdmin && <AdminNav />}
           {children}
         </div>
