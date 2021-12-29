@@ -3,6 +3,7 @@ import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
+import LoginLogout from '@/components/LoginLogout'
 
 interface KauaiPageProps {
   cams: {}[]
@@ -39,7 +40,7 @@ const KauaiPage = ({
       description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
-        <p className="login">Login / Sign up</p>
+        <LoginLogout />
         <h1>Kauai</h1>
         <p>
           Kauai is one of the most beautiful and lush of the seven Hawaiian

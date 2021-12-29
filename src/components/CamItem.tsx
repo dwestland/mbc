@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
+import { useSession } from 'next-auth/client'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from '@/styles/CamItem.module.scss'
@@ -23,6 +24,14 @@ interface CamItemProps {
 const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   const imageUrl: string =
     cam.imageUrl || cam.oldImageUrl || '/images/no-image.jpg'
+  const [session] = useSession()
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  useEffect(() => {
+    if (session?.role === 'ADMIN') {
+      setIsAdmin(true)
+    }
+  }, [session])
 
   return (
     <div className={styles.card}>
@@ -38,18 +47,20 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
         </a>
         {cam.description}
       </div>
-      <div className={styles.footer}>
-        <div className={styles.link}>
-          <Link href={`/cams/${cam.slug}`}>
-            <a className="button button-primary">Details</a>
-          </Link>
+      {isAdmin && (
+        <div className={styles.footer}>
+          <div className={styles.link}>
+            <Link href={`/cams/${cam.slug}`}>
+              <a className="button button-primary">Details</a>
+            </Link>
+          </div>
+          <div className={styles.link}>
+            <Link href={`/cams/edit/${cam.id}`}>
+              <a className="button button-primary">Edit Cam</a>
+            </Link>
+          </div>
         </div>
-        <div className={styles.link}>
-          <Link href={`/cams/edit/${cam.id}`}>
-            <a className="button button-primary">Edit Cam</a>
-          </Link>
-        </div>
-      </div>
+      )}
     </div>
   )
 }

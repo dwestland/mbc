@@ -45,7 +45,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'latest',
+      version: '17.0.2',
     },
     // Module import path mapping
     'import/resolver': {

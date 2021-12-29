@@ -27,7 +27,7 @@ const Layout: FC<LayoutProps> = ({
     if (session?.role === 'ADMIN') {
       setIsAdmin(true)
     }
-  }, [])
+  }, [session])
 
   return (
     <div>
