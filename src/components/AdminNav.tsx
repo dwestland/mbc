@@ -9,7 +9,7 @@ import styles from '@/styles/AdminNav.module.scss'
 export default function AdminNav() {
   return (
     <div className={styles.adminNav}>
-      <strong>ADMIN - Hey - your name goes here</strong>
+      <strong>ADMIN</strong>
       <button type="button" className="btn">
         Add Cam
       </button>

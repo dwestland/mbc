@@ -13,7 +13,7 @@ const LoginLogOut: React.FC = () => {
       <div className="login-logout">
         Hello, {session.user.name ?? session.user.email}&nbsp;-&nbsp;
         <button type="button" onClick={() => signOut()}>
-          Sign out
+          Log Out
         </button>
       </div>
     )
@@ -22,11 +22,11 @@ const LoginLogOut: React.FC = () => {
   return (
     <div className="login-logout">
       <button type="button" onClick={() => signIn()}>
-        Sign-in
+        Login In
       </button>
       &nbsp;/&nbsp;
       <button type="button" onClick={() => signIn()}>
-        Sign-up
+        Sign Up
       </button>
     </div>
   )
