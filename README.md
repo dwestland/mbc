@@ -6,6 +6,12 @@
 npm run dev
 ```
 
+### Migrate Status
+
+```
+npx prisma migrate status
+```
+
 ### Migrate
 
 ```

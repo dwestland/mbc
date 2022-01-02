@@ -109,12 +109,10 @@ hr:after {
   cursor: pointer;
   display: inline-block;
   padding: 10px 20px;
+  &:hover {
+    opacity: 0.85;
+  }
 }
-
-.btn:hover {
-  opacity: 0.9;
-}
-
 .btn-secondary {
   background: var(--dark-seafoam);
   border-radius: 5px;
@@ -125,10 +123,9 @@ hr:after {
   font: inherit;
   margin: 0 20px;
   padding: 5px 15px;
-}
-
-.btn-secondary:hover {
-  opacity: 0.8;
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 .btn-icon {
@@ -139,6 +136,22 @@ hr:after {
 
 .btn-icon svg {
   margin-right: 5px;
+}
+
+.link-as-button {
+  background: var(--seafoam);
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px 20px;
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 /* Show More

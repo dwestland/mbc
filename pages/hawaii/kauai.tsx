@@ -20,7 +20,6 @@ interface Cams {
   state: string
   area: string
   subArea: string
-  author: string
 }
 
 const KauaiPage = ({

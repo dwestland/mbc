@@ -51,8 +51,6 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
-  cams Cams[]
-
   blogs    Blogs[]
   blogLike BlogLikes[]
 
@@ -88,9 +86,11 @@ model Cams {
   area        String?
   subArea     String?  @map(name: "sub_area")
 
-  author   User @relation(fields: [authorId], references: [id])
-  authorId Int  @map(name: "author_id")
+  lat         Decimal?  @db.Decimal(precision: 8, scale: 6)
+  long        Decimal?  @db.Decimal(precision: 9, scale: 6)
 
+  // author   User @relation(fields: [authorId], references: [id])
+  // authorId Int  @map(name: "author_id")
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")

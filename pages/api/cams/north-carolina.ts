@@ -21,14 +21,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           state: true,
           area: true,
           subArea: true,
-
-          author: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-            },
-          },
         },
       })
       res.status(200).json({ cams })

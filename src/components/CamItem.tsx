@@ -17,7 +17,6 @@ interface CamItemProps {
     state: string
     area: string
     subArea: string
-    author: string
   }
 }
 

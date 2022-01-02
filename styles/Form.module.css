@@ -21,3 +21,9 @@
   margin: 20px 0 30px;
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .form {
+    background: pink;
+  }
+}

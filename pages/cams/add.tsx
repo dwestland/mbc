@@ -13,7 +13,6 @@ const initialState = {
   state: '',
   area: '',
   subArea: '',
-  authorId: '',
 }
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
@@ -50,7 +49,6 @@ const AddCam = () => {
           state: values.state,
           area: values.area,
           subArea: values.subArea,
-          authorId: +values.authorId,
         },
         // body: JSON.stringify({
         //   data: values,
@@ -185,20 +183,11 @@ const AddCam = () => {
                 />
               </label>
             </div>
-            <div className={styles.section}>
-              <label htmlFor="authorId">
-                Author ID
-                <input
-                  type="text"
-                  name="authorId"
-                  id="authorId"
-                  value={values.authorId}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
           </div>
-          <input type="submit" value="Add Blog" className="btn" />
+          {/* <input type="submit" value="Add Blog" className="btn" /> */}
+          <button type="submit" className="btn">
+            Add Blog
+          </button>
         </form>
       </div>
     </Layout>
