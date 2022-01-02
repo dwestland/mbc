@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
-import styles from '@/styles/Form.module.css'
+import styles from '@/styles/Form.module.scss'
 
 const initialState = {
   title: '',
@@ -40,24 +40,12 @@ const AddCam = () => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        data: {
-          title: values.title,
-          webcamUrl: values.webcamUrl,
-          imageUrl: values.imageUrl,
-          description: values.description,
-          country: values.country,
-          state: values.state,
-          area: values.area,
-          subArea: values.subArea,
-        },
-        // body: JSON.stringify({
-        //   data: values,
-        // },
+        data: values,
       }),
     })
       .then((res) => {
         if (res.status === 201) {
-          toast.success('Blog saved')
+          toast.success('Cam Saved')
           setValues(initialState)
         }
       })
@@ -87,121 +75,128 @@ const AddCam = () => {
           }}
         />
         <form onSubmit={handleSubmit} className={styles.form}>
-          <div>
-            <div className={styles.section}>
-              <label htmlFor="title">
-                Title
-                <input
-                  type="text"
-                  id="title"
-                  name="title"
-                  value={values.title}
-                  onChange={handleInputChange}
-                />
-              </label>
+          <div className={styles.formWrapper}>
+            <div className={styles.section1}>
+              <div className={styles.row}>
+                <label htmlFor="title">
+                  Title
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={values.title}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="webcamUrl">
+                  Webcam URL
+                  <input
+                    type="text"
+                    name="webcamUrl"
+                    id="webcamUrl"
+                    value={values.webcamUrl}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="imageUrl">
+                  Image URL
+                  <input
+                    type="text"
+                    name="imageUrl"
+                    id="imageUrl"
+                    value={values.imageUrl}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="description">
+                  Description
+                  <textarea
+                    name="description"
+                    id="description"
+                    value={values.description}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
             </div>
-            <div className={styles.section}>
-              <label htmlFor="webcamUrl">
-                Webcam URL
-                <input
-                  type="text"
-                  name="webcamUrl"
-                  id="webcamUrl"
-                  value={values.webcamUrl}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="imageUrl">
-                Image URL
-                <input
-                  type="text"
-                  name="imageUrl"
-                  id="imageUrl"
-                  value={values.imageUrl}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="description">
-                Description
-                <textarea
-                  name="description"
-                  id="description"
-                  value={values.description}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="country">
-                Country
-                <input
-                  type="text"
-                  name="country"
-                  id="country"
-                  value={values.country}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="state">
-                State
-                <input
-                  type="text"
-                  name="state"
-                  id="state"
-                  value={values.state}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="area">
-                Area
-                <input
-                  type="text"
-                  name="area"
-                  id="area"
-                  value={values.area}
-                  onChange={handleInputChange}
-                />
-              </label>
-            </div>
-            <div className={styles.section}>
-              <label htmlFor="subArea">
-                Subarea
-                <input
-                  type="text"
-                  name="subArea"
-                  id="subArea"
-                  value={values.subArea}
-                  onChange={handleInputChange}
-                />
-              </label>
+
+            <div className={styles.section2}>
+              <div className={styles.row}>
+                <label htmlFor="country">
+                  Country
+                  <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    value={values.country}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="state">
+                  State
+                  <input
+                    type="text"
+                    name="state"
+                    id="state"
+                    value={values.state}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="area">
+                  Area
+                  <input
+                    type="text"
+                    name="area"
+                    id="area"
+                    value={values.area}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="subArea">
+                  Sub Area
+                  <input
+                    type="text"
+                    name="subArea"
+                    id="subArea"
+                    value={values.subArea}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+
+              <div className={styles.row}>
+                <label htmlFor="Countries">
+                  <select>
+                    <option value="">one</option>
+                    <option value="">two</option>
+                    <option value="">three</option>
+                  </select>
+                </label>
+              </div>
             </div>
           </div>
-          {/* <input type="submit" value="Add Blog" className="btn" /> */}
-          <button type="submit" className="btn">
-            Add Blog
-          </button>
+
+          <div className={styles.footer}>
+            <button type="submit" className="btn">
+              Add Cam
+            </button>
+          </div>
         </form>
       </div>
     </Layout>
   )
 }
-
-// export async function getServerSideProps() {
-// const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-// const cams: KauaiPageProps = await res.json()
-// return {
-//   props: {
-//     cams,
-//   },
-// }
-// }
 
 export default AddCam

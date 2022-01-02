@@ -1,4 +1,26 @@
-.form .section {
+.formWrapper {
+  display: flex;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.section1 {
+  width: 100%;
+  margin-right: 20px;
+}
+
+.section2 {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 40px;
+}
+
+.row {
   margin-top: 10px;
 }
 
