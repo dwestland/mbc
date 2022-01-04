@@ -14,6 +14,20 @@ const initialState = {
   area: '',
   subArea: '',
 }
+
+const data = {
+  cams: [
+    { value: 'USA', label: 'USA' },
+    { value: 'MEX', label: 'MEX' },
+    { value: 'CAN', label: 'CAN' },
+  ],
+}
+
+// 'CA', 'FL', 'HI'
+// 'Maui', 'Oahu', 'Big Island', 'Kauai'
+// 'Princeville', 'Poipu', 'Lihue'
+// {value: 'x', lable: 'x'}
+
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
 const AddCam = () => {
@@ -177,11 +191,12 @@ const AddCam = () => {
               </div>
 
               <div className={styles.row}>
-                <label htmlFor="Countries">
-                  <select>
-                    <option value="">one</option>
-                    <option value="">two</option>
-                    <option value="">three</option>
+                <label htmlFor="countries">
+                  Countries
+                  <select id="countries" className={styles.select}>
+                    {data.cams.map((country) => (
+                      <option value={country.value}>{country.label}</option>
+                    ))}
                   </select>
                 </label>
               </div>
