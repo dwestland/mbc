@@ -1,6 +1,6 @@
 import React from 'react'
 import { signIn, signOut, useSession } from 'next-auth/client'
-import Navbar from '@/components/Navbar'
+import NavbarOld from '@/components/NavbarOld'
 
 const IndexPage = () => {
   const [session, loading] = useSession()
@@ -8,7 +8,7 @@ const IndexPage = () => {
   if (loading) {
     return (
       <div className="container">
-        <Navbar />
+        <NavbarOld />
         <div>Loading...</div>
       </div>
     )
@@ -19,7 +19,7 @@ const IndexPage = () => {
 
     return (
       <div className="container">
-        <Navbar />
+        <NavbarOld />
         <h1>mbc</h1>
         <div>
           Hello, {session.user.name ?? session.user.email}

@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import Modal from '@/components/Modal'
-import styles from '@/styles/Form.module.css'
+import styles from '@/styles/Form.module.scss'
 
 interface ModalProps {
   id: number

@@ -35,6 +35,7 @@ const options = {
   }),
   callbacks: {
     session(session, user) {
+      session.role = user.role
       session.id = user.id
       return session
     },

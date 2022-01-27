@@ -13,7 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         select: {
           id: true,
           title: true,
-          // slug: true,
+          slug: true,
           webcamUrl: true,
           oldImageUrl: true,
           description: true,
@@ -21,14 +21,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           state: true,
           area: true,
           subArea: true,
-
-          author: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-            },
-          },
         },
       })
       res.status(200).json({ cams })

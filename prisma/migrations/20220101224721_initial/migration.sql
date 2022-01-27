@@ -61,14 +61,17 @@ CREATE TABLE "verification_requests" (
 CREATE TABLE "cams" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
+    "slug" TEXT,
     "webcam_url" TEXT NOT NULL,
-    "old_image_url" TEXT NOT NULL,
+    "old_image_url" TEXT,
+    "image_url" TEXT,
     "description" TEXT NOT NULL,
     "country" TEXT NOT NULL,
     "state" TEXT,
     "area" TEXT,
     "sub_area" TEXT,
-    "author_id" INTEGER NOT NULL,
+    "lat" DECIMAL(8,6),
+    "long" DECIMAL(9,6),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -125,9 +128,6 @@ CREATE UNIQUE INDEX "verification_requests_token_key" ON "verification_requests"
 
 -- CreateIndex
 CREATE UNIQUE INDEX "blogs_title_key" ON "blogs"("title");
-
--- AddForeignKey
-ALTER TABLE "cams" ADD CONSTRAINT "cams_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "blogs" ADD CONSTRAINT "blogs_author_id_fkey" FOREIGN KEY ("author_id") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

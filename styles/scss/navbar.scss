@@ -1,6 +1,7 @@
 .navbar {
   background-color: var(--dark-seafoam);
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
+    0 2px 4px -1px rgba(0, 0, 0, 0.2);
   font-weight: 500;
   margin: 0;
   padding: 0;
@@ -31,7 +32,7 @@
       float: left;
       font-size: 16px;
       justify-content: center;
-      line-height: .9;
+      line-height: 0.9;
       text-align: center;
       width: 90px;
 
@@ -46,11 +47,11 @@
 
     .menu-wrapper {
       line-height: 1.2;
-      
+
       a {
         color: white;
       }
-  
+
       li {
         margin-left: 40px;
 
@@ -63,7 +64,7 @@
           padding: 10px 5px;
         }
       }
-  
+
       ul {
         display: flex;
         justify-content: flex-start;
@@ -72,7 +73,8 @@
       }
 
       ul li ul {
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(104, 76, 76, 0.3);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2),
+          0 3px 6px rgba(104, 76, 76, 0.3);
         border-radius: 5px;
       }
 
@@ -84,11 +86,11 @@
         position: relative;
         z-index: 100;
       }
-  
+
       .dropdown:hover {
         background: var(--darker-seafoam);
       }
-  
+
       .dropdown:hover .dropdown-menu li {
         display: block;
       }
@@ -112,7 +114,7 @@
         transform-origin: top center;
         z-index: -1;
       }
-  
+
       .dropdown-menu li {
         background-color: var(--lighter-seafoam);
         display: none;
@@ -133,24 +135,24 @@
           font-weight: 800;
         }
       }
-      
+
       .dropdown-menu li:hover {
         background-color: var(--darker-seafoam);
       }
-      
+
       .dropdown:hover .dropdown-menu--animated {
         display: block;
       }
-      
+
       .dropdown-menu--animated {
         display: none;
       }
-      
+
       .dropdown-menu--animated li {
         display: block;
         opacity: 1;
       }
-  
+
       @keyframes growDown {
         0% {
           transform: scaleY(0);
@@ -181,80 +183,75 @@
   }
 }
 
-
 /* Mobile menu */
 @media (max-width: 600px) {
-
   .navbar {
-
     nav {
+      .menu-wrapper {
+        .dropdown {
+          background-color: var(--dark-seafoam);
+        }
 
-    .menu-wrapper {
+        /* menu btn */
+        .menu-btn {
+          &:checked ~ ul {
+            display: block;
+          }
+          &:checked ~ .menu {
+            max-height: 240px;
+          }
+          &:checked ~ .menu-icon .navicon {
+            background: transparent;
+          }
+          &:checked ~ .menu-icon .navicon:before {
+            transform: rotate(-45deg);
+          }
+          &:checked ~ .menu-icon .navicon:after {
+            transform: rotate(45deg);
+          }
+          &:checked ~ .menu-icon:not(.steps) .navicon:before,
+          &:checked ~ .menu-icon:not(.steps) .navicon:after {
+            top: 0;
+          }
+        }
 
-      .dropdown {
-        background-color: var(--dark-seafoam);
-      }
-
-      /* menu btn */
-      .menu-btn {
-        &:checked ~ ul {
+        /* menu icon */
+        .menu-icon {
+          cursor: pointer;
           display: block;
-        }
-        &:checked ~ .menu {
-          max-height: 240px;
-        }
-        &:checked ~ .menu-icon .navicon {
-          background: transparent;
-        }
-        &:checked ~ .menu-icon .navicon:before {
-          transform: rotate(-45deg);
-        }
-        &:checked ~ .menu-icon .navicon:after {
-          transform: rotate(45deg);
-        }
-        &:checked ~ .menu-icon:not(.steps) .navicon:before,
-        &:checked ~ .menu-icon:not(.steps) .navicon:after {
-          top: 0;
-        }
-      }
-
-      /* menu icon */
-      .menu-icon {
-        cursor: pointer;
-        display: block;
-        float: right;
-        padding: 16px 16px;
-        position: relative;
-        user-select: none;
-
-        .navicon {
-          background: #fff;
-          display: block;
-          height: 2px;
+          float: right;
+          padding: 16px 16px;
           position: relative;
-          transition: background .2s ease-out;
-          width: 24px;
-        }
+          user-select: none;
 
-        .navicon:before,
-        .navicon:after {
-          background: #fff;
-          content: '';
-          display: block;
-          height: 100%;
-          position: absolute;
-          transition: all .3s ease-out;
-          width: 100%;
-        }
+          .navicon {
+            background: #fff;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background 0.2s ease-out;
+            width: 24px;
+          }
 
-        .navicon:before {
-          top: 8px;
-        }
+          .navicon:before,
+          .navicon:after {
+            background: #fff;
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all 0.3s ease-out;
+            width: 100%;
+          }
 
-        .navicon:after {
-          top: -8px;
+          .navicon:before {
+            top: 8px;
+          }
+
+          .navicon:after {
+            top: -8px;
+          }
         }
-      }
 
         .dropdown-menu {
           left: 48vw;
@@ -286,7 +283,7 @@
         ul li ul li {
           padding: 2px;
         }
-  
+
         .menu {
           clear: both;
           float: left;

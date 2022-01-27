@@ -2,7 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import Navbar from '@/components/Navbar'
+import NavbarOld from '@/components/NavbarOld'
 
 interface Search {
   articles: []
@@ -42,7 +42,7 @@ const searchResults = () => {
   if (isLoading) {
     return (
       <div className="container">
-        <Navbar />
+        <NavbarOld />
         <span>Loading...</span>
       </div>
     )
@@ -68,7 +68,7 @@ const searchResults = () => {
 
   return (
     <div className="container">
-      <Navbar />
+      <NavbarOld />
       <h1>Search Results for {router.query.term}</h1>
 
       {result()}

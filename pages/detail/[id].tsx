@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from 'react-query'
 import { useRouter } from 'next/router'
-import Navbar from '@/components/Navbar'
+import NavbarOld from '@/components/NavbarOld'
 
 interface Article {
   article: {
@@ -36,7 +36,7 @@ const Details = () => {
   if (isLoading) {
     return (
       <div className="container">
-        <Navbar />
+        <NavbarOld />
         <span>Loading...</span>
       </div>
     )
@@ -55,7 +55,7 @@ const Details = () => {
 
   return (
     <div className="container">
-      <Navbar />
+      <NavbarOld />
       <h1>Blog details</h1>
       <h2>{title}</h2>
       <p>

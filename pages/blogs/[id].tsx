@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import BlogItem from '@/components/BlogItem'
-import Navbar from '@/components/Navbar'
+import NavbarOld from '@/components/NavbarOld'
 
 interface Articles {
   articles: {}[]
@@ -41,7 +41,7 @@ export default function Blog() {
   if (isLoading) {
     return (
       <div className="container">
-        <Navbar />
+        <NavbarOld />
         <span>Loading...</span>
       </div>
     )
@@ -74,7 +74,7 @@ export default function Blog() {
           },
         }}
       />
-      <Navbar />
+      <NavbarOld />
       <h1>Blogs</h1>
       <Link href="/blogs/add">
         <a className="btn">Add Blog</a>

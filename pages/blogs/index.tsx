@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/client'
 import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import BlogItem from '@/components/BlogItem'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/NavbarOld'
 import styles from '@/styles/Blogs.module.css'
 
 interface Articles {
