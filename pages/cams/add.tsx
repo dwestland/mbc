@@ -3,6 +3,7 @@ import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
+import AddCamFormLocation from '@/components/AddCamFormLocation'
 
 const initialState = {
   title: '',
@@ -14,19 +15,6 @@ const initialState = {
   area: '',
   subArea: '',
 }
-
-const data = {
-  cams: [
-    { value: 'USA', label: 'USA' },
-    { value: 'MEX', label: 'MEX' },
-    { value: 'CAN', label: 'CAN' },
-  ],
-}
-
-// 'CA', 'FL', 'HI'
-// 'Maui', 'Oahu', 'Big Island', 'Kauai'
-// 'Princeville', 'Poipu', 'Lihue'
-// {value: 'x', lable: 'x'}
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
@@ -139,70 +127,11 @@ const AddCam = () => {
                 </label>
               </div>
             </div>
-
-            <div className={styles.section2}>
-              <div className={styles.row}>
-                <label htmlFor="country">
-                  Country
-                  <input
-                    type="text"
-                    name="country"
-                    id="country"
-                    value={values.country}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="state">
-                  State
-                  <input
-                    type="text"
-                    name="state"
-                    id="state"
-                    value={values.state}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="area">
-                  Area
-                  <input
-                    type="text"
-                    name="area"
-                    id="area"
-                    value={values.area}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="subArea">
-                  Sub Area
-                  <input
-                    type="text"
-                    name="subArea"
-                    id="subArea"
-                    value={values.subArea}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-
-              <div className={styles.row}>
-                <label htmlFor="countries">
-                  Countries
-                  <select id="countries" className={styles.select}>
-                    {data.cams.map((country) => (
-                      <option value={country.value}>{country.label}</option>
-                    ))}
-                  </select>
-                </label>
-              </div>
-            </div>
+            <AddCamFormLocation
+              handleInputChange={handleInputChange}
+              values={values}
+            />
           </div>
-
           <div className={styles.footer}>
             <button type="submit" className="btn">
               Add Cam
