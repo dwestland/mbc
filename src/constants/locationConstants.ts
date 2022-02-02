@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 //
 
-export const COUNTRY_OPTIONS = ['US', 'MX']
+export const COUNTRY_OPTIONS = ['USA', 'MEX', 'CAN']
 
 // //////////// Countries //////////////
 
-export const US_OPTIONS = ['CA', 'FL', 'HI']
+export const US_OPTIONS = ['CA', 'FL', 'HI', 'NC']
 
 // //////////// US States //////////////
 
