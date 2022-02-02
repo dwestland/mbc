@@ -1,14 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styles from '@/styles/Form.module.scss'
 import * as CONSTANTS from '@/constants/locationConstants'
 
-const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
-  value: country,
-  label: country,
-}))
-
 interface AddCamFormLocationProps {
-  handleInputChange: any
+  handleInputChange(): any
   values: {
     country: string
     state: string
@@ -21,7 +16,25 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
   handleInputChange,
   values,
 }) => {
-  console.log('%c AddCamFormLocation ', 'background: red; color: white')
+  const [stateOptions, setStateOptions] = useState(false)
+
+  const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
+    value: country,
+    label: country,
+  }))
+
+  useEffect(() => {
+    if (values.country === 'USA') {
+      console.log(
+        '%c values.country ',
+        'background: green; color: white',
+        values.country
+      )
+      setStateOptions(true)
+    } else {
+      setStateOptions(false)
+    }
+  }, [values.country])
 
   return (
     <div className={styles.section2}>
@@ -44,18 +57,20 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
         </label>
         <p>Country: {values.country}</p>
       </div>
-      <div className={styles.row}>
-        <label htmlFor="state">
-          State
-          <input
-            type="text"
-            name="state"
-            id="state"
-            value={values.state}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
+      {stateOptions && (
+        <div className={styles.row}>
+          <label htmlFor="state">
+            State
+            <input
+              type="text"
+              name="state"
+              id="state"
+              value={values.state}
+              onChange={handleInputChange}
+            />
+          </label>
+        </div>
+      )}
       <div className={styles.row}>
         <label htmlFor="area">
           Area
