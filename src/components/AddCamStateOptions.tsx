@@ -16,7 +16,14 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
-  const [stateOptions, setStateOptions] = useState(false)
+  // const [stateOptions, setStateOptions] = useState(false)
+
+  // const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
+  //   value: country,
+  //   label: country,
+  // }))
+
+  console.log('boom')
 
   return (
     <>
