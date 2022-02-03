@@ -1,11 +1,58 @@
 /* eslint-disable no-unused-vars */
-//
+
+export const data = {
+  countries: [
+    { country: 'MEX', states: [] },
+    { country: 'CAN', states: [] },
+    {
+      country: 'USA',
+      states: [
+        {
+          state: 'CA',
+          areas: [
+            {
+              area: 'San Diego',
+              subAreas: [
+                { subArea: 'Del Mar' },
+                { subArea: 'Mission Bay' },
+                { subArea: 'San Diego Surf' },
+                { subArea: 'More San Diego' },
+              ],
+            },
+            {
+              area: 'Los Angeles',
+              subAreas: [
+                {
+                  subArea:
+                    'Westside - Venice - Santa Monica - Pacific Palisades',
+                },
+                { subArea: 'South Bay' },
+                { subArea: 'Catalina Island' },
+                { subArea: 'Orange County' },
+                { subArea: 'Laguna Beach' },
+                { subArea: 'Los Angeles' },
+              ],
+            },
+          ],
+        },
+        { state: 'FL', areas: [] },
+      ],
+    },
+  ],
+}
+
+console.log(data.countries[2].country)
+console.log(data.countries[2].states[0].state)
+console.log(data.countries[2].states[0].areas[0].area)
+console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
 
 export const COUNTRY_OPTIONS = ['USA', 'MEX', 'CAN']
 
 // //////////// Countries //////////////
 
-export const US_OPTIONS = ['CA', 'FL', 'HI', 'NC']
+export const USA_OPTIONS = ['CA', 'FL', 'HI', 'NC']
+
+export const MEX_OPTIONS = ['BC', 'IQ', 'HA']
 
 // //////////// US States //////////////
 
