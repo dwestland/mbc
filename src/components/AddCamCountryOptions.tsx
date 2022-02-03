@@ -3,7 +3,7 @@ import styles from '@/styles/Form.module.scss'
 import * as CONSTANTS from '@/constants/locationConstants'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
 
-interface AddCamFormLocationProps {
+interface AddCamCountryOptionsProps {
   handleInputChange(): any
   values: {
     country: string
@@ -13,7 +13,7 @@ interface AddCamFormLocationProps {
   }
 }
 
-const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
+const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
@@ -62,4 +62,4 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
     </div>
   )
 }
-export default AddCamFormLocation
+export default AddCamCountryOptions
