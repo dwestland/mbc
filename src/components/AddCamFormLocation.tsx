@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import styles from '@/styles/Form.module.scss'
 import * as CONSTANTS from '@/constants/locationConstants'
+import AddCamStateOptions from '@/components/AddCamStateOptions'
 
 interface AddCamFormLocationProps {
   handleInputChange(): any
@@ -25,11 +26,6 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
 
   useEffect(() => {
     if (values.country === 'USA') {
-      console.log(
-        '%c values.country ',
-        'background: green; color: white',
-        values.country
-      )
       setStateOptions(true)
     } else {
       setStateOptions(false)
@@ -37,7 +33,7 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
   }, [values.country])
 
   return (
-    <div className={styles.section2}>
+    <div className={styles.section2} style={{ border: '1px solid blue' }}>
       <div className={styles.row}>
         <label htmlFor="country">
           Country
@@ -45,7 +41,7 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
             id="country"
             name="country"
             className={styles.select}
-            onChange={(e) => handleInputChange(e)}
+            onChange={handleInputChange}
           >
             <option value="" label="Choose country" />
             {countryOptions.map((country) => (
@@ -58,43 +54,11 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
         <p>Country: {values.country}</p>
       </div>
       {stateOptions && (
-        <div className={styles.row}>
-          <label htmlFor="state">
-            State
-            <input
-              type="text"
-              name="state"
-              id="state"
-              value={values.state}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
+        <AddCamStateOptions
+          handleInputChange={handleInputChange}
+          values={values}
+        />
       )}
-      <div className={styles.row}>
-        <label htmlFor="area">
-          Area
-          <input
-            type="text"
-            name="area"
-            id="area"
-            value={values.area}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
-      <div className={styles.row}>
-        <label htmlFor="subArea">
-          Sub Area
-          <input
-            type="text"
-            name="subArea"
-            id="subArea"
-            value={values.subArea}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
     </div>
   )
 }
