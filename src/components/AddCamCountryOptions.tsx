@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import styles from '@/styles/Form.module.scss'
-import * as CONSTANTS from '@/constants/locationConstants'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
+import data from '@/data/camLocationAreas'
 
 interface AddCamCountryOptionsProps {
   handleInputChange(): any
@@ -18,17 +18,39 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   values,
 }) => {
   const [stateOptions, setStateOptions] = useState(false)
+  const countryList = data.countries.map((item) => item.country)
 
-  const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
+  const countryOptions = countryList.map((country) => ({
     value: country,
     label: country,
   }))
 
   useEffect(() => {
-    if (values.country === 'USA') {
+    // If country have states, display state select
+
+    if (true) {
       setStateOptions(true)
-    } else {
-      setStateOptions(false)
+    }
+    console.log(
+      '%c values.country ',
+      'background: red; color: white',
+      values.country
+    )
+  }, [values.country])
+
+  useEffect(() => {
+    switch (values.country) {
+      case 'USA':
+        console.log('%c USA ', 'background: red; color: white')
+        break
+      case 'MEX':
+        console.log('%c MEX ', 'background: red; color: white')
+        break
+      case 'CAN':
+        console.log('%c CAN ', 'background: red; color: white')
+        break
+      default:
+        console.log('%c default ', 'background: red; color: white')
     }
   }, [values.country])
 
