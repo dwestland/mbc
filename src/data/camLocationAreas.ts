@@ -173,9 +173,9 @@ const data = {
   ],
 }
 
-console.log(data.countries[2].country)
-console.log(data.countries[2].states[0].state)
-console.log(data.countries[2].states[0].areas[0].area)
-console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
+// console.log(data.countries[2].country)
+// console.log(data.countries[2].states[0].state)
+// console.log(data.countries[2].states[0].areas[0].area)
+// console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
 
 export default data

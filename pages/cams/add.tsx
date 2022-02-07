@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
-import AddCamFormLocation from '@/components/AddCamFormLocation'
+import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 
 const initialState = {
   title: '',
@@ -127,7 +127,7 @@ const AddCam = () => {
                 </label>
               </div>
             </div>
-            <AddCamFormLocation
+            <AddCamCountryOptions
               handleInputChange={handleInputChange}
               values={values}
             />
