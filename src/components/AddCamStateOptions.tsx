@@ -1,6 +1,5 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-// import * as CONSTANTS from '@/constants/locationConstants'
 
 interface AddCamStateOptionsProps {
   handleInputChange(): any
@@ -10,34 +9,45 @@ interface AddCamStateOptionsProps {
     area: string
     subArea: string
   }
+  stateOptions: any
 }
 
 const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   handleInputChange,
   values,
+  stateOptions,
 }) => {
-  // const [stateOptions, setStateOptions] = useState(false)
+  // const [areaOptions, setAreaOptions] = useState(false)
 
-  // const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
-  //   value: country,
-  //   label: country,
-  // }))
-
-  console.log('boom')
+  useEffect(() => {
+    console.log(
+      '%c values.country ',
+      'background: red; color: white',
+      values.country
+    )
+  }, [values.country])
 
   return (
     <>
       <div className={styles.row}>
         <label htmlFor="state">
           State
-          <input
-            type="text"
-            name="state"
+          <select
             id="state"
-            value={values.state}
+            name="state"
+            className={styles.select}
             onChange={handleInputChange}
-          />
+          >
+            <option value="" label="Choose state" />
+            {stateOptions.map((state) => (
+              <option key={state.value} value={state.value}>
+                {state.label}
+              </option>
+            ))}
+          </select>
         </label>
+
+        <p>State: {values.state}</p>
       </div>
 
       <div className={styles.row}>
