@@ -13,6 +13,8 @@ interface AddCamCountryOptionsProps {
   }
 }
 
+// TODO  When the country changes, we need to update the state options
+
 const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   handleInputChange,
   values,
@@ -24,6 +26,7 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   // data.countries = [{country: 'MEX', states: Array(0)}, {country: 'CAN', states: Array(0)}, {country: 'USA', states: Array(3)}]
   const countriesArray = data.countries.map((item) => item.country) // ['MEX', 'CAN', 'USA']
 
+  // Create value, label object for country select
   const countryOptions = countriesArray.map((country) => ({
     value: country,
     label: country,

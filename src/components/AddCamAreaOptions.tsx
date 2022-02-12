@@ -1,8 +1,7 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-import AddCamAreaOptions from '@/components/AddCamAreaOptions'
 
-interface AddCamStateOptionsProps {
+interface AddCamAreaOptionsProps {
   handleInputChange(): any
   values: {
     country: string
@@ -10,25 +9,24 @@ interface AddCamStateOptionsProps {
     area: string
     subArea: string
   }
-  stateOptions: any
+  areaOptions: any
 }
 
-const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
+const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
   handleInputChange,
   values,
-  stateOptions,
+  areaOptions,
 }) => {
-  const [areaOptions, setAreaOptions] = useState([])
+  // const [areaOptions, setAreaOptions] = useState([])
 
-  // ////////////////////////////////////////////////////////////////////////////////
+  useEffect(() => {
+    console.log(
+      '%c values.country ',
+      'background: red; color: white',
+      values.state
+    )
+  }, [values.state])
 
-  // Create area options
-
-  // const areaOriginalArray = data.xxxx.states.filter(
-  //   (ele) => ele.state === values.state
-  // )[0]?.area
-
-  // ////////////////////////////////////////////////////////////////////////////////
   return (
     <>
       <div className={styles.row}>
@@ -41,7 +39,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
             onChange={handleInputChange}
           >
             <option value="" label="Choose state" />
-            {stateOptions.map((state) => (
+            {areaOptions.map((state) => (
               <option key={state.value} value={state.value}>
                 {state.label}
               </option>
@@ -51,13 +49,6 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
 
         <p>State: {values.state}</p>
       </div>
-      {areaOptions?.length > 0 && (
-        <AddCamAreaOptions
-          handleInputChange={handleInputChange}
-          values={values}
-          areaOptions={areaOptions}
-        />
-      )}
 
       <div className={styles.row}>
         <label htmlFor="area">
@@ -87,4 +78,4 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   )
 }
 
-export default AddCamStateOptions
+export default AddCamAreaOptions
