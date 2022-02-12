@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import styles from '@/styles/Form.module.scss'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
 import data from '@/data/camLocationAreas'
@@ -24,7 +24,7 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   // Create country options
   const countriesArray = data.countries.map((item) => item.country) // ['MEX', 'CAN', 'USA']
   // Create value, label object for country select
-  const countryOptions = countriesArray.map((country) => ({
+  const countrySelectOptions = countriesArray.map((country) => ({
     value: country,
     label: country,
   })) // 0: [{value: 'MEX', label: 'MEX'}, {value: 'CAN', label: 'CAN'}, {value: 'USA', label: 'USA'}]
@@ -41,7 +41,7 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
             onChange={handleInputChange}
           >
             <option value="" label="Choose country" />
-            {countryOptions.map((country) => (
+            {countrySelectOptions.map((country) => (
               <option key={country.value} value={country.value}>
                 {country.label}
               </option>

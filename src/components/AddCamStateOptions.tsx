@@ -17,19 +17,36 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
-  const [stateOptions, setStateOptions] = useState([])
+  const [stateSelectOptions, setStateSelectOptions] = useState([])
+  const [areasObjectArray, setAreasObjectArray] = useState([])
 
   // Create state options
   useEffect(() => {
     // values.country = 'USA'
-    const statesOriginalArray = data.countries.filter(
+    const statesObjectArray = data.countries.filter(
       (ele) => ele.country === values.country
     )[0]?.states // [{state: 'HI', areas: Array(4)}, {state: 'CA', areas: Array(4)}, {state: 'FL', areas: Array(6)}]
 
-    const statesArray = statesOriginalArray?.map((item) => item.state) // ['HI', 'CA', 'FL']
+    console.log(
+      '%c values.state ',
+      'background: red; color: white',
+      values.state
+    )
+
+    console.log(
+      '%c areasObjectArray ',
+      'background: red; color: white',
+      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
+    )
+
+    setAreasObjectArray(
+      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
+    )
+
+    const statesArray = statesObjectArray?.map((item) => item.state) // ['HI', 'CA', 'FL']
 
     // Create value, label object for state select
-    setStateOptions(
+    setStateSelectOptions(
       statesArray?.map((state) => ({
         value: state,
         label: state,
@@ -39,7 +56,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
 
   return (
     <>
-      {stateOptions?.length > 0 && (
+      {stateSelectOptions?.length > 0 && (
         <div className={styles.row}>
           <label htmlFor="state">
             State
@@ -50,7 +67,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
               onChange={handleInputChange}
             >
               <option value="" label="Choose state" />
-              {stateOptions.map((state) => (
+              {stateSelectOptions.map((state) => (
                 <option key={state.value} value={state.value}>
                   {state.label}
                 </option>
@@ -65,6 +82,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
       <AddCamAreaOptions
         handleInputChange={handleInputChange}
         values={values}
+        areasObjectArray={areasObjectArray}
       />
     </>
   )
