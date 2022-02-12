@@ -1,5 +1,6 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
+import data from '@/data/camLocationAreas'
 
 interface AddCamAreaOptionsProps {
   handleInputChange(): any
@@ -9,59 +10,59 @@ interface AddCamAreaOptionsProps {
     area: string
     subArea: string
   }
-  areaOptions: any
 }
 
 const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
   handleInputChange,
   values,
-  areaOptions,
 }) => {
-  // const [areaOptions, setAreaOptions] = useState([])
+  const [areaOptions, setAreaOptions] = useState([])
 
+  console.log('%c data ', 'background: green; color: white', data)
+
+  // //////////////////////////////////////////////////////////////////////////////
+
+  // Create area options
   useEffect(() => {
-    console.log(
-      '%c values.country ',
-      'background: red; color: white',
-      values.state
-    )
+    const areasOriginalArray = data.countries.filter(
+      (ele) => ele.country === values.country
+    )[0]?.areas
+
+    const areasArray = areasOriginalArray?.map((item) => item.area)
+
+    //  NEED RESULT: ['Maui', 'Oahu', 'Big Island', 'Kauai']
+
+    // Create value, label object for area select
+    setAreaOptions(
+      areasArray?.map((area) => ({
+        value: area,
+        label: area,
+      }))
+    ) // 0: [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
   }, [values.state])
 
   return (
     <>
-      <div className={styles.row}>
-        <label htmlFor="state">
-          State
-          <select
-            id="state"
-            name="state"
-            className={styles.select}
-            onChange={handleInputChange}
-          >
-            <option value="" label="Choose state" />
-            {areaOptions.map((state) => (
-              <option key={state.value} value={state.value}>
-                {state.label}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <p>State: {values.state}</p>
-      </div>
-
-      <div className={styles.row}>
-        <label htmlFor="area">
-          Area
-          <input
-            type="text"
-            name="area"
-            id="area"
-            value={values.area}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
+      {areaOptions?.length > 0 && (
+        <div className={styles.row}>
+          <label htmlFor="area">
+            Area
+            <select
+              id="area"
+              name="area"
+              className={styles.select}
+              onChange={handleInputChange}
+            >
+              <option value="" label="Choose area" />
+              {areaOptions.map((area) => (
+                <option key={area.value} value={area.value}>
+                  {area.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      )}
       <div className={styles.row}>
         <label htmlFor="subArea">
           Sub Area

@@ -59,9 +59,10 @@ const AddCam = () => {
     return null
   }
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e): null => {
     const { name, value } = e.target
     setValues({ ...values, [name]: value })
+    return null
   }
 
   return (
