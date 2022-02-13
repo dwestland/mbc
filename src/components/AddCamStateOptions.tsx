@@ -18,31 +18,25 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   values,
 }) => {
   const [stateSelectOptions, setStateSelectOptions] = useState([])
-  const [areasObjectArray, setAreasObjectArray] = useState([])
+  const [statesObjectArray, setStatesObjectArray] = useState([])
 
   // Create state options
   useEffect(() => {
-    // values.country = 'USA'
-    const statesObjectArray = data.countries.filter(
-      (ele) => ele.country === values.country
-    )[0]?.states // [{state: 'HI', areas: Array(4)}, {state: 'CA', areas: Array(4)}, {state: 'FL', areas: Array(6)}]
-
-    console.log(
-      '%c values.state ',
-      'background: red; color: white',
-      values.state
+    setStatesObjectArray(
+      data.countries.filter((ele) => ele.country === values.country)[0]?.states
     )
 
-    console.log(
-      '%c areasObjectArray ',
-      'background: red; color: white',
-      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
-    )
+    // const statesObjectArray = data.countries.filter(
+    //   (ele) => ele.country === values.country
+    // )[0]?.states
+    // [{state: 'HI', areas: Array(4)}, {state: 'CA', areas: Array(4)}, {state: 'FL', areas: Array(6)}]
 
-    setAreasObjectArray(
-      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
-    )
+    // setAreasObjectArray(
+    //   statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
+    // )
+  }, [values.country])
 
+  useEffect(() => {
     const statesArray = statesObjectArray?.map((item) => item.state) // ['HI', 'CA', 'FL']
 
     // Create value, label object for state select
@@ -52,8 +46,13 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
         label: state,
       }))
     ) // 0: [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
-  }, [values.country])
+  }, [statesObjectArray])
 
+  console.log(
+    '%c statesObjectArray ',
+    'background: red; color: white',
+    statesObjectArray
+  )
   return (
     <>
       {stateSelectOptions?.length > 0 && (
@@ -82,7 +81,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
       <AddCamAreaOptions
         handleInputChange={handleInputChange}
         values={values}
-        areasObjectArray={areasObjectArray}
+        statesObjectArray={statesObjectArray}
       />
     </>
   )
