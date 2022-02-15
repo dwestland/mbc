@@ -4,6 +4,8 @@ import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
+import Modal from '@/components/Modal'
+import MyCustomModal from '@/components/MyCustomModal'
 
 const initialState = {
   title: '',
@@ -14,12 +16,15 @@ const initialState = {
   state: '',
   area: '',
   subArea: '',
+  lat: 0,
+  lng: 0,
 }
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
 const AddCam = () => {
   const [values, setValues] = useState(initialState)
+  const [showLatLngModal, setShowLatLngModal] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -65,10 +70,16 @@ const AddCam = () => {
     return null
   }
 
+  const openAddLatLngModal = () => {
+    console.log('%c Open Add LatLng Modal ', 'background: red; color: white')
+    setShowLatLngModal(true)
+
+    return null
+  }
+
   return (
     <Layout title="Add Cam" description="Add Cam page">
       <div className="layout">
-        <h1>Add Cam</h1>
         <Toaster
           toastOptions={{
             style: {
@@ -77,6 +88,12 @@ const AddCam = () => {
             },
           }}
         />
+        <h1>Add Cam</h1>
+
+        <button className="btn" type="button" onClick={openAddLatLngModal}>
+          Add Lat Lng
+        </button>
+
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
@@ -117,6 +134,30 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
+                <label htmlFor="lat">
+                  Lat
+                  <input
+                    type="number"
+                    name="lat"
+                    id="lat"
+                    value={values.lat}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="lng">
+                  Lng
+                  <input
+                    type="number"
+                    name="lng"
+                    id="lng"
+                    value={values.lng}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
                 <label htmlFor="description">
                   Description
                   <textarea
@@ -140,6 +181,13 @@ const AddCam = () => {
           </div>
         </form>
       </div>
+      <Modal
+        title="My Title"
+        showLatLngModal={showLatLngModal}
+        onClose={() => setShowLatLngModal(false)}
+      >
+        <MyCustomModal />
+      </Modal>
     </Layout>
   )
 }
