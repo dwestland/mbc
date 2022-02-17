@@ -212,3 +212,11 @@ hr:after {
     position: relative;
   }
 }
+
+/* Leaflet
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.leaflet-container {
+  margin: auto;
+  width: 600px;
+  height: 400px;
+}

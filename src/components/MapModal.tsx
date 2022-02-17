@@ -16,10 +16,10 @@ function MapModal() {
   const Map = dynamic(() => import('@/components/Map'), {
     ssr: false,
   })
-
+  // TODO: Remove title, form? file and clean up CSS, styles/Modal.module.css, ,
   return (
     <div className={styles.form}>
-      <h1>MapModal</h1>
+      <h1>Set Lat Lng</h1>
 
       <Map />
       <form onSubmit={handleSubmit}>

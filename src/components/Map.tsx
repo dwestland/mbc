@@ -8,9 +8,14 @@ const Map = () => {
   return (
     <>
       <p>
-        {clickLat.toFixed(4)}&#176; {clickLng.toFixed(4)}&#176;
+        <strong>Lat:</strong> {clickLat.toFixed(4)}&#176; &nbsp;
+        <strong>Lat:</strong> {clickLng.toFixed(4)}&#176;
       </p>
-      <MapContainer center={[33.9765, -118.4483]} zoom={14}>
+      <MapContainer
+        style={{ cursor: 'crosshair' }}
+        center={[33.9765, -118.4483]}
+        zoom={14}
+      >
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
