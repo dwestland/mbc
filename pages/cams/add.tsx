@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import Modal from '@/components/Modal'
-import MyCustomModal from '@/components/MyCustomModal'
+import MapModal from '@/components/MapModal'
 
 const initialState = {
   title: '',
@@ -186,7 +186,7 @@ const AddCam = () => {
         showLatLngModal={showLatLngModal}
         onClose={() => setShowLatLngModal(false)}
       >
-        <MyCustomModal />
+        <MapModal />
       </Modal>
     </Layout>
   )
