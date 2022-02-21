@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { MapContainer, MapConsumer, TileLayer } from 'react-leaflet'
+import GeoSearch from '@/components/EsriLeafletGeoSearch'
 
 const Map = () => {
   const [clickLat, setClickLat] = useState(0)
@@ -9,7 +10,7 @@ const Map = () => {
     <>
       <p>
         <strong>Lat:</strong> {clickLat.toFixed(4)}&#176; &nbsp;
-        <strong>Lat:</strong> {clickLng.toFixed(4)}&#176;
+        <strong>Lng:</strong> {clickLng.toFixed(4)}&#176;
       </p>
       <MapContainer
         style={{ cursor: 'crosshair' }}
@@ -31,6 +32,7 @@ const Map = () => {
             return null
           }}
         </MapConsumer>
+        <GeoSearch useMapBounds={false} />
       </MapContainer>
     </>
   )
