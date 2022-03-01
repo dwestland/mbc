@@ -19,6 +19,7 @@ class MyDocument extends Document {
             crossOrigin=""
           />
           <link
+            // CSS for Esri Leaflet Search
             rel="stylesheet"
             href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
           />

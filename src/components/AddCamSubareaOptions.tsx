@@ -1,9 +1,8 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
 import data from '@/data/camLocationAreas'
-import AddCamSubareasOptions from '@/components/AddCamSubareaOptions'
 
-interface AddCamAreaOptionsProps {
+interface AddCamSubareaOptionsProps {
   handleInputChange(): any
   values: {
     country: string
@@ -11,58 +10,70 @@ interface AddCamAreaOptionsProps {
     area: string
     subArea: string
   }
-  statesObjectArray: []
+  areasObjectArray: []
 }
 
-const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
+const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
   handleInputChange,
   values,
-  statesObjectArray,
+  areasObjectArray,
 }) => {
-  const [areasSelectOptions, setAreasSelectOptions] = useState([])
-  const [areasObjectArray, setAreasObjectArray] = useState([])
+  const [subareasSelectOptions, setSubareasSelectOptions] = useState([])
+  const [subareasObjectArray, setSubareasObjectArray] = useState([])
 
   // Create area options
   useEffect(() => {
-    setAreasObjectArray(
-      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
+    setSubareasObjectArray(
+      areasObjectArray?.filter((ele) => ele.area === values.area)[0]?.subAreas
     )
 
     // //////////////////////////////////////////////////////////////////////////////
-    // const areasObjectArray = data.countries.filter(
+    // const subareasObjectArray = data.countries.filter(
     //   (ele) => ele.country === values.country
     // )[0]?.areas
     // // //////////////////////////////////////////////////////////////////////////////
     // // console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
-    // const areasArray = areasObjectArray?.map((item) => item.area)
+    // const subareasArray = subareasObjectArray?.map((item) => item.area)
     // //  NEED RESULT: ['Maui', 'Oahu', 'Big Island', 'Kauai']
     // // Create value, label object for area select
     // setAreaOptions(
-    //   areasArray?.map((area) => ({
+    //   subareasArray?.map((area) => ({
     //     value: area,
     //     label: area,
     //   }))
     // ) // 0: [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
-  }, [values.state])
+  }, [values.area])
 
   useEffect(() => {
-    const areasArray = areasObjectArray?.map((item) => item.area) // ['HI', 'CA', 'FL']
+    console.log(
+      '%c subareasObjectArray ',
+      'background: blue; color: white',
+      subareasObjectArray
+    )
+
+    const subareasArray = subareasObjectArray?.map((item) => item.subArea) // ['HI', 'CA', 'FL']
+
+    console.log(
+      '%c subareasArray ',
+      'background: blue; color: white',
+      subareasArray
+    )
 
     // Create value, label object for state select
-    setAreasSelectOptions(
-      areasArray?.map((area) => ({
+    setSubareasSelectOptions(
+      subareasArray?.map((area) => ({
         value: area,
         label: area,
       }))
     )
-  }, [areasObjectArray])
+  }, [subareasObjectArray])
 
   return (
     <>
-      {areasSelectOptions?.length > 0 && (
+      {subareasSelectOptions?.length > 0 && (
         <div className={styles.row}>
           <label htmlFor="area">
-            Area
+            Subarea
             <select
               id="area"
               name="area"
@@ -70,7 +81,7 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
               onChange={handleInputChange}
             >
               <option value="" label="Choose area" />
-              {areasSelectOptions.map((area) => (
+              {subareasSelectOptions.map((area) => (
                 <option key={area.value} value={area.value}>
                   {area.label}
                 </option>
@@ -78,16 +89,11 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
             </select>
           </label>
 
-          <p>Area: {values.area}</p>
+          <p>Subarea: {values.area}</p>
         </div>
       )}
-      <AddCamSubareasOptions
-        handleInputChange={handleInputChange}
-        values={values}
-        areasObjectArray={areasObjectArray}
-      />
     </>
   )
 }
 
-export default AddCamAreaOptions
+export default AddCamSubareaOptions

@@ -1,7 +1,5 @@
 const data = {
   countries: [
-    { country: 'MEX', states: [] },
-    { country: 'CAN', states: [] },
     {
       country: 'USA',
       states: [
@@ -168,8 +166,14 @@ const data = {
             },
           ],
         },
+        {
+          state: 'NC',
+          areas: [],
+        },
       ],
     },
+    { country: 'MEX', states: [] },
+    { country: 'CAN', states: [] },
   ],
 }
 
