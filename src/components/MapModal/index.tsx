@@ -13,7 +13,7 @@ function MapModal() {
     console.log('%c handleFileChange ', 'background: red; color: white')
   }
 
-  const Map = dynamic(() => import('@/components/Map'), {
+  const Map = dynamic(() => import('@/components/MapModal/Map'), {
     ssr: false,
   })
   // TODO: Remove title, form? file and clean up CSS, styles/Modal.module.css, ,

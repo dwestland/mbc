@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MapContainer, MapConsumer, TileLayer } from 'react-leaflet'
-import GeoSearch from '@/components/EsriLeafletGeoSearch'
+import GeoSearch from '@/components/MapModal/EsriLeafletGeoSearch'
 
 const Map = () => {
   const [clickLat, setClickLat] = useState(0)
