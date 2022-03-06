@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
-export default function Modal({ showLatLngModal, onClose, children, title }) {
+export default function Modal({ showLatLngModal, onClose, children }) {
   const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => setIsBrowser(true))
@@ -27,7 +27,6 @@ export default function Modal({ showLatLngModal, onClose, children, title }) {
             </a>
           </button>
         </div>
-        {title && <div>{title}</div>}
         <div className={styles.body}>{children}</div>
       </div>
     </div>
@@ -42,4 +41,5 @@ export default function Modal({ showLatLngModal, onClose, children, title }) {
   return null
 }
 
+// Modal component with Next.js:
 // https://devrecipes.net/modal-component-with-next-js/

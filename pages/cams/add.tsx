@@ -70,16 +70,6 @@ const AddCam = () => {
     return null
   }
 
-  // const handleLatChange = (lat) => {
-  //   console.log('%c lat ', 'background: purple; color: white', lat)
-  //   // setValues({ ...values, lat })
-  // }
-
-  // const handleLngChange = (lng) => {
-  //   console.log('%c lng ', 'background: purple; color: white', lng)
-  //   // setValues({ ...values, lng })
-  // }
-
   const handleLatLngChange = (lat, lng) => {
     console.log('%c lng ', 'background: purple; color: white', lng)
     setValues({ ...values, lat, lng })
@@ -104,11 +94,6 @@ const AddCam = () => {
           }}
         />
         <h1>Add Cam</h1>
-
-        <button className="btn" type="button" onClick={openAddLatLngModal}>
-          Add Lat Lng
-        </button>
-
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
@@ -149,30 +134,6 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                <label htmlFor="lat">
-                  Lat
-                  <input
-                    type="number"
-                    name="lat"
-                    id="lat"
-                    value={values.lat}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="lng">
-                  Lng
-                  <input
-                    type="number"
-                    name="lng"
-                    id="lng"
-                    value={values.lng}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
                 <label htmlFor="description">
                   Description
                   <textarea
@@ -182,6 +143,23 @@ const AddCam = () => {
                     onChange={handleInputChange}
                   />
                 </label>
+              </div>
+
+              <div className={styles.latLngContainer}>
+                <button
+                  className="btn"
+                  type="button"
+                  onClick={openAddLatLngModal}
+                >
+                  Set Lat Lng
+                </button>
+                <span>
+                  Lat: <strong>{values.lat}</strong>
+                </span>
+                <br />
+                <span>
+                  Lng: <strong>{values.lng}</strong>
+                </span>
               </div>
             </div>
             <AddCamCountryOptions
@@ -197,16 +175,14 @@ const AddCam = () => {
         </form>
       </div>
       <Modal
-        title="My Title"
         showLatLngModal={showLatLngModal}
         onClose={() => setShowLatLngModal(false)}
       >
         <MapModal
           lat={values.lat}
           lng={values.lng}
-          // handleLatChange={handleLatChange}
-          // handleLngChange={handleLngChange}
           handleLatLngChange={handleLatLngChange}
+          onClose={() => setShowLatLngModal(false)}
         />
       </Modal>
     </Layout>

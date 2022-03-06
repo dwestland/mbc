@@ -5,55 +5,32 @@ import styles from '@/styles/Modal.module.css'
 interface MapModalProps {
   lat: number
   lng: number
-  // handleLatChange: any
-  // handleLngChange: any
   handleLatLngChange: any
+  onClose: any
 }
 
 const MapModal: FC<MapModalProps> = ({
   lng,
   lat,
-  // handleLatChange,
-  // handleLngChange,
   handleLatLngChange,
+  onClose,
 }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('%c handleSubmit ', 'background: red; color: white')
-  }
-
-  const handleFileChange = (e) => {
-    e.preventDefault()
-    console.log('%c handleFileChange ', 'background: red; color: white')
   }
 
   const Map = dynamic(() => import('@/components/MapModal/Map'), {
     ssr: false,
   })
-  // TODO: Remove title, form? file and clean up CSS, styles/Modal.module.css, ,
+
   return (
     <div className={styles.form}>
       <h1>Set Lat Lng</h1>
-
-      <Map
-        lat={lat}
-        lng={lng}
-        // handleLatChange={handleLatChange}
-        // handleLngChange={handleLngChange}
-        handleLatLngChange={handleLatLngChange}
-      />
+      <Map lat={lat} lng={lng} handleLatLngChange={handleLatLngChange} />
       <form onSubmit={handleSubmit}>
-        <div className={styles.file}>
-          <input type="file" onChange={handleFileChange} />
-        </div>
-        <div className="buttonContainer">
-          <input type="submit" value="Submit" className="btn" />
-          <button
-            type="button"
-            className="btn ghostButton"
-            onClick={handleSubmit}
-          >
-            Cancel
+        <div className={styles.buttonContainer}>
+          <button type="button" className="btn " onClick={onClose}>
+            Close
           </button>
         </div>
       </form>
