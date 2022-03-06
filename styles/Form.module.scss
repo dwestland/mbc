@@ -51,6 +51,11 @@
   }
 }
 
+.latLngContainer button {
+  float: right;
+  margin-top: 8px;
+}
+
 @media (max-width: 768px) {
   .form {
     .formWrapper {
