@@ -1,11 +1,25 @@
-import React from 'react'
+import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 import styles from '@/styles/Modal.module.css'
 
-function MapModal() {
+interface MapModalProps {
+  lat: number
+  lng: number
+  // handleLatChange: any
+  // handleLngChange: any
+  handleLatLngChange: any
+}
+
+const MapModal: FC<MapModalProps> = ({
+  lng,
+  lat,
+  // handleLatChange,
+  // handleLngChange,
+  handleLatLngChange,
+}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('%c handlSubmit ', 'background: red; color: white')
+    console.log('%c handleSubmit ', 'background: red; color: white')
   }
 
   const handleFileChange = (e) => {
@@ -21,7 +35,13 @@ function MapModal() {
     <div className={styles.form}>
       <h1>Set Lat Lng</h1>
 
-      <Map />
+      <Map
+        lat={lat}
+        lng={lng}
+        // handleLatChange={handleLatChange}
+        // handleLngChange={handleLngChange}
+        handleLatLngChange={handleLatLngChange}
+      />
       <form onSubmit={handleSubmit}>
         <div className={styles.file}>
           <input type="file" onChange={handleFileChange} />

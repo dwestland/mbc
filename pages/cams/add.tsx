@@ -70,6 +70,21 @@ const AddCam = () => {
     return null
   }
 
+  // const handleLatChange = (lat) => {
+  //   console.log('%c lat ', 'background: purple; color: white', lat)
+  //   // setValues({ ...values, lat })
+  // }
+
+  // const handleLngChange = (lng) => {
+  //   console.log('%c lng ', 'background: purple; color: white', lng)
+  //   // setValues({ ...values, lng })
+  // }
+
+  const handleLatLngChange = (lat, lng) => {
+    console.log('%c lng ', 'background: purple; color: white', lng)
+    setValues({ ...values, lat, lng })
+  }
+
   const openAddLatLngModal = () => {
     console.log('%c Open Add LatLng Modal ', 'background: red; color: white')
     setShowLatLngModal(true)
@@ -186,7 +201,13 @@ const AddCam = () => {
         showLatLngModal={showLatLngModal}
         onClose={() => setShowLatLngModal(false)}
       >
-        <MapModal />
+        <MapModal
+          lat={values.lat}
+          lng={values.lng}
+          // handleLatChange={handleLatChange}
+          // handleLngChange={handleLngChange}
+          handleLatLngChange={handleLatLngChange}
+        />
       </Modal>
     </Layout>
   )
