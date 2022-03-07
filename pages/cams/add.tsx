@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import Modal from '@/components/Modal'
-import MapModal from '@/components/MapModal'
+import Modal2 from '@/components/Modal2'
 
 const initialState = {
   title: '',
@@ -25,6 +25,7 @@ const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 const AddCam = () => {
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
+  const [showImageUploadModal, setShowImageUploadModal] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -78,6 +79,13 @@ const AddCam = () => {
   const openAddLatLngModal = () => {
     console.log('%c Open Add LatLng Modal ', 'background: red; color: white')
     setShowLatLngModal(true)
+
+    return null
+  }
+
+  const openImageUploadModal = () => {
+    console.log('%c openImageUploadModal ', 'background: red; color: white')
+    setShowImageUploadModal(true)
 
     return null
   }
@@ -162,10 +170,20 @@ const AddCam = () => {
                 </span>
               </div>
             </div>
-            <AddCamCountryOptions
-              handleInputChange={handleInputChange}
-              values={values}
-            />
+            <div className={styles.section1}>
+              <button
+                className="btn"
+                type="button"
+                onClick={openImageUploadModal}
+              >
+                Image Upload
+              </button>
+
+              <AddCamCountryOptions
+                handleInputChange={handleInputChange}
+                values={values}
+              />
+            </div>
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">
@@ -174,17 +192,23 @@ const AddCam = () => {
           </div>
         </form>
       </div>
-      <Modal
-        showLatLngModal={showLatLngModal}
-        onClose={() => setShowLatLngModal(false)}
-      >
-        <MapModal
+
+      {showLatLngModal && (
+        <Modal
+          onClose={() => setShowLatLngModal(false)}
           lat={values.lat}
           lng={values.lng}
           handleLatLngChange={handleLatLngChange}
-          onClose={() => setShowLatLngModal(false)}
         />
-      </Modal>
+      )}
+      {showImageUploadModal && (
+        <Modal2
+          onClose={() => setShowImageUploadModal(false)}
+          lat={values.lat}
+          lng={values.lng}
+          handleLatLngChange={handleLatLngChange}
+        />
+      )}
     </Layout>
   )
 }

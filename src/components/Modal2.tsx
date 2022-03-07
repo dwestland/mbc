@@ -35,7 +35,7 @@ export default function Modal({ onClose, lat, lng, handleLatLngChange }) {
 
         <div className={styles.body}>
           <div className={styles.form}>
-            <h1>Set Lat Lng</h1>
+            <h1>Upload Image</h1>
             <Map lat={lat} lng={lng} handleLatLngChange={handleLatLngChange} />
 
             <div className={styles.buttonContainer}>
