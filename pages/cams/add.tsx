@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
-import Modal from '@/components/Modal'
+import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
 const initialState = {
@@ -194,7 +194,7 @@ const AddCam = () => {
       </div>
 
       {showLatLngModal && (
-        <Modal
+        <MapModal
           onClose={() => setShowLatLngModal(false)}
           lat={values.lat}
           lng={values.lng}
