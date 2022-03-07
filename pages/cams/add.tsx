@@ -5,7 +5,7 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import Modal from '@/components/Modal'
-import Modal2 from '@/components/Modal2'
+import ImageUploadModal from '@/components/ImageUploadModal'
 
 const initialState = {
   title: '',
@@ -202,12 +202,7 @@ const AddCam = () => {
         />
       )}
       {showImageUploadModal && (
-        <Modal2
-          onClose={() => setShowImageUploadModal(false)}
-          lat={values.lat}
-          lng={values.lng}
-          handleLatLngChange={handleLatLngChange}
-        />
+        <ImageUploadModal onClose={() => setShowImageUploadModal(false)} />
       )}
     </Layout>
   )

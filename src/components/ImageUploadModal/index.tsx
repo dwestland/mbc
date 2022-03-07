@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import dynamic from 'next/dynamic'
 import ReactDOM from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
-export default function Modal({ onClose, lat, lng, handleLatLngChange }) {
+export default function ImageUploadModal({ onClose }) {
   const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => setIsBrowser(true))
+
+  const handleImageImput = (e) => {
+    e.preventDefault()
+    console.log('%c handleImageImput ', 'background: red; color: white')
+  }
 
   const handleClose = (e) => {
     e.preventDefault()
     onClose()
   }
-
-  const Map = dynamic(() => import('@/components/MapModal/Map'), {
-    ssr: false,
-  })
 
   const modalContent = (
     <div className={styles.overlay}>
@@ -36,7 +36,10 @@ export default function Modal({ onClose, lat, lng, handleLatLngChange }) {
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Upload Image</h1>
-            <Map lat={lat} lng={lng} handleLatLngChange={handleLatLngChange} />
+            <form>
+              <input type="file" onChange={handleImageImput} />
+              <input type="submit" value="Submit" className="btn" />
+            </form>
 
             <div className={styles.buttonContainer}>
               <button type="button" className="btn " onClick={onClose}>
