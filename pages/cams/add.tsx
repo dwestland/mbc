@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
@@ -171,6 +172,12 @@ const AddCam = () => {
               </div>
             </div>
             <div className={styles.section1}>
+              <Image
+                src="/images/no-image.jpg"
+                alt="no image"
+                width="400"
+                height="300"
+              />
               <button
                 className="btn"
                 type="button"

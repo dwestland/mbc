@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import Image from 'next/image'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
@@ -36,8 +37,16 @@ export default function ImageUploadModal({ onClose }) {
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Upload Image</h1>
+            <Image
+              src="/images/no-image.jpg"
+              alt="no image"
+              width="400"
+              height="300"
+            />
             <form>
-              <input type="file" onChange={handleImageImput} />
+              <label>
+                <input type="file" onChange={handleImageImput} />
+              </label>
               <input type="submit" value="Submit" className="btn" />
             </form>
 
