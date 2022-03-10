@@ -142,6 +142,27 @@ const AddCam = () => {
                   />
                 </label>
               </div>
+
+              <div className={styles.row}>
+                <div className={styles.imageUpload}>
+                  <Image
+                    src="/images/no-image.jpg"
+                    alt="no image"
+                    width="400"
+                    height="300"
+                  />
+                  <br />
+                  <button
+                    className="btn ghostButton"
+                    type="button"
+                    onClick={openImageUploadModal}
+                  >
+                    Image Upload
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.section1}>
               <div className={styles.row}>
                 <label htmlFor="description">
                   Description
@@ -153,39 +174,24 @@ const AddCam = () => {
                   />
                 </label>
               </div>
-
-              <div className={styles.latLngContainer}>
-                <button
-                  className="btn"
-                  type="button"
-                  onClick={openAddLatLngModal}
-                >
-                  Set Lat Lng
-                </button>
-                <span>
-                  Lat: <strong>{values.lat}</strong>
-                </span>
-                <br />
-                <span>
-                  Lng: <strong>{values.lng}</strong>
-                </span>
+              <div className={styles.row}>
+                <div className={styles.latLngContainer}>
+                  <button
+                    className="btn ghostButton"
+                    type="button"
+                    onClick={openAddLatLngModal}
+                  >
+                    Set Lat Lng
+                  </button>
+                  <span>
+                    Lat: <strong>{values.lat}</strong>
+                  </span>
+                  <br />
+                  <span>
+                    Lng: <strong>{values.lng}</strong>
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className={styles.section1}>
-              <Image
-                src="/images/no-image.jpg"
-                alt="no image"
-                width="400"
-                height="300"
-              />
-              <button
-                className="btn"
-                type="button"
-                onClick={openImageUploadModal}
-              >
-                Image Upload
-              </button>
-
               <AddCamCountryOptions
                 handleInputChange={handleInputChange}
                 values={values}
@@ -208,6 +214,7 @@ const AddCam = () => {
           handleLatLngChange={handleLatLngChange}
         />
       )}
+
       {showImageUploadModal && (
         <ImageUploadModal onClose={() => setShowImageUploadModal(false)} />
       )}
