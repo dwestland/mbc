@@ -115,8 +115,9 @@ hr:after {
 }
 
 .ghostButton {
+  font-weight: bold;
   background: none;
-  border: 1px solid var(--dark-seafoam);
+  border: 2px solid var(--dark-seafoam);
   color: var(--dark-seafoam);
   &:hover {
     background: var(--light-seafoam);
