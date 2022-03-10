@@ -157,7 +157,7 @@ const AddCam = () => {
                     type="button"
                     onClick={openImageUploadModal}
                   >
-                    Image Upload
+                    Add Image
                   </button>
                 </div>
               </div>

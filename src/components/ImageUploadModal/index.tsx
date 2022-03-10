@@ -6,28 +6,10 @@ import styles from '@/styles/Modal.module.css'
 
 export default function ImageUploadModal({ onClose }) {
   const [isBrowser, setIsBrowser] = useState(false)
-
-  useEffect(() => setIsBrowser(true))
-
-  // const handleImageImput = (e) => {
-  //   e.preventDefault()
-  //   console.log('%c handleImageImput ', 'background: red; color: white')
-  // }
-
-  const handleClose = (e) => {
-    e.preventDefault()
-    onClose()
-  }
-
   const [src, setSrc] = useState()
   const [blob, setBlob] = useState(null)
 
   useEffect(() => setIsBrowser(true))
-
-  const pasteHandler = (e) => {
-    const { items } = e.clipboardData || e.originalEvent.clipboardData
-    setBlob(items[0].getAsFile())
-  }
 
   useEffect(() => {
     if (blob !== null) {
@@ -52,6 +34,16 @@ export default function ImageUploadModal({ onClose }) {
     })
   }
 
+  const pasteHandler = (e) => {
+    const { items } = e.clipboardData || e.originalEvent.clipboardData
+    setBlob(items[0].getAsFile())
+  }
+
+  const handleClose = (e) => {
+    e.preventDefault()
+    onClose()
+  }
+
   const modalContent = (
     <div className={styles.overlay}>
       <div className={styles.modal}>
@@ -70,33 +62,19 @@ export default function ImageUploadModal({ onClose }) {
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Upload Image</h1>
-
             {src && <img src={src} alt="pic" />}
-            <button type="submit" onClick={uploadToServer}>
-              Send to server
-            </button>
-
-            {/* <Image
-              src="/images/no-image.jpg"
-              alt="no image"
-              width="400"
-              height="300"
-            /> */}
-            <form>
-              {/* <label>
-                <input type="file" onChange={handleImageImput} />
-              </label> */}
-              <div className={styles.buttonContainer}>
-                <input type="submit" value="Upload Image" className="btn" />
-                <button
-                  type="button"
-                  className="btn ghostButton"
-                  onClick={onClose}
-                >
-                  Close
-                </button>
-              </div>
-            </form>
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={uploadToServer} className="btn">
+                Upload Image
+              </button>
+              <button
+                type="button"
+                className="btn ghostButton"
+                onClick={onClose}
+              >
+                Close
+              </button>
+            </div>
           </div>
         </div>
       </div>
