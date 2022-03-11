@@ -12,7 +12,6 @@ export default function ImageUploadModal({ onClose }) {
 
   useEffect(() => {
     if (blob !== null) {
-      blob.name = 'boom.png'
       const reader = new FileReader()
       reader.onload = function (e) {
         setSrc(e.target.result)
