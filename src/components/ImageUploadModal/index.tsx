@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import Image from 'next/image'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
@@ -62,7 +61,24 @@ export default function ImageUploadModal({ onClose }) {
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Upload Image</h1>
-            {src && <img src={src} alt="pic" />}
+
+            {src ? (
+              <img src={src} alt="pic" />
+            ) : (
+              <div className={styles.uploadInfo}>
+                <div>
+                  <p>
+                    Mac: Use ctl + 4 + cmd + shift for cross-hairs to copy image
+                    to clipboard
+                  </p>
+                  <p>Click here and paste from clipboard</p>
+                  <p>
+                    Retina screen users will produce image at twice the size as
+                    on website
+                  </p>
+                </div>
+              </div>
+            )}
             <div className={styles.buttonContainer}>
               <button type="button" onClick={uploadToServer} className="btn">
                 Upload Image

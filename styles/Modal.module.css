@@ -37,6 +37,20 @@
   font-size: 20px;
 }
 
+.uploadInfo {
+  align-items: center;
+  border: 1px solid #000;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin: 15px auto;
+  width: 550px;
+}
+
+.uploadInfo div {
+  text-align: center;
+}
+
 .body {
   padding: 0px;
 }
