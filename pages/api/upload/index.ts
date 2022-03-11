@@ -14,9 +14,11 @@ export default async (req, res) => {
     const form = new IncomingForm()
 
     form.parse(req, (err, fields, files) => {
+      console.log('files', files)
+      console.log('fields', fields)
       if (err) return reject(err)
       const oldPath = files.file.filepath
-      const newPath = `./public/images/uploads/${files.file.originalFilename}`
+      const newPath = `./public/cam-images/${files.file.originalFilename}`
 
       mv(oldPath, newPath, (err) => {})
       res.status(200).json({ fields, files })

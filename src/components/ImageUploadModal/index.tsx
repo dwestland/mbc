@@ -12,6 +12,7 @@ export default function ImageUploadModal({ onClose }) {
 
   useEffect(() => {
     if (blob !== null) {
+      blob.name = 'boom.png'
       const reader = new FileReader()
       reader.onload = function (e) {
         setSrc(e.target.result)
@@ -24,23 +25,24 @@ export default function ImageUploadModal({ onClose }) {
     window.addEventListener('paste', pasteHandler)
   }, [])
 
+  const handleClose = () => {
+    onClose()
+  }
+
   const uploadToServer = async () => {
     const body = new FormData()
+
     body.append('file', blob)
     await fetch('/api/upload', {
       method: 'POST',
       body,
     })
+    await handleClose()
   }
 
   const pasteHandler = (e) => {
     const { items } = e.clipboardData || e.originalEvent.clipboardData
     setBlob(items[0].getAsFile())
-  }
-
-  const handleClose = (e) => {
-    e.preventDefault()
-    onClose()
   }
 
   const modalContent = (
