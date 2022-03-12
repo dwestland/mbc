@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import Resizer from 'react-image-file-resizer'
 import { FaTimes } from 'react-icons/fa'
+import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
 
-export default function ImageUploadModal({ onClose }) {
+export default function ImageUploadModal({ onClose, title }) {
   const [isBrowser, setIsBrowser] = useState(false)
   const [src, setSrc] = useState()
   const [blob, setBlob] = useState(null)
@@ -12,6 +14,8 @@ export default function ImageUploadModal({ onClose }) {
 
   useEffect(() => {
     if (blob !== null) {
+      console.log('%c blob ', 'background: red; color: white', blob)
+
       const reader = new FileReader()
       reader.onload = function (e) {
         setSrc(e.target.result)
@@ -31,7 +35,12 @@ export default function ImageUploadModal({ onClose }) {
   const uploadToServer = async () => {
     const body = new FormData()
 
-    body.append('file', blob)
+    // Create unique descriptive title
+    const slugifiedTitle = slugify(title)
+    const randomSixDigit = getSixDigitRandom()
+    const filename = `${slugifiedTitle}-${randomSixDigit}.png`
+
+    body.append('file', blob, filename)
     await fetch('/api/upload', {
       method: 'POST',
       body,
@@ -104,6 +113,7 @@ export default function ImageUploadModal({ onClose }) {
       document.getElementById('modal-root')
     )
   }
+
   return null
 }
 

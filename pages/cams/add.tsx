@@ -85,6 +85,11 @@ const AddCam = () => {
   }
 
   const openImageUploadModal = () => {
+    if (!values.title) {
+      toast.error('Please enter a title to add image')
+      return null
+    }
+
     console.log('%c openImageUploadModal ', 'background: red; color: white')
     setShowImageUploadModal(true)
 
@@ -216,7 +221,10 @@ const AddCam = () => {
       )}
 
       {showImageUploadModal && (
-        <ImageUploadModal onClose={() => setShowImageUploadModal(false)} />
+        <ImageUploadModal
+          title={values.title}
+          onClose={() => setShowImageUploadModal(false)}
+        />
       )}
     </Layout>
   )
