@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import Resizer from 'react-image-file-resizer'
 import { FaTimes } from 'react-icons/fa'
 import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
@@ -17,12 +16,17 @@ export default function ImageUploadModal({ onClose, title }) {
       console.log('%c blob ', 'background: red; color: white', blob)
 
       const reader = new FileReader()
-      reader.onload = function (e) {
+      reader.onload = (e: any) => {
         setSrc(e.target.result)
       }
       reader.readAsDataURL(blob)
     }
   }, [blob])
+
+  const pasteHandler = (e) => {
+    const { items } = e.clipboardData || e.originalEvent.clipboardData
+    setBlob(items[0].getAsFile())
+  }
 
   useEffect(() => {
     window.addEventListener('paste', pasteHandler)
@@ -46,11 +50,6 @@ export default function ImageUploadModal({ onClose, title }) {
       body,
     })
     await handleClose()
-  }
-
-  const pasteHandler = (e) => {
-    const { items } = e.clipboardData || e.originalEvent.clipboardData
-    setBlob(items[0].getAsFile())
   }
 
   const modalContent = (
