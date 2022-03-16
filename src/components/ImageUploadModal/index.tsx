@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import Resizer from 'react-image-file-resizer'
 import { FaTimes } from 'react-icons/fa'
 import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
@@ -23,9 +24,29 @@ export default function ImageUploadModal({ onClose, title }) {
     }
   }, [blob])
 
-  const pasteHandler = (e) => {
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        320,
+        240,
+        'JPEG',
+        80,
+        0,
+        (uri) => {
+          resolve(uri)
+        },
+        'blob',
+        320,
+        240
+      )
+    })
+
+  const pasteHandler = async (e) => {
     const { items } = e.clipboardData || e.originalEvent.clipboardData
-    setBlob(items[0].getAsFile())
+    const imageData = items[0].getAsFile()
+    const resizedImage = await resizeFile(imageData)
+    setBlob(resizedImage)
   }
 
   useEffect(() => {
@@ -42,7 +63,7 @@ export default function ImageUploadModal({ onClose, title }) {
     // Create unique descriptive title
     const slugifiedTitle = slugify(title)
     const randomSixDigit = getSixDigitRandom()
-    const filename = `${slugifiedTitle}-${randomSixDigit}.png`
+    const filename = `${slugifiedTitle}-${randomSixDigit}.jpg`
 
     body.append('file', blob, filename)
     await fetch('/api/upload', {
