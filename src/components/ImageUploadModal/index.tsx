@@ -5,7 +5,11 @@ import { FaTimes } from 'react-icons/fa'
 import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
 
-export default function ImageUploadModal({ onClose, title }) {
+export default function ImageUploadModal({
+  onClose,
+  title,
+  handleImageNameChange,
+}) {
   const [isBrowser, setIsBrowser] = useState(false)
   const [src, setSrc] = useState()
   const [blob, setBlob] = useState(null)
@@ -64,6 +68,7 @@ export default function ImageUploadModal({ onClose, title }) {
     const slugifiedTitle = slugify(title)
     const randomSixDigit = getSixDigitRandom()
     const filename = `${slugifiedTitle}-${randomSixDigit}.jpg`
+    handleImageNameChange(filename)
 
     body.append('file', blob, filename)
     await fetch('/api/upload', {

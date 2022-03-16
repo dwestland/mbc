@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
@@ -11,7 +11,7 @@ import ImageUploadModal from '@/components/ImageUploadModal'
 const initialState = {
   title: '',
   webcamUrl: '',
-  imageUrl: '',
+  imageName: '',
   description: '',
   country: '',
   state: '',
@@ -27,9 +27,15 @@ const AddCam = () => {
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
+  const [bestImage, setBestImage] = useState('/images/no-image.jpg')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    useEffect(() => {
+      setBestImage(`/webcam-images/${values.imageName}`)
+      console.log('%c bestImage ', 'background: black; color: white', bestImage)
+    }, [values.imageName])
 
     // Validation
     const hasEmptyFields = Object.values(values).some(
@@ -40,8 +46,6 @@ const AddCam = () => {
       toast.error('Please fill in all fields')
       return null
     }
-
-    console.log('%c values ', 'background: red; color: white', values)
 
     fetch(url, {
       method: 'POST',
@@ -72,13 +76,15 @@ const AddCam = () => {
     return null
   }
 
-  const handleLatLngChange = (lat, lng) => {
-    console.log('%c lng ', 'background: purple; color: white', lng)
+  const handleLatLngChange = (lat: number, lng: number) => {
     setValues({ ...values, lat, lng })
   }
 
+  const handleImageNameChange = (imageName: string) => {
+    setValues({ ...values, imageName })
+  }
+
   const openAddLatLngModal = () => {
-    console.log('%c Open Add LatLng Modal ', 'background: red; color: white')
     setShowLatLngModal(true)
 
     return null
@@ -89,8 +95,6 @@ const AddCam = () => {
       toast.error('Please enter a title to add image')
       return null
     }
-
-    console.log('%c openImageUploadModal ', 'background: red; color: white')
     setShowImageUploadModal(true)
 
     return null
@@ -136,22 +140,15 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                <label htmlFor="imageUrl">
-                  Image URL
-                  <input
-                    type="text"
-                    name="imageUrl"
-                    id="imageUrl"
-                    value={values.imageUrl}
-                    onChange={handleInputChange}
-                  />
-                </label>
+                Image Name: &nbsp;
+                <span>
+                  <strong>{values.imageName}</strong>
+                </span>
               </div>
-
               <div className={styles.row}>
                 <div className={styles.imageUpload}>
                   <Image
-                    src="/images/no-image.jpg"
+                    src={bestImage}
                     alt="no image"
                     width="400"
                     height="300"
@@ -224,6 +221,7 @@ const AddCam = () => {
         <ImageUploadModal
           title={values.title}
           onClose={() => setShowImageUploadModal(false)}
+          handleImageNameChange={handleImageNameChange}
         />
       )}
     </Layout>

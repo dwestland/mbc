@@ -14,8 +14,6 @@ export default async (req, res) => {
     const form = new IncomingForm()
 
     form.parse(req, (err, fields, files) => {
-      console.log('files', files)
-      console.log('fields', fields)
       if (err) return reject(err)
       const oldPath = files.file.filepath
       const newPath = `./public/webcam-images/${files.file.originalFilename}`
