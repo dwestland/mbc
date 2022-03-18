@@ -27,15 +27,21 @@ const AddCam = () => {
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
-  const [bestImage, setBestImage] = useState('/images/no-image.jpg')
+
+  const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
+
+  useEffect(() => {
+    const reloadImage = () => {
+      if (values.imageName) {
+        const imageUrl = `/webcam-images/${values.imageName}`
+        fetch(imageUrl).then((res) => setPreviewImage(res.url))
+      }
+    }
+    reloadImage()
+  }, [values.imageName])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    useEffect(() => {
-      setBestImage(`/webcam-images/${values.imageName}`)
-      console.log('%c bestImage ', 'background: black; color: white', bestImage)
-    }, [values.imageName])
 
     // Validation
     const hasEmptyFields = Object.values(values).some(
@@ -148,8 +154,9 @@ const AddCam = () => {
               <div className={styles.row}>
                 <div className={styles.imageUpload}>
                   <Image
-                    src={bestImage}
-                    alt="no image"
+                    className={styles.previewImage}
+                    src={previewImage}
+                    alt="Preview image"
                     width="400"
                     height="300"
                   />

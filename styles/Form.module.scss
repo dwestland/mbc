@@ -50,6 +50,10 @@
     padding: 20px 0 40px;
   }
 
+  .previewImage {
+    object-fit: cover;
+  }
+
   .imageUpload {
     margin-top: 20px;
     text-align: center;
