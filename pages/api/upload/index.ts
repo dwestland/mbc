@@ -18,7 +18,9 @@ export default async (req, res) => {
       const oldPath = files.file.filepath
       const newPath = `./public/webcam-images/${files.file.originalFilename}`
 
-      mv(oldPath, newPath, (err) => {})
+      mv(oldPath, newPath, (error) => {
+        console.log(error)
+      })
       res.status(200).json({ fields, files })
 
       return null

@@ -34,7 +34,9 @@ const AddCam = () => {
     const reloadImage = () => {
       if (values.imageName) {
         const imageUrl = `/webcam-images/${values.imageName}`
-        fetch(imageUrl).then((res) => setPreviewImage(res.url))
+        fetch(imageUrl)
+          .then((res) => setPreviewImage(res.url))
+          .catch((err) => console.log('Preview Image Fetch Error', err))
       }
     }
     reloadImage()
@@ -76,10 +78,9 @@ const AddCam = () => {
     return null
   }
 
-  const handleInputChange = (e): null => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setValues({ ...values, [name]: value })
-    return null
   }
 
   const handleLatLngChange = (lat: number, lng: number) => {

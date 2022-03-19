@@ -32,23 +32,25 @@ export default function ImageUploadModal({
     new Promise((resolve) => {
       Resizer.imageFileResizer(
         file,
-        320,
-        240,
+        400,
+        300,
         'JPEG',
-        80,
+        65,
         0,
         (uri) => {
           resolve(uri)
         },
         'blob',
-        320,
-        240
+        400,
+        300
       )
     })
-
   const pasteHandler = async (e) => {
     const { items } = e.clipboardData || e.originalEvent.clipboardData
     const imageData = items[0].getAsFile()
+    if (!imageData) {
+      return
+    }
     const resizedImage = await resizeFile(imageData)
     setBlob(resizedImage)
   }
@@ -69,6 +71,11 @@ export default function ImageUploadModal({
     const randomSixDigit = getSixDigitRandom()
     const filename = `${slugifiedTitle}-${randomSixDigit}.jpg`
     handleImageNameChange(filename)
+
+    if (!blob) {
+      console.log('%c Not a blob ', 'background: red; color: white')
+      return
+    }
 
     body.append('file', blob, filename)
     await fetch('/api/upload', {
