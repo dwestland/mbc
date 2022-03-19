@@ -18,7 +18,8 @@
       "@/components/*": ["src/components/*"],
       "@/context/*": ["context/*"],
       "@/styles/*": ["styles/*"],
-      "@/data/*": ["src/data/*"]
+      "@/data/*": ["src/data/*"],
+      "@/utils/*": ["src/utils/*"]
     },
     "incremental": true
   },
