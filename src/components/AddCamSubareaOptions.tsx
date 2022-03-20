@@ -1,6 +1,6 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-import data from '@/data/camLocationAreas'
+// import data from '@/data/camLocationAreas'
 
 interface AddCamSubareaOptionsProps {
   handleInputChange(): any
@@ -10,7 +10,7 @@ interface AddCamSubareaOptionsProps {
     area: string
     subArea: string
   }
-  areasObjectArray: []
+  areasObjectArray: any
 }
 
 const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
@@ -45,19 +45,19 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
   }, [values.area])
 
   useEffect(() => {
-    console.log(
-      '%c subareasObjectArray ',
-      'background: blue; color: white',
-      subareasObjectArray
-    )
+    // console.log(
+    //   '%c subareasObjectArray ',
+    //   'background: blue; color: white',
+    //   subareasObjectArray
+    // )
 
     const subareasArray = subareasObjectArray?.map((item) => item.subArea) // ['HI', 'CA', 'FL']
 
-    console.log(
-      '%c subareasArray ',
-      'background: blue; color: white',
-      subareasArray
-    )
+    // console.log(
+    //   '%c subareasArray ',
+    //   'background: blue; color: white',
+    //   subareasArray
+    // )
 
     // Create value, label object for state select
     setSubareasSelectOptions(

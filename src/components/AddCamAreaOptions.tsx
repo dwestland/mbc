@@ -1,6 +1,5 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-import data from '@/data/camLocationAreas'
 import AddCamSubareasOptions from '@/components/AddCamSubareaOptions'
 
 interface AddCamAreaOptionsProps {
@@ -11,7 +10,7 @@ interface AddCamAreaOptionsProps {
     area: string
     subArea: string
   }
-  statesObjectArray: []
+  statesObjectArray: any
 }
 
 const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
@@ -27,22 +26,6 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
     setAreasObjectArray(
       statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
     )
-
-    // //////////////////////////////////////////////////////////////////////////////
-    // const areasObjectArray = data.countries.filter(
-    //   (ele) => ele.country === values.country
-    // )[0]?.areas
-    // // //////////////////////////////////////////////////////////////////////////////
-    // // console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
-    // const areasArray = areasObjectArray?.map((item) => item.area)
-    // //  NEED RESULT: ['Maui', 'Oahu', 'Big Island', 'Kauai']
-    // // Create value, label object for area select
-    // setAreaOptions(
-    //   areasArray?.map((area) => ({
-    //     value: area,
-    //     label: area,
-    //   }))
-    // ) // 0: [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
   }, [values.state])
 
   useEffect(() => {
@@ -77,8 +60,6 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
               ))}
             </select>
           </label>
-
-          <p>Area: {values.area}</p>
         </div>
       )}
       <AddCamSubareasOptions
