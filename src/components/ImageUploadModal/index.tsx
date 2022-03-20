@@ -105,7 +105,9 @@ export default function ImageUploadModal({
             <h1>Upload Image</h1>
 
             {src ? (
-              <img src={src} alt="pic" />
+              <div className={styles.imageContainer}>
+                <img src={src} alt="Pic from clipboard" />
+              </div>
             ) : (
               <div className={styles.uploadInfo}>
                 <div>
