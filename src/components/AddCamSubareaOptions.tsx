@@ -1,6 +1,5 @@
 import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-// import data from '@/data/camLocationAreas'
 
 interface AddCamSubareaOptionsProps {
   handleInputChange(): any
