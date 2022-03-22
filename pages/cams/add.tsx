@@ -1,25 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 // import { InferGetStaticPropsType } from 'next'
+import Image from 'next/image'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
-import AddCamFormLocation from '@/components/AddCamFormLocation'
+import AddCamCountryOptions from '@/components/AddCamCountryOptions'
+import MapModal from '@/components/MapModal'
+import ImageUploadModal from '@/components/ImageUploadModal'
 
 const initialState = {
   title: '',
   webcamUrl: '',
-  imageUrl: '',
+  imageName: '',
   description: '',
   country: '',
   state: '',
   area: '',
-  subArea: '',
+  subarea: '',
+  lat: 0,
+  lng: 0,
 }
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
 const AddCam = () => {
   const [values, setValues] = useState(initialState)
+  const [showLatLngModal, setShowLatLngModal] = useState(false)
+  const [showImageUploadModal, setShowImageUploadModal] = useState(false)
+
+  const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
+
+  useEffect(() => {
+    const reloadImage = () => {
+      if (values.imageName) {
+        const imageUrl = `/webcam-images/${values.imageName}`
+        fetch(imageUrl)
+          .then((res) => setPreviewImage(res.url))
+          .catch((err) => console.log('Preview Image Fetch Error', err))
+      }
+    }
+    reloadImage()
+  }, [values.imageName])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -33,8 +54,6 @@ const AddCam = () => {
       toast.error('Please fill in all fields')
       return null
     }
-
-    console.log('%c values ', 'background: red; color: white', values)
 
     fetch(url, {
       method: 'POST',
@@ -59,15 +78,38 @@ const AddCam = () => {
     return null
   }
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setValues({ ...values, [name]: value })
+  }
+
+  const handleLatLngChange = (lat: number, lng: number) => {
+    setValues({ ...values, lat, lng })
+  }
+
+  const handleImageNameChange = (imageName: string) => {
+    setValues({ ...values, imageName })
+  }
+
+  const openAddLatLngModal = () => {
+    setShowLatLngModal(true)
+
+    return null
+  }
+
+  const openImageUploadModal = () => {
+    if (!values.title) {
+      toast.error('Please enter a title to add image')
+      return null
+    }
+    setShowImageUploadModal(true)
+
+    return null
   }
 
   return (
     <Layout title="Add Cam" description="Add Cam page">
       <div className="layout">
-        <h1>Add Cam</h1>
         <Toaster
           toastOptions={{
             style: {
@@ -76,6 +118,7 @@ const AddCam = () => {
             },
           }}
         />
+        <h1>Add Cam</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
@@ -104,17 +147,32 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                <label htmlFor="imageUrl">
-                  Image URL
-                  <input
-                    type="text"
-                    name="imageUrl"
-                    id="imageUrl"
-                    value={values.imageUrl}
-                    onChange={handleInputChange}
-                  />
-                </label>
+                Image Name: &nbsp;
+                <span>
+                  <strong>{values.imageName}</strong>
+                </span>
               </div>
+              <div className={styles.row}>
+                <div className={styles.imageUpload}>
+                  <Image
+                    className={styles.previewImage}
+                    src={previewImage}
+                    alt="Preview image"
+                    width="400"
+                    height="300"
+                  />
+                  <br />
+                  <button
+                    className="btn ghostButton"
+                    type="button"
+                    onClick={openImageUploadModal}
+                  >
+                    Add Image
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className={styles.section1}>
               <div className={styles.row}>
                 <label htmlFor="description">
                   Description
@@ -126,11 +184,29 @@ const AddCam = () => {
                   />
                 </label>
               </div>
+              <div className={styles.row}>
+                <div className={styles.latLngContainer}>
+                  <button
+                    className="btn ghostButton"
+                    type="button"
+                    onClick={openAddLatLngModal}
+                  >
+                    Set Lat Lng
+                  </button>
+                  <span>
+                    Lat: <strong>{values.lat}</strong>
+                  </span>
+                  <br />
+                  <span>
+                    Lng: <strong>{values.lng}</strong>
+                  </span>
+                </div>
+              </div>
+              <AddCamCountryOptions
+                handleInputChange={handleInputChange}
+                values={values}
+              />
             </div>
-            <AddCamFormLocation
-              handleInputChange={handleInputChange}
-              values={values}
-            />
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">
@@ -139,6 +215,23 @@ const AddCam = () => {
           </div>
         </form>
       </div>
+
+      {showLatLngModal && (
+        <MapModal
+          onClose={() => setShowLatLngModal(false)}
+          lat={values.lat}
+          lng={values.lng}
+          handleLatLngChange={handleLatLngChange}
+        />
+      )}
+
+      {showImageUploadModal && (
+        <ImageUploadModal
+          title={values.title}
+          onClose={() => setShowImageUploadModal(false)}
+          handleImageNameChange={handleImageNameChange}
+        />
+      )}
     </Layout>
   )
 }

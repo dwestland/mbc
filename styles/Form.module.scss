@@ -11,7 +11,7 @@
 
   textarea {
     font-family: inherit;
-    height: 150px;
+    height: 100px;
     padding: 5px;
     width: 100%;
   }
@@ -49,6 +49,20 @@
     text-align: center;
     padding: 20px 0 40px;
   }
+
+  .previewImage {
+    object-fit: cover;
+  }
+
+  .imageUpload {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.latLngContainer button {
+  float: right;
+  margin-top: 8px;
 }
 
 @media (max-width: 768px) {

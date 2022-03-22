@@ -16,7 +16,7 @@ interface CamItemProps {
     country: string
     state: string
     area: string
-    subArea: string
+    subarea: string
   }
 }
 

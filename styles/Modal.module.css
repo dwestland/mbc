@@ -1,28 +1,4 @@
-.modal {
-  background: white;
-  border-radius: 15px;
-  min-height: 100px;
-  padding: 20px;
-  width: 500px;
-  z-index: 10;
-}
-
-.xButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.header {
-  display: flex;
-  font-size: 25px;
-  justify-content: flex-end;
-}
-
-.body {
-  padding: 0px;
-}
+/* Leaflet properties in global.scss */
 
 .overlay {
   align-items: center;
@@ -34,4 +10,62 @@
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+.modal {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  width: 650px;
+  z-index: 10;
+}
+
+.modal h1 {
+  margin-top: 0;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.header {
+  display: flex;
+  font-size: 25px;
+  justify-content: flex-end;
+}
+
+.xButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.uploadInfo {
+  align-items: center;
+  border: 1px solid #000;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  margin: 15px auto;
+  width: 550px;
+}
+
+.uploadInfo div {
+  text-align: center;
+}
+
+.body {
+  padding: 0px;
+}
+
+.form {
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0px;
 }

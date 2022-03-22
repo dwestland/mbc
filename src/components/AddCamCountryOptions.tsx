@@ -1,36 +1,32 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 import styles from '@/styles/Form.module.scss'
-import * as CONSTANTS from '@/constants/locationConstants'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
+import data from '@/data/camLocationAreas'
 
-interface AddCamFormLocationProps {
-  handleInputChange(): any
+interface AddCamCountryOptionsProps {
+  handleInputChange: any
   values: {
     country: string
     state: string
     area: string
-    subArea: string
+    subarea: string
   }
 }
 
-const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
+// TODO When the country changes, need to update the state options
+
+const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
-  const [stateOptions, setStateOptions] = useState(false)
+  // Create country options
+  const countriesArray = data.countries.map((item) => item.country) // ['MEX', 'CAN', 'USA']
 
-  const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
+  // Create value, label objects for country select
+  const countrySelectOptions = countriesArray.map((country) => ({
     value: country,
     label: country,
-  }))
-
-  useEffect(() => {
-    if (values.country === 'USA') {
-      setStateOptions(true)
-    } else {
-      setStateOptions(false)
-    }
-  }, [values.country])
+  })) // [{value: 'MEX', label: 'MEX'}, {value: 'CAN', label: 'CAN'}, {value: 'USA', label: 'USA'}]
 
   return (
     <div className={styles.section2} style={{ border: '1px solid blue' }}>
@@ -44,22 +40,19 @@ const AddCamFormLocation: FC<AddCamFormLocationProps> = ({
             onChange={handleInputChange}
           >
             <option value="" label="Choose country" />
-            {countryOptions.map((country) => (
+            {countrySelectOptions.map((country) => (
               <option key={country.value} value={country.value}>
                 {country.label}
               </option>
             ))}
           </select>
         </label>
-        <p>Country: {values.country}</p>
       </div>
-      {stateOptions && (
-        <AddCamStateOptions
-          handleInputChange={handleInputChange}
-          values={values}
-        />
-      )}
+      <AddCamStateOptions
+        handleInputChange={handleInputChange}
+        values={values}
+      />
     </div>
   )
 }
-export default AddCamFormLocation
+export default AddCamCountryOptions

@@ -1,6 +1,7 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, useEffect } from 'react'
 import styles from '@/styles/Form.module.scss'
-// import * as CONSTANTS from '@/constants/locationConstants'
+import AddCamAreaOptions from '@/components/AddCamAreaOptions'
+import data from '@/data/camLocationAreas'
 
 interface AddCamStateOptionsProps {
   handleInputChange(): any
@@ -8,7 +9,7 @@ interface AddCamStateOptionsProps {
     country: string
     state: string
     area: string
-    subArea: string
+    subarea: string
   }
 }
 
@@ -16,54 +17,56 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
-  // const [stateOptions, setStateOptions] = useState(false)
+  const [stateSelectOptions, setStateSelectOptions] = useState([])
+  const [statesObjectArray, setStatesObjectArray] = useState([])
 
-  // const countryOptions = CONSTANTS.COUNTRY_OPTIONS.map((country) => ({
-  //   value: country,
-  //   label: country,
-  // }))
+  // Create state options
+  useEffect(() => {
+    setStatesObjectArray(
+      data.countries.filter((ele) => ele.country === values.country)[0]?.states
+    )
+  }, [values.country])
 
-  console.log('boom')
+  useEffect(() => {
+    const statesArray = statesObjectArray?.map((item) => item.state) // ['HI', 'CA', 'FL']
+
+    // Create value, label objects for state select
+    setStateSelectOptions(
+      statesArray?.map((state) => ({
+        value: state,
+        label: state,
+      }))
+    ) // [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
+  }, [statesObjectArray])
 
   return (
     <>
-      <div className={styles.row}>
-        <label htmlFor="state">
-          State
-          <input
-            type="text"
-            name="state"
-            id="state"
-            value={values.state}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
+      {stateSelectOptions?.length > 0 && (
+        <div className={styles.row}>
+          <label htmlFor="state">
+            State
+            <select
+              id="state"
+              name="state"
+              className={styles.select}
+              onChange={handleInputChange}
+            >
+              <option value="" label="Choose state" />
+              {stateSelectOptions.map((state) => (
+                <option key={state.value} value={state.value}>
+                  {state.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      )}
 
-      <div className={styles.row}>
-        <label htmlFor="area">
-          Area
-          <input
-            type="text"
-            name="area"
-            id="area"
-            value={values.area}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
-      <div className={styles.row}>
-        <label htmlFor="subArea">
-          Sub Area
-          <input
-            type="text"
-            name="subArea"
-            id="subArea"
-            value={values.subArea}
-            onChange={handleInputChange}
-          />
-        </label>
-      </div>
+      <AddCamAreaOptions
+        handleInputChange={handleInputChange}
+        values={values}
+        statesObjectArray={statesObjectArray}
+      />
     </>
   )
 }

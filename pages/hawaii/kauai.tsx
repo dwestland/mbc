@@ -19,7 +19,7 @@ interface Cams {
   country: string
   state: string
   area: string
-  subArea: string
+  subarea: string
 }
 
 const KauaiPage = ({

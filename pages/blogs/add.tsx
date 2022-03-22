@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useSession } from 'next-auth/client'
 import toast, { Toaster } from 'react-hot-toast'
 import NavbarOld from '@/components/NavbarOld'
-import styles from '@/styles/Form.module.css'
+// import styles from '@/styles/Form.module.css'
 
 // TODO Add React Query
 
@@ -44,6 +44,7 @@ const AddBlog = () => {
     })
       .then((res) => res.json())
       .then((resData) => {
+        // Need to get if post to DB was successful
         setValues({ title: '', body: '' })
         toast.success('Blog saved')
         return resData
@@ -92,7 +93,7 @@ const AddBlog = () => {
   }
 
   return (
-    <div className={`${styles.formPage} container`}>
+    <div className="container">
       <NavbarOld />
       <h1>Add Blog</h1>
       <Toaster
@@ -103,9 +104,9 @@ const AddBlog = () => {
           },
         }}
       />
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit}>
         <div>
-          <div className={styles.section}>
+          <div>
             <label htmlFor="title">
               Title
               <input
@@ -117,7 +118,7 @@ const AddBlog = () => {
               />
             </label>
           </div>
-          <div className={styles.section}>
+          <div>
             <label htmlFor="body">
               Body
               <textarea

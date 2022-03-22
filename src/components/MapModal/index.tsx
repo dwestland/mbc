@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import ReactDOM from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
-export default function Modal({ show, onClose, children, title }) {
+export default function MapModal({ onClose, lat, lng, handleLatLngChange }) {
   const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => setIsBrowser(true))
@@ -13,7 +14,11 @@ export default function Modal({ show, onClose, children, title }) {
     onClose()
   }
 
-  const modalContent = show ? (
+  const Map = dynamic(() => import('@/components/MapModal/Map'), {
+    ssr: false,
+  })
+
+  const modalContent = (
     <div className={styles.overlay}>
       <div className={styles.modal}>
         <div className={styles.header}>
@@ -27,11 +32,22 @@ export default function Modal({ show, onClose, children, title }) {
             </a>
           </button>
         </div>
-        {title && <div>{title}</div>}
-        <div className={styles.body}>{children}</div>
+
+        <div className={styles.body}>
+          <div className={styles.form}>
+            <h1>Set Lat Lng</h1>
+            <Map lat={lat} lng={lng} handleLatLngChange={handleLatLngChange} />
+
+            <div className={styles.buttonContainer}>
+              <button type="button" className="btn " onClick={onClose}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  ) : null
+  )
 
   if (isBrowser) {
     return ReactDOM.createPortal(
@@ -42,4 +58,5 @@ export default function Modal({ show, onClose, children, title }) {
   return null
 }
 
+// Modal component with Next.js:
 // https://devrecipes.net/modal-component-with-next-js/
