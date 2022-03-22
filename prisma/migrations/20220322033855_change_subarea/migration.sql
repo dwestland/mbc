@@ -69,7 +69,7 @@ CREATE TABLE "cams" (
     "country" TEXT NOT NULL,
     "state" TEXT,
     "area" TEXT,
-    "sub_area" TEXT,
+    "subarea" TEXT,
     "lat" DECIMAL(8,6),
     "long" DECIMAL(9,6),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
