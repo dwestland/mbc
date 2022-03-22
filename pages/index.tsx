@@ -15,7 +15,7 @@ const IndexPage = () => {
   }
 
   if (session) {
-    console.log('%c session ', 'background: black; color: white', session)
+    // console.log('%c session ', 'background: black; color: white', session)
 
     return (
       <div className="container">
