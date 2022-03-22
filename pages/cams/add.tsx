@@ -16,7 +16,7 @@ const initialState = {
   country: '',
   state: '',
   area: '',
-  subArea: '',
+  subarea: '',
   lat: 0,
   lng: 0,
 }

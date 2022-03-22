@@ -84,7 +84,7 @@ model Cams {
   country     String
   state       String?
   area        String?
-  subArea     String?  @map(name: "sub_area")
+  subarea     String?  @map(name: "subarea")
 
   lat         Decimal?  @db.Decimal(precision: 8, scale: 6)
   long        Decimal?  @db.Decimal(precision: 9, scale: 6)

@@ -7,7 +7,7 @@ interface AddCamSubareaOptionsProps {
     country: string
     state: string
     area: string
-    subArea: string
+    subarea: string
   }
   areasObjectArray: any
 }
@@ -23,12 +23,12 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
   // Create area options
   useEffect(() => {
     setSubareasObjectArray(
-      areasObjectArray?.filter((ele) => ele.area === values.area)[0]?.subAreas
+      areasObjectArray?.filter((ele) => ele.area === values.area)[0]?.subareas
     )
   }, [values.area])
 
   useEffect(() => {
-    const subareasArray = subareasObjectArray?.map((item) => item.subArea) // ['HI', 'CA', 'FL']
+    const subareasArray = subareasObjectArray?.map((item) => item.subarea) // ['HI', 'CA', 'FL']
     setSubareasSelectOptions(
       subareasArray?.map((subarea) => ({
         value: subarea,
@@ -58,7 +58,7 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
             </select>
           </label>
 
-          <p>Subarea: {values.subArea}</p>
+          <p>Subarea: {values.subarea}</p>
         </div>
       )}
     </>

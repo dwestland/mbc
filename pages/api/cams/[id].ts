@@ -27,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         country: true,
         state: true,
         area: true,
-        subArea: true,
+        subarea: true,
       },
     })
     res.status(200).json({ cams })

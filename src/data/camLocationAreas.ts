@@ -8,37 +8,37 @@ const data = {
           areas: [
             {
               area: 'Maui',
-              subAreas: [
-                { subArea: 'Kaanapali' },
-                { subArea: 'North Shore' },
-                { subArea: 'Napili' },
-                { subArea: 'Lahaina' },
-                { subArea: 'Maui Surf' },
+              subareas: [
+                { subarea: 'Kaanapali' },
+                { subarea: 'North Shore' },
+                { subarea: 'Napili' },
+                { subarea: 'Lahaina' },
+                { subarea: 'Maui Surf' },
               ],
             },
             {
               area: 'Oahu',
-              subAreas: [
-                { subArea: 'Waikiki' },
-                { subArea: 'Honolulu' },
-                { subArea: 'Oahu Surf' },
+              subareas: [
+                { subarea: 'Waikiki' },
+                { subarea: 'Honolulu' },
+                { subarea: 'Oahu Surf' },
               ],
             },
             {
               area: 'Big Island',
-              subAreas: [
-                { subArea: 'Kona' },
-                { subArea: 'Waikoloa Coast' },
-                { subArea: 'Observatory Cams' },
-                { subArea: 'Volcano Cams' },
+              subareas: [
+                { subarea: 'Kona' },
+                { subarea: 'Waikoloa Coast' },
+                { subarea: 'Observatory Cams' },
+                { subarea: 'Volcano Cams' },
               ],
             },
             {
               area: 'Kauai',
-              subAreas: [
-                { subArea: 'Princeville' },
-                { subArea: 'Poipu' },
-                { subArea: 'Lihue' },
+              subareas: [
+                { subarea: 'Princeville' },
+                { subarea: 'Poipu' },
+                { subarea: 'Lihue' },
               ],
             },
           ],
@@ -48,42 +48,42 @@ const data = {
           areas: [
             {
               area: 'San Diego',
-              subAreas: [
-                { subArea: 'Del Mar' },
-                { subArea: 'Mission Bay' },
-                { subArea: 'San Diego Surf' },
-                { subArea: 'More San Diego' },
+              subareas: [
+                { subarea: 'Del Mar' },
+                { subarea: 'Mission Bay' },
+                { subarea: 'San Diego Surf' },
+                { subarea: 'More San Diego' },
               ],
             },
             {
               area: 'Los Angeles',
-              subAreas: [
+              subareas: [
                 {
-                  subArea:
+                  subarea:
                     'Westside - Venice - Santa Monica - Pacific Palisades',
                 },
-                { subArea: 'South Bay' },
-                { subArea: 'Catalina Island' },
-                { subArea: 'Orange County' },
-                { subArea: 'Laguna Beach' },
-                { subArea: 'Los Angeles' },
+                { subarea: 'South Bay' },
+                { subarea: 'Catalina Island' },
+                { subarea: 'Orange County' },
+                { subarea: 'Laguna Beach' },
+                { subarea: 'Los Angeles' },
               ],
             },
             {
               area: 'Central Coast',
-              subAreas: [
-                { subArea: 'Monterey Bay' },
-                { subArea: 'San Luis Obispo' },
-                { subArea: 'Santa Barbara' },
-                { subArea: 'Central Coast Surf Cams' },
+              subareas: [
+                { subarea: 'Monterey Bay' },
+                { subarea: 'San Luis Obispo' },
+                { subarea: 'Santa Barbara' },
+                { subarea: 'Central Coast Surf Cams' },
               ],
             },
             {
               area: 'San Francisco',
-              subAreas: [
-                { subArea: 'San Francisco Bay' },
-                { subArea: 'Mendocino' },
-                { subArea: 'San Francisco Surf Cams' },
+              subareas: [
+                { subarea: 'San Francisco Bay' },
+                { subarea: 'Mendocino' },
+                { subarea: 'San Francisco Surf Cams' },
               ],
             },
           ],
@@ -93,75 +93,75 @@ const data = {
           areas: [
             {
               area: 'Panhandle',
-              subAreas: [
-                { subArea: 'Panama City' },
-                { subArea: 'St. Teresa' },
-                { subArea: 'Pensacola' },
-                { subArea: 'Gulf Breeze' },
-                { subArea: 'Perdido Key' },
-                { subArea: 'Okaloosa Island' },
-                { subArea: 'Navarre Beach' },
-                { subArea: 'Destin Beach' },
-                { subArea: 'Sandestin Beach' },
-                { subArea: 'Cape San Blas' },
+              subareas: [
+                { subarea: 'Panama City' },
+                { subarea: 'St. Teresa' },
+                { subarea: 'Pensacola' },
+                { subarea: 'Gulf Breeze' },
+                { subarea: 'Perdido Key' },
+                { subarea: 'Okaloosa Island' },
+                { subarea: 'Navarre Beach' },
+                { subarea: 'Destin Beach' },
+                { subarea: 'Sandestin Beach' },
+                { subarea: 'Cape San Blas' },
               ],
             },
             {
               area: 'Northeast',
-              subAreas: [
-                { subArea: 'St. Augustine' },
-                { subArea: 'Jacksonville Beach' },
-                { subArea: 'Fernandina Beach' },
-                { subArea: 'Ponte Vedra Beach' },
-                { subArea: 'Flagler Beach' },
+              subareas: [
+                { subarea: 'St. Augustine' },
+                { subarea: 'Jacksonville Beach' },
+                { subarea: 'Fernandina Beach' },
+                { subarea: 'Ponte Vedra Beach' },
+                { subarea: 'Flagler Beach' },
               ],
             },
             {
               area: 'East Central',
-              subAreas: [
-                { subArea: 'Daytona Beach' },
-                { subArea: 'New Smyrna Beach' },
-                { subArea: 'Sebastian Inlet' },
-                { subArea: 'Cocoa Beach' },
-                { subArea: 'Vero Beach' },
-                { subArea: 'Cape Canaveral' },
-                { subArea: 'Ormond Beach' },
-                { subArea: 'Jetty Park' },
-                { subArea: 'Spanish House' },
+              subareas: [
+                { subarea: 'Daytona Beach' },
+                { subarea: 'New Smyrna Beach' },
+                { subarea: 'Sebastian Inlet' },
+                { subarea: 'Cocoa Beach' },
+                { subarea: 'Vero Beach' },
+                { subarea: 'Cape Canaveral' },
+                { subarea: 'Ormond Beach' },
+                { subarea: 'Jetty Park' },
+                { subarea: 'Spanish House' },
               ],
             },
             {
               area: 'Miami Beach',
-              subAreas: [
-                { subArea: 'Miami Beach' },
-                { subArea: 'South Beach' },
+              subareas: [
+                { subarea: 'Miami Beach' },
+                { subarea: 'South Beach' },
               ],
             },
             {
               area: 'South East Florida and The Keys',
-              subAreas: [
-                { subArea: 'Fort Lauderdale' },
-                { subArea: 'Fort Pierce Inlet' },
-                { subArea: 'Jensen Beach' },
-                { subArea: 'Jupiter Inlet' },
-                { subArea: 'West Palm Beach' },
-                { subArea: 'Lake Worth Inlet' },
-                { subArea: 'Boca Raton' },
-                { subArea: 'Hollywood Beach' },
-                { subArea: 'Florida Keys' },
+              subareas: [
+                { subarea: 'Fort Lauderdale' },
+                { subarea: 'Fort Pierce Inlet' },
+                { subarea: 'Jensen Beach' },
+                { subarea: 'Jupiter Inlet' },
+                { subarea: 'West Palm Beach' },
+                { subarea: 'Lake Worth Inlet' },
+                { subarea: 'Boca Raton' },
+                { subarea: 'Hollywood Beach' },
+                { subarea: 'Florida Keys' },
               ],
             },
             {
               area: 'Gulf Coast',
-              subAreas: [
-                { subArea: 'Tampa Bay' },
-                { subArea: 'Sarasota' },
-                { subArea: 'Fort Myers' },
-                { subArea: 'Cape Haze - Charlotte Harbor' },
-                { subArea: 'Captiva Island Off of Cape Coral' },
-                { subArea: 'Vanderbilt south of Cape Coral' },
-                { subArea: 'Naples' },
-                { subArea: 'Clearwater' },
+              subareas: [
+                { subarea: 'Tampa Bay' },
+                { subarea: 'Sarasota' },
+                { subarea: 'Fort Myers' },
+                { subarea: 'Cape Haze - Charlotte Harbor' },
+                { subarea: 'Captiva Island Off of Cape Coral' },
+                { subarea: 'Vanderbilt south of Cape Coral' },
+                { subarea: 'Naples' },
+                { subarea: 'Clearwater' },
               ],
             },
           ],
@@ -180,6 +180,6 @@ const data = {
 // console.log(data.countries[2].country)
 // console.log(data.countries[2].states[0].state)
 // console.log(data.countries[2].states[0].areas[0].area)
-// console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
+// console.log(data.countries[2].states[0].areas[0].subareas[0].subarea)
 
 export default data

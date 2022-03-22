@@ -23,7 +23,7 @@ Content-Type: application/json
     "country": "US",
     "state": "HI",
     "area": "Kauai",
-    "subArea": "Hatteras Island",
+    "subarea": "Hatteras Island",
     "authorId": 1
   }
 }
@@ -43,7 +43,7 @@ Content-Type: application/json
     "country": "US",
     "state": "NC",
     "area": "Outer Banks",
-    "subArea": "Hatteras Island",
+    "subarea": "Hatteras Island",
     "authorId": 1
   }
 }
