@@ -26,44 +26,14 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
     setSubareasObjectArray(
       areasObjectArray?.filter((ele) => ele.area === values.area)[0]?.subAreas
     )
-
-    // //////////////////////////////////////////////////////////////////////////////
-    // const subareasObjectArray = data.countries.filter(
-    //   (ele) => ele.country === values.country
-    // )[0]?.areas
-    // // //////////////////////////////////////////////////////////////////////////////
-    // // console.log(data.countries[2].states[0].areas[0].subAreas[0].subArea)
-    // const subareasArray = subareasObjectArray?.map((item) => item.area)
-    // //  NEED RESULT: ['Maui', 'Oahu', 'Big Island', 'Kauai']
-    // // Create value, label object for area select
-    // setAreaOptions(
-    //   subareasArray?.map((area) => ({
-    //     value: area,
-    //     label: area,
-    //   }))
-    // ) // 0: [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
   }, [values.area])
 
   useEffect(() => {
-    // console.log(
-    //   '%c subareasObjectArray ',
-    //   'background: blue; color: white',
-    //   subareasObjectArray
-    // )
-
     const subareasArray = subareasObjectArray?.map((item) => item.subArea) // ['HI', 'CA', 'FL']
-
-    // console.log(
-    //   '%c subareasArray ',
-    //   'background: blue; color: white',
-    //   subareasArray
-    // )
-
-    // Create value, label object for state select
     setSubareasSelectOptions(
-      subareasArray?.map((area) => ({
-        value: area,
-        label: area,
+      subareasArray?.map((subarea) => ({
+        value: subarea,
+        label: subarea,
       }))
     )
   }, [subareasObjectArray])
@@ -72,24 +42,24 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
     <>
       {subareasSelectOptions?.length > 0 && (
         <div className={styles.row}>
-          <label htmlFor="area">
+          <label htmlFor="subarea">
             Subarea
             <select
-              id="area"
-              name="area"
+              id="subarea"
+              name="subarea"
               className={styles.select}
               onChange={handleInputChange}
             >
-              <option value="" label="Choose area" />
-              {subareasSelectOptions.map((area) => (
-                <option key={area.value} value={area.value}>
-                  {area.label}
+              <option value="" label="Choose subarea" />
+              {subareasSelectOptions.map((subarea) => (
+                <option key={subarea.value} value={subarea.value}>
+                  {subarea.label}
                 </option>
               ))}
             </select>
           </label>
 
-          <p>Subarea: {values.area}</p>
+          <p>Subarea: {values.subArea}</p>
         </div>
       )}
     </>
