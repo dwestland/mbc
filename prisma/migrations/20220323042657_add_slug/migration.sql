@@ -61,19 +61,20 @@ CREATE TABLE "verification_requests" (
 CREATE TABLE "cams" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
-    "slug" TEXT,
     "webcam_url" TEXT NOT NULL,
     "old_image_url" TEXT,
+    "image_name" TEXT,
     "image_url" TEXT,
-    "description" TEXT NOT NULL,
+    "description" TEXT,
     "country" TEXT NOT NULL,
     "state" TEXT,
     "area" TEXT,
     "subarea" TEXT,
     "lat" DECIMAL(8,6),
-    "long" DECIMAL(9,6),
+    "lng" DECIMAL(9,6),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "slug" TEXT,
 
     CONSTRAINT "cams_pkey" PRIMARY KEY ("id")
 );

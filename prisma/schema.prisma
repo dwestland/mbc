@@ -72,28 +72,24 @@ model VerificationRequest {
 }
 
 model Cams {
-  id          Int     @id @default(autoincrement())
-  title       String
-  // title       String @unique
-  slug        String?
-  // slug        String @unique
-  webcamUrl   String  @map(name: "webcam_url")
-  oldImageUrl String? @map(name: "old_image_url")
-  imageUrl    String? @map(name: "image_url")
-  description String
+  id          Int      @id @default(autoincrement())
+  title       String 
+  webcamUrl   String   @map(name: "webcam_url")
+  oldImageUrl String?  @map(name: "old_image_url")
+  imageName   String?  @map(name: "image_name")
+  imageUrl    String?  @map(name: "image_url")
+  description String?
   country     String
   state       String?
   area        String?
-  subarea     String?  @map(name: "subarea")
-
+  subarea     String?
   lat         Decimal?  @db.Decimal(precision: 8, scale: 6)
-  long        Decimal?  @db.Decimal(precision: 9, scale: 6)
-
-  // author   User @relation(fields: [authorId], references: [id])
-  // authorId Int  @map(name: "author_id")
+  lng         Decimal?  @db.Decimal(precision: 9, scale: 6)
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
+
+  slug      String?
 
   @@map(name: "cams")
 }
