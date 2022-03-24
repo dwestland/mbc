@@ -46,13 +46,29 @@ const AddCam = () => {
     e.preventDefault()
 
     // Validation
-    const hasEmptyFields = Object.values(values).some(
-      (element) => element === ''
-    )
+    if (!values.title) {
+      toast.error('Title is required')
+      return
+    }
 
-    if (hasEmptyFields) {
-      toast.error('Please fill in all fields')
-      return null
+    if (!values.webcamUrl) {
+      toast.error('webcamUrl is required')
+      return
+    }
+
+    if (!values.description) {
+      toast.error('Description is required')
+      return
+    }
+
+    if (!values.country) {
+      toast.error('Country is required')
+      return
+    }
+
+    if (!values.imageName) {
+      toast.error('Image is required')
+      return
     }
 
     fetch(url, {
@@ -68,14 +84,13 @@ const AddCam = () => {
         if (res.status === 201) {
           toast.success('Cam Saved')
           setValues(initialState)
+          setPreviewImage('/images/no-image.jpg')
         }
       })
       .catch((error) => {
         toast.error('Error posting to database')
         console.warn(error)
       })
-
-    return null
   }
 
   const handleInputChange = (e: any) => {
