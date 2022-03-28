@@ -1,69 +1,107 @@
 import React from 'react'
-import { useQuery } from 'react-query'
-import { useRouter } from 'next/router'
+import { InferGetStaticPropsType } from 'next'
+import Layout from '@/components/Layout'
+
 import NavbarOld from '@/components/NavbarOld'
 
-interface Article {
-  article: {
-    id: number
-    body: string
-    title: string
-    author: {
-      name: string
-      email: string
-    }
-    _count: {
-      blogLike: number
-    }
-  }
+interface CamsDetailProps {
+  cams: { title: string }[]
+}
+interface Cams {
+  id: string
+  title: string
+  slug: string
+  webcamUrl: string
+  imageName: string
+  oldImageUrl: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+  lat: number
+  lng: number
 }
 
-const Details = () => {
-  const router = useRouter()
-  const { id } = router.query
-
-  const fetchArticle = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/blog/${+id}`)
-    return res.json()
-  }
-
-  const { data, error, isLoading, isError } = useQuery<Article, Error>(
-    'article',
-    fetchArticle
-    // { staleTime: 2000 }
-  )
-  console.log('%c data ', 'background: red; color: white', data)
-  if (isLoading) {
-    return (
-      <div className="container">
-        <NavbarOld />
-        <span>Loading...</span>
-      </div>
-    )
-  }
-
-  if (isError) {
-    return <span>Error: {error?.message}</span>
-  }
+const Details = ({
+  cams,
+}: InferGetStaticPropsType<typeof getServerSideProps>) => {
   console.log(
-    '%c data.article ',
-    'background: blue; color: white',
-    data.article
+    '%c CamDetails cams.cams ',
+    'background: purple; color: white',
+    cams.cams
   )
-  const { title, body, author, _count } = data.article
-  const bestName = author.name ?? author.email
+
+  console.log(
+    '%c CamDetails cams.cams.title ',
+    'background: purple; color: white',
+    cams.cams.title
+  )
 
   return (
-    <div className="container">
-      <NavbarOld />
-      <h1>Blog details</h1>
-      <h2>{title}</h2>
-      <p>
-        By <i>{bestName}</i>
-      </p>
-      <p>Likes {_count.blogLike}</p>
-      <p>{body}</p>
-    </div>
+    <Layout
+      title="MyBeachCams.com - Webcams of Hawaii, Florida and California"
+      description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
+    >
+      <div className="layout">
+        <NavbarOld />
+        <h1>Cam Details</h1>
+        <ul>
+          <li>
+            <strong>ID:</strong> {cams.cams.id}
+          </li>
+          <li>
+            <strong>Title:</strong> {cams.cams.title}
+          </li>
+          <li>
+            <strong>Slug:</strong> {cams.cams.slug}
+          </li>
+          <li>
+            <strong>webcamUrl:</strong> {cams.cams.webcamUrl}
+          </li>
+          <li>
+            <strong>imageName:</strong> {cams.cams.imageName}
+          </li>
+          <li>
+            <strong>oldImageUrl:</strong> {cams.cams.oldImageUrl}
+          </li>
+          <li>
+            <strong>description:</strong> {cams.cams.description}
+          </li>
+          <li>
+            <strong>country:</strong> {cams.cams.country}
+          </li>
+          <li>
+            <strong>state:</strong> {cams.cams.state}
+          </li>
+          <li>
+            <strong>area:</strong> {cams.cams.area}
+          </li>
+          <li>
+            <strong>subarea:</strong> {cams.cams.subarea}
+          </li>
+          <li>
+            <strong>lat:</strong> {cams.cams.lat}
+          </li>
+          <li>
+            <strong>lng:</strong> {cams.cams.lng}
+          </li>
+        </ul>
+      </div>
+    </Layout>
   )
 }
+
+export async function getServerSideProps(context) {
+  const { id } = context.query
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
+  const cams: CamsDetailProps = await res.json()
+
+  return {
+    props: {
+      cams,
+    },
+  }
+}
+
 export default Details
