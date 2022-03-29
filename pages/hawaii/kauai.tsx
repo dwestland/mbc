@@ -14,12 +14,15 @@ interface Cams {
   slug: string
   webcamUrl: string
   imageUrl: string
+  imageName: string
   oldImageUrl: string
   description: string
   country: string
   state: string
   area: string
   subarea: string
+  lat: number
+  lng: number
 }
 
 const KauaiPage = ({

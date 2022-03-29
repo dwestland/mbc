@@ -1,5 +1,8 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
+import Link from 'next/link'
+import Image from 'next/image'
+import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
 import Layout from '@/components/Layout'
 
 import NavbarOld from '@/components/NavbarOld'
@@ -32,11 +35,26 @@ const Details = ({
     cams.cams
   )
 
-  console.log(
-    '%c CamDetails cams.cams.title ',
-    'background: purple; color: white',
-    cams.cams.title
-  )
+  const {
+    id,
+    title,
+    slug,
+    webcamUrl,
+    imageName,
+    description,
+    country,
+    state,
+    area,
+    subarea,
+    lat,
+    lng,
+  } = cams.cams
+
+  console.log('%c CamDetails title ', 'background: purple; color: white', title)
+
+  const imageUrl: string = imageName
+    ? process.env.IMAGE_SRC_ROOT + imageName
+    : '/images/no-image.jpg'
 
   return (
     <Layout
@@ -48,45 +66,59 @@ const Details = ({
         <h1>Cam Details</h1>
         <ul>
           <li>
-            <strong>ID:</strong> {cams.cams.id}
+            <strong>ID:</strong> {id}
           </li>
           <li>
-            <strong>Title:</strong> {cams.cams.title}
+            <strong>Title:</strong> {title}
+          </li>
+
+          <li>
+            <strong>webcamUrl:</strong>&nbsp;
+            <Link href={webcamUrl}>
+              <a target="_blank">{webcamUrl}</a>
+            </Link>
           </li>
           <li>
-            <strong>Slug:</strong> {cams.cams.slug}
+            <strong>imageName:</strong> {imageName}
+            <br />
+            <Image src={imageUrl} width={260} height={195} alt={title} />
           </li>
           <li>
-            <strong>webcamUrl:</strong> {cams.cams.webcamUrl}
+            <strong>description:</strong> {description}
           </li>
           <li>
-            <strong>imageName:</strong> {cams.cams.imageName}
+            <strong>country:</strong> {country}
           </li>
           <li>
-            <strong>oldImageUrl:</strong> {cams.cams.oldImageUrl}
+            <strong>state:</strong> {state}
           </li>
           <li>
-            <strong>description:</strong> {cams.cams.description}
+            <strong>area:</strong> {area}
           </li>
           <li>
-            <strong>country:</strong> {cams.cams.country}
+            <strong>subarea:</strong> {subarea}
           </li>
           <li>
-            <strong>state:</strong> {cams.cams.state}
+            <strong>lat:</strong> {lat}
           </li>
           <li>
-            <strong>area:</strong> {cams.cams.area}
-          </li>
-          <li>
-            <strong>subarea:</strong> {cams.cams.subarea}
-          </li>
-          <li>
-            <strong>lat:</strong> {cams.cams.lat}
-          </li>
-          <li>
-            <strong>lng:</strong> {cams.cams.lng}
+            <strong>lng:</strong> {lng}
           </li>
         </ul>
+        {/* <MapContainer center={[33.9765, -118.4483]} zoom={14}>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[33.9765, -118.4483]}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+            <Tooltip direction="bottom" offset={[-10, 40]}>
+              Tooltip for Marker
+            </Tooltip>
+          </Marker>
+        </MapContainer> */}
       </div>
     </Layout>
   )

@@ -18,6 +18,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     state,
     area,
     subarea,
+    lat,
+    lng,
   } = req.body.data
 
   try {
@@ -32,6 +34,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         state,
         area,
         subarea,
+        lat,
+        lng,
       },
     })
 

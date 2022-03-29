@@ -12,6 +12,7 @@ interface CamItemProps {
     webcamUrl: string
     imageUrl: string
     oldImageUrl: string
+    imageName: string
     description: string
     country: string
     state: string
@@ -21,10 +22,36 @@ interface CamItemProps {
 }
 
 const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
-  const imageUrl: string =
-    cam.imageUrl || cam.oldImageUrl || '/images/no-image.jpg'
+  const imageUrl: string = cam.imageName
+    ? process.env.IMAGE_SRC_ROOT + cam.imageName
+    : '/images/no-image.jpg'
+  cam.imageUrl || cam.oldImageUrl || '/images/no-image.jpg'
   const [session] = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
+
+  // console.log(
+  //   '%c process.env.IMAGE_SRC_ROOT ',
+  //   'background: red; color: white',
+  //   process.env.IMAGE_SRC_ROOT
+  // )
+
+  // console.log(
+  //   '%c process.env.NEXT_PUBLIC_API ',
+  //   'background: red; color: white',
+  //   process.env.NEXT_PUBLIC_API
+  // )
+
+  // console.log(
+  //   '%c process.env.IMAGE_SRC_ROOT + cam.imageName ',
+  //   'background: red; color: white',
+  //   process.env.IMAGE_SRC_ROOT + cam.imageName
+  // )
+
+  console.log(
+    '%c cam.imageName ',
+    'background: red; color: white',
+    cam.imageName
+  )
 
   useEffect(() => {
     if (session?.role === 'ADMIN') {
@@ -35,7 +62,6 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <h1>{cam.imageUrl}</h1>
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <Image src={imageUrl} width={260} height={195} alt={cam.title} />
         </a>
@@ -49,7 +75,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
       {isAdmin && (
         <div className={styles.footer}>
           <div className={styles.link}>
-            <Link href={`/cams/${cam.slug}`}>
+            <Link href={`/detail/${cam.id}`}>
               <a className="button button-primary">Details</a>
             </Link>
           </div>
