@@ -2,12 +2,12 @@
 @baseurl = http://localhost:3000/api
 
 
-### Get all cams
+### Get all cams  
 GET {{baseurl}}/cams HTTP/1.1
 
 
 ### Get cam by ID
-GET {{baseurl}}/cams/2 HTTP/1.1
+GET {{baseurl}}/cams/289 HTTP/1.1
 
 
 ### Add Cam
@@ -16,15 +16,18 @@ Content-Type: application/json
 
 {
   "data": {
-    "title": "zzz3My New Title",
+    "title": "My New Title",
+    "slug": null,
     "webcamUrl": "http://www.westland.net",
-    "imageUrl": "https://www.mybeachcams.com/images/westinprincevillecam.jpg",
-    "description": "This is a live web cam description. This is a live web cam description. This is a live web cam description.",
-    "country": "US",
+    "imageName": "my image name",
+    "oldImageUrl": null,
+    "description": "This is a live web cam description.",
+    "country": "USA",
     "state": "HI",
     "area": "Kauai",
     "subarea": "Hatteras Island",
-    "authorId": 1
+    "lat": 33.9748,
+    "lng": -118.4480
   }
 }
 
@@ -35,16 +38,18 @@ Content-Type: application/json
 
 {
   "data": {
-    "id": 273,
-    "title": "xxxMy New Title",
+    "title": "zzz3My New Title",
+    "slug": null,
     "webcamUrl": "http://www.westland.net",
-    "oldImageUrl": "https://www.mybeachcams.com/images/westinprincevillecam.jpg",
-    "description": "yyyThis is a live web cam description. This is a live web cam description. This is a live web cam description.",
-    "country": "US",
-    "state": "NC",
-    "area": "Outer Banks",
+    "imageName": null,
+    "oldImageUrl": null,
+    "description": "This is a live web cam description. This is a live web cam description. This is a live web cam description.",
+    "country": "USA",
+    "state": "HI",
+    "area": "Kauai",
     "subarea": "Hatteras Island",
-    "authorId": 1
+    "lat": "33.9748",
+    "lng": "-118.448"
   }
 }
 
