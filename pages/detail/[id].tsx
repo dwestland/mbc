@@ -2,7 +2,7 @@ import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 
 import NavbarOld from '@/components/NavbarOld'
@@ -29,11 +29,9 @@ interface Cams {
 const Details = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  console.log(
-    '%c CamDetails cams.cams ',
-    'background: purple; color: white',
-    cams.cams
-  )
+  const DetailsMap = dynamic(() => import('@/components/DetailsMap'), {
+    ssr: false,
+  })
 
   const {
     id,
@@ -49,8 +47,6 @@ const Details = ({
     lat,
     lng,
   } = cams.cams
-
-  console.log('%c CamDetails title ', 'background: purple; color: white', title)
 
   const imageUrl: string = imageName
     ? process.env.IMAGE_SRC_ROOT + imageName
@@ -81,7 +77,7 @@ const Details = ({
           <li>
             <strong>imageName:</strong> {imageName}
             <br />
-            <Image src={imageUrl} width={260} height={195} alt={title} />
+            <Image src={imageUrl} width={400} height={300} alt={title} />
           </li>
           <li>
             <strong>description:</strong> {description}
@@ -105,20 +101,7 @@ const Details = ({
             <strong>lng:</strong> {lng}
           </li>
         </ul>
-        {/* <MapContainer center={[33.9765, -118.4483]} zoom={14}>
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <Marker position={[33.9765, -118.4483]}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-            <Tooltip direction="bottom" offset={[-10, 40]}>
-              Tooltip for Marker
-            </Tooltip>
-          </Marker>
-        </MapContainer> */}
+        <DetailsMap lat={lat || 0} lng={lng || 0} />
       </div>
     </Layout>
   )
