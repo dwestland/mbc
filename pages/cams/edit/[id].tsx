@@ -14,6 +14,9 @@ import Layout from '@/components/Layout'
 
 import NavbarOld from '@/components/NavbarOld'
 
+import MapModal from '@/components/MapModal'
+import ImageUploadModal from '@/components/ImageUploadModal'
+
 interface CamsEditProps {
   cams: { title: string }[]
 }
@@ -182,7 +185,8 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
             },
           }}
         />
-        <h1>Add Cam</h1>
+        <NavbarOld />
+        <h1>Edit Cam</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
@@ -249,6 +253,54 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                 </label>
               </div>
               <div className={styles.row}>
+                <label htmlFor="country">
+                  Country
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={values.country}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="state">
+                  State
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    value={values.state}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="area">
+                  Area
+                  <input
+                    type="text"
+                    id="area"
+                    name="area"
+                    value={values.area}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="subarea">
+                  Subarea
+                  <input
+                    type="text"
+                    id="subarea"
+                    name="subarea"
+                    value={values.subarea}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
                 <div className={styles.latLngContainer}>
                   <button
                     className="btn ghostButton"
@@ -298,67 +350,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
       )}
     </Layout>
   )
-
-  // const [values, setValues] = useState(initialState)
-
-  // console.log('%c CamDetails title ', 'background: purple; color: white', title)
-
-  // const imageUrl: string = imageName
-  //   ? process.env.IMAGE_SRC_ROOT + imageName
-  //   : '/images/no-image.jpg'
-
-  // return (
-  //   <Layout
-  //     title="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-  //     description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
-  //   >
-  //     <div className="layout">
-  //       <NavbarOld />
-  //       <h1>Cam Edit</h1>
-  //       <ul>
-  //         <li>
-  //           <strong>ID:</strong> {id}
-  //         </li>
-  //         <li>
-  //           <strong>Title:</strong> {title}
-  //         </li>
-  //         <li>
-  //           <strong>webcamUrl:</strong>&nbsp;
-  //           <Link href={webcamUrl}>
-  //             <a target="_blank">{webcamUrl}</a>
-  //           </Link>
-  //         </li>
-  //         <li>
-  //           <strong>imageName:</strong> {imageName}
-  //           <br />
-  //           <Image src={imageUrl} width={400} height={300} alt={title} />
-  //         </li>
-  //         <li>
-  //           <strong>description:</strong> {description}
-  //         </li>
-  //         <li>
-  //           <strong>country:</strong> {country}
-  //         </li>
-  //         <li>
-  //           <strong>state:</strong> {state}
-  //         </li>
-  //         <li>
-  //           <strong>area:</strong> {area}
-  //         </li>
-  //         <li>
-  //           <strong>subarea:</strong> {subarea}
-  //         </li>
-  //         <li>
-  //           <strong>lat:</strong> {lat}
-  //         </li>
-  //         <li>
-  //           <strong>lng:</strong> {lng}
-  //         </li>
-  //       </ul>
-  //       <DetailsMap lat={lat || 0} lng={lng || 0} />
-  //     </div>
-  //   </Layout>
-  // )
 }
 
 export async function getServerSideProps(context) {
