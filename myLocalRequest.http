@@ -33,21 +33,22 @@ Content-Type: application/json
 
 
 ### Edit Cam
-PUT {{baseurl}}/cams/update HTTP/1.1
+PUT {{baseurl}}/cams/edit/ HTTP/1.1
 Content-Type: application/json
 
 {
   "data": {
-    "title": "zzz3My New Title",
+    "id": 291,
+    "title": "xzzz3My New Title",
     "slug": null,
-    "webcamUrl": "http://www.westland.net",
-    "imageName": null,
+    "webcamUrl": "xhttp://www.westland.net",
+    "imageName": "xMy image name",
     "oldImageUrl": null,
-    "description": "This is a live web cam description. This is a live web cam description. This is a live web cam description.",
-    "country": "USA",
-    "state": "HI",
-    "area": "Kauai",
-    "subarea": "Hatteras Island",
+    "description": "xThis is a live web cam description.",
+    "country": "xUSA",
+    "state": "xHI",
+    "area": "xKauai",
+    "subarea": "xHatteras Island",
     "lat": "33.9748",
     "lng": "-118.448"
   }

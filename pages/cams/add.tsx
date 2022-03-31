@@ -8,22 +8,21 @@ import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
-const initialState = {
-  title: '',
-  webcamUrl: '',
-  imageName: '',
-  description: '',
-  country: '',
-  state: '',
-  area: '',
-  subarea: '',
-  lat: 0,
-  lng: 0,
-}
-
 const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
 
 const AddCam = () => {
+  const initialState = {
+    title: '',
+    webcamUrl: '',
+    imageName: '',
+    description: '',
+    country: '',
+    state: '',
+    area: '',
+    subarea: '',
+    lat: 0,
+    lng: 0,
+  }
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
