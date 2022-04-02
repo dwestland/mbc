@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react'
 import Link from 'next/link'
 
@@ -11,8 +12,8 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="menu-wrapper">
+          <input className="menu-btn" type="checkbox" id="menu-btn" />
           <label className="menu-icon" htmlFor="menu-btn">
-            <input className="menu-btn" type="checkbox" id="menu-btn" />
             <span className="navicon" />
           </label>
           <ul className="menu">
