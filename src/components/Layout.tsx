@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Showcase from './Showcase'
 import LoginLogout from '@/components/LoginLogout'
+import Search from '@/components/Search'
 import AdminNav from './AdminNav'
 import Footer from './Footer'
 import styles from '@/styles/Layout.module.scss'
@@ -39,13 +40,14 @@ const Layout: FC<LayoutProps> = ({
       <div className={styles.body}>
         <Navbar />
         <Showcase />
-        <div className={styles.container}>
+        <div className={styles.secondaryNav}>
           <LoginLogout />
-
+          <Search />
+        </div>
+        <div className={styles.container}>
           {isAdmin && <AdminNav />}
           {children}
         </div>
-
         <Footer />
       </div>
     </div>

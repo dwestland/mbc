@@ -28,7 +28,7 @@
 // TODO: Add media query for single row
 
 .card {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   border: none;
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
   display: flex;
@@ -54,6 +54,18 @@
 
   .footer {
     background: var(--lightest-olive);
+    display: flex;
+    justify-content: space-around;
     margin-top: auto;
+    button {
+      background: none;
+      border: none;
+      color: #1eaedb;
+      cursor: pointer;
+      text-decoration: underline;
+      &:hover {
+        color: #0b83a1;
+      }
+    }
   }
 }
