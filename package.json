@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@prisma/client": "3.2.0",
+    "@sendgrid/mail": "^7.6.2",
     "@types/node": "^16.9.6",
     "@types/react": "^17.0.24",
     "eslint-config-prettier": "^8.3.0",
