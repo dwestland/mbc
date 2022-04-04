@@ -12,8 +12,6 @@ import styles from '@/styles/Form.module.scss'
 import Layout from '@/components/Layout'
 // import DetailsMap from '@/components/DetailsMap'
 
-import NavbarOld from '@/components/NavbarOld'
-
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
@@ -185,7 +183,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
             },
           }}
         />
-        <NavbarOld />
         <h1>Edit Cam</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>

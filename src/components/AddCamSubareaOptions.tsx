@@ -57,8 +57,6 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
               ))}
             </select>
           </label>
-
-          <p>Subarea: {values.subarea}</p>
         </div>
       )}
     </>

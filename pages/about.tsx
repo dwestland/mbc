@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 
-const IndexPage = () => {
-  console.log('%c Home Page ', 'background: red; color: white')
+const About = () => {
+  console.log('%c About Page ', 'background: red; color: white')
 
   return (
     <Layout
@@ -11,7 +11,7 @@ const IndexPage = () => {
     >
       <div className="layout">
         <div className="container">
-          <h1>Welcome to MyBeachCams.com</h1>
+          <h1>About Page</h1>
           <br />
         </div>
       </div>
@@ -19,4 +19,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default About

@@ -1,9 +1,9 @@
 .input {
   border-radius: 5px;
   border: 1px solid black;
-  float: right;
+  /* float: right; */
   height: 30px;
-  margin-top: -4px;
+  /* margin-top: -4px; */
   padding: 5px;
-  width: 125px;
+  width: 150px;
 }

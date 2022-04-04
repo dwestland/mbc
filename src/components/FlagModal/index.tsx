@@ -20,6 +20,10 @@ export default function FlagModal({
     onClose()
   }
 
+  const handleOnSubmit = () => {
+    console.log('%c handleOnSubmit ', 'background: red; color: white')
+  }
+
   const modalContent = (
     <div className={styles.overlay}>
       <div className={styles.modal}>
@@ -47,9 +51,55 @@ export default function FlagModal({
               <br />
               {subarea}, {area}, {state}, {country}
             </p>
-            <br />
-            <br />
+            <form
+              method="post"
+              onSubmit={handleOnSubmit}
+              className={styles.form}
+            >
+              <p>What's wrong?</p>
+              {/* <div>
+  <input type="radio" id="huey" name="drone" value="huey"
+         checked>
+  <label for="huey">Huey</label>
+</div>
 
+<div>
+  <input type="radio" id="dewey" name="drone" value="dewey">
+  <label for="dewey">Dewey</label>
+</div>
+
+<div>
+  <input type="radio" id="louie" name="drone" value="louie">
+  <label for="louie">Louie</label>
+</div> */}
+
+              <div className={styles.grid}>
+                <div>
+                  <label htmlFor="description">
+                    <textarea name="description" />
+                  </label>
+                </div>
+                Optional:
+                <div>
+                  <label htmlFor="name">
+                    Name
+                    <input type="text" name="name" />
+                  </label>
+                </div>
+                <div>
+                  <label htmlFor="email">
+                    Email
+                    <input type="email" name="email" />
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" className="btn">
+                Submit
+              </button>
+            </form>
+            <br />
+            <br />
             <div className={styles.buttonContainer}>
               <button type="button" onClick={deleteCam} className="btn">
                 Flag Cam

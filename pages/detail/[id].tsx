@@ -5,8 +5,6 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 
-import NavbarOld from '@/components/NavbarOld'
-
 interface CamsDetailProps {
   cams: { title: string }[]
 }
@@ -58,7 +56,6 @@ const Details = ({
       description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
-        <NavbarOld />
         <h1>Cam Details</h1>
         <ul>
           <li>
