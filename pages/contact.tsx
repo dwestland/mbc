@@ -45,7 +45,9 @@ export default function ContactPage({ cams }) {
             <textarea name="message" />
           </label>
         </div>
-        <button className="btn">Submit</button>
+        <button type="submit" className="btn">
+          Submit
+        </button>
       </form>
     </Layout>
   )
