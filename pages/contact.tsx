@@ -1,20 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import styles from '@/styles/Form.module.scss'
 
 export default function ContactPage({ cams }) {
-  async function handleOnSubmit(e) {
+  const initialState = {
+    name: '',
+    email: '',
+    message: '',
+  }
+
+  const [values, setValues] = useState(initialState)
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target
+    setValues({ ...values, [name]: value })
+  }
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const formData = {}
-    Array.from(e.currentTarget.elements).forEach((field) => {
-      if (!field.name) return
-      formData[field.name] = field.value
+
+    // Validation
+    const hasEmptyFields = Object.values(values).some(
+      (element) => element === ''
+    )
+
+    if (hasEmptyFields) {
+      toast.error('Please fill in all fields')
+      return null
+    }
+
+    const res = await fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(values),
     })
-    fetch('/api/mail', {
-      method: 'post',
-      body: JSON.stringify(formData),
-    })
-    console.log('%c formData ', 'background: red; color: white', formData)
+
+    if (!res.ok) {
+      // if (res.status === 403 || res.status === 401) {
+      //   toast.error('No token included')
+      //   return
+      // }
+      toast.error('Something Went Wrong')
+    } else {
+      toast.success('Message sent')
+      setValues(initialState)
+
+      const cam = await res.json() // ???
+    }
   }
 
   return (
@@ -22,27 +58,50 @@ export default function ContactPage({ cams }) {
       title="MyBeachCams.com - Contact Page"
       description="Please use this form to contact us"
     >
+      {/* <div className="layout"></div> ??? */}
+      <Toaster
+        toastOptions={{
+          style: {
+            height: '60px',
+            border: '1px solid lightgray',
+          },
+        }}
+      />
       <h1>Contact Us</h1>
       <h2>Please send us a message</h2>
-      <form method="post" onSubmit={handleOnSubmit} className={styles.form}>
+      <form method="post" onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.grid}>
           <div>
             <label htmlFor="name">
               Name
-              <input type="text" name="name" />
+              <input
+                type="text"
+                name="name"
+                value={values.name}
+                onChange={handleInputChange}
+              />
             </label>
           </div>
           <div>
             <label htmlFor="email">
               Email
-              <input type="email" name="email" />
+              <input
+                type="email"
+                name="email"
+                value={values.email}
+                onChange={handleInputChange}
+              />
             </label>
           </div>
         </div>
         <div>
           <label htmlFor="message">
             Message
-            <textarea name="message" />
+            <textarea
+              name="message"
+              value={values.message}
+              onChange={handleInputChange}
+            />
           </label>
         </div>
         <button type="submit" className="btn">

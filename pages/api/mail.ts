@@ -5,7 +5,7 @@ import mail from '@sendgrid/mail'
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 
 export default function init(req, res) {
-  const body = JSON.parse(req.body)
+  const { body } = req
 
   const message = `
   Name: ${body.name}\r\n
