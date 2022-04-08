@@ -1,20 +1,71 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import toast, { Toaster } from 'react-hot-toast'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
 export default function FlagModal({
   onClose,
-  deleteCam,
   title,
   country,
   state,
   area,
   subarea,
 }) {
+  const initialState = {
+    name: '',
+    email: '',
+    message: '',
+  }
   const [isBrowser, setIsBrowser] = useState(false)
+  const [description, setDescription] = useState('')
+  const [message, setMessage] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [values, setValues] = useState(initialState)
 
   useEffect(() => setIsBrowser(true))
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target
+    setValues({ ...values, [name]: value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    // Validation
+    const hasEmptyFields = Object.values(values).some(
+      (element) => element === ''
+    )
+
+    if (hasEmptyFields) {
+      toast.error('Please fill in all fields')
+      return null
+    }
+
+    const res = await fetch('/api/mail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(values),
+    })
+
+    if (!res.ok) {
+      // if (res.status === 403 || res.status === 401) {
+      //   toast.error('No token included')
+      //   return
+      // }
+      toast.error('Something Went Wrong')
+    } else {
+      toast.success('Message sent')
+      setValues(initialState)
+
+      const cam = await res.json() // ???
+    }
+  }
 
   const handleClose = () => {
     onClose()
@@ -56,40 +107,84 @@ export default function FlagModal({
               onSubmit={handleOnSubmit}
               className={styles.form}
             >
-              <p>What's wrong?</p>
-              {/* <div>
-  <input type="radio" id="huey" name="drone" value="huey"
-         checked>
-  <label for="huey">Huey</label>
-</div>
+              {/* TODO: Submit to SendGrid */}
 
-<div>
-  <input type="radio" id="dewey" name="drone" value="dewey">
-  <label for="dewey">Dewey</label>
-</div>
-
-<div>
-  <input type="radio" id="louie" name="drone" value="louie">
-  <label for="louie">Louie</label>
-</div> */}
+              <div className="radio">
+                What's wrong?
+                <br />
+                <label htmlFor="cam-down">
+                  <input
+                    type="radio"
+                    id="cam-down"
+                    value="description"
+                    checked={description === 'Cam Down'}
+                    onClick={() => setDescription('Cam Down')}
+                  />
+                  &nbsp;Cam Down
+                </label>
+              </div>
+              <div className="radio">
+                <label htmlFor="broken-link">
+                  <input
+                    type="radio"
+                    id="broken-link"
+                    value="description"
+                    checked={description === 'Broken Link'}
+                    onClick={() => setDescription('Broken Link')}
+                  />
+                  &nbsp;Broken Link
+                </label>
+              </div>
+              <div className="radio">
+                <label htmlFor="other">
+                  <input
+                    type="radio"
+                    id="other"
+                    value="description"
+                    checked={description === 'Other'}
+                    onClick={() => setDescription('Other')}
+                  />
+                  &nbsp;Other
+                </label>
+              </div>
 
               <div className={styles.grid}>
                 <div>
-                  <label htmlFor="description">
-                    <textarea name="description" />
+                  <label htmlFor="message">
+                    <textarea
+                      placeholder="Message"
+                      name="message"
+                      id="message"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
                   </label>
                 </div>
                 Optional:
                 <div>
                   <label htmlFor="name">
                     Name
-                    <input type="text" name="name" />
+                    <input
+                      placeholder="Name"
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
                   </label>
                 </div>
                 <div>
                   <label htmlFor="email">
                     Email
-                    <input type="email" name="email" />
+                    <input
+                      placeholder="Email"
+                      type="email"
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </label>
                 </div>
               </div>
@@ -101,7 +196,7 @@ export default function FlagModal({
             <br />
             <br />
             <div className={styles.buttonContainer}>
-              <button type="button" onClick={deleteCam} className="btn">
+              <button type="button" className="btn">
                 Flag Cam
               </button>
               <button
