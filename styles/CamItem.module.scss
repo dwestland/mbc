@@ -53,10 +53,19 @@
   }
 
   .footer {
-    background: var(--lightest-olive);
     display: flex;
-    justify-content: space-around;
+    flex-flow: column;
+    font-size: small;
     margin-top: auto;
+    .admin {
+      display: flex;
+      justify-content: space-around;
+      background: var(--lightest-olive);
+    }
+    .user {
+      display: flex;
+      justify-content: space-around;
+    }
     button {
       background: none;
       border: none;

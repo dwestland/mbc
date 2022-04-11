@@ -83,24 +83,22 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
         </a>
         {cam.description}
       </div>
+      <div className={styles.footer}>
+        {isAdmin && (
+          <div className={styles.admin}>
+            <div className={styles.link}>ID:{cam.id}</div>
 
-      {isAdmin ? (
-        <div className={styles.footer}>
-          <div className={styles.link}>ID:{cam.id}</div>
-          <div className={styles.link}>
-            <Link href={`/detail/${cam.id}`}>
-              <a className="button button-primary">Details</a>
-            </Link>
+            <div className={styles.link}>
+              <Link href={`/cams/edit/${cam.id}`}>
+                <a className="button button-primary">Edit</a>
+              </Link>
+            </div>
+            <button type="button" onClick={handleDelete}>
+              Delete Cam
+            </button>
           </div>
-          <button type="button" onClick={handleDelete}>
-            Delete Cam
-          </button>
-          <button type="button" onClick={handleFlag}>
-            Flag this Cam
-          </button>
-        </div>
-      ) : (
-        <div className={styles.footer} style={{ background: 'none' }}>
+        )}
+        <div className={styles.user}>
           <div className={styles.link}>
             <Link href={`/detail/${cam.id}`}>
               <a className="button button-primary">Details</a>
@@ -110,7 +108,7 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
             Flag this Cam
           </button>
         </div>
-      )}
+      </div>
       {showDeleteModal && (
         <DeleteModal
           // title={values.title}
