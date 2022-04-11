@@ -4,8 +4,11 @@ import toast, { Toaster } from 'react-hot-toast'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
+// TODO: Refactor
+
 export default function FlagModal({
   onClose,
+  id,
   title,
   country,
   state,
@@ -16,12 +19,15 @@ export default function FlagModal({
     name: '',
     email: '',
     message: '',
+    type: '',
+    id,
+    title,
+    country,
+    state,
+    area,
+    subarea,
   }
   const [isBrowser, setIsBrowser] = useState(false)
-  const [description, setDescription] = useState('')
-  const [message, setMessage] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
   const [values, setValues] = useState(initialState)
 
   useEffect(() => setIsBrowser(true))
@@ -33,37 +39,32 @@ export default function FlagModal({
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log('%c handleSubmit ', 'background: red; color: white')
 
     // Validation
-    const hasEmptyFields = Object.values(values).some(
-      (element) => element === ''
-    )
-
-    if (hasEmptyFields) {
-      toast.error('Please fill in all fields')
+    if (values.type === '') {
+      toast.error("Please tell us what's wrong")
       return null
     }
 
-    const res = await fetch('/api/mail', {
+    if (values.type === 'Other' && values.message === '') {
+      toast.error("Please tell us what's wrong")
+      return null
+    }
+
+    const res = await fetch('/api/flag', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(values),
     })
 
     if (!res.ok) {
-      // if (res.status === 403 || res.status === 401) {
-      //   toast.error('No token included')
-      //   return
-      // }
       toast.error('Something Went Wrong')
     } else {
-      toast.success('Message sent')
       setValues(initialState)
-
-      const cam = await res.json() // ???
+      onClose()
     }
   }
 
@@ -71,13 +72,22 @@ export default function FlagModal({
     onClose()
   }
 
-  const handleOnSubmit = () => {
-    console.log('%c handleOnSubmit ', 'background: red; color: white')
-  }
+  // const handleOnSubmit = () => {
+  //   console.log('%c handleOnSubmit ', 'background: red; color: white')
+  // }
 
   const modalContent = (
     <div className={styles.overlay}>
       <div className={styles.modal}>
+        <Toaster
+          toastOptions={{
+            style: {
+              height: '60px',
+              border: '1px solid lightgray',
+              marginTop: '50vh',
+            },
+          }}
+        />
         <div className={styles.header}>
           <button
             className={styles.xButton}
@@ -92,33 +102,34 @@ export default function FlagModal({
 
         <div className={styles.body}>
           <div className={styles.form}>
-            <h1>Flag Cam</h1>
-            <p>
-              Thanks for flagging the cam. The issue will be sent to our review
-              team.
-            </p>
-            <p>
-              Cam flagged: <strong>{title}</strong>
-              <br />
-              {subarea}, {area}, {state}, {country}
-            </p>
-            <form
-              method="post"
-              onSubmit={handleOnSubmit}
-              className={styles.form}
-            >
-              {/* TODO: Submit to SendGrid */}
+            <form method="post" onSubmit={handleSubmit} className={styles.form}>
+              <h1>Flag Cam</h1>
+              <p>
+                Thanks for flagging the cam. This issue will be sent to our
+                review team.
+              </p>
+              <h3>
+                Cam flagged: <strong>{title}</strong>
+              </h3>
+              <h4>
+                {subarea}, {area}, {state}, {country}
+              </h4>
 
+              {/* TODO: Submit to SendGrid */}
               <div className="radio">
-                What's wrong?
                 <br />
+                <p>
+                  <strong>What's wrong?</strong>
+                </p>
                 <label htmlFor="cam-down">
                   <input
                     type="radio"
-                    id="cam-down"
-                    value="description"
-                    checked={description === 'Cam Down'}
-                    onClick={() => setDescription('Cam Down')}
+                    name="type"
+                    // id="cam-down"
+                    value="Cam Down"
+                    checked={values.type === 'Cam Down'}
+                    // onClick={() => setType('Cam Down')}
+                    onChange={handleInputChange}
                   />
                   &nbsp;Cam Down
                 </label>
@@ -127,10 +138,12 @@ export default function FlagModal({
                 <label htmlFor="broken-link">
                   <input
                     type="radio"
-                    id="broken-link"
-                    value="description"
-                    checked={description === 'Broken Link'}
-                    onClick={() => setDescription('Broken Link')}
+                    name="type"
+                    // id="Broken Link"
+                    value="Broken Link"
+                    checked={values.type === 'Broken Link'}
+                    // onClick={() => setType('Broken Link')}
+                    onChange={handleInputChange}
                   />
                   &nbsp;Broken Link
                 </label>
@@ -139,10 +152,12 @@ export default function FlagModal({
                 <label htmlFor="other">
                   <input
                     type="radio"
-                    id="other"
-                    value="description"
-                    checked={description === 'Other'}
-                    onClick={() => setDescription('Other')}
+                    name="type"
+                    // id="other"
+                    value="Other"
+                    checked={values.type === 'Other'}
+                    // onClick={() => setType('Other')}
+                    onChange={handleInputChange}
                   />
                   &nbsp;Other
                 </label>
@@ -155,8 +170,8 @@ export default function FlagModal({
                       placeholder="Message"
                       name="message"
                       id="message"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
+                      value={values.message}
+                      onChange={handleInputChange}
                     />
                   </label>
                 </div>
@@ -169,8 +184,8 @@ export default function FlagModal({
                       type="text"
                       id="name"
                       name="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
+                      value={values.name}
+                      onChange={handleInputChange}
                     />
                   </label>
                 </div>
@@ -182,31 +197,32 @@ export default function FlagModal({
                       type="email"
                       name="email"
                       id="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      value={values.email}
+                      onChange={handleInputChange}
                     />
                   </label>
                 </div>
               </div>
 
-              <button type="submit" className="btn">
-                Submit
-              </button>
+              <br />
+              <br />
+              <div className={styles.buttonContainer}>
+                <button type="submit" className="btn">
+                  Flag Cam
+                </button>
+
+                {/* <button type="button" className="btn">
+                  Flag Cam
+                </button> */}
+                <button
+                  type="button"
+                  className="btn ghostButton"
+                  onClick={onClose}
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
-            <br />
-            <br />
-            <div className={styles.buttonContainer}>
-              <button type="button" className="btn">
-                Flag Cam
-              </button>
-              <button
-                type="button"
-                className="btn ghostButton"
-                onClick={onClose}
-              >
-                Cancel
-              </button>
-            </div>
           </div>
         </div>
       </div>

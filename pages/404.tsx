@@ -5,8 +5,6 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/404.module.scss'
 
 export default function NotFoundPage() {
-  console.log('boom')
-
   return (
     <Layout title="Page Not Found" description="404 error, page not found">
       <div className={styles.error}>

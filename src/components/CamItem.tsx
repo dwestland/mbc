@@ -56,11 +56,12 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
       }),
     }).catch((error) => console.warn(error))
     setShowDeleteModal(false)
-    refreshData()
+    // refreshData()
   }
 
   const handleDelete = () => {
     console.log('%c handleDelete ', 'background: red; color: white')
+
     setShowDeleteModal(true)
   }
 
@@ -124,6 +125,7 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
           // title={values.title}
           onClose={() => setShowFlagModal(false)}
           // handleImageNameChange={handleImageNameChange}
+          id={cam.id}
           title={cam.title}
           country={cam.country}
           state={cam.state}
