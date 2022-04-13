@@ -7,8 +7,10 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    router.push(`/search-cams?term=${term}`)
-    // setTerm('')
+    if (term) {
+      router.push(`/search-cams?term=${term}`)
+    }
+    return null
   }
 
   return (
