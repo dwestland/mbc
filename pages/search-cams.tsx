@@ -5,19 +5,14 @@ import Layout from '@/components/Layout'
 
 const SearchCams = () => {
   const router = useRouter()
-  const [searchResults, setSearchResults] = useState([])
-  const searchTerm = router.query.term
+  const [searchResults, setSearchResults] = useState({ cams: [] })
+  const [searchDisplay, setSearchDisplay] = useState(null)
 
+  const searchTerm = router.query.term
   const searchUrl = `${process.env.NEXT_PUBLIC_API}/cams/search`
 
-  // Use useEffect to fetch search results?
   const displayResults = async () => {
-    await console.log(
-      '%c searchResults ',
-      'background: green; color: white',
-      searchResults
-    )
-    if (searchResults.length > 0) {
+    if (searchResults.cams.length > 0) {
       await searchResults.cams.map((cam) => {
         console.log(
           '%c cam.title ',
@@ -30,11 +25,6 @@ const SearchCams = () => {
   }
 
   useEffect(() => {
-    console.log(
-      '%c (1) searchTerm ',
-      'background: blue; color: white',
-      searchTerm
-    )
     fetch(searchUrl, {
       method: 'POST',
       headers: {
@@ -51,18 +41,37 @@ const SearchCams = () => {
         setSearchResults(results)
         displayResults()
       })
-      .then(() =>
-        console.log(
-          '%c (2) searchResults ',
-          'background: blue; color: white',
-          searchResults
-        )
-      )
       .catch((err) =>
         console.log('%c err ', 'background: blue; color: white', err)
       )
-    // displayResults()
   }, [searchTerm])
+
+  useEffect(() => {
+    if (searchResults.cams.length === 0) {
+      setSearchDisplay('No results found')
+      return null
+    }
+    if (searchResults.cams.length > 50) {
+      setSearchDisplay('Too many results')
+      return null
+    }
+
+    const result = searchResults.cams.map((cam) => (
+      <p key={cam.id}>
+        <Link href={`/detail/${cam.id}`}>
+          <a>{cam.title}</a>
+        </Link>
+        <br />
+        {cam.subarea && <span>{cam.subarea}</span>}
+        {cam.area && <span> {cam.area}</span>}
+        {cam.state && <span> {cam.state}</span>}
+        {cam.country && <span> {cam.country}</span>}{' '}
+      </p>
+    ))
+
+    setSearchDisplay(result)
+    return null
+  }, [searchResults])
 
   return (
     <Layout
@@ -75,23 +84,7 @@ const SearchCams = () => {
           <h2>
             Search Results for <strong>{searchTerm}</strong>
           </h2>
-
-          {searchResults.cams ? (
-            searchResults.cams.map((cam) => (
-              <p key={cam.id}>
-                <Link href={`/detail/${cam.id}`}>
-                  <a>{cam.title}</a>
-                </Link>
-                <br />
-                {cam.subarea && <span>{cam.subarea}</span>}
-                {cam.area && <span> {cam.area}</span>}
-                {cam.state && <span> {cam.state}</span>}
-                {cam.country && <span> {cam.country}</span>}{' '}
-              </p>
-            ))
-          ) : (
-            <p>No results found</p>
-          )}
+          {searchDisplay}
         </div>
       </div>
     </Layout>

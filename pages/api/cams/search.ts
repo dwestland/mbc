@@ -21,6 +21,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
         // title: { contains: req.body.search.term, mode: 'insensitive' },
       },
+      select: {
+        id: true,
+        title: true,
+        country: true,
+        state: true,
+        area: true,
+        subarea: true,
+      },
     })
 
     res.status(200).json({ cams })
