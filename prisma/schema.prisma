@@ -94,6 +94,37 @@ model Cams {
   @@map(name: "cams")
 }
 
+model Message {
+  id         Int    @id @default(autoincrement())
+  name    String
+  email   String
+  message String
+  
+  createdAt DateTime @default(now()) @map(name: "created_at")
+
+  @@map(name: "message")
+}
+
+
+model Flag {
+  id      Int    @id @default(autoincrement())
+  name    String
+  email   String
+  type    String
+  message String
+
+  createdAt DateTime @default(now()) @map(name: "created_at")
+
+  @@map(name: "flag")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+// TODO: remove blog tables
+
 model Blogs {
   id    Int    @id @default(autoincrement())
   title String @unique
@@ -125,7 +156,3 @@ model BlogLikes {
   @@map(name: "blog_likes")
 }
 
-enum Role {
-  USER
-  ADMIN
-}
