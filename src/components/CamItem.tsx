@@ -11,10 +11,7 @@ interface CamItemProps {
   cam: {
     id: number
     title: string
-    slug: string
     webcamUrl: string
-    imageUrl: string
-    oldImageUrl: string
     imageName: string
     description: string
     country: string

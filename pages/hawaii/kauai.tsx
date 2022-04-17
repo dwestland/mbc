@@ -12,11 +12,8 @@ interface KauaiPageProps {
 interface Cams {
   id: number
   title: string
-  slug: string
   webcamUrl: string
-  imageUrl: string
   imageName: string
-  oldImageUrl: string
   description: string
   country: string
   state: string

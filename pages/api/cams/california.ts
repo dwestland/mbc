@@ -13,9 +13,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         select: {
           id: true,
           title: true,
-          // slug: true,
           webcamUrl: true,
-          oldImageUrl: true,
           description: true,
           country: true,
           state: true,

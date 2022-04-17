@@ -11,10 +11,8 @@ interface CamsDetailProps {
 interface Cams {
   id: string
   title: string
-  slug: string
   webcamUrl: string
   imageName: string
-  oldImageUrl: string
   description: string
   country: string
   state: string
@@ -34,7 +32,6 @@ const Details = ({
   const {
     id,
     title,
-    slug,
     webcamUrl,
     imageName,
     description,

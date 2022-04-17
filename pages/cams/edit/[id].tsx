@@ -20,10 +20,8 @@ interface CamsEditProps {
 interface Cams {
   id: string
   title: string
-  slug: string
   webcamUrl: string
   imageName: string
-  oldImageUrl: string
   description: string
   country: string
   state: string
@@ -43,7 +41,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   const {
     id,
     title,
-    slug,
     webcamUrl,
     imageName,
     description,
@@ -317,7 +314,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">
-              Save
+              Update Cam
             </button>
           </div>
         </form>

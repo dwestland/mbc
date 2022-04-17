@@ -15,11 +15,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     id,
     title,
-    slug,
     webcamUrl,
-    imageUrl,
     imageName,
-    oldImageUrl,
     description,
     country,
     state,
@@ -36,11 +33,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
       data: {
         title,
-        slug,
         webcamUrl,
-        imageUrl,
         imageName,
-        oldImageUrl,
         description,
         country,
         state,

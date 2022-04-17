@@ -17,10 +17,8 @@ Content-Type: application/json
 {
   "data": {
     "title": "My New Title",
-    "slug": null,
     "webcamUrl": "http://www.westland.net",
     "imageName": "my image name",
-    "oldImageUrl": null,
     "description": "This is a live web cam description.",
     "country": "USA",
     "state": "HI",
@@ -38,12 +36,10 @@ Content-Type: application/json
 
 {
   "data": {
-    "id": 295,
+    "id": 301,
     "title": "xzzz3My New Title",
-    "slug": null,
     "webcamUrl": "xhttp://www.westland.net",
     "imageName": "xMy image name",
-    "oldImageUrl": null,
     "description": "xThis is a live web cam description.",
     "country": "xUSA",
     "state": "xHI",
