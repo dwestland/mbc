@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { InferGetStaticPropsType } from 'next'
-import Link from 'next/link'
+import router from 'next/router'
 import Image from 'next/image'
 // import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
 
 import dynamic from 'next/dynamic'
-import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import styles from '@/styles/Form.module.scss'
 
 import Layout from '@/components/Layout'
@@ -41,12 +40,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     ssr: false,
   })
 
-  console.log(
-    '%c CamDetails cams.cams ',
-    'background: purple; color: white',
-    cams.cams
-  )
-
   const {
     id,
     title,
@@ -63,6 +56,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   } = cams.cams
 
   const initialState = {
+    id,
     title,
     webcamUrl,
     imageName,
@@ -131,10 +125,11 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
       }),
     })
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 200) {
           toast.success('Cam Saved')
           setValues(initialState)
           setPreviewImage('/images/no-image.jpg')
+          router.push(`/detail/${id}`)
         }
       })
       .catch((error) => {
@@ -187,6 +182,9 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
+              <div className={styles.row}>
+                ID: <strong>{values.id}</strong>
+              </div>
               <div className={styles.row}>
                 <label htmlFor="title">
                   Title
@@ -315,20 +313,15 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   </span>
                 </div>
               </div>
-              <AddCamCountryOptions
-                handleInputChange={handleInputChange}
-                values={values}
-              />
             </div>
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">
-              Add Cam
+              Save
             </button>
           </div>
         </form>
       </div>
-
       {showLatLngModal && (
         <MapModal
           onClose={() => setShowLatLngModal(false)}
@@ -337,7 +330,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
           handleLatLngChange={handleLatLngChange}
         />
       )}
-
       {showImageUploadModal && (
         <ImageUploadModal
           title={values.title}
