@@ -16,10 +16,11 @@ export default function init(req, res) {
   const data = {
     to: 'don@westland.net',
     from: 'admin@westland.net',
-    subject: 'MyBeachCams.com Message',
+    subject: `MESSAGE - MyBeachCams.com from ${body.name}`,
     text: message,
   }
 
+  // TODO: Add error handling
   mail.send(data)
 
   res.status(200).json({ status: 'OK' })

@@ -17,7 +17,7 @@ export default function init(req, res) {
   const data = {
     to: 'don@westland.net',
     from: 'admin@westland.net',
-    subject: `Flag ${body.title} from MyBeachCams.com`,
+    subject: `FLAG - ${body.title} from MyBeachCams.com`,
     text: message,
   }
 
