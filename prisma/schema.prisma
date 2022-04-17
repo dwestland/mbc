@@ -51,9 +51,6 @@ model User {
   createdAt     DateTime  @default(now()) @map(name: "created_at")
   updatedAt     DateTime  @default(now()) @map(name: "updated_at")
 
-  blogs    Blogs[]
-  blogLike BlogLikes[]
-
   role Role @default(USER)
 
   @@map(name: "users")
@@ -118,37 +115,3 @@ enum Role {
   USER
   ADMIN
 }
-
-// TODO: remove blog tables
-
-model Blogs {
-  id    Int    @id @default(autoincrement())
-  title String @unique
-  body  String
-
-  blogLike BlogLikes[]
-
-  author   User @relation(fields: [authorId], references: [id])
-  authorId Int  @map(name: "author_id")
-
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
-
-  @@map(name: "blogs")
-}
-
-model BlogLikes {
-  id   Int     @id @default(autoincrement())
-  like Boolean
-
-  user   User  @relation(fields: [userId], references: [id])
-  userId Int   @map(name: "user_id")
-  blog   Blogs @relation(fields: [blogId], references: [id])
-  blogId Int   @map(name: "blog_id")
-
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
-
-  @@map(name: "blog_likes")
-}
-
