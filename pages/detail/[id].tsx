@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/client'
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
+import styles from '@/styles/Detail.module.scss'
+import DeleteModal from '@/components/DeleteModal'
+import FlagModal from '@/components/FlagModal'
 
 interface CamsDetailProps {
   cams: { title: string }[]
@@ -29,6 +33,11 @@ const Details = ({
     ssr: false,
   })
 
+  const [session] = useSession()
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showFlagModal, setShowFlagModal] = useState(false)
+
   const {
     id,
     title,
@@ -43,6 +52,41 @@ const Details = ({
     lng,
   } = cams.cams
 
+  const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
+
+  useEffect(() => {
+    if (session?.role === 'ADMIN') {
+      setIsAdmin(true)
+    }
+  }, [session])
+
+  const deleteCam = async () => {
+    fetch(deleteUrl, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        data: {
+          id,
+        },
+      }),
+    }).catch((error) => console.warn(error))
+    setShowDeleteModal(false)
+    // refreshData()
+  }
+
+  const handleDelete = () => {
+    console.log('%c handleDelete ', 'background: red; color: white')
+
+    setShowDeleteModal(true)
+  }
+
+  const handleFlag = () => {
+    console.log('%c handleFlag ', 'background: red; color: white')
+    setShowFlagModal(true)
+  }
+
   const imageUrl: string = imageName
     ? process.env.IMAGE_SRC_ROOT + imageName
     : '/images/no-image.jpg'
@@ -54,6 +98,19 @@ const Details = ({
     >
       <div className="layout">
         <h1>Cam Details</h1>
+        {isAdmin && (
+          <div className={styles.admin}>
+            <div className={styles.link}>ID:{id}</div>
+            <div className={styles.link}>
+              <Link href={`/cams/edit/${id}`}>
+                <a className="button button-primary">Edit</a>
+              </Link>
+            </div>
+            <button type="button" onClick={handleDelete}>
+              Delete Cam
+            </button>
+          </div>
+        )}
         <ul>
           <li>
             <strong>ID:</strong> {id}
@@ -96,7 +153,32 @@ const Details = ({
           </li>
         </ul>
         <DetailsMap lat={lat || 0} lng={lng || 0} />
+        <button className="btn" type="button" onClick={handleFlag}>
+          Flag this Cam
+        </button>
       </div>
+      {showDeleteModal && (
+        <DeleteModal
+          // title={values.title}
+          onClose={() => setShowDeleteModal(false)}
+          // handleImageNameChange={handleImageNameChange}
+          deleteCam={deleteCam}
+          title={title}
+        />
+      )}
+      {showFlagModal && (
+        <FlagModal
+          // title={values.title}
+          onClose={() => setShowFlagModal(false)}
+          // handleImageNameChange={handleImageNameChange}
+          id={id}
+          title={title}
+          country={country}
+          state={state}
+          area={area}
+          subarea={subarea}
+        />
+      )}
     </Layout>
   )
 }
