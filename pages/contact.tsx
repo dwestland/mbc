@@ -40,16 +40,10 @@ export default function ContactPage({ cams }) {
     })
 
     if (!res.ok) {
-      // if (res.status === 403 || res.status === 401) {
-      //   toast.error('No token included')
-      //   return
-      // }
       toast.error('Something Went Wrong')
     } else {
       toast.success('Message sent')
       setValues(initialState)
-
-      const cam = await res.json() // ???
     }
   }
 
@@ -64,6 +58,7 @@ export default function ContactPage({ cams }) {
           style: {
             height: '60px',
             border: '1px solid lightgray',
+            marginTop: '30vh',
           },
         }}
       />
