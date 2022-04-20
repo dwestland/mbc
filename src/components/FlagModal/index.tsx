@@ -42,15 +42,24 @@ export default function FlagModal({
     console.log('%c handleSubmit ', 'background: red; color: white')
 
     // Validation
-    if (values.type === '') {
+    if (
+      (values.type !== 'Broken Link' &&
+        values.type !== 'Cam Down' &&
+        values.type !== 'Other' &&
+        values.message === '') ||
+      (values.type === 'Other' && values.message === '')
+    ) {
       toast.error("Please tell us what's wrong")
       return null
     }
 
-    if (values.type === 'Other' && values.message === '') {
-      toast.error("Please tell us what's wrong")
-      return null
-    }
+    // if (
+    //   (values.type === 'Other' && values.message === '') ||
+    //   values.message === ''
+    // ) {
+    //   toast.error("Please tell us what's wrong")
+    //   return null
+    // }
 
     const res = await fetch('/api/flag', {
       method: 'POST',
@@ -72,10 +81,6 @@ export default function FlagModal({
     onClose()
   }
 
-  // const handleOnSubmit = () => {
-  //   console.log('%c handleOnSubmit ', 'background: red; color: white')
-  // }
-
   const modalContent = (
     <div className={styles.overlay}>
       <div className={styles.modal}>
@@ -84,7 +89,7 @@ export default function FlagModal({
             style: {
               height: '60px',
               border: '1px solid lightgray',
-              marginTop: '50vh',
+              marginTop: '45vh',
             },
           }}
         />
@@ -112,10 +117,8 @@ export default function FlagModal({
                 Cam flagged: <strong>{title}</strong>
               </h3>
               <h4>
-                {subarea}, {area}, {state}, {country}
+                {subarea} {area} {state} {country}
               </h4>
-
-              {/* TODO: Submit to SendGrid */}
               <div className="radio">
                 <br />
                 <p>
@@ -125,10 +128,8 @@ export default function FlagModal({
                   <input
                     type="radio"
                     name="type"
-                    // id="cam-down"
                     value="Cam Down"
                     checked={values.type === 'Cam Down'}
-                    // onClick={() => setType('Cam Down')}
                     onChange={handleInputChange}
                   />
                   &nbsp;Cam Down
@@ -139,10 +140,8 @@ export default function FlagModal({
                   <input
                     type="radio"
                     name="type"
-                    // id="Broken Link"
                     value="Broken Link"
                     checked={values.type === 'Broken Link'}
-                    // onClick={() => setType('Broken Link')}
                     onChange={handleInputChange}
                   />
                   &nbsp;Broken Link
@@ -153,16 +152,13 @@ export default function FlagModal({
                   <input
                     type="radio"
                     name="type"
-                    // id="other"
                     value="Other"
                     checked={values.type === 'Other'}
-                    // onClick={() => setType('Other')}
                     onChange={handleInputChange}
                   />
                   &nbsp;Other
                 </label>
               </div>
-
               <div className={styles.grid}>
                 <div>
                   <label htmlFor="message">
@@ -210,10 +206,6 @@ export default function FlagModal({
                 <button type="submit" className="btn">
                   Flag Cam
                 </button>
-
-                {/* <button type="button" className="btn">
-                  Flag Cam
-                </button> */}
                 <button
                   type="button"
                   className="btn ghostButton"

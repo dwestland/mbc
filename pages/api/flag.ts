@@ -1,28 +1,57 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import mail from '@sendgrid/mail'
+import { PrismaClient } from '.prisma/client'
+
+const prisma = new PrismaClient()
 
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export default function init(req, res) {
-  const { body } = req
+export default async function init(req: NextApiRequest, res: NextApiResponse) {
+  const {
+    title,
+    id,
+    subarea,
+    area,
+    state,
+    country,
+    type,
+    message,
+    name,
+    email,
+  } = req.body
 
-  const message = `
-  Title: ${body.title} ID#:${body.id}\r\n
-  Location: ${body.subarea} ${body.area} ${body.state} ${body.country}\r\n
-  Type: ${body.type}\r\n
-  Message: ${body.message}\r\n
-  Name: ${body.name}\r\n
-  Email: ${body.email}\r\n
-  127.0.0.1/detail/${body.id}`
+  const flagMessage = `
+  Title: ${title} ID#:${id}\r\n
+  Location: ${subarea} ${area} ${state} ${country}\r\n
+  Type: ${type}\r\n
+  Message: ${message}\r\n
+  Name: ${name}\r\n
+  Email: ${email}\r\n
+  mybeachcams.com/detail/${id}`
 
   const data = {
     to: 'don@westland.net',
     from: 'admin@westland.net',
-    subject: `FLAG - ${body.title} from MyBeachCams.com`,
-    text: message,
+    subject: `FLAG - ${title} from MyBeachCams.com`,
+    text: flagMessage,
   }
 
-  // TODO: Add error handling
-  mail.send(data)
+  try {
+    await prisma.flag.create({
+      data: {
+        camId: +id,
+        name,
+        email,
+        type,
+        message,
+      },
+    })
 
-  res.status(200).json({ status: 'OK' })
+    mail.send(data)
+
+    res.status(201).json({ message: 'Message sent, saved to DB' })
+  } catch (err) {
+    res.status(500).json({ error: err })
+  }
+  return null
 }
