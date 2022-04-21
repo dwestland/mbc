@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
 import Link from 'next/link'
 import Image from 'next/image'
+import router from 'next/router'
 import styles from '@/styles/CamItem.module.scss'
 import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
@@ -53,6 +54,7 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
       }),
     }).catch((error) => console.warn(error))
     setShowDeleteModal(false)
+    router.push(`/cam-deleted`)
     // refreshData()
   }
 

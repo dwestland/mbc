@@ -4,8 +4,6 @@ import toast, { Toaster } from 'react-hot-toast'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
-// TODO: Refactor
-
 export default function FlagModal({
   onClose,
   id,
@@ -52,14 +50,6 @@ export default function FlagModal({
       toast.error("Please tell us what's wrong")
       return null
     }
-
-    // if (
-    //   (values.type === 'Other' && values.message === '') ||
-    //   values.message === ''
-    // ) {
-    //   toast.error("Please tell us what's wrong")
-    //   return null
-    // }
 
     const res = await fetch('/api/flag', {
       method: 'POST',
