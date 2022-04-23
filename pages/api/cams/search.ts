@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '.prisma/client'
+import { PrismaClient, Prisma } from '.prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -8,29 +8,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).json({ message: 'Method not allowed' })
   }
 
-  console.log(
-    '%c req.body.search.term ',
-    'background: red; color: white',
-    req.body.search.term
-  )
-
   try {
-    const cams = await prisma.cams.findMany({
-      where: {
-        description: { contains: req.body.search.term, mode: 'insensitive' },
-
-        // title: { contains: req.body.search.term, mode: 'insensitive' },
-      },
-      select: {
-        id: true,
-        title: true,
-        country: true,
-        state: true,
-        area: true,
-        subarea: true,
-      },
-    })
-
+    const cams = await prisma.$queryRaw(
+      Prisma.sql`select id, title, country, state, area, subarea, description 
+        from cams
+        where to_tsvector(
+          title || ' ' || 
+          description || ' ' || 
+          country || ' ' || 
+          state || ' ' || 
+          area || ' ' || 
+          subarea
+        ) @@ to_tsquery(${req.body.search.term});`
+    )
     res.status(200).json({ cams })
   } catch (err) {
     console.log(err)
