@@ -88,7 +88,7 @@ const Details = ({
   }
 
   const imageUrl: string = imageName
-    ? process.env.IMAGE_SRC_ROOT + imageName
+    ? process.env.AWS_IMAGE_SRC_ROOT + imageName
     : '/images/no-image.jpg'
 
   return (

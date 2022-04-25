@@ -27,7 +27,7 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
   const [showFlagModal, setShowFlagModal] = useState(false)
 
   const imageUrl: string = cam.imageName
-    ? process.env.IMAGE_SRC_ROOT + cam.imageName
+    ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
     : '/images/no-image.jpg'
 
   const [session] = useSession()
