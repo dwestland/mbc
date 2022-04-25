@@ -28,7 +28,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   }, [values.country])
 
   useEffect(() => {
-    const statesArray = statesObjectArray?.map((item) => item.state) // ['HI', 'CA', 'FL']
+    const statesArray = statesObjectArray?.map((item) => item.state) // ['Hawaii', 'California', 'Florida']
 
     // Create value, label objects for state select
     setStateSelectOptions(
@@ -36,7 +36,7 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
         value: state,
         label: state,
       }))
-    ) // [{value: 'HI', label: 'HI'}, {value: 'CA', label: 'CA'}, {value: 'FL', label: 'FL'}]
+    ) // [{value: 'Hawaii', label: 'Hawaii'}, {value: 'California', label: 'California'}, {value: 'Florida', label: 'Florida'}]
   }, [statesObjectArray])
 
   return (
