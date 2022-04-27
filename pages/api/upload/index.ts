@@ -1,6 +1,7 @@
 import { IncomingForm } from 'formidable'
-import mv from 'mv'
+// import mv from 'mv'
 import AWS from 'aws-sdk'
+import fs from 'fs'
 
 export const config = {
   api: {
@@ -22,13 +23,13 @@ export default async (req, res) => {
       })
 
       const uploadFile = () => {
-        // const fileContent = files.file.filepath
-        const filename: any = files.file.originalFilename
+        const fileContent = fs.readFileSync(files.file.filepath)
+        const filename: string = files.file.originalFilename
 
         const params = {
           Bucket: process.env.AWS_BUCKET_NAME,
           Key: filename,
-          Body: files.file.filepath,
+          Body: fileContent,
           ContentType: 'image/jpeg',
         }
 
@@ -40,19 +41,17 @@ export default async (req, res) => {
           }
         })
       }
+
       uploadFile()
 
-      // Save file locally
-      const oldPath = files.file.filepath
-      const newPath = `./public/webcam-images/${files.file.originalFilename}`
+      // // Save file locally
+      // const oldPath = files.file.filepath
+      // const newPath = `./public/webcam-images/${files.file.originalFilename}`
 
-      console.log('oldPath ', oldPath)
-      console.log('process.argv ', process.argv)
-      console.log('files.file.originalFilename ', files.file.originalFilename)
+      // mv(oldPath, newPath, (error) => {
+      //   console.log(error)
+      // })
 
-      mv(oldPath, newPath, (error) => {
-        console.log(error)
-      })
       res.status(200).json({ fields, files })
 
       return null
