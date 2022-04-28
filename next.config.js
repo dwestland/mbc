@@ -8,6 +8,7 @@ module.exports = {
     ],
   },
   env: {
-    IMAGE_SRC_ROOT: process.env.IMAGE_SRC_ROOT,
+    AWS_IMAGE_SRC_ROOT: process.env.AWS_IMAGE_SRC_ROOT,
   },
+  crossOrigin: 'anonymous',
 }

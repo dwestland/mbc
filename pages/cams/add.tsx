@@ -32,7 +32,7 @@ const AddCam = () => {
   useEffect(() => {
     const reloadImage = () => {
       if (values.imageName) {
-        const imageUrl = `/webcam-images/${values.imageName}`
+        const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + values.imageName
         fetch(imageUrl)
           .then((res) => setPreviewImage(res.url))
           .catch((err) => console.log('Preview Image Fetch Error', err))

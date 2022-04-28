@@ -21,7 +21,7 @@ Content-Type: application/json
     "imageName": "my image name",
     "description": "This is a live web cam description.",
     "country": "USA",
-    "state": "HI",
+    "state": "Hawaii",
     "area": "Kauai",
     "subarea": "Hatteras Island",
     "lat": 33.9748,
@@ -79,7 +79,7 @@ Content-Type: application/json
 {
   "search":
     {
-      "term": "hawaii"
+      "term": "kauai"
     }
 }
 
