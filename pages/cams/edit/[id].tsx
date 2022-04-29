@@ -1,27 +1,69 @@
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-// import { InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType } from 'next'
+import router from 'next/router'
 import Image from 'next/image'
-import Layout from '@/components/Layout'
+// import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
+
+import dynamic from 'next/dynamic'
 import styles from '@/styles/Form.module.scss'
-import AddCamCountryOptions from '@/components/AddCamCountryOptions'
+
+import Layout from '@/components/Layout'
+// import DetailsMap from '@/components/DetailsMap'
+
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
-const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
+interface CamsEditProps {
+  cams: { title: string }[]
+}
+interface Cams {
+  id: string
+  title: string
+  webcamUrl: string
+  imageName: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+  lat: number
+  lng: number
+}
 
-const AddCam = () => {
+const url = `${process.env.NEXT_PUBLIC_API}/cams/edit`
+
+const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
+  const DetailsMap = dynamic(() => import('@/components/DetailsMap'), {
+    ssr: false,
+  })
+
+  const {
+    id,
+    title,
+    webcamUrl,
+    imageName,
+    description,
+    country,
+    state,
+    area,
+    subarea,
+    lat,
+    lng,
+  } = cams.cams
+
   const initialState = {
-    title: '',
-    webcamUrl: '',
-    imageName: '',
-    description: '',
-    country: '',
-    state: '',
-    area: '',
-    subarea: '',
-    lat: 0,
-    lng: 0,
+    id,
+    title,
+    webcamUrl,
+    imageName,
+    description,
+    country,
+    state,
+    area,
+    subarea,
+    lat,
+    lng,
   }
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
@@ -71,7 +113,7 @@ const AddCam = () => {
     }
 
     fetch(url, {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -80,10 +122,11 @@ const AddCam = () => {
       }),
     })
       .then((res) => {
-        if (res.status === 201) {
+        if (res.status === 200) {
           toast.success('Cam Saved')
           setValues(initialState)
           setPreviewImage('/images/no-image.jpg')
+          router.push(`/detail/${id}`)
         }
       })
       .catch((error) => {
@@ -132,10 +175,13 @@ const AddCam = () => {
             },
           }}
         />
-        <h1>Add Cam</h1>
+        <h1>Edit Cam</h1>
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
+              <div className={styles.row}>
+                ID: <strong>{values.id}</strong>
+              </div>
               <div className={styles.row}>
                 <label htmlFor="title">
                   Title
@@ -199,6 +245,54 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
+                <label htmlFor="country">
+                  Country
+                  <input
+                    type="text"
+                    id="country"
+                    name="country"
+                    value={values.country}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="state">
+                  State
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    value={values.state}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="area">
+                  Area
+                  <input
+                    type="text"
+                    id="area"
+                    name="area"
+                    value={values.area}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
+                <label htmlFor="subarea">
+                  Subarea
+                  <input
+                    type="text"
+                    id="subarea"
+                    name="subarea"
+                    value={values.subarea}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
                 <div className={styles.latLngContainer}>
                   <button
                     className="btn ghostButton"
@@ -216,20 +310,15 @@ const AddCam = () => {
                   </span>
                 </div>
               </div>
-              <AddCamCountryOptions
-                handleInputChange={handleInputChange}
-                values={values}
-              />
             </div>
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">
-              Add Cam
+              Update Cam
             </button>
           </div>
         </form>
       </div>
-
       {showLatLngModal && (
         <MapModal
           onClose={() => setShowLatLngModal(false)}
@@ -238,7 +327,6 @@ const AddCam = () => {
           handleLatLngChange={handleLatLngChange}
         />
       )}
-
       {showImageUploadModal && (
         <ImageUploadModal
           title={values.title}
@@ -250,4 +338,16 @@ const AddCam = () => {
   )
 }
 
-export default AddCam
+export async function getServerSideProps(context) {
+  const { id } = context.query
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
+  const cams: CamsEditProps = await res.json()
+
+  return {
+    props: {
+      cams,
+    },
+  }
+}
+
+export default Edit

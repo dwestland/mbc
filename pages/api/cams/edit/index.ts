@@ -12,12 +12,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     id,
     title,
     webcamUrl,
-    oldImageUrl,
+    imageName,
     description,
     country,
     state,
     area,
     subarea,
+    lat,
+    lng,
   } = req.body.data
 
   try {
@@ -28,18 +30,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         title,
         webcamUrl,
-        oldImageUrl,
+        imageName,
         description,
         country,
         state,
         area,
         subarea,
+        lat,
+        lng,
       },
     })
 
-    res.status(200).json({ message: 'Cam has been updated' })
+    res.status(200).json({ data: 'resource updated successfully' })
   } catch (err) {
-    res.status(500).json({ message: 'Sorry, unable to handle request' })
+    console.log(err)
+    res.status(500).json({ err: 'Error occurred.' })
   }
   return null
 }

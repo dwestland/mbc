@@ -1,6 +1,7 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
+import { useRouter } from 'next/router'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 
@@ -11,26 +12,25 @@ interface KauaiPageProps {
 interface Cams {
   id: number
   title: string
-  slug: string
   webcamUrl: string
-  imageUrl: string
-  oldImageUrl: string
+  imageName: string
   description: string
   country: string
   state: string
   area: string
   subarea: string
+  lat: number
+  lng: number
 }
 
 const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  console.log(
-    '%c KauaiPage cams.cams ',
-    'background: red; color: white',
-    cams.cams
-  )
-  // const boom: {}[] = cams.cams
+  const router = useRouter()
+
+  const refreshData = () => {
+    router.replace(router.asPath)
+  }
 
   return (
     <Layout
@@ -52,7 +52,7 @@ const KauaiPage = ({
 
         <div className="cam-container">
           {cams.cams.map((cam: Cams) => (
-            <CamItem key={cam.id} cam={cam} />
+            <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
           ))}
         </div>
 

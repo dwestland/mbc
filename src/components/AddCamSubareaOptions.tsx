@@ -28,7 +28,7 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
   }, [values.area])
 
   useEffect(() => {
-    const subareasArray = subareasObjectArray?.map((item) => item.subarea) // ['HI', 'CA', 'FL']
+    const subareasArray = subareasObjectArray?.map((item) => item.subarea) // ['Hawaii', 'California', 'Florida']
     setSubareasSelectOptions(
       subareasArray?.map((subarea) => ({
         value: subarea,
@@ -57,8 +57,6 @@ const AddCamSubareaOptions: FC<AddCamSubareaOptionsProps> = ({
               ))}
             </select>
           </label>
-
-          <p>Subarea: {values.subarea}</p>
         </div>
       )}
     </>

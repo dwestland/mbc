@@ -29,7 +29,7 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
   }, [values.state])
 
   useEffect(() => {
-    const areasArray = areasObjectArray?.map((item) => item.area) // ['HI', 'CA', 'FL']
+    const areasArray = areasObjectArray?.map((item) => item.area) // ['Hawaii', 'California', 'Florida']
 
     // Create value, label object for state select
     setAreasSelectOptions(

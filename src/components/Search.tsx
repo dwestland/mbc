@@ -7,8 +7,10 @@ const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    router.push(`/search-results?term=${term}`)
-    setTerm('')
+    if (term) {
+      router.push(`/search-cams?term=${term}`)
+    }
+    return null
   }
 
   return (
@@ -19,7 +21,7 @@ const Search = () => {
           type="text"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
-          placeholder="Search Blogs"
+          placeholder="Search Cams"
         />
       </form>
     </div>

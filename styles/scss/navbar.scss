@@ -37,7 +37,7 @@
       width: 90px;
 
       a {
-        height: 38px;
+        height: 44px;
       }
     }
 
@@ -61,7 +61,7 @@
         }
 
         span {
-          padding: 10px 5px;
+          padding: 14px 5px;
         }
       }
 
@@ -187,6 +187,7 @@
 @media (max-width: 600px) {
   .navbar {
     nav {
+      height: 46px;
       .menu-wrapper {
         .dropdown {
           background-color: var(--dark-seafoam);
@@ -220,7 +221,7 @@
           cursor: pointer;
           display: block;
           float: right;
-          padding: 16px 16px;
+          padding: 22px 16px;
           position: relative;
           user-select: none;
 

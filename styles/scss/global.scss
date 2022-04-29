@@ -48,10 +48,11 @@ hr:after {
   font-size: 18px;
 }
 
+/* Login / Logout
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .login-logout {
   font-size: small;
-  margin: -2px 5px -9px 0;
-  text-align: right;
 
   button {
     background: none;
@@ -230,4 +231,8 @@ hr:after {
   margin: auto;
   width: 600px;
   height: 400px;
+}
+
+.leaflet-container {
+  z-index: 0 !important;
 }

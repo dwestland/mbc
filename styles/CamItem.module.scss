@@ -28,7 +28,7 @@
 // TODO: Add media query for single row
 
 .card {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   border: none;
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
   display: flex;
@@ -53,7 +53,28 @@
   }
 
   .footer {
-    background: var(--lightest-olive);
+    display: flex;
+    flex-flow: column;
+    font-size: small;
     margin-top: auto;
+    .admin {
+      display: flex;
+      justify-content: space-around;
+      background: var(--lightest-olive);
+    }
+    .user {
+      display: flex;
+      justify-content: space-around;
+    }
+    button {
+      background: none;
+      border: none;
+      color: #1eaedb;
+      cursor: pointer;
+      text-decoration: underline;
+      &:hover {
+        color: #0b83a1;
+      }
+    }
   }
 }

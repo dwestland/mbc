@@ -11,12 +11,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     title,
     webcamUrl,
-    imageUrl,
+    imageName,
     description,
     country,
     state,
     area,
     subarea,
+    lat,
+    lng,
   } = req.body.data
 
   try {
@@ -24,12 +26,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       data: {
         title,
         webcamUrl,
-        imageUrl,
+        imageName,
         description,
         country,
         state,
         area,
         subarea,
+        lat,
+        lng,
       },
     })
 

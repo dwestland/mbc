@@ -4,7 +4,7 @@ const data = {
       country: 'USA',
       states: [
         {
-          state: 'HI',
+          state: 'Hawaii',
           areas: [
             {
               area: 'Maui',
@@ -44,7 +44,7 @@ const data = {
           ],
         },
         {
-          state: 'CA',
+          state: 'California',
           areas: [
             {
               area: 'San Diego',
@@ -89,7 +89,7 @@ const data = {
           ],
         },
         {
-          state: 'FL',
+          state: 'Florida',
           areas: [
             {
               area: 'Panhandle',

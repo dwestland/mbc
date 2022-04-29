@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 
-const IndexPage = () => {
+const camDeleted = () => {
   console.log('%c Home Page ', 'background: red; color: white')
 
   return (
@@ -11,7 +11,7 @@ const IndexPage = () => {
     >
       <div className="layout">
         <div className="container">
-          <h1>Welcome to MyBeachCams.com</h1>
+          <h1>Cam Deleted</h1>
           <br />
         </div>
       </div>
@@ -19,4 +19,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default camDeleted

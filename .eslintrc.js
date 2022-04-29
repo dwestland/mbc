@@ -42,6 +42,7 @@ module.exports = {
       },
     ],
     'no-param-reassign': 0,
+    'react/no-unescaped-entities': 0,
   },
   settings: {
     react: {

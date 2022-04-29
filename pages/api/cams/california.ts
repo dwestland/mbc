@@ -8,14 +8,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     try {
       const cams = await prisma.cams.findMany({
         where: {
-          state: 'CA',
+          state: 'California',
         },
         select: {
           id: true,
           title: true,
-          // slug: true,
           webcamUrl: true,
-          oldImageUrl: true,
           description: true,
           country: true,
           state: true,

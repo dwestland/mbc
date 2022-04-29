@@ -2,16 +2,18 @@ import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/client'
 import Link from 'next/link'
 import Image from 'next/image'
+import router from 'next/router'
 import styles from '@/styles/CamItem.module.scss'
+import DeleteModal from '@/components/DeleteModal'
+import FlagModal from '@/components/FlagModal'
 
 interface CamItemProps {
+  refreshData: () => void
   cam: {
     id: number
     title: string
-    slug: string
     webcamUrl: string
-    imageUrl: string
-    oldImageUrl: string
+    imageName: string
     description: string
     country: string
     state: string
@@ -20,9 +22,14 @@ interface CamItemProps {
   }
 }
 
-const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
-  const imageUrl: string =
-    cam.imageUrl || cam.oldImageUrl || '/images/no-image.jpg'
+const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showFlagModal, setShowFlagModal] = useState(false)
+
+  const imageUrl: string = cam.imageName
+    ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
+    : '/images/no-image.jpg'
+
   const [session] = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
 
@@ -32,10 +39,36 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
     }
   }, [session])
 
+  const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
+
+  const deleteCam = async () => {
+    fetch(deleteUrl, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        data: {
+          id: cam.id,
+        },
+      }),
+    }).catch((error) => console.warn(error))
+    setShowDeleteModal(false)
+    router.push(`/cam-deleted`)
+    // refreshData()
+  }
+
+  const handleDelete = () => {
+    setShowDeleteModal(true)
+  }
+
+  const handleFlag = () => {
+    setShowFlagModal(true)
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.img}>
-        <h1>{cam.imageUrl}</h1>
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <Image src={imageUrl} width={260} height={195} alt={cam.title} />
         </a>
@@ -46,19 +79,53 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
         </a>
         {cam.description}
       </div>
-      {isAdmin && (
-        <div className={styles.footer}>
+      <div className={styles.footer}>
+        {isAdmin && (
+          <div className={styles.admin}>
+            <div className={styles.link}>ID:{cam.id}</div>
+
+            <div className={styles.link}>
+              <Link href={`/cams/edit/${cam.id}`}>
+                <a className="button button-primary">Edit</a>
+              </Link>
+            </div>
+            <button type="button" onClick={handleDelete}>
+              Delete Cam
+            </button>
+          </div>
+        )}
+        <div className={styles.user}>
           <div className={styles.link}>
-            <Link href={`/cams/${cam.slug}`}>
+            <Link href={`/detail/${cam.id}`}>
               <a className="button button-primary">Details</a>
             </Link>
           </div>
-          <div className={styles.link}>
-            <Link href={`/cams/edit/${cam.id}`}>
-              <a className="button button-primary">Edit Cam</a>
-            </Link>
-          </div>
+          <button type="button" onClick={handleFlag}>
+            Flag this Cam
+          </button>
         </div>
+      </div>
+      {showDeleteModal && (
+        <DeleteModal
+          // title={values.title}
+          onClose={() => setShowDeleteModal(false)}
+          // handleImageNameChange={handleImageNameChange}
+          deleteCam={deleteCam}
+          title={cam.title}
+        />
+      )}
+      {showFlagModal && (
+        <FlagModal
+          // title={values.title}
+          onClose={() => setShowFlagModal(false)}
+          // handleImageNameChange={handleImageNameChange}
+          id={cam.id}
+          title={cam.title}
+          country={cam.country}
+          state={cam.state}
+          area={cam.area}
+          subarea={cam.subarea}
+        />
       )}
     </div>
   )

@@ -20,14 +20,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       select: {
         id: true,
         title: true,
-        // slug: true,
         webcamUrl: true,
-        oldImageUrl: true,
+        imageName: true,
         description: true,
         country: true,
         state: true,
         area: true,
         subarea: true,
+        lat: true,
+        lng: true,
       },
     })
     res.status(200).json({ cams })

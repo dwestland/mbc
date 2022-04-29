@@ -18,8 +18,6 @@ export default function ImageUploadModal({
 
   useEffect(() => {
     if (blob !== null) {
-      console.log('%c blob ', 'background: red; color: white', blob)
-
       const reader = new FileReader()
       reader.onload = (e: any) => {
         setSrc(e.target.result)
@@ -63,7 +61,7 @@ export default function ImageUploadModal({
     onClose()
   }
 
-  const uploadToServer = async () => {
+  const uploadToServer = () => {
     const body = new FormData()
 
     // Create unique descriptive title
@@ -73,16 +71,16 @@ export default function ImageUploadModal({
     handleImageNameChange(filename)
 
     if (!blob) {
-      console.log('%c Not a blob ', 'background: red; color: white')
       return
     }
 
     body.append('file', blob, filename)
-    await fetch('/api/upload', {
+    fetch('/api/upload', {
       method: 'POST',
       body,
     })
-    await handleClose()
+
+    handleClose()
   }
 
   const modalContent = (
