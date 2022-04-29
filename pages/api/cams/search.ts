@@ -8,6 +8,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).json({ message: 'Method not allowed' })
   }
 
+  // Remove extra spaces and add AND operator
+  const query = req.body.search.term
+    .trim()
+    .replace(/ +(?= )/g, '')
+    .split(' ')
+    .join(' & ')
+
   try {
     const cams = await prisma.$queryRaw(
       Prisma.sql`select id, title, country, state, area, subarea, description 
@@ -19,7 +26,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           state || ' ' || 
           area || ' ' || 
           subarea
-        ) @@ to_tsquery(${req.body.search.term});`
+        ) @@ to_tsquery(${query});`
     )
     res.status(200).json({ cams })
   } catch (err) {

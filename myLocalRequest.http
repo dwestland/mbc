@@ -79,7 +79,7 @@ Content-Type: application/json
 {
   "search":
     {
-      "term": "kauai"
+      "term": "santa monica"
     }
 }
 
