@@ -26,12 +26,6 @@ interface Cams {
 const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  console.log(
-    '%c KauaiPage cams.cams ',
-    'background: red; color: white',
-    cams.cams
-  )
-  // const boom: {}[] = cams.cams
   const router = useRouter()
 
   const refreshData = () => {

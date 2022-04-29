@@ -37,7 +37,6 @@ export default function FlagModal({
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('%c handleSubmit ', 'background: red; color: white')
 
     // Validation
     if (

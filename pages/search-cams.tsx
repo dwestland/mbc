@@ -41,9 +41,7 @@ const SearchCams = () => {
         setSearchResults(results)
         displayResults()
       })
-      .catch((err) =>
-        console.log('%c err ', 'background: blue; color: white', err)
-      )
+      .catch((err) => console.log('err', err))
   }, [searchTerm])
 
   useEffect(() => {

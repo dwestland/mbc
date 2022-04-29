@@ -73,17 +73,13 @@ const Details = ({
       }),
     }).catch((error) => console.warn(error))
     setShowDeleteModal(false)
-    // refreshData()
   }
 
   const handleDelete = () => {
-    console.log('%c handleDelete ', 'background: red; color: white')
-
     setShowDeleteModal(true)
   }
 
   const handleFlag = () => {
-    console.log('%c handleFlag ', 'background: red; color: white')
     setShowFlagModal(true)
   }
 
@@ -159,18 +155,14 @@ const Details = ({
       </div>
       {showDeleteModal && (
         <DeleteModal
-          // title={values.title}
           onClose={() => setShowDeleteModal(false)}
-          // handleImageNameChange={handleImageNameChange}
           deleteCam={deleteCam}
           title={title}
         />
       )}
       {showFlagModal && (
         <FlagModal
-          // title={values.title}
           onClose={() => setShowFlagModal(false)}
-          // handleImageNameChange={handleImageNameChange}
           id={id}
           title={title}
           country={country}

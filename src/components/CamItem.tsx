@@ -59,13 +59,10 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
   }
 
   const handleDelete = () => {
-    console.log('%c handleDelete ', 'background: red; color: white')
-
     setShowDeleteModal(true)
   }
 
   const handleFlag = () => {
-    console.log('%c handleFlag ', 'background: red; color: white')
     setShowFlagModal(true)
   }
 
