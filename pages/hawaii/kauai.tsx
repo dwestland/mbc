@@ -43,84 +43,64 @@ const KauaiPage = ({
     router.replace(router.asPath)
   }
 
-  // console.log(
-  //   '%c data.countries ',
-  //   'background: red; color: white',
-  //   data.countries
-  // )
-
-  const countryObjects = data.countries
-
-  console.log(
-    '%c countryObjects ',
-    'background: red; color: white',
-    countryObjects
+  // Get subarea array for page sections
+  const countryObject = data.countries.filter((ele) => ele.country === 'USA')
+  const stateObject = countryObject[0].states.filter(
+    (ele) => ele.state === 'Hawaii'
   )
-
-  const countryObject = countryObjects.filter((ele) => ele.country === 'USA')
-
-  console.log(
-    '%c countryObject ',
-    'background: red; color: white',
-    countryObject
-  )
-  // ///////////////////////////////////////////////////////////////////////////////
-
-  const stateObjects = countryObject[0].states
-
-  console.log('%c stateObjects ', 'background: red; color: white', stateObjects)
-
-  const stateObject = stateObjects.filter((ele) => ele.state === 'Hawaii')
-
-  console.log('%c stateObject ', 'background: red; color: white', stateObject)
-
-  // ///////////////////////////////////////////////////////////////////////////////
-
+  const areaObject = stateObject[0].areas.filter((ele) => ele.area === 'Kauai')
   const areaObjects = stateObject[0].areas
-
-  console.log('%c areaObjects ', 'background: red; color: white', areaObjects)
-
-  const areaObject = areaObjects.filter((ele) => ele.area === 'Kauai')
-
-  console.log('%c areaObject ', 'background: red; color: white', areaObject)
-
-  // ///////////////////////////////////////////////////////////////////////////////
-
   const subareaObjects = areaObject[0].subareas
-
   console.log(
     '%c subareaObjects ',
     'background: red; color: white',
     subareaObjects
   )
 
-  const subareaObject = subareaObjects.filter((ele) => ele.subarea === 'Kauai')
+  const areaArray = areaObjects.map((ele) => ele.area)
+  console.log('%c areaArray ', 'background: red; color: white', areaArray)
 
-  // Links to other cams
-  // Map of Cams
-  // Array of Kauai cams
-  // Array of subareas
+  const subareaArray = subareaObjects.map((ele) => ele.subarea)
+  console.log('%c subareaArray ', 'background: red; color: white', subareaArray)
 
-  const kauaiCams = cams.cams.filter((cam: Cams) => cam.area === 'Kauai')
+  const camSections = subareaArray.map((subarea) => (
+    <>
+      <div style={{ height: '100px', background: 'lightblue' }}>
+        <h3>Adsense</h3>
+      </div>
+      <h2>{subarea}</h2>
+      <div key={subarea} className="cam-container">
+        {cams.cams.map((cam: Cams) => {
+          if (cam.subarea === subarea) {
+            return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+          }
+          return null
+        })}
+      </div>
+    </>
+  ))
 
-  console.log('%c cams.cams ', 'background: red; color: white', cams.cams)
-  console.log('%c kauaiCams ', 'background: red; color: white', kauaiCams)
-
-  // states: [
-  //   {
-  //     state: 'Hawaii',
-  //     areas: [
-  //       {
-  //         area: 'Maui',
-  //         subareas: [
-  //           { subarea: 'Kaanapali' },
-  //           { subarea: 'North Shore' },
-  //           { subarea: 'Napili' },
-  //           { subarea: 'Lahaina' },
-  //           { subarea: 'Maui Surf' },
-  //         ],
+  const moreCams = (
+    <>
+      <div style={{ height: '100px', background: 'lightblue' }}>
+        <h3>Adsense</h3>
+      </div>
+      <h2>More Cams</h2>
+      <div className="cam-container">
+        {cams.cams.map((cam: Cams) => {
+          if (cam.area === 'Kauai' && cam.subarea === '') {
+            return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+          }
+          return null
+        })}
+      </div>
+    </>
+  )
 
   const CamsMap = dynamic(() => import('@/components/CamsMap'), { ssr: false })
+
+  // Lat lng array for map
+  // Skip empty subareas
 
   return (
     <Layout
@@ -130,6 +110,7 @@ const KauaiPage = ({
       <div className="layout">
         <h1>Kauai</h1>
         <CamsMap vectors={vectors} />
+
         <p>
           Kauai is one of the most beautiful and lush of the seven Hawaiian
           Islands. Kauai is known as the "Garden Isle" because of the brilliant
@@ -140,43 +121,8 @@ const KauaiPage = ({
           Waimea Canyon, Opaekaa Falls, Mt. Wai'ale'ale and Hanalei Bay.
         </p>
 
-        <div className="cam-container">
-          {cams.cams.map((cam: Cams) => (
-            <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          ))}
-        </div>
-
-        {/* <h2>Princeville</h2>
-        {cams.length === 0 && <h2>No cams to show</h2>}
-        <div className="cam-container">
-          {princevilleCams.map((cam) => (
-            <CamItem key={cam.id} cam={cam} />
-          ))}
-        </div>
-
-        <h2>Poipu</h2>
-        {cams.length === 0 && <h2>No cams to show</h2>}
-        <div className="cam-container">
-          {poipuCams.map((cam) => (
-            <CamItem key={cam.id} cam={cam} />
-          ))}
-        </div>
-
-        <h2>Lihue</h2>
-        {cams.length === 0 && <h2>No cams to show</h2>}
-        <div className="cam-container">
-          {lihueCams.map((cam) => (
-            <CamItem key={cam.id} cam={cam} />
-          ))}
-        </div>
-
-        <h2>More Kauai Cams</h2>
-        {cams.length === 0 && <h2>No cams to show</h2>}
-        <div className="cam-container">
-          {moreCams.map((cam) => (
-            <CamItem key={cam.id} cam={cam} />
-          ))}
-        </div> */}
+        {camSections}
+        {moreCams}
 
         <div className="panel">
           <ShowMoreText
