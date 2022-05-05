@@ -3,6 +3,7 @@ import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
+import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
@@ -25,18 +26,12 @@ interface Cams {
   lng: number
 }
 
-const vectors = [
-  { name: 'one', lat: 33.9765, lng: -118.4483 },
-  { name: 'two', lat: 33.9865, lng: -118.4583 },
-  { name: 'three', lat: 33.9965, lng: -118.4683 },
-  { name: 'four', lat: 34.0065, lng: -118.4783 },
-  { name: 'xthree', lat: 33.9745, lng: -118.5593 },
-  { name: 'xfour', lat: 33.9985, lng: -118.4873 },
-]
-
 const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
+  // Next modal SSR
+  const CamsMap = dynamic(() => import('@/components/CamsMap'), { ssr: false })
+
   const router = useRouter()
 
   const refreshData = () => {
@@ -44,51 +39,58 @@ const KauaiPage = ({
   }
 
   // Get subarea array for page sections
-  const countryObject = data.countries.filter((ele) => ele.country === 'USA')
+  const country = 'USA'
+  const state = 'Hawaii'
+  const area = 'Kauai'
+  const countryObject = data.countries.filter((ele) => ele.country === country)
   const stateObject = countryObject[0].states.filter(
-    (ele) => ele.state === 'Hawaii'
+    (ele) => ele.state === state
   )
-  const areaObject = stateObject[0].areas.filter((ele) => ele.area === 'Kauai')
-  const areaObjects = stateObject[0].areas
+  const areaObject = stateObject[0].areas.filter((ele) => ele.area === area)
+
   const subareaObjects = areaObject[0].subareas
-  console.log(
-    '%c subareaObjects ',
-    'background: red; color: white',
-    subareaObjects
-  )
-
-  const areaArray = areaObjects.map((ele) => ele.area)
-  console.log('%c areaArray ', 'background: red; color: white', areaArray)
-
   const subareaArray = subareaObjects.map((ele) => ele.subarea)
-  console.log('%c subareaArray ', 'background: red; color: white', subareaArray)
 
-  const camSections = subareaArray.map((subarea) => (
-    <>
-      <div style={{ height: '100px', background: 'lightblue' }}>
-        <h3>Adsense</h3>
-      </div>
-      <h2>{subarea}</h2>
-      <div key={subarea} className="cam-container">
-        {cams.cams.map((cam: Cams) => {
-          if (cam.subarea === subarea) {
-            return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          }
-          return null
-        })}
-      </div>
-    </>
-  ))
+  // Display cams WITH subareas
+  const camSections = subareaArray.map((subarea) => {
+    // check if subarea cams exist
+    const camCount = cams.cams
+      .map((cam: Cams) => cam.subarea)
+      .filter((ele) => ele === subarea).length
+    if (camCount === 0) {
+      return null
+    }
 
+    return (
+      <div key={getSixDigitRandom()}>
+        <div style={{ height: '100px', background: 'lightblue' }}>
+          <h3>Adsense</h3>
+        </div>
+        <h2>{subarea} Webcams</h2>
+        <div key={subarea} className="cam-container">
+          {cams.cams.map((cam: Cams) => {
+            if (cam.subarea === subarea) {
+              return (
+                <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+              )
+            }
+            return null
+          })}
+        </div>
+      </div>
+    )
+  })
+
+  // Display cams WITHOUT subareas
   const moreCams = (
     <>
       <div style={{ height: '100px', background: 'lightblue' }}>
         <h3>Adsense</h3>
       </div>
-      <h2>More Cams</h2>
+      <h2>{area} Webcams</h2>
       <div className="cam-container">
         {cams.cams.map((cam: Cams) => {
-          if (cam.area === 'Kauai' && cam.subarea === '') {
+          if (cam.area === area && cam.subarea === '') {
             return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
           }
           return null
@@ -97,10 +99,19 @@ const KauaiPage = ({
     </>
   )
 
-  const CamsMap = dynamic(() => import('@/components/CamsMap'), { ssr: false })
-
-  // Lat lng array for map
-  // Skip empty subareas
+  // Create vectors for map
+  const vectors = []
+  cams.cams.map((cam: Cams) => {
+    if (cam.area === area && cam.lat !== null && cam.lng !== null) {
+      const vector = {
+        name: cam.title,
+        lat: cam.lat,
+        lng: cam.lng,
+      }
+      vectors.push(vector)
+    }
+    return null
+  })
 
   return (
     <Layout
@@ -108,7 +119,7 @@ const KauaiPage = ({
       description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
-        <h1>Kauai</h1>
+        <h1>Kauai Webcams</h1>
         <CamsMap vectors={vectors} />
 
         <p>
