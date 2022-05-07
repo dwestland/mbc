@@ -120,8 +120,25 @@ const KauaiPage = ({
     >
       <div className="layout">
         <h1>Kauai Webcams</h1>
-        <CamsMap vectors={vectors} />
-
+        <div className="map-and-ad" style={{ border: '1px solid red' }}>
+          <div className="map">
+            <div className="map-wrapper">
+              <CamsMap vectors={vectors} />
+            </div>
+          </div>
+          <div className="ad">
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                background: 'lightblue',
+                border: '1px solid black',
+              }}
+            >
+              <h3>Adsense</h3>
+            </div>
+          </div>
+        </div>
         <p>
           Kauai is one of the most beautiful and lush of the seven Hawaiian
           Islands. Kauai is known as the "Garden Isle" because of the brilliant
