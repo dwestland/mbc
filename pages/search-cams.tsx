@@ -79,6 +79,15 @@ const SearchCams = () => {
       <div className="layout">
         <div className="container">
           <h1>Search Cams</h1>
+          <div
+            style={{
+              background: 'lightblue',
+              height: '100px',
+              paddingLeft: '10px',
+            }}
+          >
+            <h3>Adsense</h3>
+          </div>
           <h2>
             Search Results for <strong>{searchTerm}</strong>
           </h2>

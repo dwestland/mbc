@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
-import styles from '@/styles/Form.module.scss'
+import styles from '@/styles/AddEditForm.module.scss'
 
 export default function ContactPage({ cams }) {
   const initialState = {
@@ -63,46 +63,65 @@ export default function ContactPage({ cams }) {
         }}
       />
       <h1>Contact Us</h1>
-      <h2>Please send us a message</h2>
-      <form method="post" onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.grid}>
-          <div>
-            <label htmlFor="name">
-              Name
-              <input
-                type="text"
-                name="name"
-                value={values.name}
-                onChange={handleInputChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="email">
-              Email
-              <input
-                type="email"
-                name="email"
-                value={values.email}
-                onChange={handleInputChange}
-              />
-            </label>
+
+      <div className="content-and-ad" style={{ border: '1px solid red' }}>
+        <div className="content">
+          <h2>Please send us a message</h2>
+          <form method="post" onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.grid}>
+              <div>
+                <label htmlFor="name">
+                  Name
+                  <input
+                    type="text"
+                    name="name"
+                    value={values.name}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="email">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+            </div>
+            <div>
+              <label htmlFor="message">
+                Message
+                <textarea
+                  name="message"
+                  value={values.message}
+                  onChange={handleInputChange}
+                />
+              </label>
+            </div>
+            <button type="submit" className="btn">
+              Submit
+            </button>
+          </form>
+        </div>
+
+        <div className="ad">
+          <div
+            style={{
+              background: 'lightblue',
+              height: '100%',
+              overflow: 'hidden',
+              paddingLeft: '10px',
+              width: '100%',
+            }}
+          >
+            <h3>Adsense</h3>
           </div>
         </div>
-        <div>
-          <label htmlFor="message">
-            Message
-            <textarea
-              name="message"
-              value={values.message}
-              onChange={handleInputChange}
-            />
-          </label>
-        </div>
-        <button type="submit" className="btn">
-          Submit
-        </button>
-      </form>
+      </div>
     </Layout>
   )
 }

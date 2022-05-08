@@ -48,6 +48,41 @@ hr:after {
   font-size: 18px;
 }
 
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+form {
+  .row {
+    margin-top: 10px;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  textarea {
+    font-family: inherit;
+    height: 100px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  input[type='submit'] {
+    display: block;
+    height: 40px;
+    margin: 20px 0 30px;
+    width: 100%;
+  }
+
+  .select {
+    width: 100%;
+    padding: 6px;
+  }
+}
+
 /* Login / Logout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -88,6 +123,44 @@ hr:after {
     width: 100%;
   }
   .info {
+    width: 100%;
+  }
+}
+
+/* Cam Page - content & Ad
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.content-and-ad {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  width: 50%;
+  .leaflet-container {
+    height: 350px;
+    width: 100%;
+  }
+  form {
+    padding-right: 15px;
+  }
+}
+
+.ad {
+  height: 350px;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .content-and-ad {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+    form {
+      padding-right: 0;
+    }
+  }
+  .ad {
     width: 100%;
   }
 }

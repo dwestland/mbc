@@ -63,7 +63,13 @@ const KauaiPage = ({
 
     return (
       <div key={getSixDigitRandom()}>
-        <div style={{ height: '100px', background: 'lightblue' }}>
+        <div
+          style={{
+            height: '100px',
+            background: 'lightblue',
+            paddingLeft: '10px',
+          }}
+        >
           <h3>Adsense</h3>
         </div>
         <h2>{subarea} Webcams</h2>
@@ -84,7 +90,13 @@ const KauaiPage = ({
   // Display cams WITHOUT subareas
   const moreCams = (
     <>
-      <div style={{ height: '100px', background: 'lightblue' }}>
+      <div
+        style={{
+          background: 'lightblue',
+          height: '100px',
+          paddingLeft: '10px',
+        }}
+      >
         <h3>Adsense</h3>
       </div>
       <h2>{area} Webcams</h2>
@@ -120,19 +132,18 @@ const KauaiPage = ({
     >
       <div className="layout">
         <h1>Kauai Webcams</h1>
-        <div className="map-and-ad" style={{ border: '1px solid red' }}>
-          <div className="map">
-            <div className="map-wrapper">
-              <CamsMap vectors={vectors} />
-            </div>
+        <div className="content-and-ad" style={{ border: '1px solid red' }}>
+          <div className="content">
+            <CamsMap vectors={vectors} />
           </div>
           <div className="ad">
             <div
               style={{
-                width: '100%',
-                height: '100%',
                 background: 'lightblue',
-                border: '1px solid black',
+                height: '100%',
+                overflow: 'hidden',
+                paddingLeft: '10px',
+                width: '100%',
               }}
             >
               <h3>Adsense</h3>

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from '@/styles/Form.module.scss'
+import styles from '@/styles/AddEditForm.module.scss'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
 import data from '@/data/camLocationAreas'
 
