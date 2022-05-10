@@ -165,6 +165,40 @@ form {
   }
 }
 
+/* Cam Details - image & Map
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.image-and-map {
+  display: flex;
+  width: 100%;
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .map {
+    height: 350px;
+    width: 50%;
+    .leaflet-container {
+      height: 350px;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .image-and-map {
+    flex-direction: column;
+    .image {
+      width: 100%;
+    }
+    .map {
+      width: 100%;
+    }
+  }
+}
+
 /* Read more text...
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
