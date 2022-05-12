@@ -31,9 +31,14 @@
   }
 }
 
-.latLngContainer button {
-  float: right;
-  margin-top: 8px;
+.latLngContainer {
+  border: 1px solid #000;
+  margin: 5px 0;
+  padding: 10px;
+  button {
+    float: right;
+    margin-top: 8px;
+  }
 }
 
 @media (max-width: 768px) {

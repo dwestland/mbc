@@ -77,9 +77,10 @@ form {
     width: 100%;
   }
 
-  .select {
-    width: 100%;
+  select {
+    display: block;
     padding: 6px;
+    width: 200px;
   }
 }
 

@@ -29,7 +29,7 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   })) // [{value: 'MEX', label: 'MEX'}, {value: 'CAN', label: 'CAN'}, {value: 'USA', label: 'USA'}]
 
   return (
-    <div className={styles.section2} style={{ border: '1px solid blue' }}>
+    <div>
       <div className={styles.row}>
         <label htmlFor="country">
           Country
