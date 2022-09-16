@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from '@/styles/Form.module.scss'
+import styles from '@/styles/AddEditForm.module.scss'
 import AddCamStateOptions from '@/components/AddCamStateOptions'
 import data from '@/data/camLocationAreas'
 
@@ -29,7 +29,7 @@ const AddCamCountryOptions: FC<AddCamCountryOptionsProps> = ({
   })) // [{value: 'MEX', label: 'MEX'}, {value: 'CAN', label: 'CAN'}, {value: 'USA', label: 'USA'}]
 
   return (
-    <div className={styles.section2} style={{ border: '1px solid blue' }}>
+    <div>
       <div className={styles.row}>
         <label htmlFor="country">
           Country

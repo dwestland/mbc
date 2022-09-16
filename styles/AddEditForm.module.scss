@@ -1,33 +1,4 @@
 .form {
-  .row {
-    margin-top: 10px;
-  }
-
-  input[type='text'] {
-    height: 30px;
-    padding: 5px;
-    width: 100%;
-  }
-
-  textarea {
-    font-family: inherit;
-    height: 100px;
-    padding: 5px;
-    width: 100%;
-  }
-
-  input[type='submit'] {
-    display: block;
-    height: 40px;
-    margin: 20px 0 30px;
-    width: 100%;
-  }
-
-  .select {
-    width: 100%;
-    padding: 6px;
-  }
-
   .formWrapper {
     display: flex;
     width: 100%;
@@ -60,9 +31,14 @@
   }
 }
 
-.latLngContainer button {
-  float: right;
-  margin-top: 8px;
+.latLngContainer {
+  border: 1px solid #000;
+  margin: 5px 0;
+  padding: 10px;
+  button {
+    float: right;
+    margin-top: 8px;
+  }
 }
 
 @media (max-width: 768px) {

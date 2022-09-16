@@ -48,6 +48,42 @@ hr:after {
   font-size: 18px;
 }
 
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+form {
+  .row {
+    margin-top: 10px;
+  }
+
+  input[type='text'],
+  input[type='email'] {
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  textarea {
+    font-family: inherit;
+    height: 100px;
+    padding: 5px;
+    width: 100%;
+  }
+
+  input[type='submit'] {
+    display: block;
+    height: 40px;
+    margin: 20px 0 30px;
+    width: 100%;
+  }
+
+  select {
+    display: block;
+    padding: 6px;
+    width: 200px;
+  }
+}
+
 /* Login / Logout
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -89,6 +125,78 @@ hr:after {
   }
   .info {
     width: 100%;
+  }
+}
+
+/* Cam Page - content & Ad
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.content-and-ad {
+  display: flex;
+  width: 100%;
+}
+
+.content {
+  width: 50%;
+  .leaflet-container {
+    height: 350px;
+    width: 100%;
+  }
+  form {
+    padding-right: 15px;
+  }
+}
+
+.ad {
+  height: 350px;
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .content-and-ad {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+    form {
+      padding-right: 0;
+    }
+  }
+  .ad {
+    width: 100%;
+  }
+}
+
+/* Cam Details - image & Map
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.image-and-map {
+  display: flex;
+  width: 100%;
+  .image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .map {
+    height: 350px;
+    width: 50%;
+    .leaflet-container {
+      height: 350px;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .image-and-map {
+    flex-direction: column;
+    .image {
+      width: 100%;
+    }
+    .map {
+      width: 100%;
+    }
   }
 }
 

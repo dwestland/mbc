@@ -64,6 +64,7 @@ export default function FlagModal({
       setValues(initialState)
       onClose()
     }
+    return null
   }
 
   const handleClose = () => {
@@ -97,56 +98,52 @@ export default function FlagModal({
         <div className={styles.body}>
           <div className={styles.form}>
             <form method="post" onSubmit={handleSubmit} className={styles.form}>
-              <h1>Flag Cam</h1>
-              <p>
-                Thanks for flagging the cam. This issue will be sent to our
-                review team.
-              </p>
               <h3>
-                Cam flagged: <strong>{title}</strong>
+                Flag: <strong>{title}</strong>
               </h3>
-              <h4>
+              <p>
                 {subarea} {area} {state} {country}
-              </h4>
-              <div className="radio">
-                <br />
-                <p>
-                  <strong>What's wrong?</strong>
-                </p>
-                <label htmlFor="cam-down">
-                  <input
-                    type="radio"
-                    name="type"
-                    value="Cam Down"
-                    checked={values.type === 'Cam Down'}
-                    onChange={handleInputChange}
-                  />
-                  &nbsp;Cam Down
-                </label>
-              </div>
-              <div className="radio">
-                <label htmlFor="broken-link">
-                  <input
-                    type="radio"
-                    name="type"
-                    value="Broken Link"
-                    checked={values.type === 'Broken Link'}
-                    onChange={handleInputChange}
-                  />
-                  &nbsp;Broken Link
-                </label>
-              </div>
-              <div className="radio">
-                <label htmlFor="other">
-                  <input
-                    type="radio"
-                    name="type"
-                    value="Other"
-                    checked={values.type === 'Other'}
-                    onChange={handleInputChange}
-                  />
-                  &nbsp;Other
-                </label>
+              </p>
+              <p>
+                <strong>What's wrong?</strong>
+              </p>
+              <div className={styles.radioButtons}>
+                <div className={styles.radio}>
+                  <label htmlFor="cam-down">
+                    <input
+                      type="radio"
+                      name="type"
+                      value="Cam Down"
+                      checked={values.type === 'Cam Down'}
+                      onChange={handleInputChange}
+                    />
+                    &nbsp;Cam Down
+                  </label>
+                </div>
+                <div className={styles.radio}>
+                  <label htmlFor="broken-link">
+                    <input
+                      type="radio"
+                      name="type"
+                      value="Broken Link"
+                      checked={values.type === 'Broken Link'}
+                      onChange={handleInputChange}
+                    />
+                    &nbsp;Broken Link
+                  </label>
+                </div>
+                <div className={styles.radio}>
+                  <label htmlFor="other">
+                    <input
+                      type="radio"
+                      name="type"
+                      value="Other"
+                      checked={values.type === 'Other'}
+                      onChange={handleInputChange}
+                    />
+                    &nbsp;Other
+                  </label>
+                </div>
               </div>
               <div className={styles.grid}>
                 <div>
@@ -161,8 +158,8 @@ export default function FlagModal({
                   </label>
                 </div>
                 Optional:
-                <div>
-                  <label htmlFor="name">
+                <div className={styles.twoColumns}>
+                  <label htmlFor="name" className={styles.leftColumn}>
                     Name
                     <input
                       placeholder="Name"
@@ -173,9 +170,8 @@ export default function FlagModal({
                       onChange={handleInputChange}
                     />
                   </label>
-                </div>
-                <div>
-                  <label htmlFor="email">
+
+                  <label htmlFor="email" className={styles.rightColumn}>
                     Email
                     <input
                       placeholder="Email"

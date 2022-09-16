@@ -50,7 +50,7 @@ const Details = ({
     subarea,
     lat,
     lng,
-  } = cams.cams
+  }: Cams = cams.cams
 
   const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
 
@@ -94,64 +94,82 @@ const Details = ({
     >
       <div className="layout">
         <h1>Cam Details</h1>
+
+        <div className="image-and-map">
+          <div className="image">
+            <Image src={imageUrl} width={400} height={300} alt={title} />
+          </div>
+
+          <div className="map">
+            <DetailsMap lat={lat || 0} lng={lng || 0} />
+          </div>
+        </div>
+
         {isAdmin && (
           <div className={styles.admin}>
-            <div className={styles.link}>ID:{id}</div>
+            <div className={styles.link}>
+              <strong>ID:{id}</strong>
+            </div>
             <div className={styles.link}>
               <Link href={`/cams/edit/${id}`}>
-                <a className="button button-primary">Edit</a>
+                <a className="btn link-as-button">Edit</a>
               </Link>
             </div>
-            <button type="button" onClick={handleDelete}>
+            <button type="button" onClick={handleDelete} className="btn ">
               Delete Cam
             </button>
           </div>
         )}
-        <ul>
-          <li>
-            <strong>ID:</strong> {id}
-          </li>
-          <li>
-            <strong>Title:</strong> {title}
-          </li>
 
-          <li>
+        <div
+          style={{
+            background: 'lightblue',
+            height: '100px',
+            paddingLeft: '10px',
+          }}
+        >
+          <h3>Adsense</h3>
+        </div>
+
+        <div className={styles.camInfo}>
+          <p>
+            <strong>Title:</strong> {title}
+          </p>
+
+          <p>
             <strong>webcamUrl:</strong>&nbsp;
             <Link href={webcamUrl}>
               <a target="_blank">{webcamUrl}</a>
             </Link>
-          </li>
-          <li>
-            <strong>imageName:</strong> {imageName}
-            <br />
-            <Image src={imageUrl} width={400} height={300} alt={title} />
-          </li>
-          <li>
-            <strong>description:</strong> {description}
-          </li>
-          <li>
-            <strong>country:</strong> {country}
-          </li>
-          <li>
-            <strong>state:</strong> {state}
-          </li>
-          <li>
-            <strong>area:</strong> {area}
-          </li>
-          <li>
-            <strong>subarea:</strong> {subarea}
-          </li>
-          <li>
-            <strong>lat:</strong> {lat}
-          </li>
-          <li>
-            <strong>lng:</strong> {lng}
-          </li>
-        </ul>
-        <DetailsMap lat={lat || 0} lng={lng || 0} />
-        <button className="btn" type="button" onClick={handleFlag}>
-          Flag this Cam
-        </button>
+          </p>
+          <p>
+            <strong>Image Name:</strong> {imageName}
+          </p>
+          <p>
+            <strong>Description:</strong> {description}
+          </p>
+          <p>
+            <strong>Country:</strong> {country}
+          </p>
+          <p>
+            <strong>State:</strong> {state}
+          </p>
+          <p>
+            <strong>Area:</strong> {area}
+          </p>
+          <p>
+            <strong>Subarea:</strong> {subarea}
+          </p>
+          <p>
+            <strong>Latitude:</strong> {lat}
+          </p>
+          <p>
+            <strong>Longitude:</strong> {lng}
+          </p>
+          <button className="btn" type="button" onClick={handleFlag}>
+            Flag this Cam
+          </button>
+        </div>
       </div>
       {showDeleteModal && (
         <DeleteModal

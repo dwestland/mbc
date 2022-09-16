@@ -1,5 +1,5 @@
 import React, { useState, FC, useEffect } from 'react'
-import styles from '@/styles/Form.module.scss'
+import styles from '@/styles/AddEditForm.module.scss'
 
 interface AddCamSubareaOptionsProps {
   handleInputChange(): any

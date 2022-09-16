@@ -6,7 +6,7 @@ import Image from 'next/image'
 // import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
 
 import dynamic from 'next/dynamic'
-import styles from '@/styles/Form.module.scss'
+import styles from '@/styles/AddEditForm.module.scss'
 
 import Layout from '@/components/Layout'
 // import DetailsMap from '@/components/DetailsMap'
@@ -165,7 +165,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   }
 
   return (
-    <Layout title="Add Cam" description="Add Cam page">
+    <Layout title="Edit Cam" description="Add Cam page">
       <div className="layout">
         <Toaster
           toastOptions={{
@@ -227,7 +227,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                     type="button"
                     onClick={openImageUploadModal}
                   >
-                    Add Image
+                    Change Image
                   </button>
                 </div>
               </div>
