@@ -11,18 +11,18 @@ const SearchCams = () => {
   const searchTerm = router.query.term
   const searchUrl = `${process.env.NEXT_PUBLIC_API}/cams/search`
 
-  const displayResults = async () => {
-    if (searchResults.cams.length > 0) {
-      await searchResults.cams.map((cam) => {
-        console.log(
-          '%c cam.title ',
-          'background: green; color: white',
-          cam.title
-        )
-        return null
-      })
-    }
-  }
+  // const displayResults = async () => {
+  //   if (searchResults.cams.length > 0) {
+  //     await searchResults.cams.map((cam) => {
+  //       console.log(
+  //         '%c cam.title ',
+  //         'background: green; color: white',
+  //         cam.title
+  //       )
+  //       return null
+  //     })
+  //   }
+  // }
 
   useEffect(() => {
     fetch(searchUrl, {
@@ -39,7 +39,7 @@ const SearchCams = () => {
       .then((res) => res.json())
       .then((results) => {
         setSearchResults(results)
-        displayResults()
+        // displayResults()
       })
       .catch((err) => console.log('err', err))
   }, [searchTerm])
@@ -92,6 +92,15 @@ const SearchCams = () => {
             Search Results for <strong>{searchTerm}</strong>
           </h2>
           {searchDisplay}
+          <div
+            style={{
+              background: 'lightblue',
+              height: '100px',
+              paddingLeft: '10px',
+            }}
+          >
+            <h3>Adsense</h3>
+          </div>
         </div>
       </div>
     </Layout>

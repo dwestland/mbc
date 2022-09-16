@@ -1,5 +1,5 @@
 # Uses VS Code Rest Client extension
-@baseurl = http://localhost:3000/api
+@baseurl = http://localhost:3100/api
 
 
 ### Get all cams  

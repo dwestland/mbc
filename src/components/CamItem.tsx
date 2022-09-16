@@ -19,6 +19,8 @@ interface CamItemProps {
     state: string
     area: string
     subarea: string
+    lat: number
+    lng: number
   }
 }
 
@@ -74,6 +76,25 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
         </a>
       </div>
       <div className={styles.body}>
+        {/* /////////////////////////////////////////////////////////////////////////////// */}
+        <ul style={{ fontSize: 'small' }}>
+          <li>
+            state: <strong>{cam.state}</strong>
+          </li>
+          <li>
+            area: <strong>{cam.area}</strong>
+          </li>
+          <li>
+            subarea: <strong>{cam.subarea}</strong>
+          </li>
+          <li>
+            lat: <strong>{cam.lat}</strong>
+          </li>
+          <li>
+            lng: <strong>{cam.lng}</strong>
+          </li>
+        </ul>
+        {/* /////////////////////////////////////////////////////////////////////////////// */}
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <h4>{cam.title}</h4>
         </a>
@@ -107,18 +128,14 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
       </div>
       {showDeleteModal && (
         <DeleteModal
-          // title={values.title}
           onClose={() => setShowDeleteModal(false)}
-          // handleImageNameChange={handleImageNameChange}
           deleteCam={deleteCam}
           title={cam.title}
         />
       )}
       {showFlagModal && (
         <FlagModal
-          // title={values.title}
           onClose={() => setShowFlagModal(false)}
-          // handleImageNameChange={handleImageNameChange}
           id={cam.id}
           title={cam.title}
           country={cam.country}

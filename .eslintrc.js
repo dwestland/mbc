@@ -16,6 +16,12 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
+    parserOptions: {
+      ecmaVersion: 6,
+      ecmaFeatures: {
+        experimentalObjectRestSpread: true,
+      },
+    },
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
