@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import router from 'next/router'
@@ -8,7 +8,7 @@ import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
 
 interface CamItemProps {
-  refreshData: () => void
+  // refreshData: () => void
   cam: {
     id: number
     title: string
@@ -24,7 +24,7 @@ interface CamItemProps {
   }
 }
 
-const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
+const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showFlagModal, setShowFlagModal] = useState(false)
 
@@ -32,11 +32,11 @@ const CamItem: FC<CamItemProps> = ({ cam, refreshData }): JSX.Element => {
     ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
     : '/images/no-image.jpg'
 
-  const [session] = useSession()
+  const { data: session } = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    if (session?.role === 'ADMIN') {
+    if (session?.user.role === 'ADMIN') {
       setIsAdmin(true)
     }
   }, [session])

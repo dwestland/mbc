@@ -1,23 +1,22 @@
 import NextAuth from 'next-auth'
-import Providers from 'next-auth/providers'
-import Adapters from 'next-auth/adapters'
+import { PrismaAdapter } from '@next-auth/prisma-adapter'
+import GithubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
+import EmailProvider from 'next-auth/providers/email'
 
-import { NextApiHandler } from 'next'
-import { PrismaClient } from '@prisma/client'
+import prisma from '@/lib/prisma'
 
-const prisma = new PrismaClient()
-
-const options = {
+export default NextAuth({
   providers: [
-    Providers.GitHub({
+    GithubProvider({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET,
     }),
-    Providers.Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
-    Providers.Email({
+    EmailProvider({
       server: {
         host: process.env.EMAIL_SERVER_HOST,
         port: process.env.EMAIL_SERVER_PORT,
@@ -29,20 +28,17 @@ const options = {
       from: process.env.EMAIL_FROM,
     }),
   ],
-  // @ts-ignore
-  adapter: Adapters.Prisma.Adapter({
-    prisma,
-  }),
+  adapter: PrismaAdapter(prisma),
+  secret: process.env.SECRET,
+  theme: {
+    logo: '/images/mybeachcams.jpg',
+  },
   callbacks: {
-    session(session, user) {
-      session.role = user.role
-      session.id = user.id
+    async session({ session, user }) {
+      session.user.role = user.role
+      session.userId = user.id
+
       return session
     },
   },
-
-  secret: process.env.SECRET,
-}
-
-const authHandler: NextApiHandler = (req, res) => NextAuth(req, res, options)
-export default authHandler
+})

@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 // import { useRouter } from 'next/router'
 import Navbar from './Navbar'
@@ -23,10 +23,12 @@ const Layout: FC<LayoutProps> = ({
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
-  const [session] = useSession()
+  const { data: session } = useSession()
+
+  console.log('%c session ', 'background: green; color: white', session)
 
   useEffect(() => {
-    if (session?.role === 'ADMIN') {
+    if (session?.user.role === 'ADMIN') {
       setIsAdmin(true)
     }
   }, [session])
