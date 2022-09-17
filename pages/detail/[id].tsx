@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/client'
+import { useSession } from 'next-auth/react'
 import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -33,7 +33,7 @@ const Details = ({
     ssr: false,
   })
 
-  const [session] = useSession()
+  const { data: session } = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showFlagModal, setShowFlagModal] = useState(false)
@@ -55,7 +55,7 @@ const Details = ({
   const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
 
   useEffect(() => {
-    if (session?.role === 'ADMIN') {
+    if (session?.user.role === 'ADMIN') {
       setIsAdmin(true)
     }
   }, [session])

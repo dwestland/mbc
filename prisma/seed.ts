@@ -1,14 +1,14 @@
 /* eslint-disable no-return-await */
 import { PrismaClient } from '@prisma/client'
-import users from '../seed-data/users'
+// import users from '../seed-data/users'
 import cams from '../seed-data/cams'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  await prisma.user.createMany({
-    data: users,
-  })
+  // await prisma.user.createMany({
+  //   data: users,
+  // })
   await prisma.cams.createMany({
     data: cams,
   })

@@ -1,8 +1,9 @@
 import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 const LoginLogOut: React.FC = () => {
-  const [session] = useSession()
+  // const [session] = useSession()
+  const { data: session } = useSession()
 
   if (session) {
     return (
@@ -18,11 +19,7 @@ const LoginLogOut: React.FC = () => {
   return (
     <div className="login-logout">
       <button type="button" onClick={() => signIn()}>
-        Login In
-      </button>
-      &nbsp;/&nbsp;
-      <button type="button" onClick={() => signIn()}>
-        Sign Up
+        Log In / Sign Up
       </button>
     </div>
   )

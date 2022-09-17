@@ -1,7 +1,7 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
-import { useRouter } from 'next/router'
+// import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
@@ -32,11 +32,11 @@ const KauaiPage = ({
   // Next modal SSR
   const CamsMap = dynamic(() => import('@/components/CamsMap'), { ssr: false })
 
-  const router = useRouter()
+  // const router = useRouter()
 
-  const refreshData = () => {
-    router.replace(router.asPath)
-  }
+  // const refreshData = () => {
+  //   router.replace(router.asPath)
+  // }
 
   // Get subarea array for page sections
   const country = 'USA'
@@ -77,7 +77,8 @@ const KauaiPage = ({
           {cams.cams.map((cam: Cams) => {
             if (cam.subarea === subarea) {
               return (
-                <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+                <CamItem key={cam.id} cam={cam} />
+                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
               )
             }
             return null
@@ -103,7 +104,8 @@ const KauaiPage = ({
       <div className="cam-container">
         {cams.cams.map((cam: Cams) => {
           if (cam.area === area && cam.subarea === '') {
-            return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+            return <CamItem key={cam.id} cam={cam} />
+            // return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
           }
           return null
         })}
