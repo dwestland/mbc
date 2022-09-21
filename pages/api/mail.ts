@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import mail from '@sendgrid/mail'
-import { PrismaClient } from '.prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 

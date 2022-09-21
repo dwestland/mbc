@@ -30,15 +30,10 @@ const KauaiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   // Next modal SSR
-  const CamsMap = dynamic(() => import('@/components/CamsMap'), { ssr: false })
+  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
+    ssr: false,
+  })
 
-  // const router = useRouter()
-
-  // const refreshData = () => {
-  //   router.replace(router.asPath)
-  // }
-
-  // Get subarea array for page sections
   const country = 'USA'
   const state = 'Hawaii'
   const area = 'Kauai'

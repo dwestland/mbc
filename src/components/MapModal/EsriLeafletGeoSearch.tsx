@@ -3,7 +3,11 @@ import { useEffect } from 'react'
 import { useMap } from 'react-leaflet'
 import * as ELG from 'esri-leaflet-geocoder'
 
-const EsriLeafletGeoCoder = (props) => {
+interface Props {
+  providers: string[]
+}
+
+const EsriLeafletGeoCoder = (props: Props) => {
   const map = useMap()
 
   useEffect(() => {

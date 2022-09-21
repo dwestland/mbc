@@ -35,10 +35,15 @@ export default NextAuth({
   },
   callbacks: {
     async session({ session, user }) {
-      session.user.role = user.role
       session.userId = user.id
 
-      return session
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          role: user.role,
+        },
+      }
     },
   },
 })

@@ -4,7 +4,20 @@ import ReactDOM from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
-export default function MapModal({ onClose, lat, lng, handleLatLngChange }) {
+interface Props {
+  onClose: () => void
+
+  lat: number
+  lng: number
+  handleLatLngChange: any
+}
+
+export default function MapModal({
+  onClose,
+  lat,
+  lng,
+  handleLatLngChange,
+}: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => setIsBrowser(true))
@@ -36,6 +49,7 @@ export default function MapModal({ onClose, lat, lng, handleLatLngChange }) {
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Set Lat Lng</h1>
+            {/* @ts-ignore */}
             <Map lat={lat} lng={lng} handleLatLngChange={handleLatLngChange} />
 
             <div className={styles.buttonContainer}>

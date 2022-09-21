@@ -36,6 +36,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
+    // @ts-ignore
     if (session?.user.role === 'ADMIN') {
       setIsAdmin(true)
     }
@@ -76,25 +77,6 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
         </a>
       </div>
       <div className={styles.body}>
-        {/* /////////////////////////////////////////////////////////////////////////////// */}
-        <ul style={{ fontSize: 'small' }}>
-          <li>
-            state: <strong>{cam.state}</strong>
-          </li>
-          <li>
-            area: <strong>{cam.area}</strong>
-          </li>
-          <li>
-            subarea: <strong>{cam.subarea}</strong>
-          </li>
-          <li>
-            lat: <strong>{cam.lat}</strong>
-          </li>
-          <li>
-            lng: <strong>{cam.lng}</strong>
-          </li>
-        </ul>
-        {/* /////////////////////////////////////////////////////////////////////////////// */}
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <h4>{cam.title}</h4>
         </a>
@@ -102,18 +84,37 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
       </div>
       <div className={styles.footer}>
         {isAdmin && (
-          <div className={styles.admin}>
-            <div className={styles.link}>ID:{cam.id}</div>
+          <>
+            <div className={styles.admin}>
+              <div className={styles.link}>ID:{cam.id}</div>
 
-            <div className={styles.link}>
-              <Link href={`/cams/edit/${cam.id}`}>
-                <a className="button button-primary">Edit</a>
-              </Link>
+              <div className={styles.link}>
+                <Link href={`/cams/edit/${cam.id}`}>
+                  <a className="button button-primary">Edit</a>
+                </Link>
+              </div>
+              <button type="button" onClick={handleDelete}>
+                Delete Cam
+              </button>
             </div>
-            <button type="button" onClick={handleDelete}>
-              Delete Cam
-            </button>
-          </div>
+            <ul style={{ fontSize: 'small' }}>
+              <li>
+                state: <strong>{cam.state}</strong>
+              </li>
+              <li>
+                area: <strong>{cam.area}</strong>
+              </li>
+              <li>
+                subarea: <strong>{cam.subarea}</strong>
+              </li>
+              <li>
+                lat: <strong>{cam.lat}</strong>
+              </li>
+              <li>
+                lng: <strong>{cam.lng}</strong>
+              </li>
+            </ul>
+          </>
         )}
         <div className={styles.user}>
           <div className={styles.link}>

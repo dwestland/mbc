@@ -5,11 +5,17 @@ import { FaTimes } from 'react-icons/fa'
 import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
 
+interface Props {
+  onClose: () => void
+  title: string
+  handleImageNameChange: any
+}
+
 export default function ImageUploadModal({
   onClose,
   title,
   handleImageNameChange,
-}) {
+}: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
   const [src, setSrc] = useState()
   const [blob, setBlob] = useState(null)
