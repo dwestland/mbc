@@ -5,7 +5,13 @@ import { FaTimes } from 'react-icons/fa'
 // import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.css'
 
-export default function ImageUploadModal({ onClose, deleteCam, title }) {
+interface Props {
+  onClose: () => void
+  deleteCam: () => void
+  title: string
+}
+
+export default function ImageUploadModal({ onClose, deleteCam, title }: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
 
   useEffect(() => setIsBrowser(true))

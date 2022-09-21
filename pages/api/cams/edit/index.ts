@@ -1,5 +1,6 @@
+/* eslint-disable import/no-useless-path-segments */
 import { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '.prisma/client'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 

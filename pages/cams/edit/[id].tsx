@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { InferGetStaticPropsType } from 'next'
@@ -17,23 +18,24 @@ import ImageUploadModal from '@/components/ImageUploadModal'
 interface CamsEditProps {
   cams: { title: string }[]
 }
-interface Cams {
-  id: string
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-}
+// interface Cams {
+//   id: string
+//   title: string
+//   webcamUrl: string
+//   imageName: string
+//   description: string
+//   country: string
+//   state: string
+//   area: string
+//   subarea: string
+//   lat: number
+//   lng: number
+// }
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/edit`
 
 const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
+  // eslint-disable-next-line no-unused-vars
   const DetailsMap = dynamic(() => import('@/components/DetailsMap'), {
     ssr: false,
   })
@@ -140,10 +142,12 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     setValues({ ...values, [name]: value })
   }
 
+  // eslint-disable-next-line no-shadow
   const handleLatLngChange = (lat: number, lng: number) => {
     setValues({ ...values, lat, lng })
   }
 
+  // eslint-disable-next-line no-shadow
   const handleImageNameChange = (imageName: string) => {
     setValues({ ...values, imageName })
   }
@@ -186,6 +190,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                 <label htmlFor="title">
                   Title
                   <input
+                    spellCheck="true"
                     type="text"
                     id="title"
                     name="title"
@@ -237,6 +242,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                 <label htmlFor="description">
                   Description
                   <textarea
+                    spellCheck="true"
                     name="description"
                     id="description"
                     value={values.description}

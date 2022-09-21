@@ -7,7 +7,17 @@ import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 // 33.9765, -118.4483
 
-const CamsMap = ({ vectors }) => {
+interface Props {
+  vectors: {
+    lat: number
+    lng: number
+    name: string
+  }[]
+}
+
+// TODO: add default lat lng if vectors is empty
+
+const CamsMap = ({ vectors }: Props) => {
   const vectorArray: [number, number][] = vectors.map((vector) => [
     vector.lat,
     vector.lng,

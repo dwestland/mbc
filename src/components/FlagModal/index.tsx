@@ -4,6 +4,16 @@ import toast, { Toaster } from 'react-hot-toast'
 import { FaTimes } from 'react-icons/fa'
 import styles from '@/styles/Modal.module.css'
 
+interface Props {
+  onClose: () => void
+  id: number
+  title: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+}
+
 export default function FlagModal({
   onClose,
   id,
@@ -12,7 +22,7 @@ export default function FlagModal({
   state,
   area,
   subarea,
-}) {
+}: Props) {
   const initialState = {
     name: '',
     email: '',

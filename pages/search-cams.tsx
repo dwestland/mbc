@@ -11,19 +11,6 @@ const SearchCams = () => {
   const searchTerm = router.query.term
   const searchUrl = `${process.env.NEXT_PUBLIC_API}/cams/search`
 
-  // const displayResults = async () => {
-  //   if (searchResults.cams.length > 0) {
-  //     await searchResults.cams.map((cam) => {
-  //       console.log(
-  //         '%c cam.title ',
-  //         'background: green; color: white',
-  //         cam.title
-  //       )
-  //       return null
-  //     })
-  //   }
-  // }
-
   useEffect(() => {
     fetch(searchUrl, {
       method: 'POST',
@@ -50,7 +37,7 @@ const SearchCams = () => {
       return null
     }
     if (searchResults.cams.length > 50) {
-      setSearchDisplay('Too many results')
+      setSearchDisplay('Too many results, please refine your search')
       return null
     }
 

@@ -1,7 +1,12 @@
 import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
 
-const DetailsMap = ({ lat, lng }) => (
+interface Props {
+  lat: number
+  lng: number
+}
+
+const DetailsMap = ({ lat, lng }: Props) => (
   <MapContainer center={[lat, lng]} zoom={14}>
     <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

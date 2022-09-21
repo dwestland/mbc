@@ -140,6 +140,7 @@ const AddCam = () => {
                 <label htmlFor="title">
                   Title
                   <input
+                    spellCheck="true"
                     type="text"
                     id="title"
                     name="title"
@@ -191,6 +192,7 @@ const AddCam = () => {
                 <label htmlFor="description">
                   Description
                   <textarea
+                    spellCheck="true"
                     name="description"
                     id="description"
                     value={values.description}

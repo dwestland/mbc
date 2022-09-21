@@ -11,6 +11,7 @@ export default function App({
 }: AppProps) {
   return (
     <SessionProvider session={(pageProps as any).session} refetchInterval={0}>
+      {/* @ts-ignore */}
       <Component {...pageProps} />
     </SessionProvider>
   )

@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import styles from '@/styles/AddEditForm.module.scss'
 
-export default function ContactPage({ cams }) {
+export default function ContactPage() {
   const initialState = {
     name: '',
     email: '',
@@ -45,6 +45,7 @@ export default function ContactPage({ cams }) {
       toast.success('Message sent')
       setValues(initialState)
     }
+    return null
   }
 
   return (
