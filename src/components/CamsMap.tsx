@@ -18,6 +18,9 @@ interface Props {
 // TODO: add default lat lng if vectors is empty
 
 const CamsMap = ({ vectors }: Props) => {
+  if (vectors.length === 0) {
+    vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey' }]
+  }
   const vectorArray: [number, number][] = vectors.map((vector) => [
     vector.lat,
     vector.lng,
@@ -30,6 +33,7 @@ const CamsMap = ({ vectors }: Props) => {
       // zoom={14}
       scrollWheelZoom={false}
       gestureHandling
+      boundsOptions={{ padding: [50, 50] }}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
