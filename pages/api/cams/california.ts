@@ -14,11 +14,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           id: true,
           title: true,
           webcamUrl: true,
+          imageName: true,
           description: true,
           country: true,
           state: true,
           area: true,
           subarea: true,
+          lat: true,
+          lng: true,
         },
       })
       res.status(200).json({ cams })

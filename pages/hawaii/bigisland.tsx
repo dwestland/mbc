@@ -230,7 +230,7 @@ const BigIslandPage = ({
 
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Kauai</h3>
+            <h3>Top 10 Things to do on the Big Island</h3>
             <ol>
               <li>Drive to the Mauna Kea Summit</li>
               <li>Swim and snorkel in Honaunau Bay or Hapuna Bay</li>
@@ -250,7 +250,7 @@ const BigIslandPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Kauai Links and Local Information</h3>
+            <h3>Big Island Links and Local Information</h3>
             <ul>
               <li>
                 <a

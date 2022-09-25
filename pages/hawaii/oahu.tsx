@@ -222,7 +222,7 @@ const OahuPage = ({
 
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Kauai</h3>
+            <h3>Top 10 Things to do in Oahu</h3>
             <ol>
               <li>
                 Check out the huge waves and professional surfers on the North
@@ -243,7 +243,7 @@ const OahuPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Kauai Links and Local Information</h3>
+            <h3>Oahu Links and Local Information</h3>
             <ul>
               <li>
                 <a

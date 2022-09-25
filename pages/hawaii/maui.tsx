@@ -235,7 +235,7 @@ const MauiPage = ({
 
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Kauai</h3>
+            <h3>Top 10 Things to do in Maui</h3>
             <ol>
               <li>Go to a colored-sand beach</li>
               <li>Take in a beach luau</li>
@@ -252,7 +252,7 @@ const MauiPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Kauai Links and Local Information</h3>
+            <h3>Maui Links and Local Information</h3>
             <ul>
               <li>
                 <a
