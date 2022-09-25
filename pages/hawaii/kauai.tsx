@@ -8,7 +8,7 @@ import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
 
-interface KauaiPageProps {
+interface PageProps {
   cams: {}[]
 }
 
@@ -124,8 +124,8 @@ const KauaiPage = ({
 
   return (
     <Layout
-      title="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      description="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
+      title="Beach Cams of Kauai, Hawaii - Webcams at Princeville, Lihue and Poipu"
+      description="Beach Cams and Surf aCms on Kauai, Hawaii with webcams in Princeville, Lihue and Poipu."
     >
       <div className="layout">
         <h1>Kauai Webcams</h1>
@@ -353,7 +353,7 @@ const KauaiPage = ({
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const cams: KauaiPageProps = await res.json()
+  const cams: PageProps = await res.json()
 
   return {
     props: {
