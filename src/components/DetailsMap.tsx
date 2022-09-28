@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer } from 'react-leaflet'
 
 interface Props {
   lat: number
@@ -7,19 +7,16 @@ interface Props {
 }
 
 const DetailsMap = ({ lat, lng }: Props) => (
-  <MapContainer center={[lat, lng]} zoom={14}>
+  <MapContainer
+    center={[lat, lng]}
+    zoom={14}
+    style={{ height: '300px', width: '400px' }}
+  >
     <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={[lat, lng]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-      <Tooltip direction="bottom" offset={[-10, 40]}>
-        Tooltip for Marker
-      </Tooltip>
-    </Marker>
+    <Marker position={[lat, lng]} />
   </MapContainer>
 )
 

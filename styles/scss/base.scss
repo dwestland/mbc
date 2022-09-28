@@ -97,8 +97,10 @@ p {
 
 a {
   color: #1eaedb;
+  text-decoration: none;
   &:hover {
     color: #0b83a1;
+    text-decoration: underline;
   }
 }
 

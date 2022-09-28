@@ -31,6 +31,7 @@ const data = {
                 { subarea: 'Waikoloa Coast' },
                 { subarea: 'Observatory Cams' },
                 { subarea: 'Volcano Cams' },
+                { subarea: 'Big Island Surf' },
               ],
             },
             {
@@ -39,6 +40,7 @@ const data = {
                 { subarea: 'Princeville' },
                 { subarea: 'Poipu' },
                 { subarea: 'Lihue' },
+                { subarea: 'Kauai Surf' },
               ],
             },
           ],
@@ -66,7 +68,7 @@ const data = {
                 { subarea: 'Catalina Island' },
                 { subarea: 'Orange County' },
                 { subarea: 'Laguna Beach' },
-                { subarea: 'Los Angeles' },
+                { subarea: 'Los Angeles Surf' },
               ],
             },
             {
@@ -75,7 +77,7 @@ const data = {
                 { subarea: 'Monterey Bay' },
                 { subarea: 'San Luis Obispo' },
                 { subarea: 'Santa Barbara' },
-                { subarea: 'Central Coast Surf Cams' },
+                { subarea: 'Central Coast Surf' },
               ],
             },
             {
@@ -83,7 +85,7 @@ const data = {
               subareas: [
                 { subarea: 'San Francisco Bay' },
                 { subarea: 'Mendocino' },
-                { subarea: 'San Francisco Surf Cams' },
+                { subarea: 'San Francisco Surf' },
               ],
             },
           ],
@@ -104,6 +106,7 @@ const data = {
                 { subarea: 'Destin Beach' },
                 { subarea: 'Sandestin Beach' },
                 { subarea: 'Cape San Blas' },
+                { subarea: 'Panhandle Surf' },
               ],
             },
             {
@@ -114,6 +117,7 @@ const data = {
                 { subarea: 'Fernandina Beach' },
                 { subarea: 'Ponte Vedra Beach' },
                 { subarea: 'Flagler Beach' },
+                { subarea: 'Northeast Surf' },
               ],
             },
             {
@@ -128,6 +132,7 @@ const data = {
                 { subarea: 'Ormond Beach' },
                 { subarea: 'Jetty Park' },
                 { subarea: 'Spanish House' },
+                { subarea: 'East Central Surf' },
               ],
             },
             {
@@ -135,6 +140,7 @@ const data = {
               subareas: [
                 { subarea: 'Miami Beach' },
                 { subarea: 'South Beach' },
+                { subarea: 'Miami Surf' },
               ],
             },
             {
@@ -149,6 +155,7 @@ const data = {
                 { subarea: 'Boca Raton' },
                 { subarea: 'Hollywood Beach' },
                 { subarea: 'Florida Keys' },
+                { subarea: 'Surf' },
               ],
             },
             {
@@ -162,6 +169,7 @@ const data = {
                 { subarea: 'Vanderbilt south of Cape Coral' },
                 { subarea: 'Naples' },
                 { subarea: 'Clearwater' },
+                { subarea: 'Gulf Coast Surf' },
               ],
             },
           ],
