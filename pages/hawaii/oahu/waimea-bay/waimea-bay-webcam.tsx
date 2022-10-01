@@ -79,7 +79,7 @@ const About = ({
       // CamId={camID}
       pageHeading="Waimea Bay Beach Cam, Oahu, Hawaii"
       // text
-      youtube=""
+      // youtube=""
     >
       <div className="container">
         <h1>Waimea Bay Beach Cam, Oahu, Hawaii</h1>
