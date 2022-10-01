@@ -22,6 +22,7 @@ const data = {
                 { subarea: 'Waikiki' },
                 { subarea: 'Honolulu' },
                 { subarea: 'Oahu Surf' },
+                { subarea: 'Waimea Bay' },
               ],
             },
             {
