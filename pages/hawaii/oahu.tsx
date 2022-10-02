@@ -267,7 +267,7 @@ const OahuPage = ({
               </li>
               <li>
                 <a
-                  href="https://hawaiistateparks.org/parks/maui/"
+                  href="https://hawaiistateparks.org/parks/oahu/"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -335,16 +335,6 @@ const OahuPage = ({
                   The Honolulu Marathon
                 </a>{' '}
                 If you like running marathons, check out this site
-              </li>
-              <li>
-                <a
-                  href="http://int.gohawaii.com/en/oahu/about/history/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Oahu History
-                </a>{' '}
-                Learn about more about the historic island of Oahu
               </li>
             </ul>
           </div>

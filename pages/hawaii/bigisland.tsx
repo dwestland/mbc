@@ -323,26 +323,6 @@ const BigIslandPage = ({
                 70 million years in the making, explore the volcanoes of the Big
                 Island
               </li>
-              <li>
-                <a
-                  href="http://www.konaweb.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  KonaWeb
-                </a>{' '}
-                Online Magazine about The Big Island of Hawaii
-              </li>
-              <li>
-                <a
-                  href="http://luremakingkonastyle.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Weekly Kona Fishing Report
-                </a>{' '}
-                Fishing advice, reports, tips and stories updated weekly
-              </li>
             </ul>
           </div>
         </div>

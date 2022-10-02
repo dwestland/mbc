@@ -240,7 +240,7 @@ const MauiPage = ({
               <li>Go to a colored-sand beach</li>
               <li>Take in a beach luau</li>
               <li>Visit the Haleakala Crater</li>
-              <li>Visit a real Plantation, The Maui Tropical Plantation</li>
+              <li>Visit a real plantation, The Maui Tropical Plantation</li>
               <li>Go snorkeling (Molokini Crater or Black Rock)</li>
               <li>Relax at a luxurious spa</li>
               <li>Drive the "Road to Hana"</li>

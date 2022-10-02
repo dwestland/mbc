@@ -238,9 +238,7 @@ const KauaiPage = ({
               <li>Visit Waterfalls, (some or all of them)</li>
               <li>Snorkeling on Poipu Beach</li>
               <li>Surfing on Black Pot Beach</li>
-              <li>
-                Hanalei Valley and its famous &#x34;South Pacific&#x34; pier
-              </li>
+              <li>Hanalei Valley and its famous "South Pacific" pier</li>
               <li>Golfing in Princeville and Kiele</li>
               <li>Fern Grotto and the Wailua River</li>
               <li>Mt. Wai&#x27;ale&#x27;ale (the wettest place on earth)</li>
