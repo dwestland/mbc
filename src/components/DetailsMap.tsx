@@ -9,7 +9,7 @@ interface Props {
 const DetailsMap = ({ lat, lng }: Props) => (
   <MapContainer
     center={[lat, lng]}
-    zoom={14}
+    zoom={12}
     style={{ height: '300px', width: '400px' }}
   >
     <TileLayer

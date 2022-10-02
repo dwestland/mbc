@@ -46,10 +46,11 @@ const CamsMap = ({ vectors }: Props) => {
           <TileLayer
             attribution='&copy; <a href="http://stamen.com">Stamen Design</a> contributors'
             url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
+            maxNativeZoom={17}
           />
         </LayersControl.BaseLayer>
 
-        <LayersControl.BaseLayer checked name="Street Map">
+        <LayersControl.BaseLayer name="Street Map">
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -64,14 +65,15 @@ const CamsMap = ({ vectors }: Props) => {
           <TileLayer
             attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            maxNativeZoom={15}
           />
         </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="Nat Geo">
+        {/* <LayersControl.BaseLayer name="Nat Geo">
           <TileLayer
             attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
             url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
           />
-        </LayersControl.BaseLayer>
+        </LayersControl.BaseLayer> */}
       </LayersControl>
       <Marker position={[33.9765, -118.4483]} />
       {/* <MarkerClusterGroup> */}
