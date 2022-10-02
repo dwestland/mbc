@@ -6,7 +6,10 @@ import styles from '@/styles/404.module.scss'
 
 export default function NotFoundPage() {
   return (
-    <Layout title="Page Not Found" description="404 error, page not found">
+    <Layout
+      documentTitle="Page Not Found"
+      documentDescription="404 error, page not found"
+    >
       <div className={styles.error}>
         <h1>
           <FaExclamationTriangle /> Page not Found

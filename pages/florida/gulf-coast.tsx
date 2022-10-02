@@ -123,8 +123,8 @@ const GulfCoastPage = ({
 
   return (
     <Layout
-      title="Beach Cams on the Florida Gulf Coast from Tampa Bay, Fort Myers, Cape Coral and Clearwater"
-      description="Florida Gulf Coast, surf cam, beach cam, webcam, camera, Clearwater, Tampa Bay, Cape Coral, Fort Myers."
+      documentTitle="Beach Cams on the Florida Gulf Coast from Tampa Bay, Fort Myers, Cape Coral and Clearwater"
+      documentDescription="Florida Gulf Coast, surf cam, beach cam, webcam, camera, Clearwater, Tampa Bay, Cape Coral, Fort Myers."
     >
       <div className="layout">
         <h1>Gulf Coast Florida Webcams</h1>

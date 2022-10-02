@@ -169,7 +169,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   }
 
   return (
-    <Layout title="Edit Cam" description="Add Cam page">
+    <Layout documentTitle="Edit Cam" documentDescription="Add Cam page">
       <div className="layout">
         <Toaster
           toastOptions={{

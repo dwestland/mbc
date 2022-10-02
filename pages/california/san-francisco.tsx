@@ -124,8 +124,8 @@ const SanFranciscoPage = ({
 
   return (
     <Layout
-      title="Beach Cams of San Francisco, California - Webcams at Golden Gate Bridge, San Francisco Bay and Alcatraz"
-      description="Beach Cams and Surf Cams in San Francisco, California with webcams at Golden Gate Bridge, San Francisco Bay and Alcatraz Island."
+      documentTitle="Beach Cams of San Francisco, California - Webcams at Golden Gate Bridge, San Francisco Bay and Alcatraz"
+      documentDescription="Beach Cams and Surf Cams in San Francisco, California with webcams at Golden Gate Bridge, San Francisco Bay and Alcatraz Island."
     >
       <div className="layout">
         <h1>San Francisco Webcams</h1>

@@ -123,8 +123,8 @@ const MiamiPage = ({
 
   return (
     <Layout
-      title="Beach Cams in Miami and South Beach Florida"
-      description="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
+      documentTitle="Beach Cams in Miami and South Beach Florida"
+      documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
     >
       <div className="layout">
         <h1>Miami Beach Webcams</h1>

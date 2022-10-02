@@ -124,8 +124,8 @@ const LosAngelesPage = ({
 
   return (
     <Layout
-      title="Beach Cams of Los Angeles, California - Webcams at Santa Monica, Long Beach and Laguna Beach"
-      description="Beach Cams and Surf Cams in Los Angeles, California with webcams in Venice, Santa Monica, Long Beach and Laguna Beach."
+      documentTitle="Beach Cams of Los Angeles, California - Webcams at Santa Monica, Long Beach and Laguna Beach"
+      documentDescription="Beach Cams and Surf Cams in Los Angeles, California with webcams in Venice, Santa Monica, Long Beach and Laguna Beach."
     >
       <div className="layout">
         <h1>Los Angeles Webcams</h1>

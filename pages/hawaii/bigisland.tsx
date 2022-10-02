@@ -124,8 +124,8 @@ const BigIslandPage = ({
 
   return (
     <Layout
-      title="Beach Cams of the Big Island, Hawaii - Webcams at the Kona Coast, Waikoloa and Kailua Kona"
-      description="Best Beach Cams and Surf Cams on the Big Island of Hawaii with webcams on the Kona Coast, Waikoloa and Kailua Kona."
+      documentTitle="Beach Cams of the Big Island, Hawaii - Webcams at the Kona Coast, Waikoloa and Kailua Kona"
+      documentDescription="Best Beach Cams and Surf Cams on the Big Island of Hawaii with webcams on the Kona Coast, Waikoloa and Kailua Kona."
     >
       <div className="layout">
         <h1>Big Island Webcams</h1>

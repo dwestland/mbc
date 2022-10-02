@@ -11,17 +11,20 @@ import AdminNav from './AdminNav'
 import Footer from './Footer'
 
 interface LayoutProps {
-  title: string
-  description: string
+  documentTitle: string
+  documentDescription: string
   children: any
 }
 
 const Layout: FC<LayoutProps> = ({
-  title,
-  description,
+  documentTitle,
+  documentDescription,
   children,
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
+
+  const title = documentTitle
+  const description = documentDescription
 
   const { data: session } = useSession()
 

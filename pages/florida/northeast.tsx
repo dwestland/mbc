@@ -123,8 +123,8 @@ const NorthEastPage = ({
 
   return (
     <Layout
-      title="Beach Cams in Northeast Florida from St. Augustine, Jacksonville Beach and Fernandina Beach"
-      description="Best web cams from Northeast Florida with surf cams at St. Augustine, Jacksonville Beach and Fernandina Beach."
+      documentTitle="Beach Cams in Northeast Florida from St. Augustine, Jacksonville Beach and Fernandina Beach"
+      documentDescription="Best web cams from Northeast Florida with surf cams at St. Augustine, Jacksonville Beach and Fernandina Beach."
     >
       <div className="layout">
         <h1>Northeast Webcams</h1>

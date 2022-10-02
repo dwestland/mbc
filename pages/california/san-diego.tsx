@@ -124,8 +124,8 @@ const SanDiegoPage = ({
 
   return (
     <Layout
-      title="Beach Cams of San Diego, California - Webcams at La Jolla, Del Mar and Mission Bay"
-      description="Beach Cams and Surf Cams in San Diego, California with webcams in La Jolla, Del Mar and Mission Bay."
+      documentTitle="Beach Cams of San Diego, California - Webcams at La Jolla, Del Mar and Mission Bay"
+      documentDescription="Beach Cams and Surf Cams in San Diego, California with webcams in La Jolla, Del Mar and Mission Bay."
     >
       <div className="layout">
         <h1>San Diego Webcams</h1>

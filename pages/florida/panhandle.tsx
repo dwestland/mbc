@@ -123,8 +123,8 @@ const PanhandlePage = ({
 
   return (
     <Layout
-      title="Beach Cams - Florida Panhandle - Panama City, Pensacola and Destin Beach"
-      description="Web Cams on the Florida Panhandle with surf cams at Panama City, Pensacola and Destin Beach."
+      documentTitle="Beach Cams - Florida Panhandle - Panama City, Pensacola and Destin Beach"
+      documentDescription="Web Cams on the Florida Panhandle with surf cams at Panama City, Pensacola and Destin Beach."
     >
       <div className="layout">
         <h1>Panhandle Webcams</h1>

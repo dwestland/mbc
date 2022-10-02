@@ -124,8 +124,8 @@ const CentralCoastPage = ({
 
   return (
     <Layout
-      title="Beach Cams on California's Central Coast of  - Webcams at Santa Barbara, Monterey Bay and Pebble Beach"
-      description="Beach Cams and Surf Cams on the Central Coast of California with webcams in Santa Barbara, Monterey Bay and Pebble Beach."
+      documentTitle="Beach Cams on California's Central Coast of  - Webcams at Santa Barbara, Monterey Bay and Pebble Beach"
+      documentDescription="Beach Cams and Surf Cams on the Central Coast of California with webcams in Santa Barbara, Monterey Bay and Pebble Beach."
     >
       <div className="layout">
         <h1>Central Coast, California Webcams</h1>

@@ -124,8 +124,8 @@ const KauaiPage = ({
 
   return (
     <Layout
-      title="Beach Cams of Kauai, Hawaii - Webcams at Princeville, Lihue and Poipu"
-      description="Beach Cams and Surf aCms on Kauai, Hawaii with webcams in Princeville, Lihue and Poipu."
+      documentTitle="Beach Cams of Kauai, Hawaii - Webcams at Princeville, Lihue and Poipu"
+      documentDescription="Beach Cams and Surf aCms on Kauai, Hawaii with webcams in Princeville, Lihue and Poipu."
     >
       <div className="layout">
         <h1>Kauai Webcams</h1>

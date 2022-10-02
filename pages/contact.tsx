@@ -50,8 +50,8 @@ export default function ContactPage() {
 
   return (
     <Layout
-      title="MyBeachCams.com - Contact Page"
-      description="Please use this form to contact us"
+      documentTitle="MyBeachCams.com - Contact Page"
+      documentDescription="Please use this form to contact us"
     >
       {/* <div className="layout"></div> ??? */}
       <Toaster

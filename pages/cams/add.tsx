@@ -122,7 +122,7 @@ const AddCam = () => {
   }
 
   return (
-    <Layout title="Add Cam" description="Add Cam page">
+    <Layout documentTitle="Add Cam" documentDescription="Add Cam page">
       <div className="layout">
         <Toaster
           toastOptions={{

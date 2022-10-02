@@ -123,8 +123,8 @@ const SoutheastPage = ({
 
   return (
     <Layout
-      title="Beach Cams in South East Florida - Fort Lauderdale, Palm Beach and Florida Keys"
-      description="Best web cams in South East Florida with surf cams at Fort Lauderdale, West Palm Beach, Boca Raton and Key Largo."
+      documentTitle="Beach Cams in South East Florida - Fort Lauderdale, Palm Beach and Florida Keys"
+      documentDescription="Best web cams in South East Florida with surf cams at Fort Lauderdale, West Palm Beach, Boca Raton and Key Largo."
     >
       <div className="layout">
         <h1>South East Florida and The Keys Webcams</h1>

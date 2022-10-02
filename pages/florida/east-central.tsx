@@ -123,8 +123,8 @@ const EastCentralPage = ({
 
   return (
     <Layout
-      title="Beach Cams in East Central Florida - Daytona Beach, New Smyrna Beach, Cocoa Beach and Sebastian Inlet"
-      description="Best web cams in East Central Florida, with surf cams at Daytona Beach, New Smyrna Beach."
+      documentTitle="Beach Cams in East Central Florida - Daytona Beach, New Smyrna Beach, Cocoa Beach and Sebastian Inlet"
+      documentDescription="Best web cams in East Central Florida, with surf cams at Daytona Beach, New Smyrna Beach."
     >
       <div className="layout">
         <h1>East Central Florida Webcams</h1>
