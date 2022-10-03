@@ -137,6 +137,9 @@ form {
 
 .content {
   width: 50%;
+  h3 {
+    margin-top: 0;
+  }
   .leaflet-container {
     height: 350px;
     width: 100%;

@@ -14,14 +14,12 @@ import Footer from './Footer'
 interface LayoutProps {
   documentTitle: string
   documentDescription: string
-  // pageHeading: string
   children: any
 }
 
 const Layout: FC<LayoutProps> = ({
   documentTitle,
   documentDescription,
-  // pageHeading,
   children,
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)

@@ -29,7 +29,7 @@ interface Cams {
   lng: number
 }
 
-// To create a new webcam page, make changes in 5 places: Change camID,
+// To create a new webcam page, make changes in 6 places: Change camID,
 // title and description, h1, YouTube ID, page copy and More Cams
 
 // ////////////////////////// 1. Change camID //////////////////////////
@@ -138,11 +138,11 @@ const About = ({
 
       <div className="video-responsive">
         <iframe
+          title="YouTube Webcam"
           width="560"
           height="315"
           // ////////////////////////// 4. Change YouTube ID //////////////////////////
           src="https://www.youtube.com/embed/wnNrd-VjLsQ"
-          documentTitle="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
