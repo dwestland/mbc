@@ -93,7 +93,11 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
                   <a className="button button-primary">Edit</a>
                 </Link>
               </div>
-              <button type="button" onClick={handleDelete}>
+              <button
+                type="button"
+                className="button-as-link"
+                onClick={handleDelete}
+              >
                 Delete Cam
               </button>
             </div>
@@ -122,7 +126,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
               <a className="button button-primary">Details</a>
             </Link>
           </div>
-          <button type="button" onClick={handleFlag}>
+          <button className="button-as-link" type="button" onClick={handleFlag}>
             Flag this Cam
           </button>
         </div>

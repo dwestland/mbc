@@ -48,6 +48,35 @@ hr:after {
   font-size: 18px;
 }
 
+/* Webcam Pages
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.more-cams {
+  align-items: center;
+  border-radius: 0.25rem;
+  border: none;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
+  margin: 0px 10px 20px;
+  padding: 10px;
+  text-align: center;
+  width: 260px;
+  word-wrap: break-word;
+  h2 {
+    line-height: 140%;
+    margin-top: 40px;
+    span {
+      font-size: 60px;
+    }
+  }
+  a {
+    color: crimson;
+    text-decoration: none;
+    &:hover {
+      filter: brightness(75%);
+      text-decoration: underline;
+    }
+  }
+}
+
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -276,6 +305,20 @@ form {
     opacity: 0.85;
     text-decoration: none;
     color: #fff;
+  }
+}
+
+.button-as-link {
+  background: none;
+  border: none;
+  color: #1eaedb;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-decoration: none;
+  &:hover {
+    color: #0b83a1;
+    text-decoration: underline;
   }
 }
 

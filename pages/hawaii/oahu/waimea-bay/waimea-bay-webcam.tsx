@@ -86,7 +86,6 @@ const About = ({
       documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
       documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
-      {/* <div className="container"> */}
       {/* **************************** 3. Change h1 page title **************************** */}
       <h1>Waimea Bay Beach Cam, Oahu, Hawaii</h1>
       <AdSenseLeaderboard />
@@ -96,7 +95,6 @@ const About = ({
           <div className="image">
             <Image src={imageUrl} width={400} height={300} alt={title} />
           </div>
-
           <div className={styles.camInfo}>
             <div className={styles.link}>
               <Link href={`/cams/edit/${id}`}>
@@ -189,25 +187,23 @@ const About = ({
       <h2>More Hawaii Cams</h2>
       <div className="cam-container">
         {moreCams.cams.map(
-          (cam: Cams) => (
-            // if (cam.subarea === subarea) {
-            <CamItem key={cam.id} cam={cam} />
-            // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          )
-          // }
-          // return null
+          (cam: Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
         )}
-      </div>
-
-      {/* map cams */}
-      <AdSenseLeaderboard />
-      {/* </div> */}
-
-      {/* <div className="image-and-map">
-        <div className="map">
-          <WebcamMap lat={lat || 0} lng={lng || 0} />
+        <div className="more-cams">
+          <Link href="/hawaii">
+            <a>
+              <h2>
+                MORE
+                <br />
+                <span>HAWAII</span>
+                <br />
+                CAMS
+              </h2>
+            </a>
+          </Link>
         </div>
-      </div> */}
+      </div>
+      <AdSenseLeaderboard />
 
       {showFlagModal && (
         <FlagModal
