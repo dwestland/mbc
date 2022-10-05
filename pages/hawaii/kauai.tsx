@@ -7,7 +7,7 @@ import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
-import AdSenseLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdsenseLeaderboard'
 import AdLarge from '@/components/AdLarge'
 
 interface PageProps {
@@ -60,15 +60,12 @@ const KauaiPage = ({
 
     return (
       <div key={getSixDigitRandom()}>
-        <AdSenseLeaderboard />
+        <AdLeaderboard />
         <h2>{subarea} Webcams</h2>
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: Cams) => {
             if (cam.subarea === subarea) {
-              return (
-                <CamItem key={cam.id} cam={cam} />
-                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-              )
+              return <CamItem key={cam.id} cam={cam} />
             }
             return null
           })}
@@ -78,22 +75,36 @@ const KauaiPage = ({
   })
 
   // Display cams WITHOUT subareas
-  const moreCams = (
-    <>
-      <AdSenseLeaderboard />
-      <h2>{area} Webcams</h2>
-      <div className="cam-container">
-        {cams.cams.map((cam: Cams) => {
-          if (cam.area === area && cam.subarea === '') {
-            console.log('%c  ', 'background: red; color: white')
-            return <CamItem key={cam.id} cam={cam} />
-            // return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          }
-          return null
-        })}
-      </div>
-    </>
-  )
+  const moreCams = () => {
+    const subareaCams = cams.cams.filter((cam: Cams) => {
+      console.log(
+        '%c cam.subarea ',
+        'background: red; color: white',
+        cam.subarea
+      )
+      return cam.subarea === ''
+    })
+
+    console.log('%c subareaCams ', 'background: red; color: white', subareaCams)
+
+    if (subareaCams.length === 0) {
+      return null
+    }
+
+    const result = subareaCams.map((cam: Cams) => (
+      <CamItem key={cam.id} cam={cam} />
+    ))
+
+    console.log('%c result ', 'background: red; color: white', result)
+
+    return (
+      <>
+        <AdLeaderboard />
+        <h2>{area} Webcams</h2>
+        <div className="cam-container">{result}</div>
+      </>
+    )
+  }
 
   // Create vectors for map
   const vectors = []
@@ -135,7 +146,7 @@ const KauaiPage = ({
         </p>
 
         {camSections}
-        {moreCams}
+        {moreCams()}
 
         <div className="panel">
           <ShowMoreText

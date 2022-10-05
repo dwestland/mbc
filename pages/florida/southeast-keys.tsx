@@ -6,7 +6,7 @@ import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
-import AdSenseLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdsenseLeaderboard'
 import AdLarge from '@/components/AdLarge'
 
 interface PageProps {
@@ -59,7 +59,7 @@ const SoutheastPage = ({
 
     return (
       <div key={getSixDigitRandom()}>
-        <AdSenseLeaderboard />
+        <AdLeaderboard />
         <h2>{subarea} Webcams</h2>
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: Cams) => {
@@ -79,7 +79,7 @@ const SoutheastPage = ({
   // Display cams WITHOUT subareas
   const moreCams = (
     <>
-      <AdSenseLeaderboard />
+      <AdLeaderboard />
       <h2>{area} Webcams</h2>
       <div className="cam-container">
         {cams.cams.map((cam: Cams) => {
