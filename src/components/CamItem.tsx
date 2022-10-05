@@ -84,7 +84,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
       </div>
       <div className={styles.footer}>
         {isAdmin && (
-          <>
+          <div className={styles.adminContainer}>
             <div className={styles.admin}>
               <div className={styles.link}>ID:{cam.id}</div>
 
@@ -118,7 +118,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
                 lng: <strong>{cam.lng}</strong>
               </li>
             </ul>
-          </>
+          </div>
         )}
         <div className={styles.user}>
           <div className={styles.link}>

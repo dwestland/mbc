@@ -7,6 +7,8 @@ import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
+import AdSenseLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLarge from '@/components/AdLarge'
 
 interface PageProps {
   cams: {}[]
@@ -58,15 +60,7 @@ const MauiPage = ({
 
     return (
       <div key={getSixDigitRandom()}>
-        <div
-          style={{
-            height: '100px',
-            background: 'lightblue',
-            paddingLeft: '10px',
-          }}
-        >
-          <h3>Adsense</h3>
-        </div>
+        <AdSenseLeaderboard />
         <h2>{subarea} Webcams</h2>
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: Cams) => {
@@ -84,29 +78,42 @@ const MauiPage = ({
   })
 
   // Display cams WITHOUT subareas
-  const moreCams = (
-    <>
-      <div
-        style={{
-          background: 'lightblue',
-          height: '100px',
-          paddingLeft: '10px',
-        }}
-      >
-        <h3>Adsense</h3>
-      </div>
-      <h2>{area} Webcams</h2>
-      <div className="cam-container">
-        {cams.cams.map((cam: Cams) => {
-          if (cam.area === area && cam.subarea === '') {
-            return <CamItem key={cam.id} cam={cam} />
-            // return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          }
-          return null
-        })}
-      </div>
-    </>
-  )
+
+  // const moreCams = (
+  //   <>
+  //     <AdSenseLeaderboard />
+  //     <h2>{area} Webcams</h2>
+  //     <div className="cam-container">
+  //       {cams.cams.map((cam: Cams) => {
+  //         if (cam.area === area && cam.subarea === '') {
+  //           return <CamItem key={cam.id} cam={cam} />
+  //           // return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+  //         }
+  //         return null
+  //       })}
+  //     </div>
+  //   </>
+  // )
+
+  const moreCams = () => {
+    const result = cams.cams.map((cam: Cams) => {
+      if (cam.area === area && cam.subarea === '') {
+        return <CamItem key={cam.id} cam={cam} />
+      }
+      return null
+    })
+
+    if (result.length === 0) {
+      return null
+    }
+    return (
+      <>
+        <AdSenseLeaderboard />
+        <h2>{area} Webcams</h2>
+        <div className="cam-container">{result}</div>
+      </>
+    )
+  }
 
   // Create vectors for map
   const vectors = []
@@ -134,17 +141,7 @@ const MauiPage = ({
             <CamsMap vectors={vectors} />
           </div>
           <div className="ad">
-            <div
-              style={{
-                background: 'lightblue',
-                height: '100%',
-                overflow: 'hidden',
-                paddingLeft: '10px',
-                width: '100%',
-              }}
-            >
-              <h3>Adsense</h3>
-            </div>
+            <AdLarge />
           </div>
         </div>
         <p>
@@ -161,7 +158,8 @@ const MauiPage = ({
         </p>
 
         {camSections}
-        {moreCams}
+        {/* {moreCams} */}
+        {moreCams()}
 
         <div className="panel">
           <ShowMoreText
