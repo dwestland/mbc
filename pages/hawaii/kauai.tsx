@@ -76,16 +76,9 @@ const KauaiPage = ({
 
   // Display cams WITHOUT subareas
   const moreCams = () => {
-    const subareaCams = cams.cams.filter((cam: Cams) => {
-      console.log(
-        '%c cam.subarea ',
-        'background: red; color: white',
-        cam.subarea
-      )
-      return cam.subarea === ''
-    })
-
-    console.log('%c subareaCams ', 'background: red; color: white', subareaCams)
+    const subareaCams = cams.cams.filter(
+      (cam: Cams) => cam.area === area && cam.subarea === ''
+    )
 
     if (subareaCams.length === 0) {
       return null
@@ -94,8 +87,6 @@ const KauaiPage = ({
     const result = subareaCams.map((cam: Cams) => (
       <CamItem key={cam.id} cam={cam} />
     ))
-
-    console.log('%c result ', 'background: red; color: white', result)
 
     return (
       <>

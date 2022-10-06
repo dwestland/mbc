@@ -5,7 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { InferGetStaticPropsType } from 'next'
 import styles from '@/styles/Webcam.module.scss'
-import AdSenseLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
 import CamItem from '@/components/CamItem'
@@ -35,7 +36,7 @@ interface Cams {
 // ////////////////////////// 1. Change camID //////////////////////////
 const camID = 595
 
-const About = ({
+const WebcamPage = ({
   cams,
   moreCams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
@@ -88,7 +89,7 @@ const About = ({
     >
       {/* **************************** 3. Change h1 page title **************************** */}
       <h1>Waimea Bay Beach Cam, Oahu, Hawaii</h1>
-      <AdSenseLeaderboard />
+      <AdLeaderboard />
 
       {isAdmin && (
         <div className={styles.admin}>
@@ -163,17 +164,7 @@ const About = ({
           <WebcamMap lat={lat || 0} lng={lng || 0} />
         </div>
         <div className="ad">
-          <div
-            style={{
-              background: 'lightblue',
-              height: '100%',
-              overflow: 'hidden',
-              paddingLeft: '10px',
-              width: '100%',
-            }}
-          >
-            <h3>Adsense</h3>
-          </div>
+          <AdLarge />
         </div>
       </div>
 
@@ -182,7 +173,7 @@ const About = ({
         world’s leading philanthropic live nature cam network and documentary
         ﬁlm channel.
       </p>
-      <AdSenseLeaderboard />
+      <AdLeaderboard />
       {/* **************************** 6. Change More Cams **************************** */}
       <h2>More Hawaii Cams</h2>
       <div className="cam-container">
@@ -203,7 +194,7 @@ const About = ({
           </Link>
         </div>
       </div>
-      <AdSenseLeaderboard />
+      <AdLeaderboard />
 
       {showFlagModal && (
         <FlagModal
@@ -223,7 +214,7 @@ const About = ({
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${camID}`)
   const cams: WebcamProps = await res.json()
-
+  // TODO fix names
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
   const moreCams: WebcamProps = await moreCamsRes.json()
 
@@ -235,4 +226,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default About
+export default WebcamPage

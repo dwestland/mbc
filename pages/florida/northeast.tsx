@@ -77,21 +77,27 @@ const NorthEastPage = ({
   })
 
   // Display cams WITHOUT subareas
-  const moreCams = (
-    <>
-      <AdLeaderboard />
-      <h2>{area} Webcams</h2>
-      <div className="cam-container">
-        {cams.cams.map((cam: Cams) => {
-          if (cam.area === area && cam.subarea === '') {
-            return <CamItem key={cam.id} cam={cam} />
-            // return <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-          }
-          return null
-        })}
-      </div>
-    </>
-  )
+  const moreCams = () => {
+    const subareaCams = cams.cams.filter(
+      (cam: Cams) => cam.area === area && cam.subarea === ''
+    )
+
+    if (subareaCams.length === 0) {
+      return null
+    }
+
+    const result = subareaCams.map((cam: Cams) => (
+      <CamItem key={cam.id} cam={cam} />
+    ))
+
+    return (
+      <>
+        <AdLeaderboard />
+        <h2>{area} Webcams</h2>
+        <div className="cam-container">{result}</div>
+      </>
+    )
+  }
 
   // Create vectors for map
   const vectors = []
@@ -125,7 +131,7 @@ const NorthEastPage = ({
         {/* Text block 1 */}
 
         {camSections}
-        {moreCams}
+        {moreCams()}
 
         <div className="panel">
           <ShowMoreText
