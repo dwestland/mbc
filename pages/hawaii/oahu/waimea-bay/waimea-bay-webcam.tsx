@@ -179,6 +179,9 @@ const WebcamPage = ({
       {/* **************************** 6. Change More Cams **************************** */}
       <AdLeaderboard />
 
+      <h2>
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>
       <MoreHawaiiCams cams={moreCams} />
 
       <AdLeaderboard />

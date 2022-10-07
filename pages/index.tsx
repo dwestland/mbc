@@ -1,14 +1,17 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import CamItem from '@/components/CamItem'
-import AdLeaderboard from '@/components/AdsenseLeaderboard'
+// import CamItem from '@/components/CamItem'
+import AdLeaderboard from '@/components/AdLeaderboard'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
 
 interface WebcamProps {
   hawaiiCams: { title: string }[]
 }
 
-const HawaiiPage = ({ hawaiiCams }) => {
+const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => {
   console.log('%c HawaiiPage Page ', 'background: red; color: white')
 
   return (
@@ -19,9 +22,9 @@ const HawaiiPage = ({ hawaiiCams }) => {
       <div className="layout">
         <h1>MyBeachCams.com</h1>
         <h2>
-          Live Webcams from <a href="/hawaii/">Hawaii</a>,{' '}
-          <a href="/florida/">Florida</a> and{' '}
-          <a href="/california/">California</a>
+          Live Webcams from <Link href="/hawaii/">Hawaii</Link>,{' '}
+          <Link href="/florida/">Florida</Link> and{' '}
+          <Link href="/california/">California</Link>
         </h2>
 
         <p>
@@ -46,9 +49,9 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
         <AdLeaderboard />
 
-        <h3>
-          <a href="/hawaii/">Hawaii Beach Cams</a>
-        </h3>
+        <h2>
+          <Link href="/hawaii/">Hawaii Beach Cams</Link>
+        </h2>
         <p>
           Hawaii is a tropic travel destination within the United States and is
           one of the top choices for vacations. For US travelers, you can get to
@@ -59,14 +62,15 @@ const HawaiiPage = ({ hawaiiCams }) => {
           beautiful beaches and tropical flora that make Hawaii extraordinary
           place to visit from the comfort of your own computer.
         </p>
+        <MoreHawaiiCams cams={hawaiiCams} />
 
         {/* <aMapped Webcams */}
 
         <AdLeaderboard />
 
-        <h3>
-          <a href="/california/">California Beach Cams</a>
-        </h3>
+        <h2>
+          <Link href="/california/">California Beach Cams</Link>
+        </h2>
         <p>
           California is a mostly sunny state with hundreds of miles of gorgeous
           beaches. Known affectionately as the "Left Coast" for its liberal
@@ -74,15 +78,17 @@ const HawaiiPage = ({ hawaiiCams }) => {
           moving to California. You don't need to live in California to enjoy
           the beaches with the over 70 webcams on MyBeachCams.com.
         </p>
+        <MoreCaliforniaCams cams={californiaCams} />
 
         {/* <aMapped Webcams */}
 
         <AdLeaderboard />
 
-        <h3>
-          <a href="/california/">Florida Beach Cams</a>
-        </h3>
+        <h2>
+          <Link href="/florida/">Florida Beach Cams</Link>
+        </h2>
         <p>Something about Florida.</p>
+        <MoreFloridaCams cams={floridaCams} />
 
         {/* <aMapped Webcams */}
 
@@ -93,12 +99,22 @@ const HawaiiPage = ({ hawaiiCams }) => {
 }
 
 export async function getServerSideProps() {
-  const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const hawaiiCams: WebcamProps = await moreCamsRes.json()
+  const hawaiiRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
+  const hawaiiCams: WebcamProps = await hawaiiRes.json()
+
+  const californiaRes = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/cams/california`
+  )
+  const californiaCams: WebcamProps = await californiaRes.json()
+
+  const floridaRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/florida`)
+  const floridaCams: WebcamProps = await floridaRes.json()
 
   return {
     props: {
       hawaiiCams,
+      californiaCams,
+      floridaCams,
     },
   }
 }

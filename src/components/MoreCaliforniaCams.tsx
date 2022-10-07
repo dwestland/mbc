@@ -21,19 +21,19 @@ interface Cams {
   lng: number
 }
 
-function MoreHawaiiCams({ cams }: WebcamProps) {
+function MorCaliforniaCams({ cams }: WebcamProps) {
   return (
     <div className="cam-container">
       {cams.cams.map(
         (cam: Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
-        <Link href="/hawaii">
+        <Link href="/california">
           <a>
             <h2>
               MORE
               <br />
-              <span>HAWAII</span>
+              <span>CALIF</span>
               <br />
               CAMS
             </h2>
@@ -44,4 +44,4 @@ function MoreHawaiiCams({ cams }: WebcamProps) {
   )
 }
 
-export default MoreHawaiiCams
+export default MorCaliforniaCams
