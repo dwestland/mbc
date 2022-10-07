@@ -40,9 +40,6 @@ const WebcamPage = ({
   cams,
   moreCams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  console.log('%c cams ', 'background: red; color: white', cams)
-  console.log('%c moreCams ', 'background: red; color: white', moreCams)
-
   const WebcamMap = dynamic(() => import('@/components/WebcamMap'), {
     ssr: false,
   })

@@ -78,7 +78,7 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
       </div>
       <div className={styles.body}>
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
-          <h4>{cam.title}</h4>
+          <h3>{cam.title}</h3>
         </a>
         {cam.description}
       </div>
