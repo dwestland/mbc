@@ -9,8 +9,7 @@ import AdLeaderboard from '@/components/AdsenseLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
-// TODO: Change name to MoreMauiCams
-import MoreMauiCams from '@/components/MoreMauiCams'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 
 interface WebcamProps {
   cams: { title: string }[]
@@ -31,7 +30,7 @@ interface Cams {
   lng: number
 }
 
-// To create a new webcam page, make changes in 6 places: Change camID,
+// To create a new webcam page, first add cam to DB. Make changes in 6 places: Change camID,
 // title and description, h1, YouTube ID, page copy and More Cams
 
 // ////////////////////////// 1. Change camID //////////////////////////
@@ -170,15 +169,17 @@ const WebcamPage = ({
         </div>
       </div>
 
+      {/* **************************** 5. Change page copy **************************** */}
       <p>
         The Banzai Pipeline cam in Hawaii is provided by EXPLORE.org, the
         world’s leading philanthropic live nature cam network and documentary
         ﬁlm channel.
       </p>
-      <AdLeaderboard />
-      {/* **************************** 6. Change More Cams **************************** */}
 
-      <MoreMauiCams cams={moreCams} />
+      {/* **************************** 6. Change More Cams **************************** */}
+      <AdLeaderboard />
+
+      <MoreHawaiiCams cams={moreCams} />
 
       <AdLeaderboard />
 

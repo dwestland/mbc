@@ -1,4 +1,5 @@
 import React from 'react'
+// import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
 
@@ -6,8 +7,22 @@ interface WebcamProps {
   cams: { title: string }[]
 }
 
-function MoreMauiCams({ cams }) {
-  console.log('%c MoreMauiCams cams ', 'background: blue; color: white', cams)
+interface Cams {
+  id: number
+  title: string
+  webcamUrl: string
+  imageName: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+  lat: number
+  lng: number
+}
+
+function MoreHawaiiCams({ cams }: WebcamProps) {
+  console.log('%c MoreHawaiiCams cams ', 'background: blue; color: white', cams)
   return (
     <>
       <h2>Hawaii Cams</h2>
@@ -33,4 +48,4 @@ function MoreMauiCams({ cams }) {
   )
 }
 
-export default MoreMauiCams
+export default MoreHawaiiCams

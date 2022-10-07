@@ -99,8 +99,10 @@ const Details = ({
         <h1>Cam Details</h1>
 
         <div className="image-and-map">
-          <div className="image">
-            <Image src={imageUrl} width={400} height={300} alt={title} />
+          <div className="image" style={{ cursor: 'pointer' }}>
+            <Link href={webcamUrl}>
+              <Image src={imageUrl} width={400} height={300} alt={title} />
+            </Link>
           </div>
 
           <div className="map">
@@ -127,9 +129,12 @@ const Details = ({
         <AdLeaderboard />
 
         <div className={styles.camInfo}>
-          <p>
+          <Link href={webcamUrl}>
+            <a className="btn link-as-button">Go to Cam</a>
+          </Link>
+          <h3>
             <strong>Title:</strong> {title}
-          </p>
+          </h3>
 
           <p>
             <strong>webcamUrl:</strong>&nbsp;
