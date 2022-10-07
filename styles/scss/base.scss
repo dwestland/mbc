@@ -95,10 +95,10 @@ p {
 }
 
 a {
-  color: #1eaedb;
+  color: hsl(192, 76%, 35%);
   text-decoration: none;
   &:hover {
-    color: #0b83a1;
+    color: hsl(192, 76%, 30%);
     text-decoration: underline;
   }
 }

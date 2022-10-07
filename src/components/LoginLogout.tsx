@@ -8,7 +8,7 @@ const LoginLogOut: React.FC = () => {
   if (session) {
     return (
       <div className="login-logout">
-        Hello, {session.user.name ?? session.user.email}&nbsp;-&nbsp;
+        <div>Hello, {session.user.name ?? session.user.email}&nbsp;-&nbsp;</div>
         <button type="button" onClick={() => signOut()}>
           Log Out
         </button>

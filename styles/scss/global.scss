@@ -117,6 +117,8 @@ form {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .login-logout {
+  align-items: center;
+  display: flex;
   font-size: small;
 
   button {
@@ -311,13 +313,13 @@ form {
 .button-as-link {
   background: none;
   border: none;
-  color: #1eaedb;
+  color: hsl(192, 76%, 35%);
   cursor: pointer;
   display: inline-block;
   padding: 0;
   text-decoration: none;
   &:hover {
-    color: #0b83a1;
+    color: hsl(192, 76%, 30%);
     text-decoration: underline;
   }
 }

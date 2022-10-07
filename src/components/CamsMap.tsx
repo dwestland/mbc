@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   MapContainer,
   Marker,
@@ -6,9 +6,8 @@ import {
   TileLayer,
   LayersControl,
 } from 'react-leaflet'
-// import MarkerClusterGroup from 'react-leaflet-markercluster'
-// import 'react-leaflet-markercluster/dist/styles.min.css'
-
+import { GestureHandling } from 'leaflet-gesture-handling'
+import * as L from 'leaflet'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 
 // 33.9765, -118.4483
@@ -21,9 +20,11 @@ interface Props {
   }[]
 }
 
-// TODO: add default lat lng if vectors is empty
-
 const CamsMap = ({ vectors }: Props) => {
+  useEffect(() => {
+    L.Map.addInitHook('addHandler', 'gestureHandling', GestureHandling)
+  })
+
   if (vectors.length === 0) {
     vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey' }]
   }
@@ -35,8 +36,6 @@ const CamsMap = ({ vectors }: Props) => {
   return (
     <MapContainer
       bounds={vectorArray}
-      // center={[33.9765, -118.4483]}
-      // zoom={14}
       scrollWheelZoom={false}
       gestureHandling
       boundsOptions={{ padding: [50, 50] }}
@@ -55,10 +54,6 @@ const CamsMap = ({ vectors }: Props) => {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {/* <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          /> */}
         </LayersControl.BaseLayer>
 
         <LayersControl.BaseLayer name="Satellite">
@@ -68,15 +63,8 @@ const CamsMap = ({ vectors }: Props) => {
             maxNativeZoom={15}
           />
         </LayersControl.BaseLayer>
-        {/* <LayersControl.BaseLayer name="Nat Geo">
-          <TileLayer
-            attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
-          />
-        </LayersControl.BaseLayer> */}
       </LayersControl>
       <Marker position={[33.9765, -118.4483]} />
-      {/* <MarkerClusterGroup> */}
       {vectors.map((vector) => (
         <Marker key={vector.name} position={[vector.lat, vector.lng]}>
           <Popup>
@@ -86,7 +74,6 @@ const CamsMap = ({ vectors }: Props) => {
           </Popup>
         </Marker>
       ))}
-      {/* </MarkerClusterGroup> */}
     </MapContainer>
   )
 }

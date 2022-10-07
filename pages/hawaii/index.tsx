@@ -11,6 +11,18 @@ interface WebcamProps {
 const HawaiiPage = ({ hawaiiCams }) => {
   console.log('%c HawaiiPage Page ', 'background: red; color: white')
 
+  const mauiCams = () => {
+    const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Maui')
+    console.log('%c cams ', 'background: red; color: white', cams)
+    const result = cams.map((cam: Cams, idx) => {
+      if (idx < 7) {
+        return <CamItem key={cam.id} cam={cam} />
+      }
+      return null
+    })
+    return result
+  }
+
   return (
     <Layout
       documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
@@ -51,9 +63,16 @@ const HawaiiPage = ({ hawaiiCams }) => {
         </p>
 
         <div className="cam-container">
-          {hawaiiCams.cams.map(
-            (cam: Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
-          )}
+          {mauiCams()}
+          {/* {hawaiiCams.cams.map((cam: Cams, idx) => {
+            if (cam.area === 'Maui' && idx > 7) {
+              return (
+                <CamItem key={cam.id} cam={cam} />
+                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
+              )
+            }
+            return null
+          })} */}
           <div className="more-cams">
             <Link href="/hawaii/maui">
               <a>

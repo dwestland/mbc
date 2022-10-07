@@ -9,6 +9,7 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/Detail.module.scss'
 import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
+import AdLeaderboard from '@/components/AdsenseLeaderboard'
 
 interface CamsDetailProps {
   cams: { title: string }[]
@@ -94,6 +95,7 @@ const Details = ({
       documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
+        <AdLeaderboard />
         <h1>Cam Details</h1>
 
         <div className="image-and-map">
@@ -122,15 +124,7 @@ const Details = ({
           </div>
         )}
 
-        <div
-          style={{
-            background: 'lightblue',
-            height: '100px',
-            paddingLeft: '10px',
-          }}
-        >
-          <h3>Adsense</h3>
-        </div>
+        <AdLeaderboard />
 
         <div className={styles.camInfo}>
           <p>
@@ -171,6 +165,7 @@ const Details = ({
             Flag this Cam
           </button>
         </div>
+        <AdLeaderboard />
       </div>
       {showDeleteModal && (
         <DeleteModal

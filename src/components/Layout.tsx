@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-// import { useRouter } from 'next/router'
 import LoginLogout from '@/components/LoginLogout'
 import Search from '@/components/Search'
 import styles from '@/styles/Layout.module.scss'

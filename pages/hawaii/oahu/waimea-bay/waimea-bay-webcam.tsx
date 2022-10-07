@@ -9,7 +9,8 @@ import AdLeaderboard from '@/components/AdsenseLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
-import CamItem from '@/components/CamItem'
+// TODO: Change name to MoreMauiCams
+import MoreMauiCams from '@/components/MoreMauiCams'
 
 interface WebcamProps {
   cams: { title: string }[]
@@ -89,6 +90,7 @@ const WebcamPage = ({
     >
       {/* **************************** 3. Change h1 page title **************************** */}
       <h1>Waimea Bay Beach Cam, Oahu, Hawaii</h1>
+
       <AdLeaderboard />
 
       {isAdmin && (
@@ -175,25 +177,9 @@ const WebcamPage = ({
       </p>
       <AdLeaderboard />
       {/* **************************** 6. Change More Cams **************************** */}
-      <h2>More Hawaii Cams</h2>
-      <div className="cam-container">
-        {moreCams.cams.map(
-          (cam: Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
-        )}
-        <div className="more-cams">
-          <Link href="/hawaii">
-            <a>
-              <h2>
-                MORE
-                <br />
-                <span>HAWAII</span>
-                <br />
-                CAMS
-              </h2>
-            </a>
-          </Link>
-        </div>
-      </div>
+
+      <MoreMauiCams cams={moreCams} />
+
       <AdLeaderboard />
 
       {showFlagModal && (
