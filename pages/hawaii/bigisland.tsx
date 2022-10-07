@@ -7,7 +7,7 @@ import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
-import AdLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 
 interface PageProps {

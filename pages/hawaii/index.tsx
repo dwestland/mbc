@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
-import AdLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 interface WebcamProps {
   hawaiiCams: { title: string }[]

@@ -9,7 +9,7 @@ import Layout from '@/components/Layout'
 import styles from '@/styles/Detail.module.scss'
 import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
-import AdLeaderboard from '@/components/AdsenseLeaderboard'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 interface CamsDetailProps {
   cams: { title: string }[]
