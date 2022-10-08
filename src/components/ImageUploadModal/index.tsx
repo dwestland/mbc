@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Resizer from 'react-image-file-resizer'
 import { FaTimes } from 'react-icons/fa'
 import { slugify, getSixDigitRandom } from '@/utils/formUtils'
-import styles from '@/styles/Modal.module.css'
+import styles from '@/styles/Modal.module.scss'
 
 interface Props {
   onClose: () => void

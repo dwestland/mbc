@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import toast, { Toaster } from 'react-hot-toast'
 import { FaTimes } from 'react-icons/fa'
-import styles from '@/styles/Modal.module.css'
+import styles from '@/styles/Modal.module.scss'
 
 interface Props {
   onClose: () => void
@@ -108,7 +108,7 @@ export default function FlagModal({
         <div className={styles.body}>
           <div className={styles.form}>
             <form method="post" onSubmit={handleSubmit} className={styles.form}>
-              <h3>
+              <h3 style={{ marginTop: '0}' }}>
                 Flag: <strong>{title}</strong>
               </h3>
               <p>
@@ -194,8 +194,6 @@ export default function FlagModal({
                   </label>
                 </div>
               </div>
-
-              <br />
               <br />
               <div className={styles.buttonContainer}>
                 <button type="submit" className="btn">

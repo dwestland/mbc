@@ -137,6 +137,7 @@ form {
 
 .things {
   width: 50%;
+  padding-right: 15px;
 }
 
 .info {
@@ -148,6 +149,7 @@ form {
     flex-direction: column;
   }
   .things {
+    padding-right: 0;
     width: 100%;
   }
   .info {

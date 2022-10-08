@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import ReactDOM from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
-import styles from '@/styles/Modal.module.css'
+import styles from '@/styles/Modal.module.scss'
 
 interface Props {
   onClose: () => void
