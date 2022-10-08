@@ -121,7 +121,7 @@ const SanFranciscoPage = ({
     >
       <div className="layout">
         <h1>San Francisco Webcams</h1>
-        <div className="content-and-ad" style={{ border: '1px solid red' }}>
+        <div className="content-and-ad">
           <div className="content">
             <CamsMap vectors={vectors} />
           </div>

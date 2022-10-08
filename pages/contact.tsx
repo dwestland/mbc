@@ -65,7 +65,7 @@ export default function ContactPage() {
       />
       <h1>Contact Us</h1>
 
-      <div className="content-and-ad" style={{ border: '1px solid red' }}>
+      <div className="content-and-ad">
         <div className="content">
           <h2>Please send us a message</h2>
           <form method="post" onSubmit={handleSubmit} className={styles.form}>

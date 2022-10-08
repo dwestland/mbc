@@ -157,7 +157,7 @@ const WebcamPage = ({
         </button>
       </div>
 
-      <div className="content-and-ad" style={{ border: '1px solid red' }}>
+      <div className="content-and-ad">
         <div className="content">
           <WebcamMap lat={lat || 0} lng={lng || 0} />
         </div>
@@ -201,7 +201,7 @@ const WebcamPage = ({
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${camID}`)
   const cams: WebcamProps = await res.json()
-  // TODO fix names
+
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
   const moreCams: WebcamProps = await moreCamsRes.json()
 

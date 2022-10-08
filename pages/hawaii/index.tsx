@@ -8,9 +8,56 @@ interface WebcamProps {
   hawaiiCams: { title: string }[]
 }
 
+interface Cams {
+  id: number
+  title: string
+  webcamUrl: string
+  imageName: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+  lat: number
+  lng: number
+}
+
 const HawaiiPage = ({ hawaiiCams }) => {
   const mauiCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Maui')
+    const result = cams.map((cam: Cams, idx) => {
+      if (idx < 7) {
+        return <CamItem key={cam.id} cam={cam} />
+      }
+      return null
+    })
+    return result
+  }
+
+  const oahuCams = () => {
+    const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Oahu')
+    const result = cams.map((cam: Cams, idx) => {
+      if (idx < 7) {
+        return <CamItem key={cam.id} cam={cam} />
+      }
+      return null
+    })
+    return result
+  }
+
+  const bigislandCams = () => {
+    const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Big Island')
+    const result = cams.map((cam: Cams, idx) => {
+      if (idx < 7) {
+        return <CamItem key={cam.id} cam={cam} />
+      }
+      return null
+    })
+    return result
+  }
+
+  const kauaiCams = () => {
+    const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Kauai')
     const result = cams.map((cam: Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
@@ -61,15 +108,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
         <div className="cam-container">
           {mauiCams()}
-          {/* {hawaiiCams.cams.map((cam: Cams, idx) => {
-            if (cam.area === 'Maui' && idx > 7) {
-              return (
-                <CamItem key={cam.id} cam={cam} />
-                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-              )
-            }
-            return null
-          })} */}
           <div className="more-cams">
             <Link href="/hawaii/maui">
               <a>
@@ -99,6 +137,23 @@ const HawaiiPage = ({ hawaiiCams }) => {
           live camera pictures of various hot spots on the island.
         </p>
 
+        <div className="cam-container">
+          {oahuCams()}
+          <div className="more-cams">
+            <Link href="/hawaii/oahu">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>OAHU</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+
         <AdLeaderboard />
 
         <h2>
@@ -115,6 +170,23 @@ const HawaiiPage = ({ hawaiiCams }) => {
           Hawaii.
         </p>
 
+        <div className="cam-container">
+          {bigislandCams()}
+          <div className="more-cams">
+            <Link href="/hawaii/bigisland">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>BIG ISLAND</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+
         <AdLeaderboard />
 
         <h2>
@@ -130,6 +202,23 @@ const HawaiiPage = ({ hawaiiCams }) => {
           <Link href="/hawaii/kauai/">Kauai Beach Cams</Link> to view streaming
           live pictures of this beautiful and lush island.
         </p>
+
+        <div className="cam-container">
+          {kauaiCams()}
+          <div className="more-cams">
+            <Link href="/hawaii/kauai">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>KAUAI</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
 
         <AdLeaderboard />
       </div>

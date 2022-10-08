@@ -31,6 +31,7 @@ export default NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
   theme: {
+    colorScheme: 'light',
     logo: '/images/mybeachcams.jpg',
   },
   callbacks: {
