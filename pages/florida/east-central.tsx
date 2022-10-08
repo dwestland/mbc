@@ -64,10 +64,7 @@ const EastCentralPage = ({
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: Cams) => {
             if (cam.subarea === subarea) {
-              return (
-                <CamItem key={cam.id} cam={cam} />
-                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-              )
+              return <CamItem key={cam.id} cam={cam} />
             }
             return null
           })}

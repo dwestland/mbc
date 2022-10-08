@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { SessionProvider } from 'next-auth/react'
-// import { Provider } from 'next-auth/client'
 import { AppProps } from 'next/app'
 import React from 'react'
 import '@/styles/globals.scss'

@@ -1,7 +1,6 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
-// import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
@@ -65,10 +64,7 @@ const SanDiegoPage = ({
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: Cams) => {
             if (cam.subarea === subarea) {
-              return (
-                <CamItem key={cam.id} cam={cam} />
-                // <CamItem key={cam.id} cam={cam} refreshData={refreshData} />
-              )
+              return <CamItem key={cam.id} cam={cam} />
             }
             return null
           })}

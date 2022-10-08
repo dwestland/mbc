@@ -1,7 +1,6 @@
 import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
-// import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'

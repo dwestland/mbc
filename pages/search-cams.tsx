@@ -26,7 +26,6 @@ const SearchCams = () => {
       .then((res) => res.json())
       .then((results) => {
         setSearchResults(results)
-        // displayResults()
       })
       .catch((err) => console.log('err', err))
   }, [searchTerm])

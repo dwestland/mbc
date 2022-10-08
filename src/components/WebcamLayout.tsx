@@ -1,11 +1,10 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-// import { useRouter } from 'next/router'
+
 import LoginLogout from '@/components/LoginLogout'
 import Search from '@/components/Search'
 import styles from '@/styles/Layout.module.scss'
-// import FlagModal from '@/components/FlagModal'
 import Navbar from './Navbar'
 import Showcase from './Showcase'
 import AdminNav from './AdminNav'
@@ -51,24 +50,7 @@ const Layout: FC<LayoutProps> = ({
         </div>
         <div className={styles.container}>
           {isAdmin && <AdminNav />}
-          <div className="layout">
-            {/* <h1>{pageHeading}</h1> */}
-
-            {children}
-
-            {/* 
-            {showFlagModal && (
-              <FlagModal
-                onClose={() => setShowFlagModal(false)}
-                id={id}
-                title={title}
-                country={country}
-                state={state}
-                area={area}
-                subarea={subarea}
-              />
-            )} */}
-          </div>
+          <div className="layout">{children}</div>
         </div>
         <Footer />
       </div>

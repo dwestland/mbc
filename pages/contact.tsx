@@ -34,7 +34,6 @@ export default function ContactPage() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(values),
     })
@@ -53,7 +52,6 @@ export default function ContactPage() {
       documentTitle="MyBeachCams.com - Contact Page"
       documentDescription="Please use this form to contact us"
     >
-      {/* <div className="layout"></div> ??? */}
       <Toaster
         toastOptions={{
           style: {
@@ -64,7 +62,6 @@ export default function ContactPage() {
         }}
       />
       <h1>Contact Us</h1>
-
       <div className="content-and-ad">
         <div className="content">
           <h2>Please send us a message</h2>
@@ -108,7 +105,6 @@ export default function ContactPage() {
             </button>
           </form>
         </div>
-
         <div className="ad">
           <div
             style={{
