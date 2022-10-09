@@ -9,3 +9,35 @@
     margin: 5px 0;
   }
 }
+
+.siteMap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+  margin-top: 30px;
+  div {
+    margin-bottom: 20px;
+    width: 200px;
+    ul {
+      list-style-type: none;
+      margin: auto;
+      padding: 0;
+      li:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .siteMap {
+    flex-direction: column;
+    div {
+      margin: 0 auto 20px;
+    }
+    ul li {
+      padding-bottom: 10px;
+    }
+  }
+}
