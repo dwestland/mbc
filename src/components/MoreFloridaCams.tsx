@@ -4,7 +4,23 @@ import Link from 'next/link'
 import CamItem from '@/components/CamItem'
 
 interface WebcamProps {
-  cams: { title: string }[]
+  cams: {
+    cams: [
+      {
+        id: number
+        title: string
+        webcamUrl: string
+        imageName: string
+        description: string
+        country: string
+        state: string
+        area: string
+        subarea: string
+        lat: number
+        lng: number
+      }
+    ]
+  }
 }
 
 interface Cams {

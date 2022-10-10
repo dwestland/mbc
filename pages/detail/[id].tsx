@@ -100,9 +100,9 @@ const Details = ({
 
         <div className="image-and-map">
           <div className="image" style={{ cursor: 'pointer' }}>
-            <Link href={webcamUrl}>
+            <a href={webcamUrl} rel="noreferrer" target="_blank">
               <Image src={imageUrl} width={400} height={300} alt={title} />
-            </Link>
+            </a>
           </div>
 
           <div className="map">
@@ -129,18 +129,24 @@ const Details = ({
         <AdLeaderboard />
 
         <div className={styles.camInfo}>
-          <Link href={webcamUrl}>
-            <a className="btn link-as-button">Go to Cam</a>
-          </Link>
+          <a
+            className="btn link-as-button"
+            href={webcamUrl}
+            rel="noreferrer"
+            target="_blank"
+          >
+            Go to Cam
+          </a>
+
           <h3>
             <strong>Title:</strong> {title}
           </h3>
 
           <p>
             <strong>webcamUrl:</strong>&nbsp;
-            <Link href={webcamUrl}>
-              <a target="_blank">{webcamUrl}</a>
-            </Link>
+            <a href={webcamUrl} rel="noreferrer" target="_blank">
+              {webcamUrl}
+            </a>
           </p>
           <p>
             <strong>Image Name:</strong> {imageName}

@@ -190,7 +190,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
         <AdLeaderboard />
 
         <h2>
-          <Link href="/hawaii/kauai/">Kauai Beach Cams</Link>
+          <Link href="/hawaii/kauai">Kauai Beach Cams</Link>
         </h2>
         <p>
           Kauai is a lush paradise. It is known as the "Garden Isle" for its

@@ -9,8 +9,8 @@ import {
 import { GestureHandling } from 'leaflet-gesture-handling'
 import * as L from 'leaflet'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
-import MarkerClusterGroup from 'react-leaflet-markercluster'
-import 'react-leaflet-markercluster/dist/styles.min.css'
+// import MarkerClusterGroup from 'react-leaflet-markercluster'
+// import 'react-leaflet-markercluster/dist/styles.min.css'
 
 // 33.9765, -118.4483
 
@@ -30,6 +30,7 @@ const CamsMap = ({ vectors }: Props) => {
   if (vectors.length === 0) {
     vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey' }]
   }
+
   const vectorArray: [number, number][] = vectors.map((vector) => [
     vector.lat,
     vector.lng,
@@ -66,18 +67,17 @@ const CamsMap = ({ vectors }: Props) => {
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      <Marker position={[33.9765, -118.4483]} />
-      <MarkerClusterGroup>
-        {vectors.map((vector) => (
-          <Marker key={vector.name} position={[vector.lat, vector.lng]}>
-            <Popup>
-              <div>
-                <h3>{vector.name}</h3>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
-      </MarkerClusterGroup>
+      {/* <MarkerClusterGroup> */}
+      {vectors.map((vector) => (
+        <Marker key={vector.name} position={[vector.lat, vector.lng]}>
+          <Popup>
+            <div>
+              <h3>{vector.name}</h3>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
+      {/* </MarkerClusterGroup> */}
     </MapContainer>
   )
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 const SearchCams = () => {
   const router = useRouter()
@@ -64,29 +65,15 @@ const SearchCams = () => {
     >
       <div className="layout">
         <div className="container">
+          <AdLeaderboard />
           <h1>Search Cams</h1>
-          <div
-            style={{
-              background: 'lightblue',
-              height: '100px',
-              paddingLeft: '10px',
-            }}
-          >
-            <h3>Adsense</h3>
-          </div>
           <h2>
-            Search Results for <strong>{searchTerm}</strong>
+            <span style={{ fontSize: '36px' }}>Search Results for </span> <br />
+            <strong>{searchTerm}</strong>
           </h2>
+          <br />
           {searchDisplay}
-          <div
-            style={{
-              background: 'lightblue',
-              height: '100px',
-              paddingLeft: '10px',
-            }}
-          >
-            <h3>Adsense</h3>
-          </div>
+          <AdLeaderboard />
         </div>
       </div>
     </Layout>

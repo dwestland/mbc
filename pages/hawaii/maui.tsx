@@ -143,7 +143,7 @@ const MauiPage = ({
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={7}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

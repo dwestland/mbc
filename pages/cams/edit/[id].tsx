@@ -1,36 +1,28 @@
-// @ts-nocheck
+// x@ts-nocheck
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { InferGetStaticPropsType } from 'next'
 import router from 'next/router'
 import Image from 'next/image'
-// import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
-
 import dynamic from 'next/dynamic'
 import styles from '@/styles/AddEditForm.module.scss'
-
 import Layout from '@/components/Layout'
-// import DetailsMap from '@/components/DetailsMap'
-
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
-interface CamsEditProps {
-  cams: { title: string }[]
+interface Cams {
+  id: string
+  title: string
+  webcamUrl: string
+  imageName: string
+  description: string
+  country: string
+  state: string
+  area: string
+  subarea: string
+  lat: number
+  lng: number
 }
-// interface Cams {
-//   id: string
-//   title: string
-//   webcamUrl: string
-//   imageName: string
-//   description: string
-//   country: string
-//   state: string
-//   area: string
-//   subarea: string
-//   lat: number
-//   lng: number
-// }
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/edit`
 
@@ -52,7 +44,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     subarea,
     lat,
     lng,
-  } = cams.cams
+  }: Cams = cams.cams
 
   const initialState = {
     id,
@@ -347,7 +339,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 export async function getServerSideProps(context) {
   const { id } = context.query
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
-  const cams: CamsEditProps = await res.json()
+  const cams = await res.json()
 
   return {
     props: {

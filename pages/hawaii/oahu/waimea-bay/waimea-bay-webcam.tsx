@@ -12,7 +12,22 @@ import FlagModal from '@/components/FlagModal'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 
 interface WebcamProps {
-  cams: { title: string }[]
+  cams: [
+    {
+      id: number
+      title: string
+      webcamUrl: string
+      imageName: string
+      description: string
+      country: string
+      state: string
+      area: string
+      subarea: string
+      lat: number
+      lng: number
+    }
+  ]
+
   moreCams: { title: string }[]
 }
 
