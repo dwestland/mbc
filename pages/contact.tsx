@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import Layout from '@/components/Layout'
 import styles from '@/styles/AddEditForm.module.scss'
+import AdLarge from '@/components/AdLarge'
 
 export default function ContactPage() {
   const initialState = {
@@ -106,17 +107,7 @@ export default function ContactPage() {
           </form>
         </div>
         <div className="ad">
-          <div
-            style={{
-              background: 'lightblue',
-              height: '100%',
-              overflow: 'hidden',
-              paddingLeft: '10px',
-              width: '100%',
-            }}
-          >
-            <h3>Adsense</h3>
-          </div>
+          <AdLarge />
         </div>
       </div>
     </Layout>

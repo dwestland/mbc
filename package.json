@@ -6,7 +6,9 @@
     "dev": "next dev -p 3100",
     "build": "next build",
     "start": "next start -p 3100",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate:dev": "dotenv -e .env.development -- npx prisma migrate dev",
+    "migrate:prod": "dotenv -e .env.production -- npx prisma migrate deploy"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -18,6 +20,7 @@
     "@types/node": "^16.9.6",
     "@types/react": "^17.0.24",
     "aws-sdk": "^2.1120.0",
+    "dotenv-cli": "^6.0.0",
     "eslint-config-prettier": "^8.3.0",
     "esri-leaflet": "^2.4.1",
     "esri-leaflet-geocoder": "^2.3.3",

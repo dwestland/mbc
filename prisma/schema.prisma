@@ -79,8 +79,10 @@ model Cams {
   state       String?
   area        String?
   subarea     String?
-  lat         Decimal?  @db.Decimal(precision: 8, scale: 6)
-  lng         Decimal?  @db.Decimal(precision: 9, scale: 6)
+  lat         Decimal?  @db.Decimal(precision: 8, scale: 6) @default(0)
+  lng         Decimal?  @db.Decimal(precision: 9, scale: 6) @default(0)
+  topCam      Boolean?  @map(name: "top_cam") @default(false)
+  mbcHosted   Boolean?  @map(name: "mbc_hosted")  @default(false)
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")

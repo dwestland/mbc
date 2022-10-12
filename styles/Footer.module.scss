@@ -1,12 +1,12 @@
 .footer {
-  margin: auto auto 0 auto;
+  margin: 10px auto 0 auto;
   max-width: 1200px;
   padding: 40px 15px 30px;
   text-align: center;
   width: 100%;
 
   .footer p {
-    margin: 5px 0;
+    margin: 15px 0 5px;
   }
 }
 
@@ -15,7 +15,8 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 60px;
+  margin-bottom: 30px;
   div {
     margin-bottom: 20px;
     width: 200px;
