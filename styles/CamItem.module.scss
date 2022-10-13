@@ -1,20 +1,22 @@
-// TODO: Add media query for single row
-
 .card {
-  border-radius: 0.25rem;
+  border-radius: 5px;
   border: none;
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
   display: flex;
   flex-direction: column;
   margin: 0px 10px 20px;
   min-width: 0;
-  padding: 10px;
   position: relative;
   width: 260px;
   word-wrap: break-word;
 
+  .img {
+    border-radius: 5px 5px 0 0;
+  }
+
   .body {
-    padding: 1 10px;
+    padding: 0 10px 5px;
+
     h3 {
       font-size: 1.6em;
       font-weight: 400;
@@ -28,13 +30,17 @@
     flex-flow: column;
     font-size: small;
     margin-top: auto;
+
     .adminContainer {
       background: var(--lightest-olive);
     }
+
     .admin {
       display: flex;
       justify-content: space-around;
+      padding-top: 5px;
     }
+
     .user {
       display: flex;
       justify-content: space-around;

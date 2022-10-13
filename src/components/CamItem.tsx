@@ -71,11 +71,16 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.img}>
-        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
-          <Image src={imageUrl} width={260} height={195} alt={cam.title} />
-        </a>
-      </div>
+      <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+        <Image
+          src={imageUrl}
+          width={260}
+          height={195}
+          alt={cam.title}
+          className={styles.img}
+        />
+      </a>
+
       <div className={styles.body}>
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <h3>{cam.title}</h3>
