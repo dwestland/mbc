@@ -30,10 +30,10 @@ const AddCam = () => {
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
 
   useEffect(() => {
-    const reloadImage = () => {
+    const reloadImage = async () => {
       if (values.imageName) {
         const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + values.imageName
-        fetch(imageUrl)
+        await fetch(imageUrl)
           .then((res) => setPreviewImage(res.url))
           .catch((err) => console.log('err', err))
       }
