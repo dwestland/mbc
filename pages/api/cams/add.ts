@@ -19,6 +19,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     subarea,
     lat,
     lng,
+    topCam,
+    mbcHosted,
   } = req.body.data
 
   try {
@@ -34,6 +36,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         subarea,
         lat,
         lng,
+        topCam,
+        mbcHosted,
       },
     })
 

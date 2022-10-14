@@ -22,6 +22,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           subarea: true,
           lat: true,
           lng: true,
+          topCam: true,
+          mbcHosted: true,
         },
       })
       res.status(200).json({ cams })
