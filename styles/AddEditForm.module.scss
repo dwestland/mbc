@@ -14,6 +14,14 @@
     }
   }
 
+  textarea {
+    vertical-align: top;
+  }
+
+  .row {
+    margin: 15px 0;
+  }
+
   .footer {
     width: 100%;
     text-align: center;
@@ -30,9 +38,9 @@
   }
 }
 
-.latLngContainer {
+.formContainer {
   border: 1px solid #000;
-  margin: 5px 0;
+  // margin: 15px 0;
   padding: 10px;
   button {
     float: right;
