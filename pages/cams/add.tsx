@@ -22,11 +22,12 @@ const AddCam = () => {
     subarea: '',
     lat: 0,
     lng: 0,
+    topCam: false,
+    mbcHosted: false,
   }
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
-
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
 
   useEffect(() => {
@@ -103,6 +104,17 @@ const AddCam = () => {
 
   const handleImageNameChange = (imageName: string) => {
     setValues({ ...values, imageName })
+  }
+
+  const handleTopCamChange = () => {
+    const value = !values.topCam
+    console.log('%c value ', 'background: red; color: white', value)
+    setValues({ ...values, topCam: value })
+  }
+
+  const handleMbcHostedChange = () => {
+    const value = !values.mbcHosted
+    setValues({ ...values, mbcHosted: value })
   }
 
   const openAddLatLngModal = () => {
@@ -201,7 +213,36 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                <div className={styles.latLngContainer}>
+                <div className={styles.formContainer}>
+                  <span>
+                    <label htmlFor="topCam">
+                      Top Cam &nbsp;
+                      <input
+                        type="checkbox"
+                        name="topCam"
+                        id="topCam"
+                        checked={values.topCam}
+                        onChange={handleTopCamChange}
+                      />
+                    </label>
+                  </span>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span>
+                    <label htmlFor="mbcHosted">
+                      MBC Hosted &nbsp;
+                      <input
+                        type="checkbox"
+                        name="mbcHosted"
+                        id="mbcHosted"
+                        checked={values.mbcHosted}
+                        onChange={handleMbcHostedChange}
+                      />
+                    </label>
+                  </span>
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div className={styles.formContainer}>
                   <button
                     className="btn ghostButton"
                     type="button"
