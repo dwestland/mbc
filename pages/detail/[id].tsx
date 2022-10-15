@@ -26,6 +26,8 @@ interface Cams {
   subarea: string
   lat: number
   lng: number
+  topCam: boolean
+  mbcHosted: boolean
 }
 
 const Details = ({
@@ -52,6 +54,8 @@ const Details = ({
     subarea,
     lat,
     lng,
+    topCam,
+    mbcHosted,
   }: Cams = cams.cams
 
   const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
@@ -113,13 +117,22 @@ const Details = ({
         {isAdmin && (
           <div className={styles.admin}>
             <div className={styles.link}>
-              <strong>ID:{id}</strong>
+              <strong>ID:</strong> {id}
             </div>
+
+            <ldiv>
+              <strong>Top Cam:</strong> {String(topCam)}
+            </ldiv>
+            <ldiv>
+              <strong>MBC Hosted:</strong> {String(mbcHosted)}
+            </ldiv>
+
             <div className={styles.link}>
               <Link href={`/cams/edit/${id}`}>
                 <a className="btn link-as-button">Edit</a>
               </Link>
             </div>
+
             <button type="button" onClick={handleDelete} className="btn ">
               Delete Cam
             </button>

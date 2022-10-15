@@ -291,7 +291,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                 </label>
               </div>
               <div className={styles.row}>
-                <div className={styles.latLngContainer}>
+                <div className={styles.formContainer}>
                   <button
                     className="btn ghostButton"
                     type="button"

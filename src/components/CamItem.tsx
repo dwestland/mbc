@@ -21,6 +21,8 @@ interface CamItemProps {
     subarea: string
     lat: number
     lng: number
+    topCam: boolean
+    mbcHosted: boolean
   }
 }
 
@@ -121,6 +123,12 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
               </li>
               <li>
                 lng: <strong>{cam.lng}</strong>
+              </li>
+              <li>
+                Top Cam: <strong>{String(cam.topCam)}</strong>
+              </li>
+              <li>
+                MBC Hosted: <strong>{String(cam.mbcHosted)}</strong>
               </li>
             </ul>
           </div>
