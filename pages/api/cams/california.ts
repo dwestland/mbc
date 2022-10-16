@@ -7,6 +7,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     try {
       const cams = await prisma.cams.findMany({
+        orderBy: [{ topCam: 'desc' }],
         where: {
           state: 'California',
         },

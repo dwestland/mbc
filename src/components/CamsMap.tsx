@@ -69,7 +69,10 @@ const CamsMap = ({ vectors }: Props) => {
       </LayersControl>
       {/* <MarkerClusterGroup> */}
       {vectors.map((vector) => (
-        <Marker key={vector.name} position={[vector.lat, vector.lng]}>
+        <Marker
+          key={`${vector.lat}${vector.lat}${vector.lng}`}
+          position={[vector.lat, vector.lng]}
+        >
           <Popup>
             <div>
               <h3>{vector.name}</h3>

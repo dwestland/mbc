@@ -35,6 +35,8 @@ interface Cams {
   subarea: string
   lat: number
   lng: number
+  topCam: boolean
+  mbcHosted: boolean
 }
 
 function MoreFloridaCams({ cams }: WebcamProps) {

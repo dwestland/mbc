@@ -25,6 +25,8 @@ interface WebcamProps {
       subarea: string
       lat: number
       lng: number
+      topCam: boolean
+      mbcHosted: boolean
     }
   ]
 
@@ -43,6 +45,8 @@ interface Cams {
   subarea: string
   lat: number
   lng: number
+  topCam: boolean
+  mbcHosted: boolean
 }
 
 // To create a new webcam page, first add cam to DB. Make changes in 6 places: Change camID,
@@ -76,6 +80,8 @@ const WebcamPage = ({
     subarea,
     lat,
     lng,
+    topCam,
+    mbcHosted,
   }: Cams = cams.cams
 
   useEffect(() => {
@@ -143,6 +149,11 @@ const WebcamPage = ({
               <strong>Latitude:</strong> {lat}
               &nbsp; &nbsp;
               <strong>Longitude:</strong> {lng}
+            </p>
+            <p>
+              <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+              &nbsp; &nbsp;
+              <strong>MBC Hosted:</strong> {mbcHosted ? 'Yes' : 'No'}
             </p>
           </div>
         </div>

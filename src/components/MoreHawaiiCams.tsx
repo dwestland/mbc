@@ -18,6 +18,8 @@ interface WebcamProps {
         subarea: string
         lat: number
         lng: number
+        topCam: boolean
+        mbcHosted: boolean
       }
     ]
   }
@@ -35,6 +37,8 @@ interface Cams {
   subarea: string
   lat: number
   lng: number
+  topCam: boolean
+  mbcHosted: boolean
 }
 
 function MoreHawaiiCams({ cams }: WebcamProps) {

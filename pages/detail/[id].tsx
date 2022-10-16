@@ -119,28 +119,23 @@ const Details = ({
             <div className={styles.link}>
               <strong>ID:</strong> {id}
             </div>
-
-            <ldiv>
+            <div>
               <strong>Top Cam:</strong> {String(topCam)}
-            </ldiv>
-            <ldiv>
+            </div>
+            <div>
               <strong>MBC Hosted:</strong> {String(mbcHosted)}
-            </ldiv>
-
+            </div>
             <div className={styles.link}>
               <Link href={`/cams/edit/${id}`}>
                 <a className="btn link-as-button">Edit</a>
               </Link>
             </div>
-
             <button type="button" onClick={handleDelete} className="btn ">
               Delete Cam
             </button>
           </div>
         )}
-
         <AdLeaderboard />
-
         <div className={styles.camInfo}>
           <a
             className="btn link-as-button"
@@ -150,11 +145,9 @@ const Details = ({
           >
             Go to Cam
           </a>
-
           <h3>
             <strong>Title:</strong> {title}
           </h3>
-
           <p>
             <strong>webcamUrl:</strong>&nbsp;
             <a href={webcamUrl} rel="noreferrer" target="_blank">
