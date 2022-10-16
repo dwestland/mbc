@@ -71,6 +71,11 @@ const AddCam = () => {
       return
     }
 
+    if (values.lng === 0 || values.lat === 0) {
+      toast.error('Lat & Lng is required')
+      return
+    }
+
     fetch(url, {
       method: 'POST',
       headers: {
@@ -181,13 +186,15 @@ const AddCam = () => {
               </div>
               <div className={styles.row}>
                 <div className={styles.imageUpload}>
-                  <Image
-                    className={styles.previewImage}
-                    src={previewImage}
-                    alt="Preview image"
-                    width="400"
-                    height="300"
-                  />
+                  {previewImage && (
+                    <Image
+                      className={styles.previewImage}
+                      src={previewImage}
+                      alt="Preview image"
+                      width="400"
+                      height="300"
+                    />
+                  )}
                   <br />
                   <button
                     className="btn ghostButton"

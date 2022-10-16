@@ -2,12 +2,12 @@ import React from 'react'
 import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
 import dynamic from 'next/dynamic'
-import { getSixDigitRandom } from '@/utils/formUtils'
 import Layout from '@/components/Layout'
 import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
+import { getSixDigitRandom } from '@/utils/commonUtils'
 
 interface PageProps {
   cams: {}[]
