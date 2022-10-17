@@ -8,6 +8,8 @@ import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import { getSixDigitRandom } from '@/utils/commonUtils'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import Link from 'next/link'
 
 interface PageProps {
   cams: {}[]
@@ -36,6 +38,7 @@ const OahuPage = ({
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
+  const hawaiiCams: any = cams
 
   const country = 'USA'
   const state = 'Hawaii'
@@ -320,6 +323,11 @@ const OahuPage = ({
           </div>
         </div>
       </div>
+      <hr />
+      <h2>
+        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+      </h2>
+      <MoreHawaiiCams cams={hawaiiCams} />
     </Layout>
   )
 }

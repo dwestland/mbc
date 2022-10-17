@@ -8,6 +8,8 @@ import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import { getSixDigitRandom } from '@/utils/commonUtils'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
+import Link from 'next/link'
 
 interface PageProps {
   cams: {}[]
@@ -36,6 +38,7 @@ const GulfCoastPage = ({
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
+  const floridaCams: any = cams
 
   const country = 'USA'
   const state = 'Florida'
@@ -144,9 +147,13 @@ const GulfCoastPage = ({
           </ShowMoreText>
         </div>
 
-        <hr />
         {/* Things to do and links */}
       </div>
+      <hr />
+      <h2>
+        <Link href="/florida/">Florida Beach Cams</Link>
+      </h2>
+      <MoreFloridaCams cams={floridaCams} />
     </Layout>
   )
 }

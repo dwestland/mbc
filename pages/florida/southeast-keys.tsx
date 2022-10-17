@@ -8,6 +8,8 @@ import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import { getSixDigitRandom } from '@/utils/commonUtils'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
+import Link from 'next/link'
 
 interface PageProps {
   cams: {}[]
@@ -36,6 +38,7 @@ const SoutheastPage = ({
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
+  const floridaCams: any = cams
 
   const country = 'USA'
   const state = 'Florida'
@@ -119,6 +122,14 @@ const SoutheastPage = ({
     >
       <div className="layout">
         <h1>South East Florida and The Keys Webcams</h1>
+        <p>
+          Southeast Florida is home to world-famous Miami Beach and West Palm
+          Beach. Fort Lauderdale was made famous for wild college Spring Break
+          getaways, but rest assured there are plenty more relaxing options
+          available in the Keys as well. See all of the great streaming live
+          Webcams in and around the Miami area, including Biscayne Bay, South
+          Beach, Key Biscayne and more.
+        </p>
         <div className="content-and-ad">
           <div className="content">
             <CamsMap vectors={vectors} />
@@ -140,13 +151,27 @@ const SoutheastPage = ({
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            {/* Text block 2 */}
+            <p>
+              If you’re looking for some fun and entertainment, there are plenty
+              of options in Miami. You can take a ride on one of the many boats
+              that go out to sea every day, or you can just stay on land and
+              enjoy the beautiful beaches. There are also several museums that
+              offer free admission, including the Holocaust Memorial Museum and
+              HistoryMiami Museum. The best part about Miami is that it’s an
+              international city, so you can experience new cultures while
+              you’re there. There are plenty of restaurants that offer authentic
+              Cuban food or fresh seafood from the nearby waters.
+            </p>
           </ShowMoreText>
         </div>
 
-        <hr />
         {/* Things to do and links */}
       </div>
+      <hr />
+      <h2>
+        <Link href="/florida/">Florida Beach Cams</Link>
+      </h2>
+      <MoreFloridaCams cams={floridaCams} />
     </Layout>
   )
 }

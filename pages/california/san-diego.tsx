@@ -8,6 +8,8 @@ import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import { getSixDigitRandom } from '@/utils/commonUtils'
+import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
+import Link from 'next/link'
 
 interface PageProps {
   cams: {}[]
@@ -36,6 +38,7 @@ const SanDiegoPage = ({
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
+  const californiaCams: any = cams
 
   const country = 'USA'
   const state = 'California'
@@ -404,6 +407,11 @@ const SanDiegoPage = ({
           </div>
         </div>
       </div>
+      <hr />
+      <h2>
+        <Link href="/california/">California Beach Cams</Link>
+      </h2>
+      <MoreCaliforniaCams cams={californiaCams} />
     </Layout>
   )
 }
