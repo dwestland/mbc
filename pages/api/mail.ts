@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import mail from '@sendgrid/mail'
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import prisma from '@/utils/prisma'
 
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 

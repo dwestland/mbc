@@ -1,5 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
+// Prevent multiple instances of Prisma Client
+
 interface CustomNodeJsGlobal {
   prisma: PrismaClient
 }
