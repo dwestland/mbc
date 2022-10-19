@@ -73,6 +73,8 @@ const SearchCams = () => {
           </h2>
           <br />
           {searchDisplay}
+          <br />
+          <br />
           <AdLeaderboard />
         </div>
       </div>

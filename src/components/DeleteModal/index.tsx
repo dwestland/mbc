@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-// import Resizer from 'react-image-file-resizer'
 import { FaTimes } from 'react-icons/fa'
-// import { slugify, getSixDigitRandom } from '@/utils/formUtils'
 import styles from '@/styles/Modal.module.scss'
 
 interface Props {
@@ -34,7 +32,6 @@ export default function ImageUploadModal({ onClose, deleteCam, title }: Props) {
             </a>
           </button>
         </div>
-
         <div className={styles.body}>
           <div className={styles.form}>
             <h1>Delete Cam</h1>
@@ -45,7 +42,6 @@ export default function ImageUploadModal({ onClose, deleteCam, title }: Props) {
             </h3>
             <br />
             <br />
-
             <div className={styles.buttonContainer}>
               <button type="button" onClick={deleteCam} className="btn">
                 Delete Cam

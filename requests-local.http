@@ -7,7 +7,7 @@ GET {{baseurl}}/cams HTTP/1.1
 
 
 ### Get cam by ID
-GET {{baseurl}}/cams/289 HTTP/1.1
+GET {{baseurl}}/cams/600 HTTP/1.1
 
 
 ### Add Cam
@@ -17,15 +17,17 @@ Content-Type: application/json
 {
   "data": {
     "title": "My New Title",
-    "webcamUrl": "http://www.westland.net",
-    "imageName": "my image name",
-    "description": "This is a live web cam description.",
+    "webcamUrl": "xxx",
+    "imageName": "test-554736.jpg",
+    "description": "xxx",
     "country": "USA",
     "state": "Hawaii",
     "area": "Kauai",
-    "subarea": "Hatteras Island",
-    "lat": 33.9748,
-    "lng": -118.4480
+    "subarea": "Poipu",
+    "lat": "22.0552",
+    "lng": "-159.5088",
+    "topCam": false,
+    "mbcHosted": false
   }
 }
 
@@ -36,17 +38,19 @@ Content-Type: application/json
 
 {
   "data": {
-    "id": 301,
-    "title": "xzzz3My New Title",
-    "webcamUrl": "xhttp://www.westland.net",
-    "imageName": "xMy image name",
-    "description": "xThis is a live web cam description.",
-    "country": "xUSA",
-    "state": "xHI",
-    "area": "xKauai",
-    "subarea": "xHatteras Island",
-    "lat": "33.9748",
-    "lng": "-118.448"
+    "id": 598,
+    "title": "My New Title",
+    "webcamUrl": "xxx",
+    "imageName": "test-554736.jpg",
+    "description": "xxx",
+    "country": "USA",
+    "state": "Hawaii",
+    "area": "Kauai",
+    "subarea": "Poipu",
+    "lat": "22.0552",
+    "lng": "-159.5088",
+    "topCam": true,
+    "mbcHosted": true
   }
 }
 

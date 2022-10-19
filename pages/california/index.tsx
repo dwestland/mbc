@@ -25,7 +25,7 @@ interface Cams {
 }
 
 const CaliforniaPage = ({ californiaCams }) => {
-  const emoji = <span style={{ fontSize: '40px' }}> 🌴 </span>
+  const emoji = <span style={{ fontSize: '30px' }}> 🌴 </span>
   const sanDiegoCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
     const result = cams.map((cam: Cams, idx) => {
@@ -82,16 +82,24 @@ const CaliforniaPage = ({ californiaCams }) => {
       <div className="layout">
         <h1>California Webcams</h1>
         <h2>
-          <a href="/california/san-diego/">San Diego</a>
+          <span className="no-break">
+            <a href="/california/san-diego/">San Diego</a>
+          </span>
+          &nbsp;<span>{emoji}</span>
+          <span className="no-break">
+            &nbsp;
+            <a href="/california/los-angeles/">Los Angeles</a>
+          </span>
           &nbsp;<span>{emoji}</span>
           &nbsp;
-          <a href="/california/los-angeles/">Los Angeles</a>
+          <span className="no-break">
+            <a href="/california/central-coast/">Central Coast</a>
+          </span>
           &nbsp;<span>{emoji}</span>
           &nbsp;
-          <a href="/california/central-coast/">Central Coast</a>
-          &nbsp;<span>{emoji}</span>
-          &nbsp;
-          <a href="/california/san-francisco/">San Francisco</a>
+          <span className="no-break">
+            <a href="/california/san-francisco/">San Francisco</a>
+          </span>
         </h2>
         <p>
           California is known as the Golden State. Its sunny weather, varied

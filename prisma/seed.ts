@@ -1,6 +1,5 @@
 /* eslint-disable no-return-await */
 import { PrismaClient } from '@prisma/client'
-// import users from '../seed-data/users'
 import cams from '../seed-data/cams'
 
 const prisma = new PrismaClient()
