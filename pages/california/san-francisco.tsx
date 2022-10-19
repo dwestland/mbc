@@ -7,7 +7,7 @@ import CamItem from '@/components/CamItem'
 import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
-import { getSixDigitRandom } from '@/utils/commonUtils'
+import { getSixDigitRandom } from '@/utils/common'
 import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
 import Link from 'next/link'
 
