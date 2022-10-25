@@ -3,32 +3,13 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
 import AdLeaderboard from '@/components/AdLeaderboard'
-
-interface WebcamProps {
-  californiaCams: { title: string }[]
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
+import * as types from '@/utils/types'
 
 const CaliforniaPage = ({ californiaCams }) => {
   const emoji = <span style={{ fontSize: '30px' }}> 🌴 </span>
   const sanDiegoCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -39,7 +20,7 @@ const CaliforniaPage = ({ californiaCams }) => {
 
   const losAngelesCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'Los Angeles')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -52,7 +33,7 @@ const CaliforniaPage = ({ californiaCams }) => {
     const cams = californiaCams.cams.filter(
       (cam) => cam.area === 'Central Coast'
     )
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -65,7 +46,7 @@ const CaliforniaPage = ({ californiaCams }) => {
     const cams = californiaCams.cams.filter(
       (cam) => cam.area === 'San Francisco'
     )
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -242,7 +223,7 @@ export async function getServerSideProps() {
   const moreCamsRes = await fetch(
     `${process.env.NEXT_PUBLIC_API}/cams/california`
   )
-  const californiaCams: WebcamProps = await moreCamsRes.json()
+  const californiaCams: types.WebcamProps = await moreCamsRes.json()
 
   return {
     props: {
