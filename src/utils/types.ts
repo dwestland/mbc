@@ -38,3 +38,25 @@ export interface WebcamProps {
   ]
   moreCams: { title: string }[]
 }
+
+export interface MoreWebcamProps {
+  cams: {
+    cams: [
+      {
+        id: number
+        title: string
+        webcamUrl: string
+        imageName: string
+        description: string
+        country: string
+        state: string
+        area: string
+        subarea: string
+        lat: number
+        lng: number
+        topCam: boolean
+        mbcHosted: boolean
+      }
+    ]
+  }
+}
