@@ -10,26 +10,7 @@ import AdLarge from '@/components/AdLarge'
 import { getSixDigitRandom } from '@/utils/common'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 import Link from 'next/link'
-
-interface PageProps {
-  cams: {}[]
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
+import * as types from '@/utils/types'
 
 const KauaiPage = ({
   cams,
@@ -56,7 +37,7 @@ const KauaiPage = ({
   const camSections = subareaArray.map((subarea) => {
     // check if subarea cams exist
     const camCount = cams.cams
-      .map((cam: Cams) => cam.subarea)
+      .map((cam: types.Cams) => cam.subarea)
       .filter((ele) => ele === subarea).length
     if (camCount === 0) {
       return null
@@ -67,7 +48,7 @@ const KauaiPage = ({
         <AdLeaderboard />
         <h2>{subarea} Webcams</h2>
         <div key={subarea} className="cam-container">
-          {cams.cams.map((cam: Cams) => {
+          {cams.cams.map((cam: types.Cams) => {
             if (cam.subarea === subarea) {
               return <CamItem key={cam.id} cam={cam} />
             }
@@ -81,14 +62,14 @@ const KauaiPage = ({
   // Display cams WITHOUT subareas
   const moreCams = () => {
     const subareaCams = cams.cams.filter(
-      (cam: Cams) => cam.area === area && cam.subarea === ''
+      (cam: types.Cams) => cam.area === area && cam.subarea === ''
     )
 
     if (subareaCams.length === 0) {
       return null
     }
 
-    const result = subareaCams.map((cam: Cams) => (
+    const result = subareaCams.map((cam: types.Cams) => (
       <CamItem key={cam.id} cam={cam} />
     ))
 
@@ -103,7 +84,7 @@ const KauaiPage = ({
 
   // Create vectors for map
   const vectors = []
-  cams.cams.map((cam: Cams) => {
+  cams.cams.map((cam: types.Cams) => {
     if (cam.area === area && cam.lat !== null && cam.lng !== null) {
       const vector = {
         name: cam.title,
@@ -339,7 +320,7 @@ const KauaiPage = ({
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const cams: PageProps = await res.json()
+  const cams: types.CamPageProps = await res.json()
 
   return {
     props: {
