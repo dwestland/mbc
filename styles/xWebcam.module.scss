@@ -1,0 +1,25 @@
+.admin {
+  align-items: center;
+  background: var(--lightest-olive);
+  border: 1px solid var(--light-olive);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+  color: #333;
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0;
+  padding: 0 30px;
+}
+
+.camInfo {
+  padding-top: 20px;
+  text-align: center;
+
+  p {
+    margin: 2px;
+  }
+
+  button {
+    margin: 20px auto;
+  }
+}
