@@ -7,8 +7,10 @@ import styles from '@/styles/AddEditForm.module.scss'
 import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
+import Router from 'next/router'
 
-const url = `${process.env.NEXT_PUBLIC_API}/cams/add`
+const addUrl = `${process.env.NEXT_PUBLIC_API}/cams/add`
+const latestIdUrl = `${process.env.NEXT_PUBLIC_API}/cams/latestId`
 
 const AddCam = () => {
   const initialState = {
@@ -29,6 +31,7 @@ const AddCam = () => {
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
+  const [id, setId] = useState(0)
 
   useEffect(() => {
     const reloadImage = async () => {
@@ -41,6 +44,29 @@ const AddCam = () => {
     }
     reloadImage()
   }, [values.imageName])
+
+  useEffect(() => {
+    if (id === 0) {
+      return
+    }
+    console.log('%c useEffect ID ', 'background: blue; color: white', id)
+    Router.push({
+      pathname: `/detail/${id}`,
+    })
+  }, [id])
+
+  const getLatestId = async () => {
+    await fetch(latestIdUrl)
+      .then((res) => res.json())
+      .then((camId) => {
+        const newId = camId.cams[0].id
+        setId(newId)
+        return camId
+      })
+      .catch((err) => console.log('err', err))
+
+    return null
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -76,7 +102,7 @@ const AddCam = () => {
       return
     }
 
-    fetch(url, {
+    fetch(addUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,14 +114,15 @@ const AddCam = () => {
       .then((res) => {
         if (res.status === 201) {
           toast.success('Cam Saved')
-          setValues(initialState)
           setPreviewImage('/images/no-image.jpg')
+          setValues(initialState)
         }
       })
       .catch((error) => {
         toast.error('Error posting to database')
         console.warn(error)
       })
+    getLatestId()
   }
 
   const handleInputChange = (e: any) => {
@@ -113,7 +140,6 @@ const AddCam = () => {
 
   const handleTopCamChange = () => {
     const value = !values.topCam
-    console.log('%c value ', 'background: red; color: white', value)
     setValues({ ...values, topCam: value })
   }
 
