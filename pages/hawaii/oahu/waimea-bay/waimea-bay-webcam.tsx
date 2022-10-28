@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import WebcamLayout from '@/components/WebcamLayout'
 import Link from 'next/link'
-import Image from 'next/image'
 import { InferGetStaticPropsType } from 'next'
-import styles from '@/styles/Webcam.module.scss'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import * as types from '@/utils/types'
+import AdminWebcamPage from '@/components/AdminWebcamPage'
 
 interface WebcamProps {
   cams: [
@@ -111,6 +111,9 @@ const WebcamPage = ({
       <AdLeaderboard />
 
       {isAdmin && (
+        <AdminWebcamPage cams={cams.cams} style={{ height: '200px' }} />
+      )}
+      {/*  (
         <div className={styles.admin}>
           <div className="image">
             <Image src={imageUrl} width={400} height={300} alt={title} />
@@ -157,7 +160,7 @@ const WebcamPage = ({
             </p>
           </div>
         </div>
-      )}
+      )} */}
 
       <div className="video-responsive">
         <iframe
@@ -226,10 +229,10 @@ const WebcamPage = ({
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${camID}`)
-  const cams: WebcamProps = await res.json()
+  const cams: types.WebcamProps = await res.json()
 
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const moreCams: WebcamProps = await moreCamsRes.json()
+  const moreCams: types.WebcamProps = await moreCamsRes.json()
 
   return {
     props: {
