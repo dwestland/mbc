@@ -157,7 +157,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 
   const handleTopCamChange = () => {
     const value = !values.topCam
-    console.log('%c value ', 'background: red; color: white', value)
     setValues({ ...values, topCam: value })
   }
 

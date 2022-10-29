@@ -6,6 +6,10 @@
 GET {{baseurl}}/cams HTTP/1.1
 
 
+### Get ID from latest cam
+GET {{baseurl}}/cams/latestId HTTP/1.1
+
+
 ### Get cam by ID
 GET {{baseurl}}/cams/600 HTTP/1.1
 

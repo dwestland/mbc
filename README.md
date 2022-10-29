@@ -12,11 +12,32 @@ npm run dev
 http://localhost:3100
 ```
 
-### Migrate Prisma
+**Git Clone**
+
+```
+git clone https://github.com/dwestland/mbc.git mbc20221023
+```
+
+<!-- ### Migrate Prisma
 
 ```
 npx prisma migrate dev --name my-named-migration
+``` -->
+
+### Migrate Prisma Development
+
 ```
+npm run migrate:dev
+```
+
+### Migrate Prisma Production
+
+```
+npm run migrate:prod
+```
+
+Adding Prisma Migrate to an existing project
+https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate/add-prisma-migrate-to-a-project#baseline-your-production-environment
 
 **Push Prisma**
 
@@ -29,6 +50,12 @@ npx prisma db push
 ```
 npx prisma db seed
 ```
+
+### Debugging
+
+Go to the Debug panel, select a launch configuration, then click on Debug start button: Start Debugging from the Command Palette to start your debugging session.
+
+https://nextjs.org/docs/advanced-features/debugging
 
 ### Nginx Server Block
 
