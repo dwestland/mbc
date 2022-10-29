@@ -25,12 +25,6 @@ export default function AdminWebcamPage(cams: any) {
   //     ]
   //   }
 
-  console.log(
-    '%c cams.cams.cams ',
-    'background: blue; color: white',
-    cams.cams.cams
-  )
-
   // @xts-ignore
   const {
     id,
@@ -46,7 +40,8 @@ export default function AdminWebcamPage(cams: any) {
     lng,
     topCam,
     mbcHosted,
-  }: any = cams.cams
+  }: // eslint-disable-next-line react/destructuring-assignment
+  any = cams.cams
 
   const imageUrl: string = imageName
     ? process.env.AWS_IMAGE_SRC_ROOT + imageName

@@ -62,7 +62,7 @@ const PanhandlePage = ({
   // Display cams WITHOUT subareas
   const moreCams = () => {
     const subareaCams = cams.cams.filter(
-      (cam: types.Camss.Cams) => cam.area === area && cam.subarea === ''
+      (cam: types.Cams) => cam.area === area && cam.subarea === ''
     )
 
     if (subareaCams.length === 0) {

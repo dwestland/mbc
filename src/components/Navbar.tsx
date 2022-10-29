@@ -18,7 +18,7 @@ export default function Navbar() {
           </label>
           <ul className="menu">
             <li className="dropdown">
-              <span>Hawaii Beach Cams</span>
+              <span>Hawaii Webcams</span>
               <ul className="dropdown-menu dropdown-menu--animated">
                 <li>
                   <Link href="/hawaii/">
@@ -48,7 +48,7 @@ export default function Navbar() {
               </ul>
             </li>
             <li className="dropdown">
-              <span>California Beach Cams</span>
+              <span>California Webcams</span>
               <ul className="dropdown-menu dropdown-menu--animated">
                 <li>
                   <Link href="/california/">
@@ -78,7 +78,7 @@ export default function Navbar() {
               </ul>
             </li>
             <li className="dropdown">
-              <span>Florida Beach Cams</span>
+              <span>Florida Webcams</span>
               <ul className="dropdown-menu dropdown-menu--animated">
                 <li>
                   <Link href="/florida/">

@@ -49,7 +49,6 @@ const AddCam = () => {
     if (id === 0) {
       return
     }
-    console.log('%c useEffect ID ', 'background: blue; color: white', id)
     Router.push({
       pathname: `/detail/${id}`,
     })
@@ -305,7 +304,6 @@ const AddCam = () => {
           </div>
         </form>
       </div>
-
       {showLatLngModal && (
         <MapModal
           onClose={() => setShowLatLngModal(false)}
@@ -314,7 +312,6 @@ const AddCam = () => {
           handleLatLngChange={handleLatLngChange}
         />
       )}
-
       {showImageUploadModal && (
         <ImageUploadModal
           title={values.title}

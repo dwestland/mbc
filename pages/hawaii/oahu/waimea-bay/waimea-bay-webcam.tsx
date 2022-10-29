@@ -72,7 +72,6 @@ const WebcamPage = ({
           allowFullScreen
         />
       </div>
-
       <div style={{ textAlign: 'center' }}>
         <button
           className="btn"
@@ -83,7 +82,6 @@ const WebcamPage = ({
           Flag this Cam
         </button>
       </div>
-
       <div className="content-and-ad">
         <div className="content">
           <WebcamMap lat={lat || 0} lng={lng || 0} />
@@ -92,24 +90,19 @@ const WebcamPage = ({
           <AdLarge />
         </div>
       </div>
-
       {/* **************************** 5. Change page copy **************************** */}
       <p>
         The Banzai Pipeline cam in Hawaii is provided by EXPLORE.org, the
         world’s leading philanthropic live nature cam network and documentary
         ﬁlm channel.
       </p>
-
       <AdLeaderboard />
-
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>
       {/* **************************** 6. Change More Cams **************************** */}
       <MoreHawaiiCams cams={moreCams} />
-
       <AdLeaderboard />
-
       {showFlagModal && (
         <FlagModal
           onClose={() => setShowFlagModal(false)}

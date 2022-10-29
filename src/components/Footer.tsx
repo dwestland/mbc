@@ -13,7 +13,7 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href="/hawaii/">Hawaii Beach Cams</Link>
+              <Link href="/hawaii/">Hawaii Webcams</Link>
             </li>
             <li>
               <Link href="/hawaii/kauai/">Kauai Island</Link>
@@ -32,7 +32,7 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href="/florida/">Florida Beach Cams</Link>
+              <Link href="/florida/">Florida Webcams</Link>
             </li>
             <li>
               <Link href="/florida/panhandle/">Pan Handel</Link>
@@ -59,7 +59,7 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href="/california/">California Beach Cams</Link>
+              <Link href="/california/">California Webcams</Link>
             </li>
             <li>
               <Link href="/california/san-diego/">San Diego</Link>
