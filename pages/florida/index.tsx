@@ -3,31 +3,12 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
 import AdLeaderboard from '@/components/AdLeaderboard'
-
-interface WebcamProps {
-  floridaCams: { title: string }[]
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
+import * as types from '@/utils/types'
 
 const Page = ({ floridaCams }) => {
   const panhandleCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'Panhandle')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -38,7 +19,7 @@ const Page = ({ floridaCams }) => {
 
   const northEastCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'Northeast')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -49,7 +30,7 @@ const Page = ({ floridaCams }) => {
 
   const eastCentralCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'East Central')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -60,7 +41,7 @@ const Page = ({ floridaCams }) => {
 
   const miamiBeachCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'Miami Beach')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -72,7 +53,7 @@ const Page = ({ floridaCams }) => {
     const cams = floridaCams.cams.filter(
       (cam) => cam.area === 'South East Florida and The Keys'
     )
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -83,7 +64,7 @@ const Page = ({ floridaCams }) => {
 
   const gulfCoastCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'Gulf Coast')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -281,7 +262,7 @@ const Page = ({ floridaCams }) => {
 
 export async function getServerSideProps() {
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/florida`)
-  const floridaCams: WebcamProps = await moreCamsRes.json()
+  const floridaCams: types.WebcamProps = await moreCamsRes.json()
 
   return {
     props: {

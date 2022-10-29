@@ -3,31 +3,12 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
 import AdLeaderboard from '@/components/AdLeaderboard'
-
-interface WebcamProps {
-  hawaiiCams: { title: string }[]
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
+import * as types from '@/utils/types'
 
 const HawaiiPage = ({ hawaiiCams }) => {
   const mauiCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Maui')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -38,7 +19,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
   const oahuCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Oahu')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -49,7 +30,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
   const bigislandCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Big Island')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -60,7 +41,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
   const kauaiCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Kauai')
-    const result = cams.map((cam: Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamItem key={cam.id} cam={cam} />
       }
@@ -230,7 +211,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
 
 export async function getServerSideProps() {
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const hawaiiCams: WebcamProps = await moreCamsRes.json()
+  const hawaiiCams: types.WebcamProps = await moreCamsRes.json()
 
   return {
     props: {

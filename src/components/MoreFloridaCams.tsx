@@ -2,48 +2,13 @@ import React from 'react'
 // import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import CamItem from '@/components/CamItem'
+import * as types from '@/utils/types'
 
-interface WebcamProps {
-  cams: {
-    cams: [
-      {
-        id: number
-        title: string
-        webcamUrl: string
-        imageName: string
-        description: string
-        country: string
-        state: string
-        area: string
-        subarea: string
-        lat: number
-        lng: number
-      }
-    ]
-  }
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
-
-function MoreFloridaCams({ cams }: WebcamProps) {
+function MoreFloridaCams({ cams }: types.MoreWebcamProps) {
   return (
     <div className="cam-container">
       {cams.cams.map(
-        (cam: Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
+        (cam: types.Cams, idx) => idx < 7 && <CamItem key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
         <Link href="/florida">

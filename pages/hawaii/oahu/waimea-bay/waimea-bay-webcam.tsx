@@ -2,55 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import WebcamLayout from '@/components/WebcamLayout'
 import Link from 'next/link'
-import Image from 'next/image'
 import { InferGetStaticPropsType } from 'next'
-import styles from '@/styles/Webcam.module.scss'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import * as types from '@/utils/types'
+import AdminWebcamPage from '@/components/AdminWebcamPage'
 
-interface WebcamProps {
-  cams: [
-    {
-      id: number
-      title: string
-      webcamUrl: string
-      imageName: string
-      description: string
-      country: string
-      state: string
-      area: string
-      subarea: string
-      lat: number
-      lng: number
-      topCam: boolean
-      mbcHosted: boolean
-    }
-  ]
-
-  moreCams: { title: string }[]
-}
-
-interface Cams {
-  id: number
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
-  area: string
-  subarea: string
-  lat: number
-  lng: number
-  topCam: boolean
-  mbcHosted: boolean
-}
-
-// To create a new webcam page, first add cam to DB. Make changes in 6 places: Change camID,
-// title and description, h1, YouTube ID, page copy and More Cams
+// ////////////////////////////////////////////////////////////////////////////
+// To create a new webcam page, first add cam to DB. Then make changes in 6
+// places on this file: Change camID, title and description, h1, YouTube ID,
+// page copy and More Cams
+// ////////////////////////////////////////////////////////////////////////////
 
 // ////////////////////////// 1. Change camID //////////////////////////
 const camID = 595
@@ -67,25 +32,10 @@ const WebcamPage = ({
   const [isAdmin, setIsAdmin] = useState(false)
   const [showFlagModal, setShowFlagModal] = useState(false)
 
-  // @ts-ignore
-  const {
-    id,
-    title,
-    webcamUrl,
-    imageName,
-    description,
-    country,
-    state,
-    area,
-    subarea,
-    lat,
-    lng,
-    topCam,
-    mbcHosted,
-  }: Cams = cams.cams
+  const { id, title, country, state, area, subarea, lat, lng }: any = cams.cams
 
   useEffect(() => {
-    // @ts-ignore
+    //  @ts-ignore
     if (session?.user.role === 'ADMIN') {
       setIsAdmin(true)
     }
@@ -95,70 +45,21 @@ const WebcamPage = ({
     setShowFlagModal(true)
   }
 
-  const imageUrl: string = imageName
-    ? process.env.AWS_IMAGE_SRC_ROOT + imageName
-    : '/images/no-image.jpg'
-
   return (
     <WebcamLayout
       // ////////////////////////// 2. Change document title and description //////////////////////////
-      documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
+      documentTitle="Live Waimea Bay Webcam, Oahu, HI"
+      documentDescription="Live streaming webcam of Waimea Bay, Oahu, Hawaii. Waimea Bay Beach Park offers breathtaking views of the North Shore and access to great surfing."
     >
       {/* **************************** 3. Change h1 page title **************************** */}
-      <h1>Waimea Bay Beach Cam, Oahu, Hawaii</h1>
+      <h1>Live Waimea Bay Webcam</h1>
+      <h2>Waimea Bay, Oahu, Hawaii Beach Cam</h2>
 
       <AdLeaderboard />
 
       {isAdmin && (
-        <div className={styles.admin}>
-          <div className="image">
-            <Image src={imageUrl} width={400} height={300} alt={title} />
-          </div>
-          <div className={styles.camInfo}>
-            <div className={styles.link}>
-              <Link href={`/cams/edit/${id}`}>
-                <a className="btn link-as-button">Edit</a>
-              </Link>
-            </div>
-            <p>
-              <strong>Title:</strong> {title}
-            </p>
-            <p>
-              <strong>webcamUrl:</strong>&nbsp;
-              <Link href={webcamUrl}>
-                <a target="_blank">{webcamUrl}</a>
-              </Link>
-            </p>
-            <p>
-              <strong>Image Name:</strong> {imageName}
-            </p>
-            <p>
-              <strong>ID:</strong> {id}
-            </p>
-            <p>
-              <strong>Description:</strong> {description}
-            </p>
-            <p>
-              <strong>Country:</strong> {country} &nbsp;
-              <strong>State:</strong> {state} &nbsp;
-              <strong>Area:</strong> {area}
-              <strong>Subarea:</strong> {subarea}
-            </p>
-            <p>
-              <strong>Latitude:</strong> {lat}
-              &nbsp; &nbsp;
-              <strong>Longitude:</strong> {lng}
-            </p>
-            <p>
-              <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
-              &nbsp; &nbsp;
-              <strong>MBC Hosted:</strong> {mbcHosted ? 'Yes' : 'No'}
-            </p>
-          </div>
-        </div>
+        <AdminWebcamPage cams={cams.cams} style={{ height: '200px' }} />
       )}
-
       <div className="video-responsive">
         <iframe
           title="YouTube Webcam"
@@ -199,12 +100,12 @@ const WebcamPage = ({
         ﬁlm channel.
       </p>
 
-      {/* **************************** 6. Change More Cams **************************** */}
       <AdLeaderboard />
 
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>
+      {/* **************************** 6. Change More Cams **************************** */}
       <MoreHawaiiCams cams={moreCams} />
 
       <AdLeaderboard />
@@ -226,10 +127,10 @@ const WebcamPage = ({
 
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${camID}`)
-  const cams: WebcamProps = await res.json()
+  const cams: types.WebcamProps = await res.json()
 
   const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const moreCams: WebcamProps = await moreCamsRes.json()
+  const moreCams: types.WebcamProps = await moreCamsRes.json()
 
   return {
     props: {
