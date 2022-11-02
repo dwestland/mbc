@@ -8,7 +8,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (term) {
-      router.push(`/search-cams?term=${term}`)
+      router.push(`/search-results?term=${term}`)
     }
     return null
   }

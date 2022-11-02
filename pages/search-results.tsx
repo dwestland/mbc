@@ -57,7 +57,7 @@ const SearchCams = () => {
     >
       <div className="layout">
         <AdLeaderboard />
-        <h1>Search Cams</h1>
+        <h1>Search Results</h1>
         <h2>
           <span style={{ fontSize: '36px' }}>Search Results for </span> <br />
           <strong>{searchTerm}</strong>

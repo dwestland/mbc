@@ -15,6 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .join(' & ')
 
   try {
+    // Raw SQL query to search multiple tables
     const cams: any = await prisma.$queryRaw(
       Prisma.sql`select id, title, description, lat, lng, top_cam, mbc_hosted, country, state, area, subarea, webcam_url, image_name
         from cams
@@ -34,6 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         ) @@ to_tsquery(${query});`
     )
 
+    // Convert snake_case to camelCase
     cams.map((cam) => {
       cam.topCam = cam.top_cam
       delete cam.top_cam
@@ -47,7 +49,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       cam.imageName = cam.image_name
       delete cam.image_name
 
-      return cam
+      return null
     })
 
     res.status(200).json({ cams })
