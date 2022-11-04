@@ -50,6 +50,7 @@ module.exports = {
     'no-param-reassign': 0,
     'react/no-unescaped-entities': 0,
     'react/prop-types': 'off',
+    'no-plusplus': 'off',
   },
   settings: {
     react: {
