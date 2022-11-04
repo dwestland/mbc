@@ -57,7 +57,17 @@ const HawaiiPage = ({ hawaiiCams }) => {
     >
       <div className="layout">
         <h1>Hawaii Webcams</h1>
-
+        <div className="index-page-subheading">
+          <h2>
+            <span className="no-break">Maui</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Oahu</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Kauai</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Big Island</span>
+          </h2>
+        </div>
         <p>
           Watch the best Hawaii Beach Cams, featuring live webcams and surf cams
           from Waikiki, Oahu, Lahaina, Maui and all of the top resort areas. We
@@ -73,9 +83,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
           live camera pictures of the amazing natural beauty found on various
           locations on the Island of Maui.
         </p>
-
         <AdLeaderboard />
-
         <h2>
           <Link href="/hawaii/maui/">Maui Beach Cams</Link>
         </h2>
@@ -88,7 +96,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
           live camera pictures of the amazing natural beauty found on various
           locations on the Island of Maui.
         </p>
-
         <div className="cam-container">
           {mauiCams()}
           <div className="more-cams">
@@ -105,9 +112,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
             </Link>
           </div>
         </div>
-
         <AdLeaderboard />
-
         <h2>
           <Link href="/hawaii/oahu/">Oahu Beach Cams</Link>
         </h2>
@@ -119,7 +124,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
           <Link href="/hawaii/oahu/">Oahu Beach Cams</Link> to view streaming
           live camera pictures of various hot spots on the island.
         </p>
-
         <div className="cam-container">
           {oahuCams()}
           <div className="more-cams">
@@ -136,9 +140,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
             </Link>
           </div>
         </div>
-
         <AdLeaderboard />
-
         <h2>
           <Link href="/hawaii/bigisland/">Big Island Beach Cams</Link>
         </h2>
@@ -152,7 +154,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
           streaming live pictures of the amazing sights on the Big Island of
           Hawaii.
         </p>
-
         <div className="cam-container">
           {bigislandCams()}
           <div className="more-cams">
@@ -169,9 +170,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
             </Link>
           </div>
         </div>
-
         <AdLeaderboard />
-
         <h2>
           <Link href="/hawaii/kauai">Kauai Beach Cams</Link>
         </h2>
@@ -185,7 +184,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
           <Link href="/hawaii/kauai/">Kauai Beach Cams</Link> to view streaming
           live pictures of this beautiful and lush island.
         </p>
-
         <div className="cam-container">
           {kauaiCams()}
           <div className="more-cams">
@@ -202,7 +200,6 @@ const HawaiiPage = ({ hawaiiCams }) => {
             </Link>
           </div>
         </div>
-
         <AdLeaderboard />
       </div>
     </Layout>

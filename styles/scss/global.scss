@@ -25,6 +25,17 @@
   justify-content: space-evenly;
 }
 
+.index-page-subheading {
+  h2 {
+    margin-top: 15px;
+  }
+  .subheading-emoji {
+    bottom: 8px;
+    font-size: 25px;
+    position: relative;
+  }
+}
+
 hr {
   border-top: 1px solid #bcbcbc;
   text-align: center;

@@ -17,12 +17,7 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
   >
     <div className="layout">
       <h1>MyBeachCams.com</h1>
-      <h2>
-        Live Webcams from <Link href="/hawaii/">Hawaii</Link>,{' '}
-        <Link href="/florida/">Florida</Link> and{' '}
-        <Link href="/california/">California</Link>
-      </h2>
-
+      <h2>Live Webcams from Hawaii Florida and California</h2>
       <p>
         Use this website to find over 120 Beach Cams in Florida, California and
         Hawaii. You will find webcams with live, streaming video from these top
@@ -35,16 +30,13 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         sights, including hard-to-find local links. The world's best beaches are
         just a click away.
       </p>
-
       <p>
         Watch the best Hawaii Beach Cams, featuring live webcams and surf cams
         from Waikiki, Oahu, Lahaina, Maui and all of the top resort areas. We
         also give you comprehensive travel tips, local information, maps and
         links. Enjoy the <em>Hawaii Beach Cams!</em>
       </p>
-
       <AdLeaderboard />
-
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
       </h2>
@@ -59,11 +51,8 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         place to visit from the comfort of your own computer.
       </p>
       <MoreHawaiiCams cams={hawaiiCams} />
-
       {/* <aMapped Webcams */}
-
       <AdLeaderboard />
-
       <h2>
         <Link href="/california/">California Beach Cams</Link>
       </h2>
@@ -75,19 +64,14 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         beaches with the over 70 webcams on MyBeachCams.com.
       </p>
       <MoreCaliforniaCams cams={californiaCams} />
-
       {/* <aMapped Webcams */}
-
       <AdLeaderboard />
-
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
       </h2>
       <p>Something about Florida.</p>
       <MoreFloridaCams cams={floridaCams} />
-
       {/* <aMapped Webcams */}
-
       <AdLeaderboard />
     </div>
   </Layout>

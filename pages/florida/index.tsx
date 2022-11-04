@@ -79,21 +79,18 @@ const Page = ({ floridaCams }) => {
       documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Miami, Los Angles, Miami, Northeast, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
-        <h1>Florida Beach Cams</h1>
-        <h3>Live Webcams from Florida</h3>
-        <h2>
-          <a href="/florida/miami/">Miami</a> -{' '}
-          <a href="/florida/southeast-keys/#fort-lauderdale-beach-cams">
-            Fort Lauderdale
-          </a>{' '}
-          -{' '}
-          <a href="/florida/east-central/#daytona-beach-cams">Daytona Beach</a>{' '}
-          -{' '}
-          <a href="/florida/southeast-keys/#florida-keys-beach-cams">
-            Florida Keys
-          </a>{' '}
-          - <a href="/florida/panhandle/#panama-city-beach-cams">Panama City</a>
-        </h2>
+        <h1>Florida Webcams</h1>
+        <div className="index-page-subheading">
+          <h2>
+            <span className="no-break">Miami</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Fort Lauderdale</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Daytona Beach</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Florida Keys</span>
+          </h2>
+        </div>
         <p>
           Florida has sunny, warm weather year-round in Southern US. Thousands
           of miles of beaches made Florida one of the most popular tourist
@@ -233,7 +230,6 @@ const Page = ({ floridaCams }) => {
           </div>
         </div>
         <AdLeaderboard />
-
         <h2>
           <Link href="/florida/gulf-coast">Gulf Coast Beach Cams</Link>
         </h2>
