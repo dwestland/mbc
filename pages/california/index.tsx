@@ -6,7 +6,6 @@ import AdLeaderboard from '@/components/AdLeaderboard'
 import * as types from '@/utils/types'
 
 const CaliforniaPage = ({ californiaCams }) => {
-  const emoji = <span style={{ fontSize: '30px' }}> 🌴 </span>
   const sanDiegoCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
     const result = cams.map((cam: types.Cams, idx) => {
@@ -62,26 +61,17 @@ const CaliforniaPage = ({ californiaCams }) => {
     >
       <div className="layout">
         <h1>California Webcams</h1>
-        <h2>
-          <span className="no-break">
-            <a href="/california/san-diego/">San Diego</a>
-          </span>
-          &nbsp;<span>{emoji}</span>
-          <span className="no-break">
-            &nbsp;
-            <a href="/california/los-angeles/">Los Angeles</a>
-          </span>
-          &nbsp;<span>{emoji}</span>
-          &nbsp;
-          <span className="no-break">
-            <a href="/california/central-coast/">Central Coast</a>
-          </span>
-          &nbsp;<span>{emoji}</span>
-          &nbsp;
-          <span className="no-break">
-            <a href="/california/san-francisco/">San Francisco</a>
-          </span>
-        </h2>
+        <div className="index-page-subheading">
+          <h2>
+            <span className="no-break">San Diego</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Los Angeles</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">Central Coast</span>&nbsp;
+            <span className="subheading-emoji"> 🌴 </span>&nbsp;
+            <span className="no-break">San Francisco</span>
+          </h2>
+        </div>
         <p>
           California is known as the Golden State. Its sunny weather, varied
           landscape and the allure of fame and fortune have enticed millions of
