@@ -70,19 +70,25 @@ model VerificationToken {
 }
 
 model Cams {
-  id          Int      @id @default(autoincrement())
-  title       String 
-  webcamUrl   String   @map(name: "webcam_url")
-  imageName   String?  @map(name: "image_name")
-  description String?
-  country     String
-  state       String?
-  area        String?
-  subarea     String?
-  lat         Decimal?  @db.Decimal(precision: 8, scale: 6) @default(0)
-  lng         Decimal?  @db.Decimal(precision: 9, scale: 6) @default(0)
-  topCam      Boolean?  @map(name: "top_cam") @default(false)
-  mbcHosted   Boolean?  @map(name: "mbc_hosted")  @default(false)
+  area             String?
+  country          String
+  description      String?
+  hidden           Boolean?  @default(false)
+  id               Int      @id @default(autoincrement())
+  imageName        String?  @map(name: "image_name")
+  lat              Decimal?  @db.Decimal(precision: 8, scale: 6) @default(0)
+  lng              Decimal?  @db.Decimal(precision: 9, scale: 6) @default(0)
+  longDescription  String?  @map(name: "long_description")
+  mbcHosted        Boolean?  @map(name: "mbc_hosted")  @default(false)
+  mbcHostedYoutube Boolean?  @map(name: "mbc_hosted_youtube")  @default(false)
+  moreCams         String?   @map(name: "more_cams")
+  state            String?
+  subarea          String?
+  title            String
+  titleSlug        String?  @map(name: "title_slug")
+  topCam           Boolean?  @map(name: "top_cam") @default(false)
+  webcamUrl        String   @map(name: "webcam_url")
+  zip              String?
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
