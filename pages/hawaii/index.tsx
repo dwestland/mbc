@@ -1,16 +1,16 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import CamItem from '@/components/CamItem'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import * as types from '@/utils/types'
+import CamCard from '@/components/CamCard'
 
 const HawaiiPage = ({ hawaiiCams }) => {
   const mauiCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Maui')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -21,7 +21,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Oahu')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -32,7 +32,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Big Island')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -43,7 +43,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Kauai')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })

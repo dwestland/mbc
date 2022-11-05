@@ -3,11 +3,11 @@ import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import router from 'next/router'
-import styles from '@/styles/CamItem.module.scss'
 import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
+import styles from '@/styles/CamCard.module.scss'
 
-interface CamItemProps {
+interface CamCardProps {
   // refreshData: () => void
   cam: {
     id: number
@@ -26,7 +26,7 @@ interface CamItemProps {
   }
 }
 
-const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
+const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
   const [showFlagModal, setShowFlagModal] = useState(false)
 
@@ -166,4 +166,4 @@ const CamItem: FC<CamItemProps> = ({ cam }): JSX.Element => {
   )
 }
 
-export default CamItem
+export default CamCard

@@ -1,16 +1,16 @@
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import CamItem from '@/components/CamItem'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import * as types from '@/utils/types'
+import CamCard from '@/components/CamCard'
 
 const CaliforniaPage = ({ californiaCams }) => {
   const sanDiegoCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -21,7 +21,7 @@ const CaliforniaPage = ({ californiaCams }) => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'Los Angeles')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -34,7 +34,7 @@ const CaliforniaPage = ({ californiaCams }) => {
     )
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })
@@ -47,7 +47,7 @@ const CaliforniaPage = ({ californiaCams }) => {
     )
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
-        return <CamItem key={cam.id} cam={cam} />
+        return <CamCard key={cam.id} cam={cam} />
       }
       return null
     })

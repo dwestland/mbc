@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '@/components/Layout'
 import AdLeaderboard from '@/components/AdLeaderboard'
-import CamItem from '@/components/CamItem'
+import CamCard from '@/components/CamCard'
 
 const SearchCams = () => {
   const router = useRouter()
@@ -43,7 +43,7 @@ const SearchCams = () => {
     }
 
     const result = searchResults.cams.map((cam) => (
-      <CamItem key={cam.id} cam={cam} />
+      <CamCard key={cam.id} cam={cam} />
     ))
 
     setSearchDisplay(result)

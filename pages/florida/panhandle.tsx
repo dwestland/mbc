@@ -3,7 +3,7 @@ import { InferGetStaticPropsType } from 'next'
 import ShowMoreText from 'react-show-more-text'
 import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
-import CamItem from '@/components/CamItem'
+import CamCard from '@/components/CamCard'
 import data from '@/data/camLocationAreas'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
@@ -50,7 +50,7 @@ const PanhandlePage = ({
         <div key={subarea} className="cam-container">
           {cams.cams.map((cam: types.Cams) => {
             if (cam.subarea === subarea) {
-              return <CamItem key={cam.id} cam={cam} />
+              return <CamCard key={cam.id} cam={cam} />
             }
             return null
           })}
@@ -70,7 +70,7 @@ const PanhandlePage = ({
     }
 
     const result = subareaCams.map((cam: types.Cams) => (
-      <CamItem key={cam.id} cam={cam} />
+      <CamCard key={cam.id} cam={cam} />
     ))
 
     return (
