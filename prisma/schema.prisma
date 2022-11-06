@@ -82,13 +82,14 @@ model Cams {
   mbcHosted        Boolean?  @map(name: "mbc_hosted")  @default(false)
   mbcHostedYoutube Boolean?  @map(name: "mbc_hosted_youtube")  @default(false)
   moreCams         String?   @map(name: "more_cams")
+  postalCode       String?   @map(name: "postal_code")
   state            String?
   subarea          String?
   title            String
   titleSlug        String?  @map(name: "title_slug")
   topCam           Boolean?  @map(name: "top_cam") @default(false)
+  youtubeId        String?  @map(name: "youtube_id")
   webcamUrl        String   @map(name: "webcam_url")
-  zip              String?
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")

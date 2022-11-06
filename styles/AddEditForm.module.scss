@@ -18,6 +18,14 @@
     vertical-align: top;
   }
 
+  .description textarea {
+    height: 70px;
+  }
+
+  .longDescription textarea {
+    height: 140px;
+  }
+
   .row {
     margin: 15px 0;
   }

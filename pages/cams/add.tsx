@@ -8,30 +8,54 @@ import AddCamCountryOptions from '@/components/AddCamCountryOptions'
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 import Router from 'next/router'
+import { slugify } from '@/utils/common'
 
 const addUrl = `${process.env.NEXT_PUBLIC_API}/cams/add`
 const latestIdUrl = `${process.env.NEXT_PUBLIC_API}/cams/latestId`
 
+// Add Hidden input
+// Add postcode input
+// Add Long Description input
+// Add More Cams input
+// YouTube ID input
+
+// Title Slug display
+// Slug function
+
 const AddCam = () => {
   const initialState = {
-    title: '',
-    webcamUrl: '',
-    imageName: '',
-    description: '',
-    country: '',
-    state: '',
     area: '',
-    subarea: '',
+    country: '',
+    description: '',
+    hidden: false,
+    imageName: '',
     lat: 0,
     lng: 0,
-    topCam: false,
+    longDescription: '',
     mbcHosted: false,
+    mbcHostedYoutube: false,
+    moreCams: '',
+    postalCode: '',
+    state: '',
+    subarea: '',
+    title: '',
+    titleSlug: '',
+    topCam: false,
+    youtubeId: '',
+    webcamUrl: '',
   }
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
   const [id, setId] = useState(0)
+
+  useEffect(() => {}, [values.mbcHostedYoutube])
+
+  useEffect(() => {
+    const result = slugify(values.title)
+    setValues({ ...values, titleSlug: result })
+  }, [values.title])
 
   useEffect(() => {
     const reloadImage = async () => {
@@ -142,9 +166,14 @@ const AddCam = () => {
     setValues({ ...values, topCam: value })
   }
 
-  const handleMbcHostedChange = () => {
-    const value = !values.mbcHosted
-    setValues({ ...values, mbcHosted: value })
+  const handleMbcHostedYouTubeChange = () => {
+    const value = !values.mbcHostedYoutube
+    setValues({ ...values, mbcHostedYoutube: value })
+  }
+
+  const handleHiddenChange = () => {
+    const value = !values.hidden
+    setValues({ ...values, hidden: value })
   }
 
   const openAddLatLngModal = () => {
@@ -180,7 +209,8 @@ const AddCam = () => {
             <div className={styles.section1}>
               <div className={styles.row}>
                 <label htmlFor="title">
-                  Title
+                  <strong>Title - Max 60 characters; count </strong>
+                  {values.title.length}
                   <input
                     spellCheck="true"
                     type="text"
@@ -191,9 +221,11 @@ const AddCam = () => {
                   />
                 </label>
               </div>
+
               <div className={styles.row}>
                 <label htmlFor="webcamUrl">
-                  Webcam URL
+                  <strong>Webcam URL</strong>
+
                   <input
                     type="text"
                     name="webcamUrl"
@@ -204,7 +236,8 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                Image Name: &nbsp;
+                <strong>Image Name:</strong>
+                &nbsp;
                 <span>
                   <strong>{values.imageName}</strong>
                 </span>
@@ -230,11 +263,28 @@ const AddCam = () => {
                   </button>
                 </div>
               </div>
+              <br />
+              <div className={styles.formContainer}>
+                <span>
+                  <label htmlFor="mbcHostedYoutube">
+                    <strong>MBC Hosted YouTube </strong>
+                    &nbsp;
+                    <input
+                      type="checkbox"
+                      name="mbcHostedYoutube"
+                      id="mbcHostedYoutube"
+                      checked={values.mbcHostedYoutube}
+                      onChange={handleMbcHostedYouTubeChange}
+                    />
+                  </label>
+                </span>
+              </div>
             </div>
             <div className={styles.section1}>
               <div className={styles.row}>
-                <label htmlFor="description">
-                  Description
+                <label htmlFor="description" className={styles.description}>
+                  <strong>Description - 150 to 165 characters: count</strong>{' '}
+                  {values.description.length}
                   <textarea
                     spellCheck="true"
                     name="description"
@@ -245,10 +295,25 @@ const AddCam = () => {
                 </label>
               </div>
               <div className={styles.row}>
+                <label htmlFor="postalCode">
+                  <strong>Postal Code</strong>
+
+                  <input
+                    spellCheck="true"
+                    type="text"
+                    id="postalCode"
+                    name="postalCode"
+                    value={values.postalCode}
+                    onChange={handleInputChange}
+                  />
+                </label>
+              </div>
+              <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <span>
                     <label htmlFor="topCam">
-                      Top Cam &nbsp;
+                      <strong>Top Cam</strong>
+                      &nbsp;
                       <input
                         type="checkbox"
                         name="topCam"
@@ -260,14 +325,15 @@ const AddCam = () => {
                   </span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <span>
-                    <label htmlFor="mbcHosted">
-                      MBC Hosted &nbsp;
+                    <label htmlFor="hidden">
+                      <strong>Hidden</strong>
+                      &nbsp;
                       <input
                         type="checkbox"
-                        name="mbcHosted"
-                        id="mbcHosted"
-                        checked={values.mbcHosted}
-                        onChange={handleMbcHostedChange}
+                        name="hidden"
+                        id="hidden"
+                        checked={values.hidden}
+                        onChange={handleHiddenChange}
                       />
                     </label>
                   </span>
@@ -283,11 +349,13 @@ const AddCam = () => {
                     Set Lat Lng
                   </button>
                   <span>
-                    Lat: <strong>{values.lat}</strong>
+                    <strong>Lat: </strong>
+                    {values.lat}
                   </span>
                   <br />
                   <span>
-                    Lng: <strong>{values.lng}</strong>
+                    <strong>Lng:</strong>
+                    {values.lng}
                   </span>
                 </div>
               </div>
@@ -296,6 +364,73 @@ const AddCam = () => {
                 values={values}
               />
             </div>
+          </div>
+          <div>
+            {values.mbcHostedYoutube && (
+              <>
+                <hr />
+                <h3>MBC Hosted YouTube Fields</h3>
+                <div className={styles.formWrapper}>
+                  <div className={styles.section1}>
+                    <div className={styles.row}>
+                      <strong>File Name (Title Slug):</strong>
+                      <br />
+                      {values.titleSlug}
+                    </div>
+                    <div className={styles.row}>
+                      <label htmlFor="moreCams">
+                        <strong>More Cams</strong>
+
+                        <input
+                          spellCheck="true"
+                          type="text"
+                          id="moreCams"
+                          name="moreCams"
+                          value={values.moreCams}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+
+                    <div className={styles.row}>
+                      <label htmlFor="youtubeId">
+                        <strong>YouTube ID</strong>
+
+                        <input
+                          spellCheck="true"
+                          type="text"
+                          id="youtubeId"
+                          name="youtubeId"
+                          value={values.youtubeId}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className={styles.section1}>
+                    <div className={styles.row}>
+                      <label
+                        htmlFor="longDescription"
+                        className={styles.longDescription}
+                      >
+                        <strong>
+                          Long Description - 75 words, 450 characters: count
+                        </strong>{' '}
+                        {values.longDescription.length}
+                        <textarea
+                          spellCheck="true"
+                          name="longDescription"
+                          id="longDescription"
+                          value={values.longDescription}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
           <div className={styles.footer}>
             <button type="submit" className="btn">

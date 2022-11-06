@@ -11,7 +11,7 @@ GET {{baseurl}}/cams/latestId HTTP/1.1
 
 
 ### Get cam by ID
-GET {{baseurl}}/cams/600 HTTP/1.1
+GET {{baseurl}}/cams/585 HTTP/1.1
 
 
 ### Add Cam
@@ -95,3 +95,7 @@ Content-Type: application/json
 ### Get all Hawaii cams
 GET {{baseurl}}/cams/hawaii HTTP/1.1
 
+
+### Get a webcam page
+GET {{baseurl}}/webcam-page HTTP/1.1
+# GET {{baseurl}}/webcam/florida/panhandle/reef-beachcam HTTP/1.1
