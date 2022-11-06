@@ -166,7 +166,7 @@ const AddCam = () => {
     setValues({ ...values, topCam: value })
   }
 
-  const handleMbcHostedYouTubeChange = () => {
+  const handleMbcHostedYoutubeChange = () => {
     const value = !values.mbcHostedYoutube
     setValues({ ...values, mbcHostedYoutube: value })
   }
@@ -274,7 +274,7 @@ const AddCam = () => {
                       name="mbcHostedYoutube"
                       id="mbcHostedYoutube"
                       checked={values.mbcHostedYoutube}
-                      onChange={handleMbcHostedYouTubeChange}
+                      onChange={handleMbcHostedYoutubeChange}
                     />
                   </label>
                 </span>
@@ -369,7 +369,7 @@ const AddCam = () => {
             {values.mbcHostedYoutube && (
               <>
                 <hr />
-                <h3>MBC Hosted YouTube Fields</h3>
+                <h3>MBC Hosted YouTube</h3>
                 <div className={styles.formWrapper}>
                   <div className={styles.section1}>
                     <div className={styles.row}>

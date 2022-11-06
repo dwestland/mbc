@@ -11,19 +11,26 @@ import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 
 interface Cams {
-  id: string
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
   area: string
-  subarea: string
+  country: string
+  description: string
+  hidden: boolean
+  id: string
+  imageName: string
   lat: number
   lng: number
+  longDescription: string
+  mbcHostedYoutube: boolean
+  // mbcHostedYoutube: boolean
+  moreCams: boolean
+  postalCode: string
+  state: string
+  subarea: string
+  title: string
+  titleSlug: string
   topCam: boolean
-  mbcHosted: boolean
+  YoutubeId: string
+  webcamUrl: string
 }
 
 const url = `${process.env.NEXT_PUBLIC_API}/cams/edit`
@@ -35,35 +42,49 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   })
 
   const {
-    id,
-    title,
-    webcamUrl,
-    imageName,
-    description,
-    country,
-    state,
     area,
-    subarea,
+    country,
+    description,
+    hidden,
+    id,
+    imageName,
     lat,
     lng,
+    longDescription,
+    mbcHostedYoutube,
+    // mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    state,
+    subarea,
+    title,
+    titleSlug,
     topCam,
-    mbcHosted,
+    YoutubeId,
+    webcamUrl,
   }: Cams = cams.cams
 
   const initialState = {
-    id,
-    title,
-    webcamUrl,
-    imageName,
-    description,
-    country,
-    state,
     area,
-    subarea,
+    country,
+    description,
+    hidden,
+    id,
+    imageName,
     lat,
     lng,
+    longDescription,
+    mbcHostedYoutube,
+    // mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    state,
+    subarea,
+    title,
+    titleSlug,
     topCam,
-    mbcHosted,
+    YoutubeId,
+    webcamUrl,
   }
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
@@ -131,7 +152,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
           toast.success('Cam Saved')
           setValues(initialState)
           setPreviewImage('/images/no-image.jpg')
-          router.push(`/detail/${id}`)
+          router.push(`/detail/${id + 1}`)
         }
       })
       .catch((error) => {
@@ -160,9 +181,14 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     setValues({ ...values, topCam: value })
   }
 
-  const handleMbcHostedChange = () => {
-    const value = !values.mbcHosted
-    setValues({ ...values, mbcHosted: value })
+  const handleMbcHostedYoutubeChange = () => {
+    const value = !values.mbcHostedYoutube
+    setValues({ ...values, mbcHostedYoutube: value })
+  }
+
+  const handleHiddenChange = () => {
+    const value = !values.hidden
+    setValues({ ...values, hidden: value })
   }
 
   const openAddLatLngModal = () => {
@@ -197,11 +223,12 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
           <div className={styles.formWrapper}>
             <div className={styles.section1}>
               <div className={styles.row}>
-                ID: <strong>{values.id}</strong>
+                <strong>ID: </strong> {values.id}
               </div>
               <div className={styles.row}>
                 <label htmlFor="title">
-                  Title
+                  <strong>Title - Max 60 characters; count </strong>
+                  {values.title.length}
                   <input
                     spellCheck="true"
                     type="text"
@@ -214,7 +241,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
               </div>
               <div className={styles.row}>
                 <label htmlFor="webcamUrl">
-                  Webcam URL
+                  <strong>Webcam URL</strong>
                   <input
                     type="text"
                     name="webcamUrl"
@@ -225,7 +252,8 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                 </label>
               </div>
               <div className={styles.row}>
-                Image Name: &nbsp;
+                <strong>Image Name:</strong>
+                &nbsp;
                 <span>
                   <strong>{values.imageName}</strong>
                 </span>
@@ -251,11 +279,28 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   </button>
                 </div>
               </div>
+              <br />
+              <div className={styles.formContainer}>
+                <span>
+                  <label htmlFor="mbcHostedYoutube">
+                    <strong>MBC Hosted YouTube </strong>
+                    &nbsp;
+                    <input
+                      type="checkbox"
+                      name="mbcHostedYoutube"
+                      id="mbcHostedYoutube"
+                      checked={values.mbcHostedYoutube}
+                      onChange={handleMbcHostedYoutubeChange}
+                    />
+                  </label>
+                </span>
+              </div>
             </div>
             <div className={styles.section1}>
               <div className={styles.row}>
-                <label htmlFor="description">
-                  Description
+                <label htmlFor="description" className={styles.description}>
+                  <strong>Description - 150 to 165 characters: count</strong>{' '}
+                  {values.description.length}
                   <textarea
                     spellCheck="true"
                     name="description"
@@ -265,77 +310,28 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   />
                 </label>
               </div>
+
               <div className={styles.row}>
-                <label htmlFor="country">
-                  Country
+                <label htmlFor="postalCode">
+                  <strong>Postal Code</strong>
+
                   <input
+                    spellCheck="true"
                     type="text"
-                    id="country"
-                    name="country"
-                    value={values.country}
+                    id="postalCode"
+                    name="postalCode"
+                    value={values.postalCode}
                     onChange={handleInputChange}
                   />
                 </label>
               </div>
-              <div className={styles.row}>
-                <label htmlFor="state">
-                  State
-                  <input
-                    type="text"
-                    id="state"
-                    name="state"
-                    value={values.state}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="area">
-                  Area
-                  <input
-                    type="text"
-                    id="area"
-                    name="area"
-                    value={values.area}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="subarea">
-                  Subarea
-                  <input
-                    type="text"
-                    id="subarea"
-                    name="subarea"
-                    value={values.subarea}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <div className={styles.formContainer}>
-                  <button
-                    className="btn ghostButton"
-                    type="button"
-                    onClick={openAddLatLngModal}
-                  >
-                    Set Lat Lng
-                  </button>
-                  <span>
-                    Lat: <strong>{values.lat}</strong>
-                  </span>
-                  <br />
-                  <span>
-                    Lng: <strong>{values.lng}</strong>
-                  </span>
-                </div>
-              </div>
+
               <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <span>
                     <label htmlFor="topCam">
-                      Top Cam &nbsp;
+                      <strong>Top Cam</strong>
+                      &nbsp;
                       <input
                         type="checkbox"
                         name="topCam"
@@ -347,21 +343,140 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   </span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <span>
-                    <label htmlFor="mbcHosted">
-                      MBC Hosted &nbsp;
+                    <label htmlFor="hidden">
+                      <strong>Hidden</strong>
+                      &nbsp;
                       <input
                         type="checkbox"
-                        name="mbcHosted"
-                        id="mbcHosted"
-                        checked={values.mbcHosted}
-                        onChange={handleMbcHostedChange}
+                        name="hidden"
+                        id="hidden"
+                        checked={values.hidden}
+                        onChange={handleHiddenChange}
                       />
                     </label>
                   </span>
                 </div>
+
+                <div className={styles.row}>
+                  <label htmlFor="country">
+                    <strong>Country</strong>
+                    <input
+                      type="text"
+                      id="country"
+                      name="country"
+                      value={values.country}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <label htmlFor="state">
+                    <strong>State</strong>
+                    <input
+                      type="text"
+                      id="state"
+                      name="state"
+                      value={values.state}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <label htmlFor="area">
+                    <strong>Area</strong>
+                    <input
+                      type="text"
+                      id="area"
+                      name="area"
+                      value={values.area}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <label htmlFor="subarea">
+                    <strong>Subarea</strong>
+                    <input
+                      type="text"
+                      id="subarea"
+                      name="subarea"
+                      value={values.subarea}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
               </div>
             </div>
           </div>
+
+          <div>
+            {values.mbcHostedYoutube && (
+              <>
+                <hr />
+                <h3>MBC Hosted YouTube</h3>
+                <div className={styles.formWrapper}>
+                  <div className={styles.section1}>
+                    <div className={styles.row}>
+                      <strong>File Name (Title Slug):</strong>
+                      <br />
+                      {values.titleSlug}
+                    </div>
+                    <div className={styles.row}>
+                      <label htmlFor="moreCams">
+                        <strong>More Cams</strong>
+
+                        <input
+                          spellCheck="true"
+                          type="text"
+                          id="moreCams"
+                          name="moreCams"
+                          value={values.moreCams}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+
+                    <div className={styles.row}>
+                      <label htmlFor="youtubeId">
+                        <strong>YouTube ID</strong>
+
+                        <input
+                          spellCheck="true"
+                          type="text"
+                          id="youtubeId"
+                          name="youtubeId"
+                          value={values.youtubeId}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div className={styles.section1}>
+                    <div className={styles.row}>
+                      <label
+                        htmlFor="longDescription"
+                        className={styles.longDescription}
+                      >
+                        <strong>
+                          Long Description - 75 words, 450 characters: count
+                        </strong>{' '}
+                        {values.longDescription.length}
+                        <textarea
+                          spellCheck="true"
+                          name="longDescription"
+                          id="longDescription"
+                          value={values.longDescription}
+                          onChange={handleInputChange}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
           <div className={styles.footer}>
             <button type="submit" className="btn">
               Update Cam
