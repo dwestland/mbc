@@ -87,7 +87,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
         <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
           <h3>{cam.title}</h3>
         </a>
-        {cam.description}
+        <p>{cam.description}</p>
       </div>
       <div className={styles.footer}>
         {isAdmin && (
