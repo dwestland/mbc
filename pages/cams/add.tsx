@@ -74,7 +74,7 @@ const AddCam = () => {
       return
     }
     Router.push({
-      pathname: `/detail/${id}`,
+      pathname: `/detail/${id + 1}`,
     })
   }, [id])
 
@@ -339,6 +339,7 @@ const AddCam = () => {
                   </span>
                 </div>
               </div>
+
               <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <button
@@ -380,7 +381,6 @@ const AddCam = () => {
                     <div className={styles.row}>
                       <label htmlFor="moreCams">
                         <strong>More Cams</strong>
-
                         <input
                           spellCheck="true"
                           type="text"
@@ -391,11 +391,9 @@ const AddCam = () => {
                         />
                       </label>
                     </div>
-
                     <div className={styles.row}>
                       <label htmlFor="youtubeId">
                         <strong>YouTube ID</strong>
-
                         <input
                           spellCheck="true"
                           type="text"
@@ -407,7 +405,6 @@ const AddCam = () => {
                       </label>
                     </div>
                   </div>
-
                   <div className={styles.section1}>
                     <div className={styles.row}>
                       <label

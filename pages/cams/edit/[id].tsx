@@ -22,14 +22,14 @@ interface Cams {
   longDescription: string
   mbcHostedYoutube: boolean
   // mbcHostedYoutube: boolean
-  moreCams: boolean
+  moreCams: string
   postalCode: string
   state: string
   subarea: string
   title: string
   titleSlug: string
   topCam: boolean
-  YoutubeId: string
+  youtubeId: string
   webcamUrl: string
 }
 
@@ -60,7 +60,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     title,
     titleSlug,
     topCam,
-    YoutubeId,
+    youtubeId,
     webcamUrl,
   }: Cams = cams.cams
 
@@ -83,9 +83,10 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     title,
     titleSlug,
     topCam,
-    YoutubeId,
+    youtubeId,
     webcamUrl,
   }
+
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
@@ -152,7 +153,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
           toast.success('Cam Saved')
           setValues(initialState)
           setPreviewImage('/images/no-image.jpg')
-          router.push(`/detail/${id + 1}`)
+          router.push(`/detail/${id}`)
         }
       })
       .catch((error) => {
@@ -310,7 +311,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   />
                 </label>
               </div>
-
               <div className={styles.row}>
                 <label htmlFor="postalCode">
                   <strong>Postal Code</strong>
@@ -356,7 +356,26 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                     </label>
                   </span>
                 </div>
-
+                <div className={styles.row}>
+                  <div className={styles.formContainer}>
+                    <button
+                      className="btn ghostButton"
+                      type="button"
+                      onClick={openAddLatLngModal}
+                    >
+                      Set Lat Lng
+                    </button>
+                    <span>
+                      <strong>Lat: </strong>
+                      {values.lat}
+                    </span>
+                    <br />
+                    <span>
+                      <strong>Lng:</strong>
+                      {values.lng}
+                    </span>
+                  </div>
+                </div>
                 <div className={styles.row}>
                   <label htmlFor="country">
                     <strong>Country</strong>
@@ -408,7 +427,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
               </div>
             </div>
           </div>
-
           <div>
             {values.mbcHostedYoutube && (
               <>
@@ -451,7 +469,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                       </label>
                     </div>
                   </div>
-
                   <div className={styles.section1}>
                     <div className={styles.row}>
                       <label
@@ -476,7 +493,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
               </>
             )}
           </div>
-
           <div className={styles.footer}>
             <button type="submit" className="btn">
               Update Cam
