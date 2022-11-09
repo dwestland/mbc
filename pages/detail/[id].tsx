@@ -15,19 +15,25 @@ interface CamsDetailProps {
   cams: { title: string }[]
 }
 interface Cams {
-  id: string
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
   area: string
-  subarea: string
+  country: string
+  description: string
+  hidden: boolean
+  id: string
+  imageName: string
   lat: number
   lng: number
+  longDescription: string
+  mbcHostedYoutube: boolean
+  moreCams: string
+  postalCode: string
+  state: string
+  subarea: string
+  title: string
+  titleSlug: string
   topCam: boolean
-  mbcHosted: boolean
+  youtubeId: string
+  webcamUrl: string
 }
 
 const Details = ({
@@ -43,19 +49,25 @@ const Details = ({
   const [showFlagModal, setShowFlagModal] = useState(false)
 
   const {
-    id,
-    title,
-    webcamUrl,
-    imageName,
-    description,
-    country,
-    state,
     area,
-    subarea,
+    country,
+    description,
+    hidden,
+    id,
+    imageName,
     lat,
     lng,
+    longDescription,
+    mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    state,
+    subarea,
+    title,
+    titleSlug,
     topCam,
-    mbcHosted,
+    youtubeId,
+    webcamUrl,
   }: Cams = cams.cams
 
   const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
@@ -120,10 +132,29 @@ const Details = ({
               <strong>ID:</strong> {id}
             </div>
             <div>
-              <strong>Top Cam:</strong> {String(topCam)}
+              <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
             </div>
             <div>
-              <strong>MBC Hosted:</strong> {String(mbcHosted)}
+              <strong>MBC Hosted YouTube:</strong>{' '}
+              {mbcHostedYoutube ? 'Yes' : 'No'}
+            </div>
+            <div>
+              <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+            </div>
+            <div>
+              <strong>More Cams:</strong> {moreCams}
+            </div>
+            <div>
+              <strong>Postal Code:</strong> {postalCode}
+            </div>
+            <div>
+              <strong>Title Slug:</strong> {titleSlug}
+            </div>
+            <div>
+              <strong>YouTube ID</strong> {youtubeId}
+            </div>
+            <div>
+              <strong>Long Description:</strong> {longDescription}
             </div>
             <div className={styles.link}>
               <Link href={`/cams/edit/${id}`}>

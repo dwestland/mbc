@@ -97,5 +97,6 @@ GET {{baseurl}}/cams/hawaii HTTP/1.1
 
 
 ### Get a webcam page
-GET {{baseurl}}/webcam-page HTTP/1.1
-# GET {{baseurl}}/webcam/florida/panhandle/reef-beachcam HTTP/1.1
+
+GET {{baseurl}}/webcam-page?country=USA&state=Hawaii&area=Kauai&title=live-lawai-beach-resort-webcam-kauai-poipu HTTP/1.1
+# GET {{baseurl}}/webcam-page HTTP/1.1

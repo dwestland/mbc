@@ -10,19 +10,19 @@ import styles from '@/styles/CamCard.module.scss'
 interface CamCardProps {
   // refreshData: () => void
   cam: {
-    id: number
-    title: string
-    webcamUrl: string
-    imageName: string
-    description: string
-    country: string
-    state: string
     area: string
-    subarea: string
+    country: string
+    description: string
+    id: number
+    imageName: string
     lat: number
     lng: number
+    mbcHostedYoutube: boolean
+    state: string
+    subarea: string
+    title: string
     topCam: boolean
-    mbcHosted: boolean
+    webcamUrl: string
   }
 }
 
@@ -71,9 +71,12 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
     setShowFlagModal(true)
   }
 
+  // External sites open in new tab
+  const openNewTabOption = cam.mbcHostedYoutube ? '_self' : '_blank'
+
   return (
     <div className={`${styles.card} bs`}>
-      <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+      <a href={cam.webcamUrl} target={openNewTabOption} rel="noreferrer">
         <Image
           src={imageUrl}
           width={260}
@@ -84,7 +87,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
       </a>
 
       <div className={styles.body}>
-        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+        <a href={cam.webcamUrl} target={openNewTabOption} rel="noreferrer">
           <h3>{cam.title}</h3>
         </a>
         <p>{cam.description}</p>
@@ -125,10 +128,11 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
                 lng: <strong>{cam.lng}</strong>
               </li>
               <li>
-                Top Cam: <strong>{String(cam.topCam)}</strong>
+                Top Cam: <strong>{cam.topCam ? 'Yes' : 'No'}</strong>
               </li>
               <li>
-                MBC Hosted: <strong>{String(cam.mbcHosted)}</strong>
+                MBC Hosted YouTube:{' '}
+                <strong>{cam.mbcHostedYoutube ? 'Yes' : 'No'}</strong>
               </li>
             </ul>
           </div>
