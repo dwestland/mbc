@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-// import { InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import Layout from '@/components/Layout'
 import styles from '@/styles/AddEditForm.module.scss'
@@ -13,15 +12,6 @@ import { slugify } from '@/utils/common'
 const addUrl = `${process.env.NEXT_PUBLIC_API}/cams/add`
 const latestIdUrl = `${process.env.NEXT_PUBLIC_API}/cams/latestId`
 
-// Add Hidden input
-// Add postcode input
-// Add Long Description input
-// Add More Cams input
-// YouTube ID input
-
-// Title Slug display
-// Slug function
-
 const AddCam = () => {
   const initialState = {
     area: '',
@@ -32,7 +22,6 @@ const AddCam = () => {
     lat: 0,
     lng: 0,
     longDescription: '',
-    mbcHosted: false,
     mbcHostedYoutube: false,
     moreCams: '',
     postalCode: '',
@@ -49,25 +38,65 @@ const AddCam = () => {
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
   const [id, setId] = useState(0)
-
-  useEffect(() => {}, [values.mbcHostedYoutube])
+  const {
+    area,
+    country,
+    description,
+    hidden,
+    imageName,
+    lat,
+    lng,
+    longDescription,
+    mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    state,
+    subarea,
+    title,
+    titleSlug,
+    topCam,
+    webcamUrl,
+    youtubeId,
+  } = values
 
   useEffect(() => {
-    const result = slugify(values.title)
+    const result = slugify(title)
     setValues({ ...values, titleSlug: result })
-  }, [values.title])
+  }, [title])
+
+  useEffect(() => {
+    console.log('%c Make path ', 'background: red; color: white')
+    if (mbcHostedYoutube) {
+      setValues({ ...values, webcamUrl: '' })
+      let result = `/webcam`
+      if (country) {
+        result += `/${country}`
+      }
+      if (state) {
+        result += `/${state}`
+      }
+      if (area) {
+        result += `/${area}`
+      }
+      result += `/${titleSlug}`
+
+      setValues({ ...values, webcamUrl: result })
+    }
+    return null
+  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
+  console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
   useEffect(() => {
     const reloadImage = async () => {
-      if (values.imageName) {
-        const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + values.imageName
+      if (imageName) {
+        const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + imageName
         await fetch(imageUrl)
           .then((res) => setPreviewImage(res.url))
           .catch((err) => console.log('err', err))
       }
     }
     reloadImage()
-  }, [values.imageName])
+  }, [imageName])
 
   useEffect(() => {
     if (id === 0) {
@@ -95,32 +124,37 @@ const AddCam = () => {
     e.preventDefault()
 
     // Validation
-    if (!values.title) {
+    if (!title) {
       toast.error('Title is required')
       return
     }
 
-    if (!values.webcamUrl) {
+    if (!webcamUrl) {
       toast.error('webcamUrl is required')
       return
     }
 
-    if (!values.description) {
+    if (!description) {
       toast.error('Description is required')
       return
     }
 
-    if (!values.country) {
+    if (!country) {
       toast.error('Country is required')
       return
     }
 
-    if (!values.imageName) {
+    if (!imageName) {
       toast.error('Image is required')
       return
     }
 
-    if (values.lng === 0 || values.lat === 0) {
+    if (!youtubeId && mbcHostedYoutube) {
+      toast.error('YouTube ID is required')
+      return
+    }
+
+    if (lng === 0 || lat === 0) {
       toast.error('Lat & Lng is required')
       return
     }
@@ -162,17 +196,17 @@ const AddCam = () => {
   }
 
   const handleTopCamChange = () => {
-    const value = !values.topCam
+    const value = !topCam
     setValues({ ...values, topCam: value })
   }
 
   const handleMbcHostedYoutubeChange = () => {
-    const value = !values.mbcHostedYoutube
+    const value = !mbcHostedYoutube
     setValues({ ...values, mbcHostedYoutube: value })
   }
 
   const handleHiddenChange = () => {
-    const value = !values.hidden
+    const value = !hidden
     setValues({ ...values, hidden: value })
   }
 
@@ -183,7 +217,7 @@ const AddCam = () => {
   }
 
   const openImageUploadModal = () => {
-    if (!values.title) {
+    if (!title) {
       toast.error('Please enter a title to add image')
       return null
     }
@@ -210,13 +244,13 @@ const AddCam = () => {
               <div className={styles.row}>
                 <label htmlFor="title">
                   <strong>Title - Max 60 characters; count </strong>
-                  {values.title.length}
+                  {title.length}
                   <input
                     spellCheck="true"
                     type="text"
                     id="title"
                     name="title"
-                    value={values.title}
+                    value={title}
                     onChange={handleInputChange}
                   />
                 </label>
@@ -230,8 +264,9 @@ const AddCam = () => {
                     type="text"
                     name="webcamUrl"
                     id="webcamUrl"
-                    value={values.webcamUrl}
+                    value={webcamUrl}
                     onChange={handleInputChange}
+                    disabled={mbcHostedYoutube}
                   />
                 </label>
               </div>
@@ -239,7 +274,7 @@ const AddCam = () => {
                 <strong>Image Name:</strong>
                 &nbsp;
                 <span>
-                  <strong>{values.imageName}</strong>
+                  <strong>{imageName}</strong>
                 </span>
               </div>
               <div className={styles.row}>
@@ -273,7 +308,7 @@ const AddCam = () => {
                       type="checkbox"
                       name="mbcHostedYoutube"
                       id="mbcHostedYoutube"
-                      checked={values.mbcHostedYoutube}
+                      checked={mbcHostedYoutube}
                       onChange={handleMbcHostedYoutubeChange}
                     />
                   </label>
@@ -284,12 +319,12 @@ const AddCam = () => {
               <div className={styles.row}>
                 <label htmlFor="description" className={styles.description}>
                   <strong>Description - 150 to 165 characters: count</strong>{' '}
-                  {values.description.length}
+                  {description.length}
                   <textarea
                     spellCheck="true"
                     name="description"
                     id="description"
-                    value={values.description}
+                    value={description}
                     onChange={handleInputChange}
                   />
                 </label>
@@ -303,7 +338,7 @@ const AddCam = () => {
                     type="text"
                     id="postalCode"
                     name="postalCode"
-                    value={values.postalCode}
+                    value={postalCode}
                     onChange={handleInputChange}
                   />
                 </label>
@@ -318,7 +353,7 @@ const AddCam = () => {
                         type="checkbox"
                         name="topCam"
                         id="topCam"
-                        checked={values.topCam}
+                        checked={topCam}
                         onChange={handleTopCamChange}
                       />
                     </label>
@@ -332,7 +367,7 @@ const AddCam = () => {
                         type="checkbox"
                         name="hidden"
                         id="hidden"
-                        checked={values.hidden}
+                        checked={hidden}
                         onChange={handleHiddenChange}
                       />
                     </label>
@@ -351,12 +386,12 @@ const AddCam = () => {
                   </button>
                   <span>
                     <strong>Lat: </strong>
-                    {values.lat}
+                    {lat}
                   </span>
                   <br />
                   <span>
                     <strong>Lng:</strong>
-                    {values.lng}
+                    {lng}
                   </span>
                 </div>
               </div>
@@ -367,7 +402,7 @@ const AddCam = () => {
             </div>
           </div>
           <div>
-            {values.mbcHostedYoutube && (
+            {mbcHostedYoutube && (
               <>
                 <hr />
                 <h3>MBC Hosted YouTube</h3>
@@ -376,7 +411,7 @@ const AddCam = () => {
                     <div className={styles.row}>
                       <strong>File Name (Title Slug):</strong>
                       <br />
-                      {values.titleSlug}
+                      {titleSlug}
                     </div>
                     <div className={styles.row}>
                       <label htmlFor="moreCams">
@@ -386,7 +421,7 @@ const AddCam = () => {
                           type="text"
                           id="moreCams"
                           name="moreCams"
-                          value={values.moreCams}
+                          value={moreCams}
                           onChange={handleInputChange}
                         />
                       </label>
@@ -399,7 +434,7 @@ const AddCam = () => {
                           type="text"
                           id="youtubeId"
                           name="youtubeId"
-                          value={values.youtubeId}
+                          value={youtubeId}
                           onChange={handleInputChange}
                         />
                       </label>
@@ -414,12 +449,12 @@ const AddCam = () => {
                         <strong>
                           Long Description - 75 words, 450 characters: count
                         </strong>{' '}
-                        {values.longDescription.length}
+                        {longDescription.length}
                         <textarea
                           spellCheck="true"
                           name="longDescription"
                           id="longDescription"
-                          value={values.longDescription}
+                          value={longDescription}
                           onChange={handleInputChange}
                         />
                       </label>
@@ -439,14 +474,14 @@ const AddCam = () => {
       {showLatLngModal && (
         <MapModal
           onClose={() => setShowLatLngModal(false)}
-          lat={values.lat}
-          lng={values.lng}
+          lat={lat}
+          lng={lng}
           handleLatLngChange={handleLatLngChange}
         />
       )}
       {showImageUploadModal && (
         <ImageUploadModal
-          title={values.title}
+          title={title}
           onClose={() => setShowImageUploadModal(false)}
           handleImageNameChange={handleImageNameChange}
         />
