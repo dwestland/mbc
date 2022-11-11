@@ -1,41 +1,38 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/utils/prisma'
-// import { useRouter } from 'next/router'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' })
   }
 
-  console.log('%c req.query ', 'background: red; color: white', req.query)
-
-  const webCamPage = {
-    // id: 557,
-    country: 'USA',
-    state: 'Florida',
-    area: 'Panhandle',
-    title: 'Panama City Beach Cam',
-  }
-
   try {
     const cams = await prisma.cams.findMany({
-      where: webCamPage,
+      where: req.query,
       select: {
-        id: true,
-        title: true,
-        webcamUrl: true,
-        imageName: true,
-        description: true,
-        country: true,
-        state: true,
         area: true,
-        subarea: true,
+        country: true,
+        description: true,
+        hidden: true,
+        id: true,
+        imageName: true,
         lat: true,
         lng: true,
-        topCam: true,
+        longDescription: true,
         mbcHosted: true,
+        mbcHostedYoutube: true,
+        moreCams: true,
+        postalCode: true,
+        state: true,
+        subarea: true,
+        title: true,
+        titleSlug: true,
+        topCam: true,
+        youtubeId: true,
+        webcamUrl: true,
       },
     })
+    console.log('%c backend cams ', 'background: blue; color: white', cams)
     res.status(200).json({ cams })
   } catch (err) {
     console.log(err)
