@@ -32,7 +32,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         webcamUrl: true,
       },
     })
-    console.log('%c backend cams ', 'background: blue; color: white', cams)
+
     res.status(200).json({ cams })
   } catch (err) {
     console.log(err)
