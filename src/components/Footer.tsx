@@ -82,7 +82,7 @@ const Footer = () => {
         <Link href="/privacy-policy">Privacy Policy</Link> &nbsp;&nbsp;&nbsp;
         <Link href="/contact">Contact Us</Link>
       </p>
-      <p style={{ fontSize: 'x-small' }}>
+      <p style={{ fontSize: 'small' }}>
         Information on this website is deemed reliable but not guaranteed.
         MyBeachCams.com is not responsible for data from external sources.
       </p>
