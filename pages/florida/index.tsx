@@ -1,11 +1,17 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import AdLeaderboard from '@/components/AdLeaderboard'
+import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
 
 const Page = ({ floridaCams }) => {
+  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
+    ssr: false,
+  })
+
   const panhandleCams = () => {
     const cams = floridaCams.cams.filter((cam) => cam.area === 'Panhandle')
     const result = cams.map((cam: types.Cams, idx) => {
@@ -73,6 +79,20 @@ const Page = ({ floridaCams }) => {
     return result
   }
 
+  // Create vectors for map
+  const vectors = []
+  floridaCams.cams.map((cam: types.Cams) => {
+    if (cam.lat !== null && cam.lng !== null) {
+      const vector = {
+        name: cam.title,
+        lat: cam.lat,
+        lng: cam.lng,
+      }
+      vectors.push(vector)
+    }
+    return null
+  })
+
   return (
     <Layout
       documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
@@ -90,6 +110,14 @@ const Page = ({ floridaCams }) => {
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">Florida Keys</span>
           </h2>
+        </div>
+        <div className="content-and-ad">
+          <div className="content">
+            <CamsMap vectors={vectors} />
+          </div>
+          <div className="ad">
+            <AdLarge />
+          </div>
         </div>
         <p>
           Florida has sunny, warm weather year-round in Southern US. Thousands

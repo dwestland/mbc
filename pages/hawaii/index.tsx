@@ -1,11 +1,17 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import AdLeaderboard from '@/components/AdLeaderboard'
+import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
 
 const HawaiiPage = ({ hawaiiCams }) => {
+  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
+    ssr: false,
+  })
+
   const mauiCams = () => {
     const cams = hawaiiCams.cams.filter((cam) => cam.area === 'Maui')
     const result = cams.map((cam: types.Cams, idx) => {
@@ -50,6 +56,20 @@ const HawaiiPage = ({ hawaiiCams }) => {
     return result
   }
 
+  // Create vectors for map
+  const vectors = []
+  hawaiiCams.cams.map((cam: types.Cams) => {
+    if (cam.lat !== null && cam.lng !== null) {
+      const vector = {
+        name: cam.title,
+        lat: cam.lat,
+        lng: cam.lng,
+      }
+      vectors.push(vector)
+    }
+    return null
+  })
+
   return (
     <Layout
       documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
@@ -67,6 +87,14 @@ const HawaiiPage = ({ hawaiiCams }) => {
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">Big Island</span>
           </h2>
+        </div>
+        <div className="content-and-ad">
+          <div className="content">
+            <CamsMap vectors={vectors} />
+          </div>
+          <div className="ad">
+            <AdLarge />
+          </div>
         </div>
         <p>
           Watch the best Hawaii Beach Cams, featuring live webcams and surf cams

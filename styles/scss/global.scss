@@ -187,6 +187,11 @@ form {
     border-radius: 5px;
     height: 350px;
     width: 100%;
+
+    // Change marker color
+    .leaflet-marker-pane img {
+      filter: hue-rotate(110deg);
+    }
   }
   form {
     padding-right: 15px;

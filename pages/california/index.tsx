@@ -1,11 +1,17 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import AdLeaderboard from '@/components/AdLeaderboard'
+import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
 
 const CaliforniaPage = ({ californiaCams }) => {
+  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
+    ssr: false,
+  })
+
   const sanDiegoCams = () => {
     const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
     const result = cams.map((cam: types.Cams, idx) => {
@@ -54,6 +60,20 @@ const CaliforniaPage = ({ californiaCams }) => {
     return result
   }
 
+  // Create vectors for map
+  const vectors = []
+  californiaCams.cams.map((cam: types.Cams) => {
+    if (cam.lat !== null && cam.lng !== null) {
+      const vector = {
+        name: cam.title,
+        lat: cam.lat,
+        lng: cam.lng,
+      }
+      vectors.push(vector)
+    }
+    return null
+  })
+
   return (
     <Layout
       documentTitle="California Beach Cams - Webcams in San Diego, Los Angeles and San Francisco"
@@ -71,6 +91,14 @@ const CaliforniaPage = ({ californiaCams }) => {
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">San Francisco</span>
           </h2>
+        </div>
+        <div className="content-and-ad">
+          <div className="content">
+            <CamsMap vectors={vectors} />
+          </div>
+          <div className="ad">
+            <AdLarge />
+          </div>
         </div>
         <p>
           California is known as the Golden State. Its sunny weather, varied
