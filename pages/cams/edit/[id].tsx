@@ -9,6 +9,7 @@ import styles from '@/styles/AddEditForm.module.scss'
 import Layout from '@/components/Layout'
 import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
+import { slugify } from '@/utils/common'
 
 interface Cams {
   area: string
@@ -105,6 +106,33 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     reloadImage()
   }, [values.imageName])
 
+  useEffect(() => {
+    const result = slugify(title)
+    setValues({ ...values, titleSlug: result })
+  }, [title])
+
+  useEffect(() => {
+    console.log('%c Make path ', 'background: red; color: white')
+    if (mbcHostedYoutube) {
+      setValues({ ...values, webcamUrl: '' })
+      let result = `/webcam`
+      if (country) {
+        result += `/${country}`
+      }
+      if (state) {
+        result += `/${state}`
+      }
+      if (area) {
+        result += `/${area}`
+      }
+      result += `/${titleSlug}`
+
+      setValues({ ...values, webcamUrl: result })
+    }
+    return null
+  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
+  console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -131,6 +159,11 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 
     if (!values.imageName) {
       toast.error('Image is required')
+      return
+    }
+
+    if (!youtubeId && mbcHostedYoutube) {
+      toast.error('YouTube ID is required')
       return
     }
 
@@ -249,6 +282,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                     id="webcamUrl"
                     value={values.webcamUrl}
                     onChange={handleInputChange}
+                    disabled={mbcHostedYoutube}
                   />
                 </label>
               </div>
@@ -283,7 +317,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
               <br />
               <div className={styles.formContainer}>
                 <span>
-                  <label htmlFor="mbcHostedYoutube">
+                  <label htmlFor="mbcHostedYoutube" className={styles.pointer}>
                     <strong>MBC Hosted YouTube </strong>
                     &nbsp;
                     <input
@@ -329,7 +363,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
               <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <span>
-                    <label htmlFor="topCam">
+                    <label htmlFor="topCam" className={styles.pointer}>
                       <strong>Top Cam</strong>
                       &nbsp;
                       <input
@@ -343,7 +377,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                   </span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <span>
-                    <label htmlFor="hidden">
+                    <label htmlFor="hidden" className={styles.pointer}>
                       <strong>Hidden</strong>
                       &nbsp;
                       <input
@@ -376,7 +410,16 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                     </span>
                   </div>
                 </div>
+                {/* <div className={styles.row}>
+
+                </div> */}
+                <br />
+                {/* <p style={[color: 'chrimson']} >Don't change location unless you really know what you're doing</p> */}
                 <div className={styles.row}>
+                  <p style={{ color: 'crimson', fontWeight: 'bold' }}>
+                    Don't change location unless you really know what you're
+                    doing
+                  </p>
                   <label htmlFor="country">
                     <strong>Country</strong>
                     <input

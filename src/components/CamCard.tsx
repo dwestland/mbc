@@ -71,6 +71,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
     setShowFlagModal(true)
   }
 
+  // TODO: Use Link on local links and anchor on external links
+
   // External sites open in new tab
   const openNewTabOption = cam.mbcHostedYoutube ? '_self' : '_blank'
 
@@ -139,6 +141,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
         )}
         <div className={styles.user}>
           <div className={styles.link}>
+            {cam.mbcHostedYoutube && <span className={styles.dot}>&nbsp;</span>}
             <Link href={`/detail/${cam.id}`}>
               <a className="button button-primary">Details</a>
             </Link>

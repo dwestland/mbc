@@ -51,5 +51,16 @@
       display: flex;
       justify-content: space-around;
     }
+
+    .dot {
+      background-color: rgb(52, 193, 104);
+      border-radius: 50%;
+      display: inline-block;
+      height: 10px;
+      margin-right: 6px;
+      position: relative;
+      top: 5px;
+      width: 10px;
+    }
   }
 }

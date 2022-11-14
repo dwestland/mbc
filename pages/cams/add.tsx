@@ -301,7 +301,7 @@ const AddCam = () => {
               <br />
               <div className={styles.formContainer}>
                 <span>
-                  <label htmlFor="mbcHostedYoutube">
+                  <label htmlFor="mbcHostedYoutube" className={styles.pointer}>
                     <strong>MBC Hosted YouTube </strong>
                     &nbsp;
                     <input
@@ -332,7 +332,6 @@ const AddCam = () => {
               <div className={styles.row}>
                 <label htmlFor="postalCode">
                   <strong>Postal Code</strong>
-
                   <input
                     spellCheck="true"
                     type="text"
@@ -346,7 +345,7 @@ const AddCam = () => {
               <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <span>
-                    <label htmlFor="topCam">
+                    <label htmlFor="topCam" className={styles.pointer}>
                       <strong>Top Cam</strong>
                       &nbsp;
                       <input
@@ -360,7 +359,7 @@ const AddCam = () => {
                   </span>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <span>
-                    <label htmlFor="hidden">
+                    <label htmlFor="hidden" className={styles.pointer}>
                       <strong>Hidden</strong>
                       &nbsp;
                       <input
@@ -374,7 +373,6 @@ const AddCam = () => {
                   </span>
                 </div>
               </div>
-
               <div className={styles.row}>
                 <div className={styles.formContainer}>
                   <button

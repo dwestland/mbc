@@ -128,7 +128,7 @@ const Details = ({
 
         {isAdmin && (
           <div className={styles.admin}>
-            <div className={styles.link}>
+            <div>
               <strong>ID:</strong> {id}
             </div>
             <div>
