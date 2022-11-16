@@ -133,9 +133,6 @@ export async function getServerSideProps(context) {
     if (i === 1) {
       result.push(`&state=${params[1]}`)
     }
-    if (i === 2) {
-      result.push(`&area=${params[2]}`)
-    }
   }
   result.push(`&titleSlug=${params[params.length - 1]}`)
 
@@ -149,6 +146,13 @@ export async function getServerSideProps(context) {
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}${queryString}`)
   const cams: CamsDetailProps = await res.json()
+
+  // If path is not found, return 404
+  if (!cams.cams[0]) {
+    return {
+      notFound: true,
+    }
+  }
 
   return {
     props: {
