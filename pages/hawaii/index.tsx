@@ -77,15 +77,27 @@ const HawaiiPage = ({ hawaiiCams }) => {
     >
       <div className="layout">
         <h1>Hawaii Webcams</h1>
+        <script src="//stream.vistawebcams.com/js/vc.5.js" />
         <div className="index-page-subheading">
           <h2>
-            <span className="no-break">Maui</span>&nbsp;
+            <span className="no-break">
+              <Link href="/hawaii/maui/">Maui</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Oahu</span>&nbsp;
+            <span className="no-break">
+              <Link href="/hawaii/oahu/">Oahu</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Kauai</span>&nbsp;
+            <span className="no-break">
+              <Link href="/hawaii/kauai">Kauai</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Big Island</span>
+            <span className="no-break">
+              <Link href="/hawaii/bigisland/">Big Island</Link>
+            </span>
           </h2>
         </div>
         <div className="content-and-ad">

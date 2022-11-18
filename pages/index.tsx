@@ -17,7 +17,13 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
   >
     <div className="layout">
       <h1>MyBeachCams.com</h1>
-      <h2>Live Webcams from Hawaii Florida and California</h2>
+      <h2>
+        Live Webcams from <Link href="/hawaii/">Hawaii</Link>
+        ,&nbsp;
+        <Link href="/california/">California</Link>
+        &nbsp;and&nbsp;
+        <Link href="/florida/">Florida</Link>
+      </h2>
       <p>
         Use this website to find over 120 Beach Cams in Florida, California and
         Hawaii. You will find webcams with live, streaming video from these top

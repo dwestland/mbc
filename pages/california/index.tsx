@@ -83,13 +83,25 @@ const CaliforniaPage = ({ californiaCams }) => {
         <h1>California Webcams</h1>
         <div className="index-page-subheading">
           <h2>
-            <span className="no-break">San Diego</span>&nbsp;
+            <span className="no-break">
+              <a href="/california/san-diego/">San Diego</a>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Los Angeles</span>&nbsp;
+            <span className="no-break">
+              <Link href="/california/los-angeles">Los Angeles</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Central Coast</span>&nbsp;
+            <span className="no-break">
+              <Link href="/california/central-coast">Cental Coast</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">San Francisco</span>
+            <span className="no-break">
+              {' '}
+              <Link href="/california/san-francisco">San Francisco</Link>
+            </span>
           </h2>
         </div>
         <div className="content-and-ad">
@@ -114,7 +126,7 @@ const CaliforniaPage = ({ californiaCams }) => {
         </p>
         <AdLeaderboard />
         <h2>
-          <a href="/california/san-diego/">San Diego Beach Cams</a>
+          <a href="/california/san-diego/">San Diego</a>
         </h2>
         <p>
           San Diego, known for its year-round sunshine and balmy temperatures,

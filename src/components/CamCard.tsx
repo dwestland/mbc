@@ -143,7 +143,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
           <div className={styles.link}>
             {cam.mbcHostedYoutube && <span className={styles.dot}>&nbsp;</span>}
             <Link href={`/detail/${cam.id}`}>
-              <a className="button button-primary">Details</a>
+              <a className="button button-primary">&nbsp;Details</a>
             </Link>
           </div>
           <button className="button-as-link" type="button" onClick={handleFlag}>

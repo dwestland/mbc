@@ -102,13 +102,24 @@ const Page = ({ floridaCams }) => {
         <h1>Florida Webcams</h1>
         <div className="index-page-subheading">
           <h2>
-            <span className="no-break">Miami</span>&nbsp;
+            <span className="no-break">
+              <Link href="/florida/miami/">Miami</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Fort Lauderdale</span>&nbsp;
+            <span className="no-break">
+              <Link href="/florida/gulf-coast">Gulf Coast</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Daytona Beach</span>&nbsp;
+            <span className="no-break">
+              <Link href="/florida/east-central">East Central</Link>
+            </span>
+            &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">Florida Keys</span>
+            <span className="no-break">
+              <Link href="/florida/southeast-keys/">Florida Keys</Link>
+            </span>
           </h2>
         </div>
         <div className="content-and-ad">
