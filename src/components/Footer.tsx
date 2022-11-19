@@ -47,9 +47,7 @@ const Footer = () => {
               <Link href="/florida/miami/">Miami Beach</Link>
             </li>
             <li>
-              <Link href="/florida/southeast-keys/">
-                Southeast &amp; The Keys
-              </Link>
+              <Link href="/florida/florida-keys/">Florida Keys</Link>
             </li>
             <li>
               <Link href="/florida/gulf-coast/">Gulf Coast</Link>

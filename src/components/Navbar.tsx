@@ -106,8 +106,8 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/florida/southeast-keys/">
-                    <a>Southeast &amp; The Keys</a>
+                  <Link href="/florida/florida-keys/">
+                    <a>Florida Keys</a>
                   </Link>
                 </li>
                 <li>

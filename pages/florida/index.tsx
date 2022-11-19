@@ -56,9 +56,7 @@ const Page = ({ floridaCams }) => {
     return result
   }
   const souteastKeysCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam) => cam.area === 'South East Florida and The Keys'
-    )
+    const cams = floridaCams.cams.filter((cam) => cam.area === 'Florida Keys')
     const result = cams.map((cam: types.Cams, idx) => {
       if (idx < 7) {
         return <CamCard key={cam.id} cam={cam} />
@@ -118,7 +116,7 @@ const Page = ({ floridaCams }) => {
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/florida/southeast-keys/">Florida Keys</Link>
+              <Link href="/florida/florida-keys/">Florida Keys</Link>
             </span>
           </h2>
         </div>
@@ -247,7 +245,7 @@ const Page = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/southeast-keys/">
+          <Link href="/florida/florida-keys/">
             South East Florida and The Keys Cams
           </Link>
         </h2>
@@ -255,7 +253,7 @@ const Page = ({ floridaCams }) => {
         <div className="cam-container">
           {souteastKeysCams()}
           <div className="more-cams">
-            <Link href="/florida//southeast-keys">
+            <Link href="/florida//florida-keys">
               <a>
                 <h2>
                   MORE
