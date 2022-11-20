@@ -71,27 +71,43 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
     setShowFlagModal(true)
   }
 
-  // TODO: Use Link on local links and anchor on external links
-
-  // External sites open in new tab
-  const openNewTabOption = cam.mbcHostedYoutube ? '_self' : '_blank'
-
   return (
     <div className={`${styles.card} bs`}>
-      <a href={cam.webcamUrl} target={openNewTabOption} rel="noreferrer">
-        <Image
-          src={imageUrl}
-          width={260}
-          height={195}
-          alt={cam.title}
-          className={styles.img}
-        />
-      </a>
-
-      <div className={styles.body}>
-        <a href={cam.webcamUrl} target={openNewTabOption} rel="noreferrer">
-          <h3>{cam.title}</h3>
+      {cam.mbcHostedYoutube ? (
+        <Link href={cam.webcamUrl} className={styles.pointer}>
+          <a>
+            <Image
+              src={imageUrl}
+              width={260}
+              height={195}
+              alt={cam.title}
+              className={styles.img}
+            />
+          </a>
+        </Link>
+      ) : (
+        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+          <Image
+            src={imageUrl}
+            width={260}
+            height={195}
+            alt={cam.title}
+            className={styles.img}
+          />
         </a>
+      )}
+      <div className={styles.body}>
+        {cam.mbcHostedYoutube ? (
+          <Link href={cam.webcamUrl} className={styles.pointer}>
+            <a>
+              <h3>{cam.title}</h3>
+            </a>
+          </Link>
+        ) : (
+          <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+            <h3>{cam.title}</h3>
+          </a>
+        )}
         <p>{cam.description}</p>
       </div>
       <div className={styles.footer}>
@@ -99,10 +115,12 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
           <div className={styles.adminContainer}>
             <div className={styles.admin}>
               <div className={styles.link}>ID:{cam.id}</div>
-
               <div className={styles.link}>
-                <Link href={`/cams/edit/${cam.id}`}>
-                  <a className="button button-primary">Edit</a>
+                <Link
+                  href={`/cams/edit/${cam.id}`}
+                  className="button button-primary"
+                >
+                  Edit
                 </Link>
               </div>
               <button
@@ -142,8 +160,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
         <div className={styles.user}>
           <div className={styles.link}>
             {cam.mbcHostedYoutube && <span className={styles.dot}>&nbsp;</span>}
-            <Link href={`/detail/${cam.id}`}>
-              <a className="button button-primary">&nbsp;Details</a>
+            <Link href={`/detail/${cam.id}`} className="button button-primary">
+              &nbsp;Details
             </Link>
           </div>
           <button className="button-as-link" type="button" onClick={handleFlag}>

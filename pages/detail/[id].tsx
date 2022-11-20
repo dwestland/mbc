@@ -113,19 +113,24 @@ const Details = ({
       <div className="layout">
         <AdLeaderboard />
         <h1>Cam Details</h1>
-
         <div className="image-and-map">
-          <div className="image" style={{ cursor: 'pointer' }}>
-            <a href={webcamUrl} rel="noreferrer" target="_blank">
-              <Image src={imageUrl} width={400} height={300} alt={title} />
-            </a>
+          <div className="image">
+            {mbcHostedYoutube ? (
+              <Link href={webcamUrl}>
+                <a>
+                  <Image src={imageUrl} width={400} height={300} alt={title} />
+                </a>
+              </Link>
+            ) : (
+              <a href={webcamUrl} target="_blank" rel="noreferrer">
+                <Image src={imageUrl} width={400} height={300} alt={title} />
+              </a>
+            )}
           </div>
-
           <div className="map">
             <DetailsMap lat={lat || 0} lng={lng || 0} />
           </div>
         </div>
-
         {isAdmin && (
           <div className={styles.admin}>
             <div className={styles.adminButtons}>
@@ -177,22 +182,34 @@ const Details = ({
         )}
         <AdLeaderboard />
         <div className={styles.camInfo}>
-          <a
-            className="btn link-as-button"
-            href={webcamUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            Go to Cam
-          </a>
+          {mbcHostedYoutube ? (
+            <Link href={webcamUrl}>
+              <a className="btn link-as-button">Go to Cam</a>
+            </Link>
+          ) : (
+            <a
+              href={webcamUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn link-as-button"
+            >
+              Go to Cam
+            </a>
+          )}
           <h3>
             <strong>Title:</strong> {title}
           </h3>
           <p>
             <strong>webcamUrl:</strong>&nbsp;
-            <a href={webcamUrl} rel="noreferrer" target="_blank">
-              {webcamUrl}
-            </a>
+            {mbcHostedYoutube ? (
+              <Link href={webcamUrl}>
+                <a>{webcamUrl}</a>
+              </Link>
+            ) : (
+              <a href={webcamUrl} target="_blank" rel="noreferrer">
+                {webcamUrl}
+              </a>
+            )}
           </p>
           <p>
             <strong>Image Name:</strong> {imageName}
