@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '@/styles/AdminWebcamPage.module.scss'
 
 export default function AdminWebcamPage(cams: any) {
-  // @xts-ignore
+  // x@xts-ignore
   const {
     area,
     country,
@@ -14,7 +14,6 @@ export default function AdminWebcamPage(cams: any) {
     imageName,
     lat,
     lng,
-    longDescription,
     mbcHostedYoutube,
     moreCams,
     postalCode,
@@ -57,6 +56,12 @@ export default function AdminWebcamPage(cams: any) {
         </p>
         <p>
           <strong>ID:</strong> {id}
+          &nbsp; &nbsp;
+          <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+          &nbsp; &nbsp;
+          <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+          &nbsp; &nbsp;
+          <strong>MBC Hosted YouTube:</strong> {mbcHostedYoutube ? 'Yes' : 'No'}
         </p>
         <p>
           <strong>Description:</strong> {description}
@@ -73,36 +78,15 @@ export default function AdminWebcamPage(cams: any) {
           <strong>Longitude:</strong> {lng}
         </p>
         <p>
-          <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+          <strong>Postal Code:</strong> {postalCode}
           &nbsp; &nbsp;
-          <div className={styles.link}>
-            <strong>ID:</strong> {id}
-          </div>
-          <div>
-            <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
-          </div>
-          <div>
-            <strong>MBC Hosted YouTube:</strong>{' '}
-            {mbcHostedYoutube ? 'Yes' : 'No'}
-          </div>
-          <div>
-            <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
-          </div>
-          <div>
-            <strong>More Cams:</strong> {moreCams}
-          </div>
-          <div>
-            <strong>Postal Code:</strong> {postalCode}
-          </div>
-          <div>
-            <strong>Title Slug:</strong> {titleSlug}
-          </div>
-          <div>
-            <strong>YouTube ID</strong> {youtubeId}
-          </div>
-          <div>
-            <strong>Long Description:</strong> {longDescription}
-          </div>
+          <strong>More Cams:</strong> {moreCams}
+        </p>
+        <p>
+          <strong>Title Slug:</strong> {titleSlug}
+        </p>
+        <p>
+          <strong>YouTube ID</strong> {youtubeId}
         </p>
       </div>
     </div>

@@ -128,42 +128,51 @@ const Details = ({
 
         {isAdmin && (
           <div className={styles.admin}>
-            <div>
-              <strong>ID:</strong> {id}
+            <div className={styles.adminButtons}>
+              <div className={styles.link}>
+                <Link href={`/cams/edit/${id}`}>
+                  <a className="btn link-as-button">Edit</a>
+                </Link>
+              </div>
+              <button type="button" onClick={handleDelete} className="btn ">
+                Delete Cam
+              </button>
             </div>
-            <div>
-              <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+            <div className={styles.camAdminInfo}>
+              <div>
+                <strong>ID:</strong> {id}
+              </div>
+              <div>
+                <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>MBC Hosted YouTube:</strong>{' '}
+                {mbcHostedYoutube ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>More Cams:</strong> {moreCams}
+              </div>
+              <div>
+                <strong>Postal Code:</strong> {postalCode}
+              </div>
+
+              <div>
+                <strong>YouTube ID:</strong> {youtubeId}
+              </div>
             </div>
-            <div>
-              <strong>MBC Hosted YouTube:</strong>{' '}
-              {mbcHostedYoutube ? 'Yes' : 'No'}
+            <div className={styles.description}>
+              <div>
+                <strong>Title Slug:</strong> {titleSlug}
+              </div>
             </div>
-            <div>
-              <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+            <div className={styles.description}>
+              <div>
+                <strong>Long Description:</strong> {longDescription}
+              </div>
             </div>
-            <div>
-              <strong>More Cams:</strong> {moreCams}
-            </div>
-            <div>
-              <strong>Postal Code:</strong> {postalCode}
-            </div>
-            <div>
-              <strong>Title Slug:</strong> {titleSlug}
-            </div>
-            <div>
-              <strong>YouTube ID</strong> {youtubeId}
-            </div>
-            <div>
-              <strong>Long Description:</strong> {longDescription}
-            </div>
-            <div className={styles.link}>
-              <Link href={`/cams/edit/${id}`}>
-                <a className="btn link-as-button">Edit</a>
-              </Link>
-            </div>
-            <button type="button" onClick={handleDelete} className="btn ">
-              Delete Cam
-            </button>
           </div>
         )}
         <AdLeaderboard />
