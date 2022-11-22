@@ -7,12 +7,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       const cams = await prisma.cams.findMany({
         orderBy: [{ topCam: 'desc' }],
         where: {
+          NOT: {
+            hidden: true,
+          },
           state: 'Hawaii',
         },
         select: {
           area: true,
           country: true,
           description: true,
+          hidden: true,
           id: true,
           imageName: true,
           lat: true,
