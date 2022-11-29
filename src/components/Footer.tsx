@@ -35,15 +35,6 @@ const Footer = () => {
               <Link href="/florida/">Florida Webcams</Link>
             </li>
             <li>
-              <Link href="/florida/panhandle/">Pan Handel</Link>
-            </li>
-            <li>
-              <Link href="/florida/northeast/">Northeast</Link>
-            </li>
-            <li>
-              <Link href="/florida/east-central/">East Central</Link>
-            </li>
-            <li>
               <Link href="/florida/miami/">Miami Beach</Link>
             </li>
             <li>
@@ -51,6 +42,15 @@ const Footer = () => {
             </li>
             <li>
               <Link href="/florida/gulf-coast/">Gulf Coast</Link>
+            </li>
+            <li>
+              <Link href="/florida/east-central/">East Central</Link>
+            </li>
+            <li>
+              <Link href="/florida/panhandle/">Pan Handel</Link>
+            </li>
+            <li>
+              <Link href="/florida/northeast/">Northeast</Link>
             </li>
           </ul>
         </div>

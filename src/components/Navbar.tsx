@@ -86,21 +86,6 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/florida/panhandle/">
-                    <a>Pan Handel</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/florida/northeast/">
-                    <a>Northeast</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/florida/east-central/">
-                    <a>East Central</a>
-                  </Link>
-                </li>
-                <li>
                   <Link href="/florida/miami/">
                     <a>Miami Beach</a>
                   </Link>
@@ -113,6 +98,21 @@ export default function Navbar() {
                 <li>
                   <Link href="/florida/gulf-coast/">
                     <a>Gulf Coast</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/florida/east-central/">
+                    <a>East Central</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/florida/panhandle/">
+                    <a>Pan Handel</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/florida/northeast/">
+                    <a>Northeast</a>
                   </Link>
                 </li>
               </ul>

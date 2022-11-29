@@ -243,7 +243,7 @@ const AddCam = () => {
             <div className={styles.section1}>
               <div className={styles.row}>
                 <label htmlFor="title">
-                  <strong>Title - Max 60 characters; count </strong>
+                  <strong>Title - 35 to 60 characters; count </strong>
                   {title.length}
                   <input
                     spellCheck="true"
@@ -318,7 +318,9 @@ const AddCam = () => {
             <div className={styles.section1}>
               <div className={styles.row}>
                 <label htmlFor="description" className={styles.description}>
-                  <strong>Description - 150 to 165 characters: count</strong>{' '}
+                  <strong>
+                    Description, no period - 115 to 160 characters: count
+                  </strong>{' '}
                   {description.length}
                   <textarea
                     spellCheck="true"

@@ -306,7 +306,7 @@ const OahuPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>
       <MoreHawaiiCams cams={hawaiiCams} />
     </Layout>

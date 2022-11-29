@@ -453,7 +453,7 @@ const LosAngelesPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/california/">California Beach Cams</Link>
+        <Link href="/california/">More California Beach Cams</Link>
       </h2>
       <MoreCaliforniaCams cams={californiaCams} />
     </Layout>

@@ -7,7 +7,7 @@ import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
 
-const Page = ({ floridaCams }) => {
+const FloridaPage = ({ floridaCams }) => {
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
@@ -135,6 +135,102 @@ const Page = ({ floridaCams }) => {
         </p>
         <AdLeaderboard />
         <h2>
+          <Link href="/florida/miami/">Miami Beach Cams</Link>
+        </h2>
+        <p>
+          Miami Beach Florida is the world's most famous beach resort, famed for
+          its white sand beaches and as a meeting place for celebrities and
+          millionaires. Miami Beach is also a popular tourist destination,
+          especially among Europeans and South Americans. It has been featured
+          in many movies and television shows including Scarface, Cocoon, Miami
+          Vice and Baywatch. Watch live streaming webcams of Miami.
+        </p>
+        <div className="cam-container">
+          {miamiBeachCams()}
+          <div className="more-cams">
+            <Link href="/florida/miami">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>MIAMI</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <AdLeaderboard />
+        <h2>
+          <Link href="/florida/florida-keys/">Florida Keys Cams</Link>
+        </h2>
+        <p>Florida Keys Cams.</p>
+        <div className="cam-container">
+          {souteastKeysCams()}
+          <div className="more-cams">
+            <Link href="/florida//florida-keys">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>FLORIDA KEYS</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <AdLeaderboard />
+        <h2>
+          <Link href="/florida/gulf-coast">Gulf Coast Beach Cams</Link>
+        </h2>
+        <p>Gulf Coast Cams.</p>
+        <div className="cam-container">
+          {gulfCoastCams()}
+          <div className="more-cams">
+            <Link href="/florida/gulf-coast">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>GULF COAST</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <AdLeaderboard />
+        <h2>
+          <Link href="/florida/east-central">East Central Cams</Link>
+        </h2>
+        <p>
+          East Central Florida is a great place to visit. Ocean and beaches,
+          things to do and places to go. See Daytona Beach, Cape Canaveral,
+          Space Coast (Cape Kennedy) and New Smyrna Beach. Stay tuned to our
+          live streaming webcams and enjoy beautiful beaches.
+        </p>
+        <div className="cam-container">
+          {eastCentralCams()}
+          <div className="more-cams">
+            <Link href="/florida/east-central">
+              <a>
+                <h2>
+                  MORE
+                  <br />
+                  <span>EAST CENTRAL</span>
+                  <br />
+                  CAMS
+                </h2>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <AdLeaderboard />
+        <h2>
           <Link href="/florida/panhandle">Panhandle Beach Cams</Link>
         </h2>
         <p>
@@ -190,104 +286,6 @@ const Page = ({ floridaCams }) => {
           </div>
         </div>
         <AdLeaderboard />
-        <h2>
-          <Link href="/florida/east-central">East Central Cams</Link>
-        </h2>
-        <p>
-          East Central Florida is a great place to visit. Ocean and beaches,
-          things to do and places to go. See Daytona Beach, Cape Canaveral,
-          Space Coast (Cape Kennedy) and New Smyrna Beach. Stay tuned to our
-          live streaming webcams and enjoy beautiful beaches.
-        </p>
-        <div className="cam-container">
-          {eastCentralCams()}
-          <div className="more-cams">
-            <Link href="/florida/east-central">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>EAST CENTRAL</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/miami/">Miami Beach Cams</Link>
-        </h2>
-        <p>
-          Miami Beach Florida is the world's most famous beach resort, famed for
-          its white sand beaches and as a meeting place for celebrities and
-          millionaires. Miami Beach is also a popular tourist destination,
-          especially among Europeans and South Americans. It has been featured
-          in many movies and television shows including Scarface, Cocoon, Miami
-          Vice and Baywatch. Watch live streaming webcams of Miami.
-        </p>
-        <div className="cam-container">
-          {miamiBeachCams()}
-          <div className="more-cams">
-            <Link href="/florida/miami">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>MIAMI</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/florida-keys/">
-            South East Florida and The Keys Cams
-          </Link>
-        </h2>
-        <p>South East Florida and The Keys Cams.</p>
-        <div className="cam-container">
-          {souteastKeysCams()}
-          <div className="more-cams">
-            <Link href="/florida//florida-keys">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>SOUTH EAST KEYS</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/gulf-coast">Gulf Coast Beach Cams</Link>
-        </h2>
-        <p>Gulf Coast Cams.</p>
-        <div className="cam-container">
-          {gulfCoastCams()}
-          <div className="more-cams">
-            <Link href="/florida/gulf-coast">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>GULF COAST</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
       </div>
     </Layout>
   )
@@ -304,4 +302,4 @@ export async function getServerSideProps() {
   }
 }
 
-export default Page
+export default FloridaPage
