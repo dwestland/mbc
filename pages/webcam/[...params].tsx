@@ -40,8 +40,6 @@ const Webcam = ({
   const { params = [] } = router.query
   const youtubeUrl = `https://www.youtube.com/embed/${youtubeId}`
 
-  // const { title } = cams?.cams[0]
-
   useEffect(() => {
     //  @ts-ignore
     if (session?.user.role === 'ADMIN') {
@@ -74,10 +72,9 @@ const Webcam = ({
               allowFullScreen
             />
           </div>
-
           <div style={{ textAlign: 'center' }}>
             <button
-              className="btn"
+              className="btn ghostButton"
               type="button"
               onClick={handleFlag}
               style={{ margin: '15px auto' }}
@@ -93,11 +90,8 @@ const Webcam = ({
               <AdLarge />
             </div>
           </div>
-
-          <p>{longDescription}</p>
-
+          <div dangerouslySetInnerHTML={{ __html: longDescription }} />
           <AdLeaderboard />
-
           {/* /////////// More Cams /////////// */}
           <h2>
             <Link href="/hawaii/">More Hawaii Beach Cams</Link>
@@ -137,12 +131,6 @@ export async function getServerSideProps(context) {
   result.push(`&titleSlug=${params[params.length - 1]}`)
 
   const queryString = result.join('')
-
-  console.log(
-    '%c getServerSideProps queryString ',
-    'background: red; color: white',
-    queryString
-  )
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}${queryString}`)
   const cams: CamsDetailProps = await res.json()

@@ -73,10 +73,10 @@ const AddCam = () => {
         result += `/${country}`
       }
       if (state) {
-        result += `/${state}`
+        result += `/${state.replace(/\s+/g, '-')}`
       }
       if (area) {
-        result += `/${area}`
+        result += `/${area.replace(/\s+/g, '-')}`
       }
       result += `/${titleSlug}`
 
@@ -450,6 +450,13 @@ const AddCam = () => {
                           Long Description - 75 words, 450 characters: count
                         </strong>{' '}
                         {longDescription.length}
+                        <br />
+                        {`Can use the following HTML:
+                        <b>Bold</b> <br />
+                        <p>Paragraph</p>
+                        External anchor: <a href="https://www.westland.net/beachcam/" target="_blank" rel="noreferrer">Beach Cam</a>
+                        <span style="color: red; font-size: 20px;">CSS Styles</span>
+                        `}
                         <textarea
                           spellCheck="true"
                           name="longDescription"
