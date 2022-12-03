@@ -8,11 +8,14 @@ import MapModal from '@/components/MapModal'
 import ImageUploadModal from '@/components/ImageUploadModal'
 import Router from 'next/router'
 import { slugify } from '@/utils/common'
+import { useSession } from 'next-auth/react'
 
 const addUrl = `${process.env.NEXT_PUBLIC_API}/cams/add`
 const latestIdUrl = `${process.env.NEXT_PUBLIC_API}/cams/latestId`
 
 const AddCam = () => {
+  const { data: session } = useSession()
+
   const initialState = {
     area: '',
     country: '',
@@ -33,6 +36,7 @@ const AddCam = () => {
     youtubeId: '',
     webcamUrl: '',
   }
+
   const [values, setValues] = useState(initialState)
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
@@ -226,273 +230,287 @@ const AddCam = () => {
     return null
   }
 
-  return (
-    <Layout documentTitle="Add Cam" documentDescription="Add Cam page">
-      <div className="layout">
-        <Toaster
-          toastOptions={{
-            style: {
-              height: '60px',
-              border: '1px solid lightgray',
-            },
-          }}
-        />
-        <h1>Add Cam</h1>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formWrapper}>
-            <div className={styles.section1}>
-              <div className={styles.row}>
-                <label htmlFor="title">
-                  <strong>Title - 35 to 60 characters; count </strong>
-                  {title.length}
-                  <input
-                    spellCheck="true"
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={title}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-
-              <div className={styles.row}>
-                <label htmlFor="webcamUrl">
-                  <strong>Webcam URL</strong>
-
-                  <input
-                    type="text"
-                    name="webcamUrl"
-                    id="webcamUrl"
-                    value={webcamUrl}
-                    onChange={handleInputChange}
-                    disabled={mbcHostedYoutube}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <strong>Image Name:</strong>
-                &nbsp;
-                <span>
-                  <strong>{imageName}</strong>
-                </span>
-              </div>
-              <div className={styles.row}>
-                <div className={styles.imageUpload}>
-                  {previewImage && (
-                    <Image
-                      className={styles.previewImage}
-                      src={previewImage}
-                      alt="Preview image"
-                      width="400"
-                      height="300"
-                    />
-                  )}
-                  <br />
-                  <button
-                    className="btn ghostButton"
-                    type="button"
-                    onClick={openImageUploadModal}
-                  >
-                    Add Image
-                  </button>
-                </div>
-              </div>
-              <br />
-              <div className={styles.formContainer}>
-                <span>
-                  <label htmlFor="mbcHostedYoutube" className={styles.pointer}>
-                    <strong>MBC Hosted YouTube </strong>
-                    &nbsp;
+  // @ts-ignore
+  if (session?.user.role === 'ADMIN') {
+    return (
+      <Layout documentTitle="Add Cam" documentDescription="Add Cam page">
+        <div className="layout">
+          <Toaster
+            toastOptions={{
+              style: {
+                height: '60px',
+                border: '1px solid lightgray',
+              },
+            }}
+          />
+          <h1>Add Cam</h1>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.formWrapper}>
+              <div className={styles.section1}>
+                <div className={styles.row}>
+                  <label htmlFor="title">
+                    <strong>Title - 35 to 60 characters; count </strong>
+                    {title.length}
                     <input
-                      type="checkbox"
-                      name="mbcHostedYoutube"
-                      id="mbcHostedYoutube"
-                      checked={mbcHostedYoutube}
-                      onChange={handleMbcHostedYoutubeChange}
+                      spellCheck="true"
+                      type="text"
+                      id="title"
+                      name="title"
+                      value={title}
+                      onChange={handleInputChange}
                     />
                   </label>
-                </span>
-              </div>
-            </div>
-            <div className={styles.section1}>
-              <div className={styles.row}>
-                <label htmlFor="description" className={styles.description}>
-                  <strong>
-                    Description, no period - 115 to 160 characters: count
-                  </strong>{' '}
-                  {description.length}
-                  <textarea
-                    spellCheck="true"
-                    name="description"
-                    id="description"
-                    value={description}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <label htmlFor="postalCode">
-                  <strong>Postal Code</strong>
-                  <input
-                    spellCheck="true"
-                    type="text"
-                    id="postalCode"
-                    name="postalCode"
-                    value={postalCode}
-                    onChange={handleInputChange}
-                  />
-                </label>
-              </div>
-              <div className={styles.row}>
-                <div className={styles.formContainer}>
+                </div>
+
+                <div className={styles.row}>
+                  <label htmlFor="webcamUrl">
+                    <strong>Webcam URL</strong>
+
+                    <input
+                      type="text"
+                      name="webcamUrl"
+                      id="webcamUrl"
+                      value={webcamUrl}
+                      onChange={handleInputChange}
+                      disabled={mbcHostedYoutube}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <strong>Image Name:</strong>
+                  &nbsp;
                   <span>
-                    <label htmlFor="topCam" className={styles.pointer}>
-                      <strong>Top Cam</strong>
-                      &nbsp;
-                      <input
-                        type="checkbox"
-                        name="topCam"
-                        id="topCam"
-                        checked={topCam}
-                        onChange={handleTopCamChange}
-                      />
-                    </label>
-                  </span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span>
-                    <label htmlFor="hidden" className={styles.pointer}>
-                      <strong>Hidden</strong>
-                      &nbsp;
-                      <input
-                        type="checkbox"
-                        name="hidden"
-                        id="hidden"
-                        checked={hidden}
-                        onChange={handleHiddenChange}
-                      />
-                    </label>
+                    <strong>{imageName}</strong>
                   </span>
                 </div>
-              </div>
-              <div className={styles.row}>
-                <div className={styles.formContainer}>
-                  <button
-                    className="btn ghostButton"
-                    type="button"
-                    onClick={openAddLatLngModal}
-                  >
-                    Set Lat Lng
-                  </button>
-                  <span>
-                    <strong>Lat: </strong>
-                    {lat}
-                  </span>
-                  <br />
-                  <span>
-                    <strong>Lng:</strong>
-                    {lng}
-                  </span>
-                </div>
-              </div>
-              <AddCamCountryOptions
-                handleInputChange={handleInputChange}
-                values={values}
-              />
-            </div>
-          </div>
-          <div>
-            {mbcHostedYoutube && (
-              <>
-                <hr />
-                <h3>MBC Hosted YouTube</h3>
-                <div className={styles.formWrapper}>
-                  <div className={styles.section1}>
-                    <div className={styles.row}>
-                      <strong>File Name (Title Slug):</strong>
-                      <br />
-                      {titleSlug}
-                    </div>
-                    <div className={styles.row}>
-                      <label htmlFor="moreCams">
-                        <strong>More Cams</strong>
-                        <input
-                          spellCheck="true"
-                          type="text"
-                          id="moreCams"
-                          name="moreCams"
-                          value={moreCams}
-                          onChange={handleInputChange}
-                        />
-                      </label>
-                    </div>
-                    <div className={styles.row}>
-                      <label htmlFor="youtubeId">
-                        <strong>YouTube ID</strong>
-                        <input
-                          spellCheck="true"
-                          type="text"
-                          id="youtubeId"
-                          name="youtubeId"
-                          value={youtubeId}
-                          onChange={handleInputChange}
-                        />
-                      </label>
-                    </div>
+                <div className={styles.row}>
+                  <div className={styles.imageUpload}>
+                    {previewImage && (
+                      <Image
+                        className={styles.previewImage}
+                        src={previewImage}
+                        alt="Preview image"
+                        width="400"
+                        height="300"
+                      />
+                    )}
+                    <br />
+                    <button
+                      className="btn ghostButton"
+                      type="button"
+                      onClick={openImageUploadModal}
+                    >
+                      Add Image
+                    </button>
                   </div>
-                  <div className={styles.section1}>
-                    <div className={styles.row}>
-                      <label
-                        htmlFor="longDescription"
-                        className={styles.longDescription}
-                      >
-                        <strong>
-                          Long Description - 75 words, 450 characters: count
-                        </strong>{' '}
-                        {longDescription.length}
+                </div>
+                <br />
+                <div className={styles.formContainer}>
+                  <span>
+                    <label
+                      htmlFor="mbcHostedYoutube"
+                      className={styles.pointer}
+                    >
+                      <strong>MBC Hosted YouTube </strong>
+                      &nbsp;
+                      <input
+                        type="checkbox"
+                        name="mbcHostedYoutube"
+                        id="mbcHostedYoutube"
+                        checked={mbcHostedYoutube}
+                        onChange={handleMbcHostedYoutubeChange}
+                      />
+                    </label>
+                  </span>
+                </div>
+              </div>
+              <div className={styles.section1}>
+                <div className={styles.row}>
+                  <label htmlFor="description" className={styles.description}>
+                    <strong>
+                      Description, no period - 115 to 160 characters: count
+                    </strong>{' '}
+                    {description.length}
+                    <textarea
+                      spellCheck="true"
+                      name="description"
+                      id="description"
+                      value={description}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <label htmlFor="postalCode">
+                    <strong>Postal Code</strong>
+                    <input
+                      spellCheck="true"
+                      type="text"
+                      id="postalCode"
+                      name="postalCode"
+                      value={postalCode}
+                      onChange={handleInputChange}
+                    />
+                  </label>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.formContainer}>
+                    <span>
+                      <label htmlFor="topCam" className={styles.pointer}>
+                        <strong>Top Cam</strong>
+                        &nbsp;
+                        <input
+                          type="checkbox"
+                          name="topCam"
+                          id="topCam"
+                          checked={topCam}
+                          onChange={handleTopCamChange}
+                        />
+                      </label>
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>
+                      <label htmlFor="hidden" className={styles.pointer}>
+                        <strong>Hidden</strong>
+                        &nbsp;
+                        <input
+                          type="checkbox"
+                          name="hidden"
+                          id="hidden"
+                          checked={hidden}
+                          onChange={handleHiddenChange}
+                        />
+                      </label>
+                    </span>
+                  </div>
+                </div>
+                <div className={styles.row}>
+                  <div className={styles.formContainer}>
+                    <button
+                      className="btn ghostButton"
+                      type="button"
+                      onClick={openAddLatLngModal}
+                    >
+                      Set Lat Lng
+                    </button>
+                    <span>
+                      <strong>Lat: </strong>
+                      {lat}
+                    </span>
+                    <br />
+                    <span>
+                      <strong>Lng:</strong>
+                      {lng}
+                    </span>
+                  </div>
+                </div>
+                <AddCamCountryOptions
+                  handleInputChange={handleInputChange}
+                  values={values}
+                />
+              </div>
+            </div>
+            <div>
+              {mbcHostedYoutube && (
+                <>
+                  <hr />
+                  <h3>MBC Hosted YouTube</h3>
+                  <div className={styles.formWrapper}>
+                    <div className={styles.section1}>
+                      <div className={styles.row}>
+                        <strong>File Name (Title Slug):</strong>
                         <br />
-                        {`Can use the following HTML:
+                        {titleSlug}
+                      </div>
+                      <div className={styles.row}>
+                        <label htmlFor="moreCams">
+                          <strong>More Cams</strong>
+                          <input
+                            spellCheck="true"
+                            type="text"
+                            id="moreCams"
+                            name="moreCams"
+                            value={moreCams}
+                            onChange={handleInputChange}
+                          />
+                        </label>
+                      </div>
+                      <div className={styles.row}>
+                        <label htmlFor="youtubeId">
+                          <strong>YouTube ID</strong>
+                          <input
+                            spellCheck="true"
+                            type="text"
+                            id="youtubeId"
+                            name="youtubeId"
+                            value={youtubeId}
+                            onChange={handleInputChange}
+                          />
+                        </label>
+                      </div>
+                    </div>
+                    <div className={styles.section1}>
+                      <div className={styles.row}>
+                        <label
+                          htmlFor="longDescription"
+                          className={styles.longDescription}
+                        >
+                          <strong>
+                            Long Description - 75 words, 450 characters: count
+                          </strong>{' '}
+                          {longDescription.length}
+                          <br />
+                          {`Can use the following HTML:
                         <b>Bold</b> <br />
                         <p>Paragraph</p>
                         External anchor: <a href="https://www.westland.net/beachcam/" target="_blank" rel="noreferrer">Beach Cam</a>
                         <span style="color: red; font-size: 20px;">CSS Styles</span>
                         `}
-                        <textarea
-                          spellCheck="true"
-                          name="longDescription"
-                          id="longDescription"
-                          value={longDescription}
-                          onChange={handleInputChange}
-                        />
-                      </label>
+                          <textarea
+                            spellCheck="true"
+                            name="longDescription"
+                            id="longDescription"
+                            value={longDescription}
+                            onChange={handleInputChange}
+                          />
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            )}
-          </div>
-          <div className={styles.footer}>
-            <button type="submit" className="btn">
-              Add Cam
-            </button>
-          </div>
-        </form>
+                </>
+              )}
+            </div>
+            <div className={styles.footer}>
+              <button type="submit" className="btn">
+                Add Cam
+              </button>
+            </div>
+          </form>
+        </div>
+        {showLatLngModal && (
+          <MapModal
+            onClose={() => setShowLatLngModal(false)}
+            lat={lat}
+            lng={lng}
+            handleLatLngChange={handleLatLngChange}
+          />
+        )}
+        {showImageUploadModal && (
+          <ImageUploadModal
+            title={title}
+            onClose={() => setShowImageUploadModal(false)}
+            handleImageNameChange={handleImageNameChange}
+          />
+        )}
+      </Layout>
+    )
+  }
+
+  return (
+    <Layout documentTitle="Add Cam" documentDescription="Add Cam page">
+      <div className="layout">
+        <h1>Not Authorized</h1>
       </div>
-      {showLatLngModal && (
-        <MapModal
-          onClose={() => setShowLatLngModal(false)}
-          lat={lat}
-          lng={lng}
-          handleLatLngChange={handleLatLngChange}
-        />
-      )}
-      {showImageUploadModal && (
-        <ImageUploadModal
-          title={title}
-          onClose={() => setShowImageUploadModal(false)}
-          handleImageNameChange={handleImageNameChange}
-        />
-      )}
     </Layout>
   )
 }
