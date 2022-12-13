@@ -107,7 +107,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <Link href="/florida/panhandle/">
-                    <a>Pan Handel</a>
+                    <a>Panhandle</a>
                   </Link>
                 </li>
                 <li>

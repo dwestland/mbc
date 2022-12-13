@@ -47,7 +47,7 @@ const Footer = () => {
               <Link href="/florida/east-central/">East Central</Link>
             </li>
             <li>
-              <Link href="/florida/panhandle/">Pan Handel</Link>
+              <Link href="/florida/panhandle/">Panhandle</Link>
             </li>
             <li>
               <Link href="/florida/northeast/">Northeast</Link>
