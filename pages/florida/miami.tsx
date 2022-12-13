@@ -102,7 +102,7 @@ const MiamiPage = ({
       documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
     >
       <div className="layout">
-        <h1>Miami Beach Webcams</h1>
+        <h1>Miami Beach Florida Webcams</h1>
         <div className="content-and-ad">
           <div className="content">
             <CamsMap vectors={vectors} />
@@ -111,8 +111,8 @@ const MiamiPage = ({
             <AdLarge />
           </div>
         </div>
-        {/* Text block 1 */}
-
+        <p>Miami</p>
+        {/* TODO: Add Miami content */}
         {camSections}
         {moreCams()}
 

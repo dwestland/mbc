@@ -6,6 +6,10 @@
 GET {{baseurl}}/cams HTTP/1.1
 
 
+### Get hidden cams  
+GET {{baseurl}}/cams/hidden HTTP/1.1
+
+
 ### Get ID from latest cam
 GET {{baseurl}}/cams/latestId HTTP/1.1
 
@@ -65,7 +69,7 @@ Content-Type: application/json
 {
   "data":
     {
-      "id": 274
+      "id": 790
     }
 }
 

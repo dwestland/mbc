@@ -102,7 +102,7 @@ const PanhandlePage = ({
       documentDescription="Web Cams on the Florida Panhandle with surf cams at Panama City, Pensacola and Destin Beach."
     >
       <div className="layout">
-        <h1>Panhandle Webcams</h1>
+        <h1>Florida Panhandle Webcams</h1>
         <div className="content-and-ad">
           <div className="content">
             <CamsMap vectors={vectors} />
