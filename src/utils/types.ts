@@ -59,7 +59,7 @@ export interface MoreWebcamProps {
         country: string
         description: string
         hidden: boolean
-        id: string
+        id: number
         imageName: string
         lat: number
         lng: number

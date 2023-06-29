@@ -8,7 +8,7 @@ function MorCaliforniaCams({ cams }: types.MoreWebcamProps) {
   return (
     <div className="cam-container">
       {cams.cams.map(
-        (cam: types.Cams, idx) => idx < 7 && <CamCard key={cam.id} cam={cam} />
+        (cam, idx) => idx < 7 && <CamCard key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
         <Link href="/california">

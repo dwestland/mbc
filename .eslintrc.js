@@ -51,6 +51,7 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/prop-types': 'off',
     'no-plusplus': 'off',
+    'prefer-destructuring': 'off',
   },
   settings: {
     react: {
