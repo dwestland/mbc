@@ -17,9 +17,9 @@ const About = () => {
           <br />
           <p>We are all about Beach Cams.</p>
           <p>
-            Our mission is to give you largest directory of webcams at the
-            beach. If you have a webcam at the beach or know of one, please let
-            us know. You can messages us on the{' '}
+            Our mission is to give you the largest directory of beach webcams.
+            If you have a webcam at the beach or know of one, please let us
+            know. You can messages us on the{' '}
             <Link href="/contact">Contact Us</Link> page.
           </p>
           <p>Thnaks!</p>

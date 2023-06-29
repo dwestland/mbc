@@ -105,3 +105,11 @@ export async function getServerSideProps() {
 }
 
 export default HawaiiPage
+
+// const [moreCamsData, setMoreCamsData] = useState({})
+
+// useEffect(() => {
+//   fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
+//     .then((res) => res.json())
+//     .then((data) => setMoreCamsData(data))
+// }, [])

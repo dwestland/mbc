@@ -101,6 +101,7 @@ export default function ContactPage() {
                 />
               </label>
             </div>
+            <br />
             <button type="submit" className="btn">
               Submit
             </button>
