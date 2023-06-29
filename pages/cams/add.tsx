@@ -191,12 +191,12 @@ const AddCam = () => {
     setValues({ ...values, [name]: value })
   }
 
-  const handleLatLngChange = (lat: number, lng: number) => {
-    setValues({ ...values, lat, lng })
+  const handleLatLngChange = (latitude: number, longitude: number) => {
+    setValues({ ...values, lat: latitude, lng: longitude })
   }
 
-  const handleImageNameChange = (imageName: string) => {
-    setValues({ ...values, imageName })
+  const handleImageNameChange = (newImageName: string) => {
+    setValues({ ...values, imageName: newImageName })
   }
 
   const handleTopCamChange = () => {
