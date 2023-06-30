@@ -52,6 +52,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-plusplus': 'off',
     'prefer-destructuring': 'off',
+    'react/no-danger': 'off',
   },
   settings: {
     react: {
