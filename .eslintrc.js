@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   env: {
     browser: true,
     es2021: true,
@@ -52,12 +52,12 @@ export default {
     'react/prop-types': 'off',
     'no-plusplus': 'off',
     'prefer-destructuring': 'off',
-    'no-danger': 'error',
   },
   settings: {
     react: {
       version: '17.0.2',
     },
+    // Module import path mapping
     'import/resolver': {
       node: {
         extensions: ['.scss', '.ts', '.tsx'],
