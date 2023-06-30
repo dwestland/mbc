@@ -15,6 +15,25 @@ interface WebcamProps {
   hawaiiCams: { title: string }[]
 }
 
+interface Cam {
+  area: string
+  country: string
+  description: string
+  id: number
+  lat: string
+  lng: string
+  longDescription: string
+  moreCams: string
+  state: string
+  subarea: string
+  title: string
+  youtubeId: string
+}
+
+interface CamsDetailProps {
+  cams: Cam[]
+}
+
 const Webcam = ({
   hawaiiCams,
   cams,
@@ -33,6 +52,7 @@ const Webcam = ({
     title,
     // titleSlug,
     youtubeId,
+    // @ts-ignore
   } = cams.cams[0]
 
   const WebcamMap = dynamic(() => import('@/components/WebcamMap'), {
@@ -57,9 +77,75 @@ const Webcam = ({
   const handleFlag = () => {
     setShowFlagModal(true)
   }
-  console.log('%c  hawaiiCams ', 'background: red; color: white', hawaiiCams)
-  console.log('%c moreCams ', 'background: red; color: white', moreCams)
 
+  const [moreCamsData, setMoreCamsData] = useState({})
+  console.log('%c moreCamsData ', 'background: red; color: white', moreCamsData)
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
+      .then((res) => res.json())
+      .then((data) => setMoreCamsData(data))
+  }, [])
+
+  console.log('%c  hawaiiCams ', 'background: red; color: white', hawaiiCams)
+  console.log(
+    '%c moreCams.cams ',
+    'background: red; color: white',
+    moreCams.cams
+  )
+  // const x = [
+  //   {
+  //     area: 'Kauai',
+  //     country: 'USA',
+  //     description:
+  //       'Live webcam from the Lawai Beach Resort near Poipu on the Hawaiian island of Kauai.',
+  //     hidden: false,
+  //     id: 641,
+  //     imageName: 'lawai-beach-resort-cam-hi-681495.jpg',
+  //     lat: '21.8824',
+  //     lng: '-159.4771',
+  //     mbcHostedYoutube: true,
+  //     state: 'Hawaii',
+  //     subarea: 'Poipu',
+  //     title: 'Live Lawai Beach Resort Webcam, Poipu, Kauai',
+  //     topCam: true,
+  //     webcamUrl:
+  //       '/webcam/USA/Hawaii/Kauai/live-lawai-beach-resort-webcam-kauai-poipu',
+  //   },
+  //   {
+  //     area: 'Oahu',
+  //     country: 'USA',
+  //     description: 'See the latest Ouha traffic conditions with these webcams.',
+  //     hidden: false,
+  //     id: 289,
+  //     imageName: 'oahutrafficcams.jpg',
+  //     lat: '21.4088',
+  //     lng: '-157.8777',
+  //     mbcHostedYoutube: false,
+  //     state: 'Hawaii',
+  //     subarea: 'Honolulu',
+  //     title: 'Oahu Traffic Cams',
+  //     topCam: false,
+  //     webcamUrl: 'http://www2.honolulu.gov/honolulumyway/?trafficcam',
+  //   },
+  //   {
+  //     area: 'Maui',
+  //     country: 'USA',
+  //     description:
+  //       'Controllable live streaming webcam from Maui Kai at Kaanapali Beach.',
+  //     hidden: false,
+  //     id: 300,
+  //     imageName: 'maui-kai-beach-cam-510666.jpg',
+  //     lat: '20.9497',
+  //     lng: '-156.6894',
+  //     mbcHostedYoutube: false,
+  //     state: 'Hawaii',
+  //     subarea: 'Lahaina',
+  //     title: 'Maui Kai Beach Cam',
+  //     topCam: false,
+  //     webcamUrl: 'http://www.mauikai.com/extras',
+  //   },
+  // ]
   return (
     <Layout documentTitle={title} documentDescription={description}>
       <div className="layout">
@@ -68,6 +154,7 @@ const Webcam = ({
         <h2>{description}</h2>
         <AdLeaderboard />
         {isAdmin && (
+          // @ts-ignore
           <AdminWebcamPage cams={cams.cams[0]} style={{ height: '200px' }} />
         )}
         <div className="video-responsive">
@@ -101,12 +188,14 @@ const Webcam = ({
         </div>
         <div dangerouslySetInnerHTML={{ __html: longDescription }} />
         <AdLeaderboard />
-        {/* /////////// More Cams /////////// */}
+
         <h2>
           <Link href="/hawaii/">More Hawaii Beach Cams</Link>
         </h2>
-        <MoreHawaiiCams cams={hawaiiCams} />
-        {/* /////////// More Cams /////////// */}
+        {moreCamsData ? <MoreHawaiiCams cams={hawaiiCams} /> : null}
+        {/* {moreCamsData ? <MoreHawaiiCams cams={moreCamsData} /> : null} */}
+        {/* <MoreHawaiiCams cams={hawaiiCams} /> */}
+
         <AdLeaderboard />
         {/* </div> */}
       </div>
