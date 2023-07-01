@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import { useRouter } from 'next/router'
 
-const camDeleted = () => {
+const CamDeleted = () => {
   const router = useRouter()
 
   return (
@@ -25,4 +25,4 @@ const camDeleted = () => {
   )
 }
 
-export default camDeleted
+export default CamDeleted
