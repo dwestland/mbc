@@ -9,6 +9,7 @@ const HiddenPage = ({
   hiddenCams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   const { data: session } = useSession()
+  // @ts-ignore
   const cams = hiddenCams.cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
 
   // @ts-ignore
