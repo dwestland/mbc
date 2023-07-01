@@ -54,7 +54,16 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/prop-types': 'off',
     'no-plusplus': 'off',
-    'prefer-destructuring': 'off',
+    'prefer-destructuring': [
+      'error',
+      {
+        array: true,
+        object: true,
+      },
+      {
+        enforceForRenamedProperties: false,
+      },
+    ],
     'react/no-danger': 'off',
   },
   settings: {
