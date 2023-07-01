@@ -9,6 +9,8 @@ module.exports = {
     'prettier',
     'plugin:import/typescript',
     'plugin:@next/next/recommended',
+    'next',
+    'next/core-web-vitals',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
