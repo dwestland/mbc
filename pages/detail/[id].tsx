@@ -266,7 +266,7 @@ const Details = ({
 export async function getServerSideProps(context) {
   const { id } = context.query
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
-  const cams: CamsDetailProps = await res.json()
+  const cams: Cams = await res.json()
 
   return {
     props: {
