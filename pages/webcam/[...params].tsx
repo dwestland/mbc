@@ -243,7 +243,7 @@ export async function getServerSideProps(context) {
   }
 
   const hawaiiRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const hawaiiCams: Cam = await hawaiiRes.json()
+  const hawaiiCams: WebcamProps = await hawaiiRes.json()
 
   return {
     props: {

@@ -11,9 +11,9 @@ import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
 import AdLeaderboard from '@/components/AdLeaderboard'
 
-interface CamsDetailProps {
-  cams: { title: string }[]
-}
+// interface CamsDetailProps {
+//   cams: { title: string }[]
+// }
 interface Cams {
   area: string
   country: string
