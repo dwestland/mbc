@@ -222,12 +222,15 @@ export async function getServerSideProps(context) {
   const result = ['/webcam-page?']
   for (let i = 0; i <= params.length - 2; i++) {
     if (i === 0) {
+      /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
       result.push(`country=${params[0]}`)
     }
     if (i === 1) {
+      /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
       result.push(`&state=${params[1]}`)
     }
   }
+  /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
   result.push(`&titleSlug=${params[params.length - 1]}`)
   const queryString = result.join('')
 
