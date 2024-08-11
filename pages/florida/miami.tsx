@@ -112,10 +112,9 @@ const MiamiPage = ({
           </div>
         </div>
         <p>Miami</p>
-        {/* TODO: Add Miami content */}
+        <p>paragraph 1</p>
         {camSections}
         {moreCams()}
-
         <div className="panel">
           <ShowMoreText
             lines={3}
@@ -124,11 +123,23 @@ const MiamiPage = ({
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            {/* Text block 2 */}
+            <p>paragraph 2</p>
           </ShowMoreText>
         </div>
-
-        {/* Things to do and links */}
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in Miami</h3>
+            <ol>
+              <li>item</li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>Miami Links and Local Information</h3>
+            <ul>
+              <li>item</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <hr />
       <h2>

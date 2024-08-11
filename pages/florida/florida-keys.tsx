@@ -103,14 +103,7 @@ const FloridaKeysPage = ({
     >
       <div className="layout">
         <h1>Florida Keys Webcams</h1>
-        <p>
-          Southeast Florida is home to world-famous Miami Beach and West Palm
-          Beach. Fort Lauderdale was made famous for wild college Spring Break
-          getaways, but rest assured there are plenty more relaxing options
-          available in the Keys as well. See all of the great streaming live
-          Webcams in and around the Miami area, including Biscayne Bay, South
-          Beach, Key Biscayne and more.
-        </p>
+
         <div className="content-and-ad">
           <div className="content">
             <CamsMap vectors={vectors} />
@@ -119,8 +112,14 @@ const FloridaKeysPage = ({
             <AdLarge />
           </div>
         </div>
-        {/* Text block 1 */}
-
+        <p>
+          Southeast Florida is home to world-famous Miami Beach and West Palm
+          Beach. Fort Lauderdale was made famous for wild college Spring Break
+          getaways, but rest assured there are plenty more relaxing options
+          available in the Keys as well. See all of the great streaming live
+          Webcams in and around the Miami area, including Biscayne Bay, South
+          Beach, Key Biscayne and more.
+        </p>
         {camSections}
         {moreCams()}
 
@@ -138,15 +137,27 @@ const FloridaKeysPage = ({
               that go out to sea every day, or you can just stay on land and
               enjoy the beautiful beaches. There are also several museums that
               offer free admission, including the Holocaust Memorial Museum and
-              HistoryMiami Museum. The best part about Miami is that it’s an
+              History Miami Museum. The best part about Miami is that it’s an
               international city, so you can experience new cultures while
               you’re there. There are plenty of restaurants that offer authentic
               Cuban food or fresh seafood from the nearby waters.
             </p>
           </ShowMoreText>
         </div>
-
-        {/* Things to do and links */}
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in the Florida Keys</h3>
+            <ol>
+              <li>item</li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>Florida Keys Links and Local Information</h3>
+            <ul>
+              <li>item</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <hr />
       <h2>

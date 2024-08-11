@@ -111,11 +111,9 @@ const PanhandlePage = ({
             <AdLarge />
           </div>
         </div>
-        {/* Text block 1 */}
-
+        <p>paragraph 1</p>
         {camSections}
         {moreCams()}
-
         <div className="panel">
           <ShowMoreText
             lines={3}
@@ -124,11 +122,160 @@ const PanhandlePage = ({
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            {/* Text block 2 */}
+            <p>paragraph 2</p>
           </ShowMoreText>
         </div>
-
-        {/* Things to do and links */}
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in the Florida Panhandle</h3>
+            <ol>
+              <li>
+                {' '}
+                Beaches: The Florida Panhandle has beautiful beaches, including
+                Panama City Beach and Destin. Great for swimming, sunbathing,
+                and water sports.
+              </li>
+              <li>
+                State parks: The Panhandle offers state parks for hiking,
+                biking, and nature watching. Topsail Hill Preserve State Park
+                and Grayton Beach State Park are popular.
+              </li>
+              <li>
+                Fishing: The Panhandle has a variety of fish species and offers
+                fishing charters for both novice and experienced anglers.
+              </li>
+              <li>
+                Dolphin watching: The Gulf of Mexico has bottlenose dolphins,
+                and boat tours allow visitors to see them up close.
+              </li>
+              <li>
+                Museums and historic sites: The Panhandle has museums and
+                historic sites exploring the area's history and culture, like
+                the Pensacola Lighthouse and Museum and the Indian Temple Mound
+                Museum.
+              </li>
+              <li>
+                Outdoor adventures: The Panhandle has nature preserve and state
+                forests for activities like hiking, biking, and birdwatching.
+                Blackwater River State Forest and Choctawhatchee Bay are
+                popular.
+              </li>
+              <li>
+                Shopping and dining: The Panhandle has shopping and dining
+                options, including local artisan markets and famous seafood.
+              </li>
+              <li>
+                Wineries: The Panhandle has wineries offering tastings and
+                tours, like Chautauqua Winery and Grayton Beer Company.
+              </li>
+              <li>
+                Boat tours: The Panhandle's Forgotten Coast is only accessible
+                by boat and offers tours.
+              </li>
+              <li>
+                Farmers markets: The Panhandle has farmers markets featuring
+                locally grown produce and handmade crafts.
+              </li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>Florida Panhandle Links and Local Information</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.visitflorida.com/places-to-go/northwest/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Visit Florida
+                </a>
+                &nbsp; Official tourism website for the state of Florida
+              </li>
+              <li>
+                <a
+                  href="https://www.floridastateparks.org/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida State Parks
+                </a>
+                &nbsp; Information on state parks in the Florida Panhandle
+              </li>
+              <li>
+                <a
+                  href="https://www.floridasgreatnorthwest.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida's Great Northwest
+                </a>
+                &nbsp; Official tourism website for the Panhandle region
+              </li>
+              <li>
+                <a
+                  href="https://www.floridapanhandlebeaches.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida Panhandle Beaches
+                </a>
+                &nbsp; Information on the beaches and coastal communities in the
+                Panhandle
+              </li>
+              <li>
+                <a
+                  href="https://www.floridapanhandlebirdingtrail.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida Panhandle Birding and Wildlife Trail
+                </a>
+                &nbsp; Website on the Panhandle Birding and Wildlife Trail
+              </li>
+              <li>
+                <a
+                  href="https://www.floridascenichighway.com/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida Panhandle Scenic Highway
+                </a>
+                &nbsp; Florida Panhandle 450-mile Scenic Highway
+              </li>
+              <li>
+                <a
+                  href="https://www.floridapanhandle.com/shipwreck-trail/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Florida Panhandle Shipwreck Trail
+                </a>
+                &nbsp; Provides information on the Panhandle Shipwreck Trail,
+                with shipwrecks and underwater artifacts
+              </li>
+              <li>
+                <a
+                  href="https://www.panhandlepioneer.org/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Panhandle Pioneer Settlement
+                </a>
+                &nbsp; The Pioneer Settlement is a living history museum
+              </li>
+              <li>
+                <a
+                  href="https://www.panhandlebutterflyhouse.org/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Panhandle Butterfly House
+                </a>
+                &nbsp; A nature center for butterflies
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <hr />
       <h2>

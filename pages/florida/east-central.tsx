@@ -111,8 +111,7 @@ const EastCentralPage = ({
             <AdLarge />
           </div>
         </div>
-        {/* Text block 1 */}
-
+        <p>paragraph 1</p>
         {camSections}
         {moreCams()}
 
@@ -124,11 +123,23 @@ const EastCentralPage = ({
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            {/* Text block 2 */}
+            <p>paragraph 2</p>
           </ShowMoreText>
         </div>
-
-        {/* Things to do and links */}
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in East Central Florida</h3>
+            <ol>
+              <li>item</li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>East Central Florida Links and Local Information</h3>
+            <ul>
+              <li>item</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <hr />
       <h2>
