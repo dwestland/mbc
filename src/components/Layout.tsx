@@ -13,12 +13,14 @@ interface LayoutProps {
   documentTitle: string
   documentDescription: string
   children: any
+  nofollow?: boolean // nofollow prop is optional
 }
 
 const Layout: FC<LayoutProps> = ({
   documentTitle,
   documentDescription,
   children,
+  nofollow,
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
@@ -39,6 +41,11 @@ const Layout: FC<LayoutProps> = ({
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        {nofollow ? (
+          <meta name="robots" content="noindex, nofollow" />
+        ) : (
+          <meta name="robots" content="index, follow" />
+        )}
       </Head>
       <div className={styles.body}>
         <Navbar />
@@ -57,10 +64,9 @@ const Layout: FC<LayoutProps> = ({
   )
 }
 
-// Layout.defaultProps = {
-//   title: 'MyBeachCams.com - Webcams of Hawaii, Florida and California',
-//   description:
-//     'Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale',
-// }
+// Set default props to avoid the ESLint error
+Layout.defaultProps = {
+  nofollow: false,
+}
 
 export default Layout
