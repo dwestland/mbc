@@ -73,12 +73,13 @@ model Cams {
   area             String?
   country          String
   description      String?
+  droneFootage     Boolean   @map(name:  "drone_footage") @default(false)
   hidden           Boolean?  @default(false)
-  id               Int      @id @default(autoincrement())
-  imageName        String?  @map(name: "image_name")
+  id               Int       @id @default(autoincrement())
+  imageName        String?   @map(name: "image_name")
   lat              Decimal?  @db.Decimal(precision: 8, scale: 6) @default(0)
   lng              Decimal?  @db.Decimal(precision: 9, scale: 6) @default(0)
-  longDescription  String?  @map(name: "long_description")
+  longDescription  String?   @map(name: "long_description")
   mbcHosted        Boolean?  @map(name: "mbc_hosted")  @default(false)
   mbcHostedYoutube Boolean?  @map(name: "mbc_hosted_youtube")  @default(false)
   moreCams         String?   @map(name: "more_cams")
@@ -87,7 +88,7 @@ model Cams {
   subarea          String?
   title            String
   titleSlug        String?  @map(name: "title_slug")
-  topCam           Boolean?  @map(name: "top_cam") @default(false)
+  topCam           Boolean? @map(name: "top_cam") @default(false)
   youtubeId        String?  @map(name: "youtube_id")
   webcamUrl        String   @map(name: "webcam_url")
 
