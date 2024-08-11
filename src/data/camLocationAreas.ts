@@ -8,12 +8,18 @@ const data = {
           areas: [
             {
               area: 'Maui',
-              subareas: [{ subarea: 'Kaanapali' }, { subarea: 'Lahaina' }],
+              subareas: [
+                { subarea: 'Kaanapali' },
+                { subarea: 'Lahaina' },
+                { subarea: 'Kihei' },
+                { subarea: 'Kahului' },
+              ],
             },
             {
               area: 'Oahu',
               subareas: [
                 { subarea: 'Waikiki' },
+                { subarea: 'North Shore' },
                 { subarea: 'Honolulu' },
                 { subarea: 'Oahu Surf' },
               ],
@@ -92,39 +98,41 @@ const data = {
             {
               area: 'Panhandle',
               subareas: [
-                { subarea: 'Panama City' },
+                { subarea: 'Pensacola' },
                 { subarea: 'Destin' },
+                { subarea: 'Miramar Beach' },
                 { subarea: 'Santa Rosa Beach' },
+                { subarea: 'Panama City' },
                 { subarea: 'Alligator Point' },
               ],
             },
             {
               area: 'Northeast',
               subareas: [
-                { subarea: 'St. Augustine' },
                 { subarea: 'Jacksonville Beach' },
+                { subarea: 'St. Augustine' },
                 { subarea: 'Flagler Beach' },
               ],
             },
             {
               area: 'East Central',
               subareas: [
-                { subarea: 'Cape Canaveral' },
                 { subarea: 'Daytona Beach' },
-                { subarea: 'Jensen Beach' },
+                { subarea: 'Cape Canaveral' },
                 { subarea: 'Melbourne' },
                 { subarea: 'Fort Pierce Inlet' },
+                { subarea: 'Jensen Beach' },
               ],
             },
             {
               area: 'Miami Beach',
               subareas: [
-                { subarea: 'Miami Beach' },
-                { subarea: 'Fort Lauderdale' },
-                { subarea: 'Hollywood' },
                 { subarea: 'West Palm Beach' },
                 { subarea: 'Palm Beach' },
                 { subarea: 'Boca Raton' },
+                { subarea: 'Fort Lauderdale' },
+                { subarea: 'Hollywood' },
+                { subarea: 'Miami Beach' },
               ],
             },
             {
