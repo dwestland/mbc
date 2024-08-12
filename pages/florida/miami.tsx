@@ -111,32 +111,184 @@ const MiamiPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>Miami</p>
-        <p>paragraph 1</p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Immerse yourself in the exciting Miami area with our live beach
+            webcams. From the pristine shores of West Palm Beach to the bustling
+            streets of Miami, you’ll uncover a range of captivating views.
+            Marvel at the tranquil waters of Jupiter Inlet or venture to Boca
+            Raton to glimpse its iconic surf spots. In Fort Lauderdale, observe
+            boats gliding along New River or soak in the spirited energy of the
+            Elbo Room. Miami’s famous South Beach beckons with thrilling beach
+            volleyball, while the Port of Miami cams reveal the bustling
+            choreography of cruise ships. Curate your perfect getaway with
+            real-time updates from our webcams!
+          </p>
+        </ShowMoreText>
         {camSections}
         {moreCams()}
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            <p>paragraph 2</p>
+            <p>
+              Discover the Miami area through our comprehensive collection of
+              webcams. Each location reveals a distinct slice of South Florida’s
+              charm. Begin your adventure in the north, where the tranquil
+              waters of Stuart embrace you. Here, you can witness cars driving
+              through the serene Downtown Stuart.
+            </p>
+
+            <p>
+              Venture south to Jupiter Inlet, where the waves caress the shore.
+              This peaceful beach beckons those seeking solitude. The nearby
+              Jupiter Reef Club unveils breathtaking beach views, nestled away
+              from the city’s hustle. You can almost feel the sand beneath your
+              feet as you watch the sun shimmer on the water.
+            </p>
+
+            <p>
+              In Palm Beach, the iconic Lake Worth Inlet encapsulates the allure
+              of the Atlantic. The Palm Beach Earth Cam frames the golden coast,
+              with waves crashing in a rhythmic dance against the shore. This
+              spot is ideal for those who savor life’s finer moments. Picture
+              yourself strolling along the coast, the sea breeze weaving through
+              your hair.
+            </p>
+
+            <p>
+              As you journey further south, Boca Raton entices you with its
+              famed surf spots. The Boca Raton Inlet Cam provides a sweeping
+              view of the waves. Whether you’re a surfer or an ocean admirer,
+              this spot is a must-experience. The nearby Deerfield Beach Pier
+              offers a contrasting scene. The live cams showcase fishermen
+              casting their lines, and sun-seekers basking in the warmth.
+            </p>
+
+            <p>
+              Fort Lauderdale is where the energy surges. The New River
+              streaming webcam animates the city’s waterway. Watch as yachts,
+              kayaks, and rowboats glide through the river. The Elbo Room cam
+              captures the vibrant beachfront spectacle, a place where the
+              city’s pulse truly resonates.
+            </p>
+
+            <p>
+              Lastly, Miami’s South Beach dazzles with its electric atmosphere.
+              The volleyball courts hum with action, and the Port of Miami
+              bustles with life. Whether planning a visit or simply daydreaming,
+              our webcams infuse Miami’s excitement directly to you.
+            </p>
           </ShowMoreText>
         </div>
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in Miami</h3>
             <ol>
-              <li>item</li>
+              <li>Stroll along South Beach.</li>
+              <li>Wander through Vizcaya Museum and Gardens.</li>
+              <li>Dive into the Miami Seaquarium.</li>
+              <li>Sail around Biscayne Bay.</li>
+              <li>Roam the Wynwood Walls.</li>
+              <li>Splash at Crandon Park Beach.</li>
+              <li>Uncover the Art Deco Historic District.</li>
+              <li>Browse Bayside Marketplace.</li>
+              <li>Explore the Miami Zoo.</li>
+              <li>Paddle in Oleta River State Park.</li>
             </ol>
           </div>
           <div className="info">
             <h3>Miami Links and Local Information</h3>
             <ul>
-              <li>item</li>
+              <li>
+                <a
+                  href="https://www.miamiandbeaches.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Greater Miami Convention & Visitors Bureau
+                </a>{' '}
+                - Uncover Miami’s top attractions, events, and accommodations.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.miamiherald.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Miami Herald
+                </a>{' '}
+                - Dive into the latest news and happenings in Miami.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.tripadvisor.com/Tourism-g34438-Miami_Florida-Vacations.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  TripAdvisor Miami Travel Guide
+                </a>{' '}
+                - Discover reviews and tips for hotels, restaurants, and
+                attractions in Miami.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.wynwoodmiami.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Wynwood Miami
+                </a>{' '}
+                - Wander through the vibrant Wynwood Arts District, known for
+                its street art, galleries, and dining.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.miami.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Miami.com
+                </a>{' '}
+                - Explore the best things to do, see, and taste in Miami.
+              </li>
+
+              <li>
+                <a
+                  href="https://www.miami-airport.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Miami International Airport
+                </a>{' '}
+                - Navigate essential information for travelers flying to and
+                from Miami.
+              </li>
+
+              <li>
+                <a
+                  href="https://weather.com/weather/today/l/25.77,-80.19"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Miami Weather - The Weather Channel
+                </a>{' '}
+                - Monitor the latest weather conditions and forecasts for Miami.
+              </li>
             </ul>
           </div>
         </div>
