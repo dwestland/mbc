@@ -111,167 +111,236 @@ const PanhandlePage = ({
             <AdLarge />
           </div>
         </div>
-        <p>paragraph 1</p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Immerse yourself in the captivating beauty of the Florida Panhandle
+            through live webcams that showcase its coastal treasures. From the
+            emerald waters of Destin to the tranquil shores of Pensacola, this
+            region entices every traveler. Pensacola Beach mesmerizes with its
+            historic Gulf Pier and dynamic surf culture. Destin, celebrated as
+            the “World's Luckiest Fishing Village,” gleams with sugar-white
+            sands and a bustling harbor. Panama City Beach sparkles with its
+            colorful atmosphere and breathtaking views of the Gulf. Whether
+            planning your next escape or simply daydreaming, these webcams bring
+            the Florida Panhandle's allure directly to your screen.
+          </p>
+        </ShowMoreText>
         {camSections}
         {moreCams()}
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"
             truncatedEndingComponent="... "
           >
-            <p>paragraph 2</p>
+            <p>
+              The Florida Panhandle unfolds a rich tapestry of experiences. Each
+              coastal gem along its shoreline unveils something unique.
+            </p>
+
+            <p>
+              Pensacola Beach towers as a beacon of history and natural beauty.
+              The Gulf Pier juts into the water, urging visitors to linger and
+              absorb the scenery. The vibrant surf culture, with its rolling
+              waves and briny air, enchants those craving adventure. Whether
+              you're casting a line from the pier or witnessing the sun sink
+              below the horizon, Pensacola Beach embodies the spirit of coastal
+              life.
+            </p>
+
+            <p>
+              Destin, often dubbed the "World's Luckiest Fishing Village,"
+              beckons travelers with its immaculate beaches and lively harbor.
+              The sand here is soft and white, contrasting with the emerald
+              waters that caress the shore. Destin's harbor hums with activity,
+              from fishing charters setting sail at dawn to restaurants serving
+              the freshest catch. The energy here pulsates, making Destin a
+              must-see for anyone drawn to the ocean's embrace.
+            </p>
+
+            <p>
+              Panama City Beach pulses with a vibrant spirit. Its shores serve
+              as a playground for families, with ample space to craft
+              sandcastles or wade in the gentle surf. The vistas of the Gulf are
+              nothing short of breathtaking, stretching out in an endless
+              expanse of blue. Wander along the shore, explore local boutiques,
+              or dive into the lively nightlife that defines Panama City Beach.
+            </p>
+
+            <p>
+              Whether you're captivated by the historic allure of Pensacola, the
+              bustling harbor of Destin, or the sun-drenched shores of Panama
+              City Beach, the Florida Panhandle entices everyone. These live
+              webcams offer a portal into this stunning region, capturing its
+              beauty and vitality in real-time. Let these views kindle your next
+              journey.
+            </p>
           </ShowMoreText>
         </div>
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in the Florida Panhandle</h3>
+            <h3>Top 10 Things to do in the Panhandle</h3>
             <ol>
               <li>
-                {' '}
-                Beaches: The Florida Panhandle has beautiful beaches, including
-                Panama City Beach and Destin. Great for swimming, sunbathing,
-                and water sports.
+                <p>Ascend Pensacola Lighthouse for sweeping views.</p>
               </li>
               <li>
-                State parks: The Panhandle offers state parks for hiking,
-                biking, and nature watching. Topsail Hill Preserve State Park
-                and Grayton Beach State Park are popular.
+                <p>
+                  Bask at Gulf Islands National Seashore on untouched beaches.
+                </p>
               </li>
               <li>
-                Fishing: The Panhandle has a variety of fish species and offers
-                fishing charters for both novice and experienced anglers.
+                <p>Cast at Destin Harbor with local charters.</p>
               </li>
               <li>
-                Dolphin watching: The Gulf of Mexico has bottlenose dolphins,
-                and boat tours allow visitors to see them up close.
+                <p>Dive at Navarre Beach to unearth underwater marvels.</p>
               </li>
               <li>
-                Museums and historic sites: The Panhandle has museums and
-                historic sites exploring the area's history and culture, like
-                the Pensacola Lighthouse and Museum and the Indian Temple Mound
-                Museum.
+                <p>
+                  Wander through Historic Fort Pickens and traverse Civil War
+                  history.
+                </p>
               </li>
               <li>
-                Outdoor adventures: The Panhandle has nature preserve and state
-                forests for activities like hiking, biking, and birdwatching.
-                Blackwater River State Forest and Choctawhatchee Bay are
-                popular.
+                <p>Feast at Palafox Market on fresh local seafood.</p>
               </li>
               <li>
-                Shopping and dining: The Panhandle has shopping and dining
-                options, including local artisan markets and famous seafood.
+                <p>
+                  Take a Dolphin Tour and witness playful dolphins up close.
+                </p>
               </li>
               <li>
-                Wineries: The Panhandle has wineries offering tastings and
-                tours, like Chautauqua Winery and Grayton Beer Company.
+                <p>Drive at Sandestin on world-class courses.</p>
               </li>
               <li>
-                Boat tours: The Panhandle's Forgotten Coast is only accessible
-                by boat and offers tours.
+                <p>Paddle in Choctawhatchee Bay through tranquil waters.</p>
               </li>
               <li>
-                Farmers markets: The Panhandle has farmers markets featuring
-                locally grown produce and handmade crafts.
+                <p>Saunter Pier Park to browse and soak in the coastal vibe.</p>
               </li>
             </ol>
           </div>
           <div className="info">
-            <h3>Florida Panhandle Links and Local Information</h3>
+            <h3>Panhandle Links and Local Information</h3>
             <ul>
               <li>
-                <a
-                  href="https://www.visitflorida.com/places-to-go/northwest/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Visit Florida
-                </a>
-                &nbsp; Official tourism website for the state of Florida
+                <p>
+                  <a
+                    href="https://www.visitflorida.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    VisitFlorida.com
+                  </a>{' '}
+                  - Unearth the official travel guide with insights on top
+                  attractions, accommodations, and events across Florida.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridastateparks.org/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida State Parks
-                </a>
-                &nbsp; Information on state parks in the Florida Panhandle
+                <p>
+                  <a
+                    href="https://www.floridastateparks.org"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    FloridaStateParks.org
+                  </a>{' '}
+                  - Plunge into state parks, including activities, trails, and
+                  visitor services.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridasgreatnorthwest.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida's Great Northwest
-                </a>
-                &nbsp; Official tourism website for the Panhandle region
+                <p>
+                  <a
+                    href="https://www.emeraldcoastfl.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    EmeraldCoastFL.com
+                  </a>{' '}
+                  - Unveil the Emerald Coast's beaches, dining, and local
+                  events.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridapanhandlebeaches.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida Panhandle Beaches
-                </a>
-                &nbsp; Information on the beaches and coastal communities in the
-                Panhandle
+                <p>
+                  <a
+                    href="https://www.pensacolabeach.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PensacolaBeach.com
+                  </a>{' '}
+                  - Dive into beach activities, lodging, and dining options in
+                  Pensacola.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridapanhandlebirdingtrail.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida Panhandle Birding and Wildlife Trail
-                </a>
-                &nbsp; Website on the Panhandle Birding and Wildlife Trail
+                <p>
+                  <a
+                    href="https://www.destinchamber.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    DestinChamber.com
+                  </a>{' '}
+                  - Traverse business directories and visitor information for
+                  Destin, including dining, shopping, and recreational
+                  activities.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridascenichighway.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida Panhandle Scenic Highway
-                </a>
-                &nbsp; Florida Panhandle 450-mile Scenic Highway
+                <p>
+                  <a
+                    href="https://www.visitpanamacitybeach.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    PanamaCityBeach.com
+                  </a>{' '}
+                  - Shape your visit with detailed guides to accommodations,
+                  attractions, and local happenings.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.floridapanhandle.com/shipwreck-trail/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Florida Panhandle Shipwreck Trail
-                </a>
-                &nbsp; Provides information on the Panhandle Shipwreck Trail,
-                with shipwrecks and underwater artifacts
+                <p>
+                  <a
+                    href="https://www.30a.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    30A.com
+                  </a>{' '}
+                  - Immerse in the lifestyle and events along Florida's scenic
+                  Highway 30A, with local tips and beach guides.
+                </p>
               </li>
+
               <li>
-                <a
-                  href="https://www.panhandlepioneer.org/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Panhandle Pioneer Settlement
-                </a>
-                &nbsp; The Pioneer Settlement is a living history museum
-              </li>
-              <li>
-                <a
-                  href="https://www.panhandlebutterflyhouse.org/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Panhandle Butterfly House
-                </a>
-                &nbsp; A nature center for butterflies
+                <p>
+                  <a
+                    href="https://weather.com/weather/today/l/30.3935,-86.4958"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Weather.com
+                  </a>{' '}
+                  - Check the latest weather conditions for your trip.
+                </p>
               </li>
             </ul>
           </div>
