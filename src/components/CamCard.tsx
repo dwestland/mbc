@@ -157,6 +157,9 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
                 Top Cam: <strong>{cam.topCam ? 'Yes' : 'No'}</strong>
               </li>
               <li>
+                Hidden: <strong>{cam.hidden ? 'Yes' : 'No'}</strong>
+              </li>
+              <li>
                 MBC Hosted YouTube:{' '}
                 <strong>{cam.mbcHostedYoutube ? 'Yes' : 'No'}</strong>
               </li>
