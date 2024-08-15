@@ -19,6 +19,7 @@ interface Props {
     lat: number
     lng: number
     name: string
+    id: number
   }[]
 }
 
@@ -28,7 +29,7 @@ const CamsMap = ({ vectors }: Props) => {
   })
 
   if (vectors.length === 0) {
-    vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey' }]
+    vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey', id: 1 }]
   }
 
   const vectorArray: [number, number][] = vectors.map((vector) => [
@@ -47,8 +48,8 @@ const CamsMap = ({ vectors }: Props) => {
         <LayersControl.BaseLayer checked name="Watercolor">
           <TileLayer
             attribution='&copy; <a href="http://stamen.com">Stamen Design</a> contributors'
-            url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
-            maxNativeZoom={17}
+            // eslint-disable-next-line no-template-curly-in-string
+            url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=`${process.env.STADIA_API_KEY}`"
           />
         </LayersControl.BaseLayer>
 
@@ -69,10 +70,7 @@ const CamsMap = ({ vectors }: Props) => {
       </LayersControl>
       {/* <MarkerClusterGroup> */}
       {vectors.map((vector) => (
-        <Marker
-          key={`${vector.lat}${vector.lat}${vector.lng}`}
-          position={[vector.lat, vector.lng]}
-        >
+        <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
           <Popup>
             <div>
               <h3>{vector.name}</h3>

@@ -104,6 +104,7 @@ const LosAngelesPage = ({
         name: cam.title,
         lat: cam.lat,
         lng: cam.lng,
+        id: cam.id,
       }
       vectors.push(vector)
     }
