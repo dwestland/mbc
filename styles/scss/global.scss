@@ -432,3 +432,29 @@ form {
 .leaflet-container {
   z-index: 0 !important;
 }
+
+/* Pagination for youtube page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  line-height: 32px;
+}

@@ -1,5 +1,6 @@
 export interface CamPageProps {
   cams: {}[]
+  totalCams: number
 }
 
 export interface Cams {

@@ -8,7 +8,6 @@ import FlagModal from '@/components/FlagModal'
 import styles from '@/styles/CamCard.module.scss'
 
 interface CamCardProps {
-  // refreshData: () => void
   cam: {
     area: string
     country: string
@@ -44,8 +43,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    // @ts-ignore
-    if (session?.user.role === 'ADMIN') {
+    if (session?.user?.role === 'ADMIN') {
       setIsAdmin(true)
     }
   }, [session])
@@ -66,7 +64,6 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
     }).catch((error) => console.warn(error))
     setShowDeleteModal(false)
     router.push(`/cam-deleted`)
-    // refreshData()
   }
 
   const handleDelete = () => {
@@ -102,20 +99,31 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
           />
         </a>
       )}
-      <div className={styles.body}>
-        {cam.mbcHostedYoutube ? (
+      <div className={styles.body} style={{ padding: '0' }}>
+        {cam.youtubeId ? (
+          <div style={{ marginTop: '5px', padding: '0' }}>
+            <iframe
+              width="260"
+              height="195"
+              src={`https://www.youtube.com/embed/${cam.youtubeId}`}
+              title={cam.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : (
           <Link href={cam.webcamUrl} className={styles.pointer}>
             <a>
               <h3>{cam.title}</h3>
             </a>
           </Link>
-        ) : (
-          <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
-            <h3>{cam.title}</h3>
-          </a>
         )}
-        <p>{cam.description}</p>
       </div>
+      <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+        <p style={{ margin: '10px' }}>{cam.title}</p>
+      </a>
+
       <div className={styles.footer}>
         {isAdmin && (
           <div className={styles.adminContainer}>
@@ -155,6 +163,9 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
               </li>
               <li>
                 Top Cam: <strong>{cam.topCam ? 'Yes' : 'No'}</strong>
+              </li>
+              <li>
+                Hidden: <strong>{cam.hidden ? 'Yes' : 'No'}</strong>
               </li>
               <li>
                 MBC Hosted YouTube:{' '}
