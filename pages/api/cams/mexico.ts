@@ -10,7 +10,7 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
           NOT: {
             hidden: true,
           },
-          state: 'Hawaii',
+          country: 'Mexico',
         },
         select: {
           area: true,
