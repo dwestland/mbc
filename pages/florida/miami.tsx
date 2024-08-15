@@ -15,6 +15,20 @@ import * as types from '@/utils/types'
 const MiamiPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
+  // Ensure cams and cams.cams are defined
+  if (!cams || !cams.cams || cams.cams.length === 0) {
+    return (
+      <Layout
+        documentTitle="Beach Cams in Miami and South Beach Florida"
+        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
+      >
+        <div className="layout">
+          <h1>No cams available</h1>
+        </div>
+      </Layout>
+    )
+  }
+
   // Next modal SSR
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
@@ -121,11 +135,11 @@ const MiamiPage = ({
           <p>
             Immerse yourself in the exciting Miami area with our live beach
             webcams. From the pristine shores of West Palm Beach to the bustling
-            streets of Miami, you’ll uncover a range of captivating views.
+            streets of Miami, you'll uncover a range of captivating views.
             Marvel at the tranquil waters of Jupiter Inlet or venture to Boca
             Raton to glimpse its iconic surf spots. In Fort Lauderdale, observe
             boats gliding along New River or soak in the spirited energy of the
-            Elbo Room. Miami’s famous South Beach beckons with thrilling beach
+            Elbo Room. Miami's famous South Beach beckons with thrilling beach
             volleyball, while the Port of Miami cams reveal the bustling
             choreography of cruise ships. Curate your perfect getaway with
             real-time updates from our webcams!
@@ -143,7 +157,7 @@ const MiamiPage = ({
           >
             <p>
               Discover the Miami area through our comprehensive collection of
-              webcams. Each location reveals a distinct slice of South Florida’s
+              webcams. Each location reveals a distinct slice of South Florida's
               charm. Begin your adventure in the north, where the tranquil
               waters of Stuart embrace you. Here, you can witness cars driving
               through the serene Downtown Stuart.
@@ -153,7 +167,7 @@ const MiamiPage = ({
               Venture south to Jupiter Inlet, where the waves caress the shore.
               This peaceful beach beckons those seeking solitude. The nearby
               Jupiter Reef Club unveils breathtaking beach views, nestled away
-              from the city’s hustle. You can almost feel the sand beneath your
+              from the city's hustle. You can almost feel the sand beneath your
               feet as you watch the sun shimmer on the water.
             </p>
 
@@ -161,7 +175,7 @@ const MiamiPage = ({
               In Palm Beach, the iconic Lake Worth Inlet encapsulates the allure
               of the Atlantic. The Palm Beach Earth Cam frames the golden coast,
               with waves crashing in a rhythmic dance against the shore. This
-              spot is ideal for those who savor life’s finer moments. Picture
+              spot is ideal for those who savor life's finer moments. Picture
               yourself strolling along the coast, the sea breeze weaving through
               your hair.
             </p>
@@ -169,7 +183,7 @@ const MiamiPage = ({
             <p>
               As you journey further south, Boca Raton entices you with its
               famed surf spots. The Boca Raton Inlet Cam provides a sweeping
-              view of the waves. Whether you’re a surfer or an ocean admirer,
+              view of the waves. Whether you're a surfer or an ocean admirer,
               this spot is a must-experience. The nearby Deerfield Beach Pier
               offers a contrasting scene. The live cams showcase fishermen
               casting their lines, and sun-seekers basking in the warmth.
@@ -177,17 +191,17 @@ const MiamiPage = ({
 
             <p>
               Fort Lauderdale is where the energy surges. The New River
-              streaming webcam animates the city’s waterway. Watch as yachts,
+              streaming webcam animates the city's waterway. Watch as yachts,
               kayaks, and rowboats glide through the river. The Elbo Room cam
               captures the vibrant beachfront spectacle, a place where the
-              city’s pulse truly resonates.
+              city's pulse truly resonates.
             </p>
 
             <p>
-              Lastly, Miami’s South Beach dazzles with its electric atmosphere.
+              Lastly, Miami's South Beach dazzles with its electric atmosphere.
               The volleyball courts hum with action, and the Port of Miami
               bustles with life. Whether planning a visit or simply daydreaming,
-              our webcams infuse Miami’s excitement directly to you.
+              our webcams infuse Miami's excitement directly to you.
             </p>
           </ShowMoreText>
         </div>
@@ -218,9 +232,8 @@ const MiamiPage = ({
                 >
                   Greater Miami Convention & Visitors Bureau
                 </a>{' '}
-                - Uncover Miami’s top attractions, events, and accommodations.
+                - Uncover Miami's top attractions, events, and accommodations.
               </li>
-
               <li>
                 <a
                   href="https://www.miamiherald.com"
@@ -243,7 +256,6 @@ const MiamiPage = ({
                 - Discover reviews and tips for hotels, restaurants, and
                 attractions in Miami.
               </li>
-
               <li>
                 <a
                   href="https://www.wynwoodmiami.com"
@@ -266,7 +278,6 @@ const MiamiPage = ({
                 </a>{' '}
                 - Explore the best things to do, see, and taste in Miami.
               </li>
-
               <li>
                 <a
                   href="https://www.miami-airport.com"
@@ -278,7 +289,6 @@ const MiamiPage = ({
                 - Navigate essential information for travelers flying to and
                 from Miami.
               </li>
-
               <li>
                 <a
                   href="https://weather.com/weather/today/l/25.77,-80.19"

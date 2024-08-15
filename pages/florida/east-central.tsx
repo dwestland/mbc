@@ -15,6 +15,20 @@ import * as types from '@/utils/types'
 const EastCentralPage = ({
   cams,
 }: InferGetStaticPropsType<typeof getServerSideProps>) => {
+  // Ensure cams and cams.cams are defined
+  if (!cams || !cams.cams || cams.cams.length === 0) {
+    return (
+      <Layout
+        documentTitle="Beach Cams in Miami and South Beach Florida"
+        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
+      >
+        <div className="layout">
+          <h1>No cams available</h1>
+        </div>
+      </Layout>
+    )
+  }
+
   // Next modal SSR
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
