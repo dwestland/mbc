@@ -126,22 +126,30 @@ const KauaiPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          Kauai is one of the most beautiful and lush of the seven Hawaiian
-          Islands. Kauai is known as the "Garden Isle" because of the brilliant
-          flowers, such as wild orchids and birds of paradise that grow there.
-          The three most popular resort areas on the Kauai are: Princeville on
-          the North Shore, Coconut Plantation, and Poipu Beach to the south.
-          Some of the many things that travelers enjoy are the exotic flowers,
-          Waimea Canyon, Opaekaa Falls, Mt. Wai'ale'ale and Hanalei Bay.
-        </p>
-
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Kauai is one of the most beautiful and lush of the seven Hawaiian
+            Islands. Kauai is known as the "Garden Isle" because of the
+            brilliant flowers, such as wild orchids and birds of paradise that
+            grow there. The three most popular resort areas on the Kauai are:
+            Princeville on the North Shore, Coconut Plantation, and Poipu Beach
+            to the south. Some of the many things that travelers enjoy are the
+            exotic flowers, Waimea Canyon, Opaekaa Falls, Mt. Wai'ale'ale and
+            Hanalei Bay.
+          </p>
+        </ShowMoreText>
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

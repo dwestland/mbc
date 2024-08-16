@@ -126,25 +126,33 @@ const BigIslandPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          The Island of Hawaii is referred to as the "Big Island" because at
-          nearly twice the size of all the other Hawaiian Islands put together.
-          The Big Island is a traveler's paradise and offers an array of
-          activities from swimming and snorkeling to horseback riding and
-          exploring. Most of the resorts on the island are located on the
-          western coast; from Hapuna Bay and Waikoloa to the north on the Kohala
-          Coast, down through Kailua Kona, then to Keauhou Kona toward the
-          south. Here you will find some of the most luxurious resorts in all of
-          Hawaii. Other interesting areas to visit are Hilo and Volcano National
-          Park near the Kiluaea Crater.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            The Island of Hawaii is referred to as the "Big Island" because at
+            nearly twice the size of all the other Hawaiian Islands put
+            together. The Big Island is a traveler's paradise and offers an
+            array of activities from swimming and snorkeling to horseback riding
+            and exploring. Most of the resorts on the island are located on the
+            western coast; from Hapuna Bay and Waikoloa to the north on the
+            Kohala Coast, down through Kailua Kona, then to Keauhou Kona toward
+            the south. Here you will find some of the most luxurious resorts in
+            all of Hawaii. Other interesting areas to visit are Hilo and Volcano
+            National Park near the Kiluaea Crater.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

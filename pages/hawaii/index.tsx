@@ -6,6 +6,7 @@ import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
+import ShowMoreText from 'react-show-more-text'
 
 const HawaiiPage = ({ hawaiiCams }) => {
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
@@ -109,21 +110,29 @@ const HawaiiPage = ({ hawaiiCams }) => {
             <AdLarge />
           </div>
         </div>
-        <p>
-          Watch the best Hawaii Beach Cams, featuring live webcams and surf cams
-          from Waikiki, Oahu, Lahaina, Maui and all of the top resort areas. We
-          also give you comprehensive travel tips, local information, maps and
-          links. Enjoy the <em>Hawaii Beach Cams!</em>
-        </p>
-        <p>
-          The island of Maui is one of the most popular vacation destinations,
-          featuring the beaches of Kaanapali, Lahaina, Wailea and Kapalua. It
-          has 33 miles of exquisite public beaches. Some of these beaches even
-          have jewel-toned sand. See the webcams at{' '}
-          <Link href="/hawaii/maui/">Maui Beach Cams</Link> to view streaming
-          live camera pictures of the amazing natural beauty found on various
-          locations on the Island of Maui.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Watch the best Hawaii Beach Cams, featuring live webcams and surf
+            cams from Waikiki, Oahu, Lahaina, Maui and all of the top resort
+            areas. We also give you comprehensive travel tips, local
+            information, maps and links. Enjoy the <em>Hawaii Beach Cams!</em>
+          </p>
+          <p>
+            The island of Maui is one of the most popular vacation destinations,
+            featuring the beaches of Kaanapali, Lahaina, Wailea and Kapalua. It
+            has 33 miles of exquisite public beaches. Some of these beaches even
+            have jewel-toned sand. See the webcams at{' '}
+            <Link href="/hawaii/maui/">Maui Beach Cams</Link> to view streaming
+            live camera pictures of the amazing natural beauty found on various
+            locations on the Island of Maui.
+          </p>
+        </ShowMoreText>
         <AdLeaderboard />
         <h2>
           <Link href="/hawaii/maui/">Maui Beach Cams</Link>

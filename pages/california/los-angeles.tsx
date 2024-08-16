@@ -126,40 +126,47 @@ const LosAngelesPage = ({
             <AdLarge />
           </div>
         </div>
-
-        <p>
-          This website has over 30 webcams in Los Angeles area. For the best
-          beach destinations in Los Angeles, there is Santa Monica and to the
-          south there is funky{' '}
-          <a
-            href="http://www.westlandtraveler.com/ca/venice/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Venice Beach
-          </a>
-          . Santa Monica is well known for its temperate climate and the
-          world-famous{' '}
-          <a
-            href="http://www.westlandtraveler.com/ca/santa_monica/santa_monica_pier/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Santa Monica Pier
-          </a>
-          . If you are planning a visit, there are many luxury hotels in Santa
-          Monica to choose from. If you want to get the down-to-earth
-          experience, you should check out the Hotels in Venice. Though both of
-          these locations are next to each other, in many ways they are worlds
-          apart.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            This website has over 30 webcams in Los Angeles area. For the best
+            beach destinations in Los Angeles, there is Santa Monica and to the
+            south there is funky{' '}
+            <a
+              href="http://www.westlandtraveler.com/ca/venice/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Venice Beach
+            </a>
+            . Santa Monica is well known for its temperate climate and the
+            world-famous{' '}
+            <a
+              href="http://www.westlandtraveler.com/ca/santa_monica/santa_monica_pier/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Santa Monica Pier
+            </a>
+            . If you are planning a visit, there are many luxury hotels in Santa
+            Monica to choose from. If you want to get the down-to-earth
+            experience, you should check out the Hotels in Venice. Though both
+            of these locations are next to each other, in many ways they are
+            worlds apart.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

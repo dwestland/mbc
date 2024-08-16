@@ -126,25 +126,33 @@ const MauiPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          The island of Maui is one of Hawaii's most popular destinations for
-          vacations and holidays. Maui has over 33 miles of exquisite public
-          beaches. Some of these beaches have jewel-toned sand, in such colors
-          as red, gold, green, black and white. The most popular resort areas on
-          Maui are Kapalua, Kaanapali, Lahaina, Wailea and Makena. These resort
-          areas are on the western, or leeward shore and offer the traveler
-          spectacular beaches. There is also the lovely, tropical village of
-          Hana, with its world-famous "Road to Hana." On this special island
-          surfing, scuba diving, snorkeling and spectacular sunsets create a
-          serenely gorgeous way of life.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            The island of Maui is one of Hawaii's most popular destinations for
+            vacations and holidays. Maui has over 33 miles of exquisite public
+            beaches. Some of these beaches have jewel-toned sand, in such colors
+            as red, gold, green, black and white. The most popular resort areas
+            on Maui are Kapalua, Kaanapali, Lahaina, Wailea and Makena. These
+            resort areas are on the western, or leeward shore and offer the
+            traveler spectacular beaches. There is also the lovely, tropical
+            village of Hana, with its world-famous "Road to Hana." On this
+            special island surfing, scuba diving, snorkeling and spectacular
+            sunsets create a serenely gorgeous way of life.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={7}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

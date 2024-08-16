@@ -6,6 +6,7 @@ import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
+import ShowMoreText from 'react-show-more-text'
 
 const FloridaPage = ({ floridaCams }) => {
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
@@ -129,11 +130,26 @@ const FloridaPage = ({ floridaCams }) => {
             <AdLarge />
           </div>
         </div>
-        <p>
-          Florida has sunny, warm weather year-round in Southern US. Thousands
-          of miles of beaches made Florida one of the most popular tourist
-          destinations in the United States.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Florida’s beaches captivate the soul, offering a slice of paradise
+            in every corner of the state. From the vibrant sands of Miami Beach
+            to the tranquil shores of the Florida Keys, this page unveils live
+            webcams that animate the Sunshine State. Gaze at the gentle waves of
+            the Gulf Coast or immerse in the bustling activity along the
+            Atlantic Ocean. Planning a trip? These cams deliver real-time
+            glimpses of Florida’s most popular destinations, guiding you to the
+            perfect spot. Whether you’re daydreaming about your next escape or
+            assessing the current weather, these live streams anchor you to
+            Florida’s allure.
+          </p>
+        </ShowMoreText>
         <AdLeaderboard />
         <h2>
           <Link href="/florida/miami/">Miami Beach Cams</Link>
@@ -166,7 +182,15 @@ const FloridaPage = ({ floridaCams }) => {
         <h2>
           <Link href="/florida/florida-keys/">Florida Keys Cams</Link>
         </h2>
-        <p>Florida Keys Cams.</p>
+        <p>
+          Immerse yourself in the Florida Keys via live webcams. Wander through
+          pristine beaches, vibrant coral reefs, and quaint coastal towns. From
+          Key Largo to Key West, these cameras transport the island paradise to
+          you. Survey the weather, map out your day, or simply revel in the
+          sights. Plunge into the island life, glimpse exotic wildlife, and
+          envision your next journey. Ideal for planning or a brief, virtual
+          tropical escape.
+        </p>
         <div className="cam-container">
           {souteastKeysCams()}
           <div className="more-cams">
@@ -187,7 +211,14 @@ const FloridaPage = ({ floridaCams }) => {
         <h2>
           <Link href="/florida/gulf-coast">Gulf Coast Beach Cams</Link>
         </h2>
-        <p>Gulf Coast Cams.</p>
+        <p>
+          Witness the Gulf Coast through live beach cams. Stroll along white
+          sand shores, vibrant coastal towns, and tranquil waters. From Florida
+          to Texas, these webcams unveil the Gulf’s allure. Gauge the weather,
+          craft your beach day, or simply savor the ocean vistas. Unearth local
+          charm, glimpse marine life, and envision your next retreat. Ideal for
+          planning or a virtual beachside escape.
+        </p>
         <div className="cam-container">
           {gulfCoastCams()}
           <div className="more-cams">

@@ -126,27 +126,35 @@ const OahuPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          Oahu is considered the "Heart of Hawaii" and is the most visited of
-          all of the Hawaiian Islands. Oahu is also home to the world-famous
-          Waikiki beach. Oahu offers more restaurants, shops and nightlife than
-          all of the other Hawaiian Islands combined. 80% of Hawaiians live in
-          Oahu. There are all types of different hotels, motels, resorts,
-          timeshares and condos that you can stay at depending on your budget.
-          The most popular resort areas are Waikiki, Turtle Bay, Kahala and
-          Diamond Head. There are many discount travel packages available, some
-          that include car, hotel and airfare. In addition to lodging, there are
-          several cruise ships that can take you around all of the Hawaiian
-          Islands. Oahu is a great place to begin your Hawaiian vacation or
-          holiday.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Oahu is considered the "Heart of Hawaii" and is the most visited of
+            all of the Hawaiian Islands. Oahu is also home to the world-famous
+            Waikiki beach. Oahu offers more restaurants, shops and nightlife
+            than all of the other Hawaiian Islands combined. 80% of Hawaiians
+            live in Oahu. There are all types of different hotels, motels,
+            resorts, timeshares and condos that you can stay at depending on
+            your budget. The most popular resort areas are Waikiki, Turtle Bay,
+            Kahala and Diamond Head. There are many discount travel packages
+            available, some that include car, hotel and airfare. In addition to
+            lodging, there are several cruise ships that can take you around all
+            of the Hawaiian Islands. Oahu is a great place to begin your
+            Hawaiian vacation or holiday.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

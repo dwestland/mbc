@@ -6,6 +6,7 @@ import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
+import ShowMoreText from 'react-show-more-text'
 
 const CaliforniaPage = ({ californiaCams }) => {
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
@@ -113,18 +114,26 @@ const CaliforniaPage = ({ californiaCams }) => {
             <AdLarge />
           </div>
         </div>
-        <p>
-          California is known as the Golden State. Its sunny weather, varied
-          landscape and the allure of fame and fortune have enticed millions of
-          Americans to "go west." On this popular website you will find a series
-          of live streaming webcams from all along this famous West Coast. From
-          San Diego in the southern tip of California, up through Los Angeles
-          and Santa Barbara and then through Monterey and San Francisco, you
-          will see exciting live images of beaches, boardwalks, bays and even
-          marine life. These images will most likely either remind you of a fond
-          memory or make you want to trip out to see some of these exciting
-          destinations. Either way, enjoy the view!
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            California is known as the Golden State. Its sunny weather, varied
+            landscape and the allure of fame and fortune have enticed millions
+            of Americans to "go west." On this popular website you will find a
+            series of live streaming webcams from all along this famous West
+            Coast. From San Diego in the southern tip of California, up through
+            Los Angeles and Santa Barbara and then through Monterey and San
+            Francisco, you will see exciting live images of beaches, boardwalks,
+            bays and even marine life. These images will most likely either
+            remind you of a fond memory or make you want to trip out to see some
+            of these exciting destinations. Either way, enjoy the view!
+          </p>
+        </ShowMoreText>
         <AdLeaderboard />
         <h2>
           <a href="/california/san-diego/">San Diego</a>

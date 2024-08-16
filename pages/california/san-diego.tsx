@@ -126,23 +126,31 @@ const SanDiegoPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          San Diego is a thriving coastal city in the southern tip of
-          California. It has deep Spanish and Mexican roots that intrigue
-          visitors with its stunning architecture, beautiful beaches and
-          delicious foods. Known for its year-round sunshine and balmy
-          temperatures, San Diego is a great place to relax and explore. It is
-          also home to many of the states top tourist attractions such as the
-          famed San Diego Zoo, Balboa Park, Legoland, and SeaWorld, attracting
-          over 14 million visitors a year.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            San Diego is a thriving coastal city in the southern tip of
+            California. It has deep Spanish and Mexican roots that intrigue
+            visitors with its stunning architecture, beautiful beaches and
+            delicious foods. Known for its year-round sunshine and balmy
+            temperatures, San Diego is a great place to relax and explore. It is
+            also home to many of the states top tourist attractions such as the
+            famed San Diego Zoo, Balboa Park, Legoland, and SeaWorld, attracting
+            over 14 million visitors a year.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

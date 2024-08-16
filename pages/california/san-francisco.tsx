@@ -126,22 +126,30 @@ const SanFranciscoPage = ({
             <AdLarge />
           </div>
         </div>
-        <p>
-          We will show you over 20 webcams in San Francisco area. San Francisco,
-          known as the "City by the Bay," is a worldly and seductive place, full
-          of culture, magnificent sights and outstanding food. Its famous sights
-          include the Golden Gate Bridge, cable cars, Victorian Row houses and
-          its steep rolling hills. Surrounded by the Pacific Ocean and the San
-          Francisco Bay, the city is subject to thick fog that rolls-in, often
-          in the summer and fall.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            We will show you over 20 webcams in San Francisco area. San
+            Francisco, known as the "City by the Bay," is a worldly and
+            seductive place, full of culture, magnificent sights and outstanding
+            food. Its famous sights include the Golden Gate Bridge, cable cars,
+            Victorian Row houses and its steep rolling hills. Surrounded by the
+            Pacific Ocean and the San Francisco Bay, the city is subject to
+            thick fog that rolls-in, often in the summer and fall.
+          </p>
+        </ShowMoreText>
 
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"

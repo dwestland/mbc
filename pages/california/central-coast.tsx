@@ -126,28 +126,34 @@ const CentralCoastPage = ({
             <AdLarge />
           </div>
         </div>
-
-        <p>
-          Along the California coast between Los Angeles and San Francisco are
-          several resort towns well worth visiting. Between San Luis Obispo and
-          San Francisco is the scenic coastal route of Highway 1, famous for its
-          winding roads and bridges and stunning views overlooking the crashing
-          waves below. These areas include Santa Barbara, Los Olivos, San Luis
-          Obispo, Big Sur, Carmel, Pebble Beach and Monterey. It is fun to take
-          a 3 or 4 day drive up the coast from Los Angeles and visit a couple of
-          these quaint towns. You can stop by for lunch or dinner, or spend the
-          night in one of the many lovely hotels. If you don't like driving
-          there is an airport in a couple of the cities, as well as a passenger
-          train that goes all the way up the coast. Check on-line or with your
-          travel agent for travel-packages and discounts.
-        </p>
-
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>
+            Along the California coast between Los Angeles and San Francisco are
+            several resort towns well worth visiting. Between San Luis Obispo
+            and San Francisco is the scenic coastal route of Highway 1, famous
+            for its winding roads and bridges and stunning views overlooking the
+            crashing waves below. These areas include Santa Barbara, Los Olivos,
+            San Luis Obispo, Big Sur, Carmel, Pebble Beach and Monterey. It is
+            fun to take a 3 or 4 day drive up the coast from Los Angeles and
+            visit a couple of these quaint towns. You can stop by for lunch or
+            dinner, or spend the night in one of the many lovely hotels. If you
+            don't like driving there is an airport in a couple of the cities, as
+            well as a passenger train that goes all the way up the coast. Check
+            on-line or with your travel agent for travel-packages and discounts.
+          </p>
+        </ShowMoreText>
         {camSections}
         {moreCams()}
 
         <div className="panel">
           <ShowMoreText
-            lines={3}
+            lines={4}
             more="show more"
             less="show less"
             anchorClass="anchorClass"
