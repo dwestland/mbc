@@ -9,6 +9,7 @@ import {
 import { GestureHandling } from 'leaflet-gesture-handling'
 import * as L from 'leaflet'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
+import Image from 'next/image'
 // import MarkerClusterGroup from 'react-leaflet-markercluster'
 // import 'react-leaflet-markercluster/dist/styles.min.css'
 
@@ -20,6 +21,7 @@ interface Props {
     lng: number
     name: string
     id: number
+    imageName?: string
   }[]
 }
 
@@ -73,7 +75,29 @@ const CamsMap = ({ vectors }: Props) => {
         <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
           <Popup>
             <div>
-              <h3>{vector.name}</h3>
+              <a
+                href={`/detail/${vector.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p
+                  style={{
+                    margin: '5px 0',
+                    color: '#000',
+                    fontWeight: 'bold',
+                    fontSize: '12px',
+                  }}
+                >
+                  {vector.name}
+                </p>
+                <Image
+                  src={process.env.AWS_IMAGE_SRC_ROOT + vector.imageName}
+                  alt={vector.name}
+                  style={{ width: '100%', height: 'auto' }}
+                  width={260}
+                  height={195}
+                />
+              </a>
             </div>
           </Popup>
         </Marker>
