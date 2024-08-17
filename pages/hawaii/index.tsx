@@ -66,6 +66,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
         lat: cam.lat,
         lng: cam.lng,
         id: cam.id,
+        imageName: cam.imageName,
       }
       vectors.push(vector)
     }

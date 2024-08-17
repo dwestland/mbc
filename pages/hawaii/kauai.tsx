@@ -95,7 +95,7 @@ const KauaiPage = ({
       </>
     )
   }
-
+  console.log('%c cams ', 'background: red; color: white', cams)
   // Create vectors for map
   const vectors = []
   cams.cams.map((cam: types.Cams) => {
@@ -105,6 +105,7 @@ const KauaiPage = ({
         lat: cam.lat,
         lng: cam.lng,
         id: cam.id,
+        imageName: cam.imageName,
       }
       vectors.push(vector)
     }
