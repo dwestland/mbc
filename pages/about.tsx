@@ -22,7 +22,7 @@ const About = () => {
             know. You can messages us on the{' '}
             <Link href="/contact">Contact Us</Link> page.
           </p>
-          <p>Thnaks!</p>
+          <p>Thanks!</p>
           <p>The MyBeachCams.com Team</p>
           <br />
           <br />

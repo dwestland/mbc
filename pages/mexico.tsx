@@ -160,7 +160,11 @@ const MiamiPage = ({
             <h3>Miami Links and Local Information</h3>
             <ul>
               <li>
-                <a href="https://www.xxxx.com" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.xxxx.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   xxxx
                 </a>{' '}
                 - xxxx

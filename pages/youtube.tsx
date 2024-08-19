@@ -27,7 +27,7 @@ const YouTube = ({
     setCurrentPage(page)
     await fetchCams(page)
   }
-  console.log('%c totalCams ', 'background: red; color: white', totalCams)
+
   return (
     <Layout
       documentTitle="Beach Cams of Oahu, Hawaii - Webcams at Waikiki Beach, Honolulu and North Shore"
@@ -36,7 +36,7 @@ const YouTube = ({
     >
       <div className="layout">
         <h1>YouTube Hosted Webcams</h1>
-        <p>Total YouTube cams: {totalCams}</p>
+        <p>Total published YouTube cams: {totalCams}</p>
         <div className="cam-container">
           {cams.map((cam: types.Cams) => (
             <CamCard key={cam.id} cam={cam} />

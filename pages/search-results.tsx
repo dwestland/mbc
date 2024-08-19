@@ -38,7 +38,11 @@ const SearchCams = () => {
     }
 
     if (searchResults.cams.length > 50) {
-      setSearchDisplay('Too many results, please refine your search')
+      setSearchDisplay(
+        <div style={{ color: 'crimson', fontSize: '28px', fontWeight: 'bold' }}>
+          Too many results, please refine your search
+        </div>
+      )
       return null
     }
 
