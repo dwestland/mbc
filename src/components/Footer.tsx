@@ -13,72 +13,114 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href="/hawaii/">Hawaii Webcams</Link>
+              <Link href="/hawaii/">
+                <a>Hawaii Webcams</a>
+              </Link>
             </li>
             <li>
-              <Link href="/hawaii/kauai/">Kauai Island</Link>
+              <Link href="/hawaii/kauai/">
+                <a>Kauai Island</a>
+              </Link>
             </li>
             <li>
-              <Link href="/hawaii/oahu/">Oahu Island</Link>
+              <Link href="/hawaii/oahu/">
+                <a>Oahu Island</a>
+              </Link>
             </li>
             <li>
-              <Link href="/hawaii/maui/">Maui Island</Link>
+              <Link href="/hawaii/maui/">
+                <a>Maui Island</a>
+              </Link>
             </li>
             <li>
-              <Link href="/hawaii/bigisland/">Big Island</Link>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <Link href="/florida/">Florida Webcams</Link>
-            </li>
-            <li>
-              <Link href="/florida/miami/">Miami Beach</Link>
-            </li>
-            <li>
-              <Link href="/florida/florida-keys/">Florida Keys</Link>
-            </li>
-            <li>
-              <Link href="/florida/gulf-coast/">Gulf Coast</Link>
-            </li>
-            <li>
-              <Link href="/florida/east-central/">East Central</Link>
-            </li>
-            <li>
-              <Link href="/florida/panhandle/">Panhandle</Link>
-            </li>
-            <li>
-              <Link href="/florida/northeast/">Northeast</Link>
+              <Link href="/hawaii/bigisland/">
+                <a>Big Island</a>
+              </Link>
             </li>
           </ul>
         </div>
         <div>
           <ul>
             <li>
-              <Link href="/california/">California Webcams</Link>
+              <Link href="/florida/">
+                <a>Florida Webcams</a>
+              </Link>
             </li>
             <li>
-              <Link href="/california/san-diego/">San Diego</Link>
+              <Link href="/florida/miami/">
+                <a>Miami Beach</a>
+              </Link>
             </li>
             <li>
-              <Link href="/california/los-angeles/">Los Angeles</Link>
+              <Link href="/florida/florida-keys/">
+                <a>Florida Keys</a>
+              </Link>
             </li>
             <li>
-              <Link href="/california/central-coast/">Central Coast</Link>
+              <Link href="/florida/gulf-coast/">
+                <a>Gulf Coast</a>
+              </Link>
             </li>
             <li>
-              <Link href="/california/san-francisco/">San Francisco</Link>
+              <Link href="/florida/east-central/">
+                <a>East Central</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/panhandle/">
+                <a>Panhandle</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/northeast/">
+                <a>Northeast</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <Link href="/california/">
+                <a>California Webcams</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/san-diego/">
+                <a>San Diego</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/los-angeles/">
+                <a>Los Angeles</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/central-coast/">
+                <a>Central Coast</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/san-francisco/">
+                <a>San Francisco</a>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       <p>Copyright &copy; 2005-{year} MyBeachCams.com</p>
       <p>
-        <Link href="/about">About</Link> &nbsp;&nbsp;&nbsp;
-        <Link href="/privacy-policy">Privacy Policy</Link> &nbsp;&nbsp;&nbsp;
-        <Link href="/contact">Contact Us</Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+        &nbsp;&nbsp;&nbsp;
+        <Link href="/privacy-policy">
+          <a>Privacy Policy</a>
+        </Link>
+        &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        <Link href="/contact">
+          <a>Contact Us</a>
+        </Link>
       </p>
       <p style={{ fontSize: 'small' }}>
         Information on this website is deemed reliable but not guaranteed.

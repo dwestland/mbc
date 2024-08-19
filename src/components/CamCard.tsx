@@ -80,8 +80,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   return (
     <div className={`${styles.card} bs`}>
       {cam.mbcHostedYoutube ? (
-        <Link href={cam.webcamUrl} className={styles.pointer}>
-          <a>
+        <Link href={cam.webcamUrl}>
+          <a className={styles.pointer} target="_blank" rel="noopener">
             <Image
               src={imageUrl}
               width={260}
@@ -92,7 +92,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
           </a>
         </Link>
       ) : (
-        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+        <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
           <Image
             src={imageUrl}
             width={260}
@@ -104,13 +104,13 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
       )}
       <div className={styles.body}>
         {cam.mbcHostedYoutube ? (
-          <Link href={cam.webcamUrl} className={styles.pointer}>
-            <a>
+          <Link href={cam.webcamUrl}>
+            <a className={styles.pointer} target="_blank" rel="noopener">
               <h3>{cam.title}</h3>
             </a>
           </Link>
         ) : (
-          <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+          <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
             <h3>{cam.title}</h3>
           </a>
         )}
@@ -122,11 +122,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
             <div className={styles.admin}>
               <div className={styles.link}>ID:{cam.id}</div>
               <div className={styles.link}>
-                <Link
-                  href={`/cams/edit/${cam.id}`}
-                  className="button button-primary"
-                >
-                  Edit
+                <Link href={`/cams/edit/${cam.id}`}>
+                  <a className="button button-primary">Edit</a>
                 </Link>
               </div>
               <button
@@ -169,8 +166,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
         <div className={styles.user}>
           <div className={styles.link}>
             {cam.mbcHostedYoutube && <span className={styles.dot}>&nbsp;</span>}
-            <Link href={`/detail/${cam.id}`} className="button button-primary">
-              &nbsp;Details
+            <Link href={`/detail/${cam.id}`}>
+              <a className="button button-primary">Details</a>
             </Link>
           </div>
           <button className="button-as-link" type="button" onClick={handleFlag}>

@@ -6,19 +6,12 @@ import styles from '@/styles/AdminWebcamPage.module.scss'
 export default function AdminWebcamPage(cams: any) {
   // x@xts-ignore
   const {
-    // area,
-    // country,
-    // description,
     hidden,
     id,
     imageName,
-    // lat,
-    // lng,
     mbcHostedYoutube,
     moreCams,
     postalCode,
-    // state,
-    // subarea,
     title,
     titleSlug,
     topCam,

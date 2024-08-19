@@ -76,20 +76,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
 
   return (
     <div className={`${styles.card} bs`}>
-      {cam.mbcHostedYoutube ? (
-        <Link href={cam.webcamUrl} className={styles.pointer}>
-          <a>
-            <Image
-              src={imageUrl}
-              width={260}
-              height={195}
-              alt={cam.title}
-              className={styles.img}
-            />
-          </a>
-        </Link>
-      ) : (
-        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
+      <Link href={cam.webcamUrl}>
+        <a className={styles.pointer} target="_blank" rel="noreferrer">
           <Image
             src={imageUrl}
             width={260}
@@ -98,43 +86,32 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
             className={styles.img}
           />
         </a>
-      )}
+      </Link>
+
       <div className={styles.body} style={{ padding: '0' }}>
-        {cam.youtubeId ? (
-          <div style={{ marginTop: '5px', padding: '0' }}>
-            <iframe
-              width="260"
-              height="195"
-              src={`https://www.youtube.com/embed/${cam.youtubeId}`}
-              title={cam.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        ) : (
-          <Link href={cam.webcamUrl} className={styles.pointer}>
-            <a>
-              <h3>{cam.title}</h3>
-            </a>
-          </Link>
-        )}
+        <div style={{ marginTop: '5px', padding: '0' }}>
+          <iframe
+            width="260"
+            height="195"
+            src={`https://www.youtube.com/embed/${cam.youtubeId}`}
+            title={cam.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
       </div>
       <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
         <p style={{ margin: '10px' }}>{cam.title}</p>
       </a>
-
       <div className={styles.footer}>
         {isAdmin && (
           <div className={styles.adminContainer}>
             <div className={styles.admin}>
               <div className={styles.link}>ID:{cam.id}</div>
               <div className={styles.link}>
-                <Link
-                  href={`/cams/edit/${cam.id}`}
-                  className="button button-primary"
-                >
-                  Edit
+                <Link href={`/cams/edit/${cam.id}`}>
+                  <a className="button button-primary">Edit</a>
                 </Link>
               </div>
               <button

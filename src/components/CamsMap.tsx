@@ -75,11 +75,7 @@ const CamsMap = ({ vectors }: Props) => {
         <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
           <Popup>
             <div>
-              <a
-                href={`/detail/${vector.id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={`/detail/${vector.id}`} target="_blank" rel="noopener">
                 <p
                   style={{
                     margin: '5px 0',
