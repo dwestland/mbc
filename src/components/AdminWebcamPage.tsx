@@ -6,19 +6,19 @@ import styles from '@/styles/AdminWebcamPage.module.scss'
 export default function AdminWebcamPage(cams: any) {
   // x@xts-ignore
   const {
-    area,
-    country,
-    description,
+    // area,
+    // country,
+    // description,
     hidden,
     id,
     imageName,
-    lat,
-    lng,
+    // lat,
+    // lng,
     mbcHostedYoutube,
     moreCams,
     postalCode,
-    state,
-    subarea,
+    // state,
+    // subarea,
     title,
     titleSlug,
     topCam,
@@ -48,7 +48,9 @@ export default function AdminWebcamPage(cams: any) {
         <p>
           <strong>webcamUrl:</strong>&nbsp;
           <Link href={webcamUrl}>
-            <a target="_blank">{webcamUrl}</a>
+            <a target="_blank" rel="noopener noreferrer">
+              {webcamUrl}
+            </a>
           </Link>
         </p>
         <p>
@@ -64,20 +66,6 @@ export default function AdminWebcamPage(cams: any) {
           <strong>MBC Hosted YouTube:</strong> {mbcHostedYoutube ? 'Yes' : 'No'}
         </p>
         <p>
-          <strong>Description:</strong> {description}
-        </p>
-        <p>
-          <strong>Country:</strong> {country} &nbsp;
-          <strong>State:</strong> {state} &nbsp;
-          <strong>Area:</strong> {area}
-          <strong>Subarea:</strong> {subarea}
-        </p>
-        <p>
-          <strong>Latitude:</strong> {lat}
-          &nbsp; &nbsp;
-          <strong>Longitude:</strong> {lng}
-        </p>
-        <p>
           <strong>Postal Code:</strong> {postalCode}
           &nbsp; &nbsp;
           <strong>More Cams:</strong> {moreCams}
@@ -86,7 +74,7 @@ export default function AdminWebcamPage(cams: any) {
           <strong>Title Slug:</strong> {titleSlug}
         </p>
         <p>
-          <strong>YouTube ID</strong> {youtubeId}
+          <strong>YouTube ID:</strong> {youtubeId}
         </p>
       </div>
     </div>
