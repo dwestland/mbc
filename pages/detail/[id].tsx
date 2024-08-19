@@ -117,12 +117,12 @@ const Details = ({
           <div className="image">
             {mbcHostedYoutube ? (
               <Link href={webcamUrl}>
-                <a>
+                <a target="_blank" rel="noopener">
                   <Image src={imageUrl} width={400} height={300} alt={title} />
                 </a>
               </Link>
             ) : (
-              <a href={webcamUrl} target="_blank" rel="noreferrer">
+              <a href={webcamUrl} target="_blank" rel="noopener noreferrer">
                 <Image src={imageUrl} width={400} height={300} alt={title} />
               </a>
             )}
@@ -173,6 +173,22 @@ const Details = ({
                 <strong>Title Slug:</strong> {titleSlug}
               </div>
             </div>
+            <div>
+              <p>
+                <strong>webcamUrl:</strong>&nbsp;
+                {mbcHostedYoutube ? (
+                  <Link href={webcamUrl}>
+                    <a target="_blank" rel="noopener">
+                      {webcamUrl}
+                    </a>
+                  </Link>
+                ) : (
+                  <a href={webcamUrl} target="_blank" rel="noopener noreferrer">
+                    {webcamUrl}
+                  </a>
+                )}
+              </p>
+            </div>
             <div className={styles.description}>
               <div>
                 <strong>Long Description:</strong> {longDescription}
@@ -184,13 +200,15 @@ const Details = ({
         <div className={styles.camInfo}>
           {mbcHostedYoutube ? (
             <Link href={webcamUrl}>
-              <a className="btn link-as-button">Go to Cam</a>
+              <a className="btn link-as-button" target="_blank" rel="noopener">
+                Go to Cam
+              </a>
             </Link>
           ) : (
             <a
               href={webcamUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="btn link-as-button"
             >
               Go to Cam
@@ -199,43 +217,44 @@ const Details = ({
           <h3>
             <strong>Title:</strong> {title}
           </h3>
-          <p>
-            <strong>webcamUrl:</strong>&nbsp;
-            {mbcHostedYoutube ? (
-              <Link href={webcamUrl}>
-                <a>{webcamUrl}</a>
-              </Link>
-            ) : (
-              <a href={webcamUrl} target="_blank" rel="noreferrer">
-                {webcamUrl}
-              </a>
-            )}
-          </p>
-          <p>
+          {/* <p>
             <strong>Image Name:</strong> {imageName}
-          </p>
+          </p> */}
           <p>
             <strong>Description:</strong> {description}
           </p>
           <p>
-            <strong>Country:</strong> {country}
+            <strong>Country: </strong>
+            {country}&nbsp;&nbsp;&nbsp;
+            {state && (
+              <>
+                <strong>State / Main Area: </strong>
+                {state};<br />
+              </>
+            )}
+            {area && (
+              <>
+                <strong>Area: </strong>
+                {area} &nbsp;&nbsp;&nbsp;
+              </>
+            )}
+            {subarea && (
+              <>
+                <strong>Sub-area: </strong>
+                {subarea}&nbsp;&nbsp;&nbsp;
+                <br />
+              </>
+            )}
+            <strong>Latitude: </strong>
+            {lat}&nbsp;&nbsp;&nbsp;
+            <strong>Longitude: </strong>
+            {lng}
           </p>
-          <p>
-            <strong>State:</strong> {state}
-          </p>
-          <p>
-            <strong>Area:</strong> {area}
-          </p>
-          <p>
-            <strong>Subarea:</strong> {subarea}
-          </p>
-          <p>
-            <strong>Latitude:</strong> {lat}
-          </p>
-          <p>
-            <strong>Longitude:</strong> {lng}
-          </p>
-          <button className="btn" type="button" onClick={handleFlag}>
+          <button
+            className="btn ghostButton"
+            type="button"
+            onClick={handleFlag}
+          >
             Flag this Cam
           </button>
         </div>
