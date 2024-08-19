@@ -87,23 +87,31 @@ const CaliforniaPage = ({ californiaCams }) => {
         <div className="index-page-subheading">
           <h2>
             <span className="no-break">
-              <a href="/california/san-diego/">San Diego</a>
+              <Link href="/california/san-diego">
+                <a>San Diego</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/california/los-angeles">Los Angeles</Link>
+              <Link href="/california/los-angeles">
+                <a>Los Angeles</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/california/central-coast">Cental Coast</Link>
+              <Link href="/california/central-coast">
+                <a>Cental Coast</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
               {' '}
-              <Link href="/california/san-francisco">San Francisco</Link>
+              <Link href="/california/san-francisco">
+                <a>San Francisco</a>
+              </Link>
             </span>
           </h2>
         </div>
@@ -137,16 +145,20 @@ const CaliforniaPage = ({ californiaCams }) => {
         </ShowMoreText>
         <AdLeaderboard />
         <h2>
-          <a href="/california/san-diego/">San Diego</a>
+          <Link href="/california/san-diego">
+            <a>San Diego</a>
+          </Link>
         </h2>
         <p>
           San Diego, known for its year-round sunshine and balmy temperatures,
           is a great place for some fun-in-the-sun. Click on{' '}
-          <a href="/california/san-diego/">San Diego Beach Cams</a> and check
-          out these live, streaming video web cams of the Del Mar, La Jolla/
-          Torrey Pines, San Diego Bay and Marina, Ocean Beach and Imperial Beach
-          areas. You'll then see why San Diego is one of the most popular
-          vacation spots in the U.S.A.
+          <Link href="/california/san-diego/">
+            <a>San Diego Beach Cams</a>
+          </Link>{' '}
+          and check out these live, streaming video web cams of the Del Mar, La
+          Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach and
+          Imperial Beach areas. You'll then see why San Diego is one of the most
+          popular vacation spots in the U.S.A.
         </p>
         <div className="cam-container">
           {sanDiegoCams()}
@@ -166,15 +178,26 @@ const CaliforniaPage = ({ californiaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/california/los-angeles">Los Angeles Beach Cams</Link>
+          <Link href="/california/los-angeles">
+            <a>Los Angeles Beach Cams</a>
+          </Link>
         </h2>
         <p>
           Los Angeles is home to many of the mainland's top beaches. Click on{' '}
-          <a href="/california/los-angeles/">Los Angeles Beach Cams</a> to find
-          streaming video webcams of such LA hot spots as Venice Beach, Santa
-          Monica Pier, Hermosa Beach, Newport Beach, Laguna and even Catalina
-          Island. Check out the great weather and see what's happening in the LA
-          scene.
+          <Link href="/california/los-angeles/">
+            <a>Los Angeles Beach Cams</a>
+          </Link>{' '}
+          to find streaming video webcams of such LA hot spots as Venice Beach,
+          Santa Monica Pier, Hermosa Beach, Newport Beach, Laguna and even
+          Catalina Island. Check out the great weather and see what's happening
+          in the LA scene.{' '}
+          <Link href="/california/los-angeles/">
+            <a>Los Angeles Beach Cams</a>
+          </Link>{' '}
+          to find streaming video webcams of such LA hot spots as Venice Beach,
+          Santa Monica Pier, Hermosa Beach, Newport Beach, Laguna and even
+          Catalina Island. Check out the great weather and see what's happening
+          in the LA scene.
         </p>
         <div className="cam-container">
           {losAngelesCams()}
@@ -194,14 +217,18 @@ const CaliforniaPage = ({ californiaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/california/central-coast">Cental Coast Beach Cams</Link>
+          <Link href="/california/central-coast">
+            <a>Cental Coast Beach Cams</a>
+          </Link>
         </h2>
         <p>
           Along the west coast between Los Angeles and San Francisco is a series
           of terrific resort towns. Many of them are weekend getaways for
           Angelinos. Click on{' '}
-          <a href="/california/central-coast/">Central Coast Beach Cams</a> to
-          see live, streaming video of these areas. It starts at Ventura and
+          <Link href="/california/central-coast/">
+            <a>Central Coast Beach Cams</a>
+          </Link>{' '}
+          to see live, streaming video of these areas. It starts at Ventura and
           Santa Barbara, and then goes up the coast to Baywood and San Simeon,
           and finally to Big Sur, Pebble Beach and Monterey. These webcams will
           probably make you want to get in the car and drive up the coast along
@@ -226,7 +253,7 @@ const CaliforniaPage = ({ californiaCams }) => {
         <AdLeaderboard />
         <h2>
           <Link href="/california/san-francisco">
-            San Francisco &amp; Beach Northern California Cams
+            <a>San Francisco & Beach Northern California Cams</a>
           </Link>
         </h2>
         <p>
@@ -234,8 +261,10 @@ const CaliforniaPage = ({ californiaCams }) => {
           seductive city is full of culture, magnificent sights and outstanding
           food. Its famous sights include the Golden Gate Bridge, cable cars and
           steep rolling hills overlooking the bay and ocean. See the web cams at{' '}
-          <a href="/california/san-francisco/">San Francisco Beach Cams</a> to
-          view streaming live pictures of this incredible area, including San
+          <Link href="/california/san-francisco/">
+            <a>San Francisco Beach Cams</a>
+          </Link>{' '}
+          to view streaming live pictures of this incredible area, including San
           Francisco Bay, The Golden Gate Bridge and Alcatraz Island.
         </p>
         <div className="cam-container">

@@ -342,7 +342,11 @@ const CentralCoastPage = ({
             <h3>Central Coast Links and Local Information</h3>
             <ul>
               <li>
-                <a href="http://www.sbmm.org/" target="_blank" rel="noreferrer">
+                <a
+                  href="http://www.sbmm.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Santa Barbara Maritime Museum
                 </a>{' '}
                 Navigate to a Voyage of Discovery
@@ -350,7 +354,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.santabarbaraca.gov/Government/Departments/Parks_and_Recreation/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Santa Barbara City Parks and Recreation
@@ -360,7 +364,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.newspress.com/Top/index.jsp"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Santa Barbara News Press
@@ -370,7 +374,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.sbnature.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Santa Barbara Museum of Natural History
@@ -381,7 +385,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="https://www.nps.gov/chis/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Cannel Islands National Park
@@ -392,7 +396,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://slocountyparks.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Luis Obispo County Parks
@@ -400,7 +404,11 @@ const CentralCoastPage = ({
                 Hike, camp, swim, fish, and golf
               </li>
               <li>
-                <a href="http://visitslo.com/" rel="noreferrer" target="_blank">
+                <a
+                  href="http://visitslo.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   Visitor San Luis Obispo Info
                 </a>{' '}
                 A service of the San Luis Obispo Chamber of Commerce
@@ -408,7 +416,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.topix.net/city/san-luis-obispo-ca"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Luis Obispo News
@@ -418,7 +426,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="https://www.amtrak.com/home"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Amtrak
@@ -428,7 +436,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.hearstcastle.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hearst Castle
@@ -439,7 +447,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.morro-bay.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Morro Bay Guide
@@ -449,7 +457,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://www.morro-bay.net/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Morro Bay
@@ -459,7 +467,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="https://www.parks.ca.gov/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   California State Parks
@@ -469,7 +477,7 @@ const CentralCoastPage = ({
               <li>
                 <a
                   href="http://mchsmuseum.com/salinas/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Monterey History Website

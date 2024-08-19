@@ -367,19 +367,8 @@ const SanFranciscoPage = ({
             <ul>
               <li>
                 <a
-                  href="http://www.westland.net/california/san_francisco_hotels/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Top 10 San Francisco Hotels
-                </a>{' '}
-                Reviews of the best hotels in San Francisco and local travel
-                information
-              </li>
-              <li>
-                <a
                   href="http://www.sfzoo.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Francisco Zoo
@@ -390,7 +379,7 @@ const SanFranciscoPage = ({
               <li>
                 <a
                   href="https://www.nps.gov/alca/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Alcatraz Official Web Page
@@ -402,7 +391,7 @@ const SanFranciscoPage = ({
               <li>
                 <a
                   href="http://www.cablecarmuseum.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Cable Car Museum
@@ -413,7 +402,7 @@ const SanFranciscoPage = ({
               <li>
                 <a
                   href="https://www.nps.gov/goga/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Golden Gate National Recreation Area
@@ -422,19 +411,8 @@ const SanFranciscoPage = ({
               </li>
               <li>
                 <a
-                  href="http://www.sanjose.com/the-cannery-at-del-monte-square-b3055"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  The Cannery
-                </a>{' '}
-                Once the largest peach cannery in the world. Today, it's a
-                vibrant waterfront marketplace
-              </li>
-              <li>
-                <a
                   href="http://www.sfopera.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Francisco Opera
@@ -445,7 +423,7 @@ const SanFranciscoPage = ({
               <li>
                 <a
                   href="http://www.sfgate.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Francisco Chronicle

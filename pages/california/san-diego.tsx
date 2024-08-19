@@ -299,7 +299,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://www.sandiego.org/plan/visitors-information-services.aspx"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego Convention &amp; Visitors Bureau
@@ -309,7 +309,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="http://zoo.sandiegozoo.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego Zoo
@@ -319,7 +319,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://www.seaworld.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   SeaWorld Adventure Park
@@ -330,7 +330,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="http://www.golfsd.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego Golf Pages
@@ -340,7 +340,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://www.balboapark.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Balboa Park
@@ -349,8 +349,8 @@ const SanDiegoPage = ({
               </li>
               <li>
                 <a
-                  href="https://www.artwalksandiego.org/missionfederal/"
-                  rel="noreferrer"
+                  href="https://www.artwalksandiego.org/"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego Art Walk
@@ -360,7 +360,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://aquarium.ucsd.edu/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Brich Aquarium
@@ -371,7 +371,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://www.nps.gov/cabr/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Carbrillo National Monument
@@ -381,7 +381,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="https://www.sandiego.gov/lifeguards/beaches/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego Beaches
@@ -391,7 +391,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="http://sandiegohistory.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   San Diego History
@@ -401,7 +401,7 @@ const SanDiegoPage = ({
               <li>
                 <a
                   href="http://www.gaslamp.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Gas Lamp Quarter

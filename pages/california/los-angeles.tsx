@@ -137,24 +137,9 @@ const LosAngelesPage = ({
           <p>
             This website has over 30 webcams in Los Angeles area. For the best
             beach destinations in Los Angeles, there is Santa Monica and to the
-            south there is funky{' '}
-            <a
-              href="http://www.westlandtraveler.com/ca/venice/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Venice Beach
-            </a>
-            . Santa Monica is well known for its temperate climate and the
-            world-famous{' '}
-            <a
-              href="http://www.westlandtraveler.com/ca/santa_monica/santa_monica_pier/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Santa Monica Pier
-            </a>
-            . If you are planning a visit, there are many luxury hotels in Santa
+            south there is funky Venice Beach . Santa Monica is well known for
+            its temperate climate and the world-famous Santa Monica Pier . If
+            you are planning a visit, there are many luxury hotels in Santa
             Monica to choose from. If you want to get the down-to-earth
             experience, you should check out the Hotels in Venice. Though both
             of these locations are next to each other, in many ways they are
@@ -379,19 +364,8 @@ const LosAngelesPage = ({
             <ul>
               <li>
                 <a
-                  href="http://www.westland.net/california/los_angeles_hotels/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Top 10 Los Angeles Hotels
-                </a>{' '}
-                Reviews of the best hotels in Los Angeles and local travel
-                information
-              </li>
-              <li>
-                <a
                   href="https://www.golflink.com/golf-courses/city.aspx?dest=los+angeles+ca"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Golf Courses
@@ -401,7 +375,7 @@ const LosAngelesPage = ({
               <li>
                 <a
                   href="http://www.latimes.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Los Angeles Times
@@ -411,7 +385,7 @@ const LosAngelesPage = ({
               <li>
                 <a
                   href="http://www.laalmanac.com/history/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Los Angeles History
@@ -422,7 +396,7 @@ const LosAngelesPage = ({
               <li>
                 <a
                   href="http://www.lazoo.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Los Angeles Zoo
@@ -431,18 +405,8 @@ const LosAngelesPage = ({
               </li>
               <li>
                 <a
-                  href="http://www.westland.net/venice/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Visit Venice
-                </a>{' '}
-                The comprehensive guide to Venice, California
-              </li>
-              <li>
-                <a
                   href="https://www.lacity.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   City of Los Angeles
@@ -452,7 +416,7 @@ const LosAngelesPage = ({
               <li>
                 <a
                   href="https://hollywoodsign.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hollywood Sign
@@ -463,7 +427,7 @@ const LosAngelesPage = ({
               <li>
                 <a
                   href="http://www.seeing-stars.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Seeing Stars
