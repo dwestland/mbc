@@ -236,93 +236,83 @@ const OahuPage = ({
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/oahu"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Oahu Visitors Bureau
                 </a>{' '}
-                The official website of the Island of Oahu
+                - The official website of the Island of Oahu
               </li>
               <li>
                 <a
                   href="https://www.gohawaii.com/oahu/plan-a-trip"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Official Tourism Oahu Site
                 </a>{' '}
-                Comprehensive website for planning your Oahu vacation
+                - Comprehensive website for planning your Oahu vacation
               </li>
               <li>
                 <a
                   href="https://hawaiistateparks.org/parks/oahu/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   State Parks of Oahu
                 </a>{' '}
-                Descriptions of the different State Parks of Oahu
+                - Descriptions of the different State Parks of Oahu
               </li>
               <li>
                 <a
                   href="https://portal.ehawaii.gov/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   eHawaii.gov
                 </a>{' '}
-                Connecting You to Hawaii State Government
+                - Connecting You to Hawaii State Government
               </li>
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/oahu/things-to-do/land-activities/Golf"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Oahu Golf
                 </a>{' '}
-                Lots of information on local golf courses
+                - Lots of information on local golf courses
               </li>
               <li>
                 <a
                   href="http://www.rcarchive.com/hhg/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Oahu Hiking Gallery
                 </a>{' '}
-                A collection of pictures and write ups from various hikes in
+                - A collection of pictures and write ups from various hikes in
                 Oahu
               </li>
               <li>
                 <a
-                  href="http://www.mayacreations.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Maya Creations
-                </a>{' '}
-                Hand made religious jewelry from Hawaii
-              </li>
-              <li>
-                <a
                   href="http://www.polynesia.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii's Polynesian Cultural Center
                 </a>{' '}
-                Hawaii's Polynesian Cultural Center
+                - Hawaii's Polynesian Cultural Center
               </li>
               <li>
                 <a
                   href="http://www.honolulumarathon.org/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   The Honolulu Marathon
                 </a>{' '}
-                If you like running marathons, check out this site
+                - If you like running marathons, check out this site
               </li>
             </ul>
           </div>

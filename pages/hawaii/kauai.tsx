@@ -95,7 +95,7 @@ const KauaiPage = ({
       </>
     )
   }
-  console.log('%c cams ', 'background: red; color: white', cams)
+
   // Create vectors for map
   const vectors = []
   cams.cams.map((cam: types.Cams) => {
@@ -229,8 +229,8 @@ const KauaiPage = ({
               <li>Hanalei Valley and its famous "South Pacific" pier</li>
               <li>Golfing in Princeville and Kiele</li>
               <li>Fern Grotto and the Wailua River</li>
-              <li>Mt. Wai&#x27;ale&#x27;ale (the wettest place on earth)</li>
-              <li>Hanama&#x27;ulu Ditch (2-mile water ride)</li>
+              <li>Mt. Wai'ale'ale (the wettest place on earth)</li>
+              <li>Hanama'ulu Ditch (2-mile water ride)</li>
               <li>
                 Helicopter flight above the island to get a breathtaking view
               </li>
@@ -242,92 +242,82 @@ const KauaiPage = ({
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/kauai"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Official Tourism Kauai Site
-                </a>
-                &nbsp; Comprehensive website for planning your Kauai vacation
+                </a>{' '}
+                - Comprehensive website for planning your Kauai vacation
               </li>
               <li>
                 <a
                   href="http://thegardenisland.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Kauai News
-                </a>
-                &nbsp; Local Island news
+                </a>{' '}
+                - Local Island news
               </li>
               <li>
                 <a
                   href="http://www.kauai-hawaii.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Official County Tourism Site
-                </a>
-                &nbsp; Tourism Site of the County of Kauai
+                </a>{' '}
+                - Tourism Site of the County of Kauai
               </li>
               <li>
                 <a
                   href="http://www.kauai.com/hikes"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Kauai Hiking
-                </a>
-                &nbsp; Information on hiking in Kauai
+                </a>{' '}
+                - Information on hiking in Kauai
               </li>
               <li>
                 <a
                   href="http://www.hawaiistateparks.org/parks/kauai/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   State Parks of Kauai
-                </a>
-                &nbsp; Descriptions of the different State Parks of Kauai
+                </a>{' '}
+                - Descriptions of the different State Parks of Kauai
               </li>
               <li>
                 <a
                   href="https://portal.ehawaii.gov/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   eHawaii.gov
-                </a>
-                &nbsp; Connecting You to Hawaii State Government
+                </a>{' '}
+                - Connecting You to Hawaii State Government
               </li>
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/kauai/things-to-do/land-activities/Golf"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii Golf Network
-                </a>
-                &nbsp; Lots of information on local golf courses
+                </a>{' '}
+                - Lots of information on local golf courses
               </li>
               <li>
                 <a
                   href="http://www.polynesia.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii&#x27;s Polynesian Cultural Center
-                </a>
-                &nbsp; Hawaii&#x27;s Polynesian Cultural Center
-              </li>
-              <li>
-                <a
-                  href="http://www.mayacreations.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Maya Creations
-                </a>
-                &nbsp; Hand made religious jewelry from Hawaii
+                </a>{' '}
+                - Hawaii&#x27;s Polynesian Cultural Center
               </li>
             </ul>
           </div>

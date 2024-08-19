@@ -245,102 +245,92 @@ const MauiPage = ({
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/maui"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Official Tourism Maui Site
                 </a>{' '}
-                Comprehensive website for planning your Maui vacation
+                - Comprehensive website for planning your Maui vacation
               </li>
               <li>
                 <a
                   href="http://www.mauinews.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   The Maui News
                 </a>{' '}
-                Maui's newspaper since 1900
+                - Maui's newspaper since 1900
               </li>
               <li>
                 <a
                   href="https://hawaiistateparks.org/parks/maui/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   State Parks of Maui
                 </a>{' '}
-                Descriptions of the different State Parks of Maui
-              </li>
-              <li>
-                <a
-                  href="http://www.mayacreations.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Maya Creations
-                </a>{' '}
-                Hand made religious jewelry from Hawaii
+                - Descriptions of the different State Parks of Maui
               </li>
               <li>
                 <a
                   href="http://www.mauimarathon.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Maui Marathon
                 </a>{' '}
-                Run a marathon next time you come to Maui
+                - Run a marathon next time you come to Maui
               </li>
               <li>
                 <a
                   href="http://www.polynesia.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii's Polynesian Cultural Center
                 </a>{' '}
-                Hawaii's Polynesian Cultural Center
+                - Hawaii's Polynesian Cultural Center
               </li>
               <li>
                 <a
                   href="http://mauimapp.com/information/hiking.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Maui Hiking Trails
                 </a>{' '}
-                Maps of hikes all over Maui
+                - Maps of hikes all over Maui
               </li>
               <li>
                 <a
                   href="https://portal.ehawaii.gov/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   eHawaii.gov
                 </a>{' '}
-                Connecting You to Hawaii State Government
+                - Connecting You to Hawaii State Government
               </li>
               <li>
                 <a
                   href="http://www.mauifilmfestival.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Maui Film Festival{' '}
                 </a>{' '}
-                Hawaii's Premiere Film Festival
+                - Hawaii's Premiere Film Festival
               </li>
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/maui/things-to-do/land-activities/Golf"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Maui Golf
                 </a>{' '}
-                Where to golf at Maui
+                - Where to golf at Maui
               </li>
             </ul>
           </div>

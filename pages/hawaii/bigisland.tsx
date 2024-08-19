@@ -243,73 +243,63 @@ const BigIslandPage = ({
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/hawaii-big-island"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Official Tourism Hawaii Big Island Site
                 </a>{' '}
-                Comprehensive website for planning your Big Island vacation
+                - Comprehensive website for planning your Big Island vacation
               </li>
               <li>
                 <a
                   href="https://hawaiistateparks.org/parks/hawaii/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   State Parks of the Big Island
                 </a>{' '}
-                Descriptions of the different State Parks of Big Island
+                - Descriptions of the different State Parks of Big Island
               </li>
               <li>
                 <a
                   href="https://portal.ehawaii.gov/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   eHawaii.gov
                 </a>{' '}
-                Connecting You to Hawaii State Government
+                - Connecting You to Hawaii State Government
               </li>
               <li>
                 <a
                   href="https://www.gohawaii.com/islands/hawaii-big-island/things-to-do/land-activities/golf"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii Golf Network
                 </a>{' '}
-                Lots of information on local golf courses
-              </li>
-              <li>
-                <a
-                  href="http://www.mayacreations.com/"
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  Maya Creations
-                </a>{' '}
-                Hand made religious jewelry from Hawaii
+                - Lots of information on local golf courses
               </li>
               <li>
                 <a
                   href="http://www.polynesia.com/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii's Polynesian Cultural Center
                 </a>{' '}
-                Hawaii's Polynesian Cultural Center
+                - Hawaii's Polynesian Cultural Center
               </li>
               <li>
                 <a
                   href="https://www.nps.gov/havo/index.htm"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   Hawaii Volcanoes National Park
                 </a>{' '}
-                70 million years in the making, explore the volcanoes of the Big
-                Island
+                - 70 million years in the making, explore the volcanoes of the
+                Big Island
               </li>
             </ul>
           </div>
