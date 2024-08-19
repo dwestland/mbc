@@ -224,7 +224,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.visitflorida.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Visit Florida
                 </a>{' '}
@@ -234,7 +234,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.floridastateparks.org"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Florida State Parks
                 </a>{' '}
@@ -245,7 +245,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.usgulfcoasttravelguide.com/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Gulf Coast Travel Guide
                 </a>{' '}
@@ -256,7 +256,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.clearwaterbeach.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Clearwater Beach Official Site
                 </a>{' '}
@@ -267,7 +267,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.paradisecoast.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Naples, Marco Island & Everglades CVB
                 </a>{' '}
@@ -278,7 +278,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.visitstpeteclearwater.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   St. Petersburg/Clearwater Area Convention & Visitors Bureau
                 </a>{' '}
@@ -289,7 +289,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://www.visitsarasota.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Sarasota County Official Website
                 </a>{' '}
@@ -300,7 +300,7 @@ const GulfCoastPage = ({
                 <a
                   href="https://weather.com/weather/today/l/27.9604,-82.5394"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Weather.com
                 </a>{' '}

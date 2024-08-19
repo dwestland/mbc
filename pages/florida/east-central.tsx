@@ -237,7 +237,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.visitflorida.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   VisitFlorida.com
                 </a>{' '}
@@ -248,7 +248,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.daytonabeach.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   DaytonaBeach.com
                 </a>{' '}
@@ -259,7 +259,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.spacecoastlaunches.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   SpaceCoastLaunches.com
                 </a>{' '}
@@ -270,7 +270,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.cocoabeach.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   CocoaBeach.com
                 </a>{' '}
@@ -281,7 +281,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.floridastateparks.org"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   FloridaStateParks.org
                 </a>{' '}
@@ -292,7 +292,7 @@ const EastCentralPage = ({
                 <a
                   href="https://www.visitorlando.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   VisitOrlando.com
                 </a>{' '}
@@ -303,7 +303,7 @@ const EastCentralPage = ({
                 <a
                   href="https://weather.com/weather/today/l/28.5383,-81.3792"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Check the Weather
                 </a>{' '}

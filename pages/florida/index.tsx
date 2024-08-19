@@ -104,22 +104,30 @@ const FloridaPage = ({ floridaCams }) => {
         <div className="index-page-subheading">
           <h2>
             <span className="no-break">
-              <Link href="/florida/miami/">Miami</Link>
+              <Link href="/florida/miami/">
+                <a>Miami</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/florida/gulf-coast">Gulf Coast</Link>
+              <Link href="/florida/gulf-coast/">
+                <a>Gulf Coast</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/florida/east-central">East Central</Link>
+              <Link href="/florida/east-central/">
+                <a>East Central</a>
+              </Link>
             </span>
             &nbsp;
             <span className="subheading-emoji"> 🌴 </span>&nbsp;
             <span className="no-break">
-              <Link href="/florida/florida-keys/">Florida Keys</Link>
+              <Link href="/florida/florida-keys/">
+                <a>Florida Keys</a>
+              </Link>
             </span>
           </h2>
         </div>
@@ -181,7 +189,9 @@ const FloridaPage = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/florida-keys/">Florida Keys Cams</Link>
+          <Link href="/florida/florida-keys/">
+            <a>Florida Keys Cams</a>
+          </Link>
         </h2>
         <p>
           Immerse yourself in the Florida Keys via live webcams. Wander through
@@ -210,7 +220,9 @@ const FloridaPage = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/gulf-coast">Gulf Coast Beach Cams</Link>
+          <Link href="/florida/gulf-coast">
+            <a>Gulf Coast Beach Cams</a>
+          </Link>
         </h2>
         <p>
           Witness the Gulf Coast through live beach cams. Stroll along white
@@ -238,7 +250,9 @@ const FloridaPage = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/east-central">East Central Cams</Link>
+          <Link href="/florida/east-central">
+            <a>East Central Cams</a>
+          </Link>
         </h2>
         <p>
           East Central Florida is a great place to visit. Ocean and beaches,
@@ -264,7 +278,9 @@ const FloridaPage = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/panhandle">Panhandle Beach Cams</Link>
+          <Link href="/florida/panhandle">
+            <a>Panhandle Beach Cams</a>
+          </Link>
         </h2>
         <p>
           Come see the Florida Panhandle and everything it has to offer. The
@@ -293,7 +309,9 @@ const FloridaPage = ({ floridaCams }) => {
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/northeast/">Northeast Beach Cams</Link>
+          <Link href="/florida/northeast/">
+            <a>Northeast Beach Cams</a>
+          </Link>
         </h2>
         <p>
           Northeast Florida, the Sunshine State, has many attractions. Ocean and
@@ -305,7 +323,7 @@ const FloridaPage = ({ floridaCams }) => {
         <div className="cam-container">
           {northEastCams()}
           <div className="more-cams">
-            <Link href="/florida/oahu">
+            <Link href="/florida/northeast">
               <a>
                 <h2>
                   MORE

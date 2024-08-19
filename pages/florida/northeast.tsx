@@ -230,7 +230,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.visitstaugustine.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Visit St. Augustine
                 </a>{' '}
@@ -241,7 +241,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.ameliaisland.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Amelia Island Visitors Guide
                 </a>{' '}
@@ -252,7 +252,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.visitjacksonville.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Jacksonville Beach Tourism
                 </a>{' '}
@@ -263,7 +263,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.floridastateparks.org"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Florida State Parks
                 </a>{' '}
@@ -274,7 +274,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.historiccoastculture.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Historic Coast Culture
                 </a>{' '}
@@ -285,7 +285,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.visitflagler.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Flagler County Tourism
                 </a>{' '}
@@ -296,7 +296,7 @@ const NorthEastPage = ({
                 <a
                   href="https://www.floridascenichighways.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Florida's Scenic Highways
                 </a>{' '}
@@ -307,7 +307,7 @@ const NorthEastPage = ({
                 <a
                   href="https://weather.com/weather/today/l/30.3322,-81.6557"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Jacksonville Weather
                 </a>{' '}

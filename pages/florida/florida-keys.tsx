@@ -233,7 +233,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://www.fla-keys.com/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Florida Keys Official Tourism Site
                 </a>{' '}
@@ -244,7 +244,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://www.keywest.com/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Key West Travel Guide
                 </a>{' '}
@@ -254,7 +254,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://bahiahondapark.com/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Bahia Honda State Park
                 </a>{' '}
@@ -265,7 +265,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://www.nps.gov/drto/index.htm"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Dry Tortugas National Park
                 </a>{' '}
@@ -276,7 +276,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://www.weather.gov/key/marine"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Florida Keys NOAA Weather
                 </a>{' '}
@@ -286,7 +286,7 @@ const FloridaKeysPage = ({
                 <a
                   href="https://www.kwahs.org/"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Key West Historical Society
                 </a>{' '}

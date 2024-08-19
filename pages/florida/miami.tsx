@@ -230,7 +230,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.miamiandbeaches.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Greater Miami Convention & Visitors Bureau
                 </a>{' '}
@@ -240,7 +240,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.miamiherald.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Miami Herald
                 </a>{' '}
@@ -251,7 +251,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.tripadvisor.com/Tourism-g34438-Miami_Florida-Vacations.html"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   TripAdvisor Miami Travel Guide
                 </a>{' '}
@@ -262,7 +262,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.wynwoodmiami.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Wynwood Miami
                 </a>{' '}
@@ -274,7 +274,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.miami.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Miami.com
                 </a>{' '}
@@ -284,7 +284,7 @@ const MiamiPage = ({
                 <a
                   href="https://www.miami-airport.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Miami International Airport
                 </a>{' '}
@@ -295,7 +295,7 @@ const MiamiPage = ({
                 <a
                   href="https://weather.com/weather/today/l/25.77,-80.19"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Miami Weather - The Weather Channel
                 </a>{' '}

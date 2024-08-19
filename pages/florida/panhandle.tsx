@@ -252,7 +252,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.visitflorida.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     VisitFlorida.com
                   </a>{' '}
@@ -266,7 +266,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.floridastateparks.org"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     FloridaStateParks.org
                   </a>{' '}
@@ -280,7 +280,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.emeraldcoastfl.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     EmeraldCoastFL.com
                   </a>{' '}
@@ -294,7 +294,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.pensacolabeach.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     PensacolaBeach.com
                   </a>{' '}
@@ -308,7 +308,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.destinchamber.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     DestinChamber.com
                   </a>{' '}
@@ -323,7 +323,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.visitpanamacitybeach.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     PanamaCityBeach.com
                   </a>{' '}
@@ -337,7 +337,7 @@ const PanhandlePage = ({
                   <a
                     href="https://www.30a.com"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     30A.com
                   </a>{' '}
@@ -351,7 +351,7 @@ const PanhandlePage = ({
                   <a
                     href="https://weather.com/weather/today/l/30.3935,-86.4958"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     Weather.com
                   </a>{' '}
