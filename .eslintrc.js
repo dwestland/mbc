@@ -56,6 +56,7 @@ module.exports = {
     'no-plusplus': 'off',
     'prefer-destructuring': ['error', { object: true, array: false }],
     'react/no-danger': 'off',
+    'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
   },
   settings: {
     react: {
