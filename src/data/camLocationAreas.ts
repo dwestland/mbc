@@ -161,13 +161,35 @@ const data = {
           ],
         },
         {
-          state: 'NC',
-          areas: [],
+          state: 'North Carolina',
+          areas: [{ area: 'Outer Banks' }, { area: 'Wilmington' }],
+        },
+        {
+          state: 'South Carolina',
+          areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
+        },
+        {
+          state: 'Texas',
+          areas: [{ area: 'Galveston' }, { area: 'South Padre Island' }],
+        },
+        {
+          state: 'New York',
+          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
         },
       ],
     },
-    { country: 'MEX', states: [] },
-    { country: 'CAN', states: [] },
+    {
+      country: 'Mexico',
+      states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
+    },
+    {
+      country: 'Costa Rica',
+      states: [{ state: 'Tamarindo' }, { state: 'Jaco' }],
+    },
+    {
+      country: 'Jamacia',
+      states: [{ state: 'Montego Bay' }, { state: 'Negril' }],
+    },
   ],
 }
 
