@@ -229,7 +229,8 @@ const Details = ({
             {state && (
               <>
                 <strong>State / Main Area: </strong>
-                {state};<br />
+                {state}
+                <br />
               </>
             )}
             {area && (

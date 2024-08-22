@@ -482,7 +482,7 @@ const AddCam = () => {
             </div>
             <div className={styles.footer}>
               <button type="submit" className="btn">
-                Add Cam
+                Publish
               </button>
             </div>
           </form>
