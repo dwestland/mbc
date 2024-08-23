@@ -82,6 +82,7 @@ const CamsMap = ({ vectors }: Props) => {
                     color: '#000',
                     fontWeight: 'bold',
                     fontSize: '12px',
+                    width: '200px',
                   }}
                 >
                   {vector.name}
@@ -89,7 +90,7 @@ const CamsMap = ({ vectors }: Props) => {
                 <Image
                   src={process.env.AWS_IMAGE_SRC_ROOT + vector.imageName}
                   alt={vector.name}
-                  style={{ width: '100%', height: 'auto' }}
+                  style={{ width: '200px', height: 'auto' }}
                   width={260}
                   height={195}
                 />
