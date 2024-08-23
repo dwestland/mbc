@@ -38,11 +38,31 @@ const EastCentralPage = ({
   const country = 'USA'
   const state = 'Florida'
   const area = 'East Central'
+
   const countryObject = data.countries.filter((ele) => ele.country === country)
-  const stateObject = countryObject[0].states.filter(
+  if (countryObject.length === 0) {
+    // Handle the case where the country is not found
+    return null
+  }
+
+  const stateObject = countryObject[0].states.find(
     (ele) => ele.state === state
-  )
-  const areaObject = stateObject[0].areas.filter((ele) => ele.area === area)
+  ) || { state: '', areas: [] }
+
+  if (!stateObject.areas) {
+    stateObject.areas = []
+  }
+
+  if (!stateObject) {
+    // Handle the case where the state is not found
+    return null
+  }
+
+  const areaObject = stateObject.areas.filter((ele) => ele.area === area)
+  if (areaObject.length === 0) {
+    // Handle the case where the area is not found
+    return null
+  }
 
   const subareaObjects = areaObject[0].subareas
   const subareaArray = subareaObjects.map((ele) => ele.subarea)

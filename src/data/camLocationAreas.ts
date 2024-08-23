@@ -1,4 +1,27 @@
-const data = {
+interface Subarea {
+  subarea: string
+}
+
+interface Area {
+  area: string
+  subareas?: Subarea[]
+}
+
+interface State {
+  state: string
+  areas?: Area[]
+}
+
+interface Country {
+  country: string
+  states?: State[]
+}
+
+interface Data {
+  countries: Country[]
+}
+
+const data: Data = {
   countries: [
     {
       country: 'USA',
