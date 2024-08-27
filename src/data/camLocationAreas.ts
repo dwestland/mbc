@@ -185,7 +185,11 @@ const data: Data = {
         },
         {
           state: 'North Carolina',
-          areas: [{ area: 'Outer Banks' }, { area: 'Wilmington' }],
+          areas: [
+            { area: 'Outer Banks' },
+            { area: 'Wilmington' },
+            { area: 'Kitty Hawk' },
+          ],
         },
         {
           state: 'South Carolina',
@@ -211,7 +215,11 @@ const data: Data = {
     },
     {
       country: 'Jamacia',
-      states: [{ state: 'Montego Bay' }, { state: 'Negril' }],
+      states: [
+        { state: 'Kingston' },
+        { state: 'Montego Bay' },
+        { state: 'Negril' },
+      ],
     },
   ],
 }

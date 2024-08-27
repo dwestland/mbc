@@ -53,6 +53,17 @@ hr:after {
   font-size: 18px;
 }
 
+.green-dot {
+  background-color: rgb(52, 193, 104);
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 6px;
+  position: relative;
+  top: 9px;
+  width: 10px;
+}
+
 /* Webcam Pages
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .more-cams {

@@ -17,15 +17,11 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     // Raw SQL query to search multiple tables
     const cams: any = await prisma.$queryRaw(
-      Prisma.sql`select id, title, description, lat, lng, top_cam, mbc_hosted, country, state, area, subarea, webcam_url, image_name
+      Prisma.sql`select id, title, description, country, state, area, subarea, webcam_url, image_name
         from cams
         where to_tsvector(
           title || ' ' || 
           description || ' ' || 
-          lat || ' ' || 
-          lng || ' ' || 
-          top_cam || ' ' || 
-          mbc_hosted || ' ' || 
           country || ' ' || 
           state || ' ' || 
           area || ' ' || 
