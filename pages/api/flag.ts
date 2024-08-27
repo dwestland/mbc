@@ -30,7 +30,7 @@ export default async function init(req: NextApiRequest, res: NextApiResponse) {
   const data = {
     to: 'don@westland.net',
     from: 'admin@westland.net',
-    subject: `FLAG - ${title} from MyBeachCams.com`,
+    subject: `MyBeachCams FLAG - ${title}`,
     text: flagMessage,
   }
 
@@ -45,7 +45,7 @@ export default async function init(req: NextApiRequest, res: NextApiResponse) {
       },
     })
 
-    mail.send(data)
+    await mail.send(data)
 
     res.status(201).json({ message: 'Message sent, saved to DB' })
   } catch (err) {

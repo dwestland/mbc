@@ -16,7 +16,7 @@ export default async function init(req: NextApiRequest, res: NextApiResponse) {
   const data = {
     to: 'don@westland.net',
     from: 'admin@westland.net',
-    subject: `MESSAGE - MyBeachCams.com from ${name}`,
+    subject: `MyBeachCams MESSAGE from ${name}`,
     text: emailMessage,
   }
 
@@ -29,11 +29,15 @@ export default async function init(req: NextApiRequest, res: NextApiResponse) {
       },
     })
 
-    mail.send(data)
+    await mail.send(data)
 
     res.status(201).json({ message: 'Message sent, saved to DB' })
   } catch (err) {
-    res.status(500).json({ error: err })
+    console.error('Error:', err)
+
+    if (!res.headersSent) {
+      res.status(500).json({ error: 'Failed to send email or save message' })
+    }
   }
   return null
 }
