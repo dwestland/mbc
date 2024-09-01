@@ -1,53 +1,44 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import React from 'react'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+// import ShowMoreText from 'react-show-more-text'
+// import dynamic from 'next/dynamic'
+import Layout from '@/components/Layout'
 import CamCard from '@/components/CamCard'
-// import styles from '@/styles/CamsPage.module.scss'
-
-interface Cam {
-  area: string
-  country: string
-  description: string
-  hidden: boolean
-  id: number
-  imageName: string
-  lat: number
-  lng: number
-  longDescription: string
-  mbcHostedYoutube: boolean
-  moreCams: string
-  postalCode: string
-  state: string
-  subarea: string
-  title: string
-  titleSlug: string
-  topCam: boolean
-  youtubeId: string
-  webcamUrl: string
-}
-
-interface CamsPageProps {
-  cams: Cam[]
-}
+// import data from '@/data/camLocationAreas'
+// import AdLeaderboard from '@/components/AdLeaderboard'
+// import AdLarge from '@/components/AdLarge'
+// import { getSixDigitRandom } from '@/utils/common'
+// import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+// import Link from 'next/link'
+import * as types from '@/utils/types'
 
 const CamsPage = ({
   cams,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => (
-  <div>
-    <h1>Webcams from Around the World</h1>
-    <div>
-      {cams.map((cam) => (
-        <CamCard key={cam.id} cam={cam} />
-      ))}
-    </div>
-  </div>
-)
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  console.log('%c boom ', 'background: red; color: white')
+
+  return (
+    <Layout
+      documentTitle="Beach Cams of Maui, Hawaii - Webcams at Kaanapali, Lahaina, Wailea and Kapalua"
+      documentDescription="Best Beach Cams and Surf Cams on Maui, Hawaii with webcams at Kaanapali, Lahaina, Wailea and Kapalua."
+    >
+      <div className="layout">
+        <h1>Webcams from Around the World</h1>
+        <div className="cam-container">
+          {cams.map((cam) => (
+            <CamCard key={cam.id} cam={cam} />
+          ))}
+        </div>
+      </div>
+    </Layout>
+  )
+}
 
 export const getServerSideProps: GetServerSideProps<
-  CamsPageProps
+  types.CamsPageProps2
 > = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
-  const cams: Cam[] = await res.json()
-  console.log('%c cams ', 'background: red; color: white', cams)
+  const cams: types.Cams[] = await res.json()
 
   return {
     props: {
