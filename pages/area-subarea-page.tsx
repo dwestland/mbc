@@ -14,8 +14,21 @@ import * as types from '@/utils/types'
 
 const CamsPage = ({
   cams,
+  error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log('%c boom ', 'background: red; color: white')
+  if (error) {
+    return (
+      <Layout
+        documentTitle="Error - Beach Cams"
+        documentDescription="An error occurred while loading the beach cams."
+      >
+        <div className="layout">
+          <h1>Error Loading Webcams</h1>
+          <p>There was an error loading the webcams. Please try again later.</p>
+        </div>
+      </Layout>
+    )
+  }
 
   return (
     <Layout
@@ -37,13 +50,32 @@ const CamsPage = ({
 export const getServerSideProps: GetServerSideProps<
   types.CamsPageProps2
 > = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
-  const cams: types.Cams[] = await res.json()
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    const cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 

@@ -3,6 +3,11 @@ export interface CamPageProps {
   totalCams: number
 }
 
+export interface CamsPageProps2 {
+  cams: Cams[]
+  error?: string
+}
+
 export interface Cams {
   area: string
   country: string
