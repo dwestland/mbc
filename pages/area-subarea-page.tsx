@@ -1,34 +1,19 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-// import ShowMoreText from 'react-show-more-text'
-// import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import CamCard from '@/components/CamCard'
-// import data from '@/data/camLocationAreas'
-// import AdLeaderboard from '@/components/AdLeaderboard'
-// import AdLarge from '@/components/AdLarge'
-// import { getSixDigitRandom } from '@/utils/common'
-// import MoreHawaiiCams from '@/components/MoreHawaiiCams'
-// import Link from 'next/link'
 import * as types from '@/utils/types'
+import { renderError } from '@/utils/common'
 
 const CamsPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (error) {
-    return (
-      <Layout
-        documentTitle="Error - Beach Cams"
-        documentDescription="An error occurred while loading the beach cams."
-      >
-        <div className="layout">
-          <h1>Error Loading Webcams</h1>
-          <p>There was an error loading the webcams. Please try again later.</p>
-        </div>
-      </Layout>
-    )
+    return renderError()
   }
+
+  const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
 
   return (
     <Layout
@@ -37,11 +22,7 @@ const CamsPage = ({
     >
       <div className="layout">
         <h1>Webcams from Around the World</h1>
-        <div className="cam-container">
-          {cams.map((cam) => (
-            <CamCard key={cam.id} cam={cam} />
-          ))}
-        </div>
+        <div className="cam-container">{camSections}</div>
       </div>
     </Layout>
   )
@@ -57,11 +38,13 @@ export const getServerSideProps: GetServerSideProps<
       throw new Error(`Failed to fetch, status: ${res.status}`)
     }
 
-    const cams: types.Cams[] = await res.json()
+    let cams: types.Cams[] = await res.json()
 
     if (!Array.isArray(cams) || cams.length === 0) {
       throw new Error('Cams object is not valid or empty')
     }
+
+    cams = cams.filter((cam) => cam.area === 'Maui')
 
     return {
       props: {
