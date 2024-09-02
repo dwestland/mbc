@@ -10,10 +10,8 @@ import { GestureHandling } from 'leaflet-gesture-handling'
 import * as L from 'leaflet'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
 import Image from 'next/image'
-// import MarkerClusterGroup from 'react-leaflet-markercluster'
-// import 'react-leaflet-markercluster/dist/styles.min.css'
-
-// 33.9765, -118.4483
+import MarkerClusterGroup from 'react-leaflet-markercluster'
+import 'react-leaflet-markercluster/dist/styles.min.css'
 
 interface Props {
   vectors: {
@@ -62,6 +60,13 @@ const CamsMap = ({ vectors }: Props) => {
           />
         </LayersControl.BaseLayer>
 
+        <LayersControl.BaseLayer name="Nat Geo">
+          <TileLayer
+            attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
+          />
+        </LayersControl.BaseLayer>
+
         <LayersControl.BaseLayer name="Satellite">
           <TileLayer
             attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
@@ -71,34 +76,36 @@ const CamsMap = ({ vectors }: Props) => {
         </LayersControl.BaseLayer>
       </LayersControl>
       {/* <MarkerClusterGroup> */}
-      {vectors.map((vector) => (
-        <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
-          <Popup>
-            <div>
-              <a href={`/detail/${vector.id}`} target="_blank" rel="noopener">
-                <p
-                  style={{
-                    margin: '5px 0',
-                    color: '#000',
-                    fontWeight: 'bold',
-                    fontSize: '12px',
-                    width: '200px',
-                  }}
-                >
-                  {vector.name}
-                </p>
-                <Image
-                  src={process.env.AWS_IMAGE_SRC_ROOT + vector.imageName}
-                  alt={vector.name}
-                  style={{ width: '200px', height: 'auto' }}
-                  width={260}
-                  height={195}
-                />
-              </a>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup>
+        {vectors.map((vector) => (
+          <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
+            <Popup>
+              <div>
+                <a href={`/detail/${vector.id}`} target="_blank" rel="noopener">
+                  <p
+                    style={{
+                      margin: '5px 0',
+                      color: '#000',
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                      width: '200px',
+                    }}
+                  >
+                    {vector.name}
+                  </p>
+                  <Image
+                    src={process.env.AWS_IMAGE_SRC_ROOT + vector.imageName}
+                    alt={vector.name}
+                    style={{ width: '200px', height: 'auto' }}
+                    width={260}
+                    height={195}
+                  />
+                </a>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
       {/* </MarkerClusterGroup> */}
     </MapContainer>
   )

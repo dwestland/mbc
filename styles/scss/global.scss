@@ -470,3 +470,33 @@ form {
 .pagination span {
   line-height: 32px;
 }
+
+/* Leaflet map markers for cluster icons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.marker-cluster-small {
+  background-color: hsl(5, 100%, 80%) !important;
+}
+
+.marker-cluster-small div {
+  background-color: hsl(5, 100%, 60%) !important;
+  color: #fff !important;
+}
+
+.marker-cluster-medium {
+  background-color: hsl(205, 90%, 80%) !important;
+}
+
+.marker-cluster-medium div {
+  background-color: hsl(205, 90%, 50%) !important;
+  color: #fff !important;
+}
+
+.marker-cluster-large {
+  background-color: hsl(16, 90%, 70%) !important;
+}
+
+.marker-cluster-large div {
+  background-color: hsl(16, 90%, 40%) !important;
+  color: #fff !important;
+}
