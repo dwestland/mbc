@@ -1,12 +1,13 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 // import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import CamCard from '@/components/CamCard'
 import * as types from '@/utils/types'
 import { renderError } from '@/utils/common'
+import CamsPageMap from '@/components/CamsPageMap'
 
 const CamsPage = ({
   cams,
@@ -18,25 +19,25 @@ const CamsPage = ({
 
   const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
 
-  // Next modal SSR
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
+  // // Next modal SSR
+  // const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
+  //   ssr: false,
+  // })
 
-  const vectors: any = []
-  cams.map((cam: types.Cams) => {
-    if (cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id,
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
+  // const vectors: any = []
+  // cams.map((cam: types.Cams) => {
+  //   if (cam.lat !== null && cam.lng !== null) {
+  //     const vector = {
+  //       name: cam.title,
+  //       lat: cam.lat,
+  //       lng: cam.lng,
+  //       id: cam.id,
+  //       imageName: cam.imageName,
+  //     }
+  //     vectors.push(vector)
+  //   }
+  //   return null
+  // })
 
   return (
     <Layout
@@ -47,7 +48,8 @@ const CamsPage = ({
         <h1>Webcams from Around the World</h1>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            {/* <CamsMap vectors={vectors} /> */}
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
