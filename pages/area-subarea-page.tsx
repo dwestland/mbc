@@ -17,11 +17,35 @@ const CamsPage = ({
     return renderError()
   }
 
+  // const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
+
   const camSubareas =
     data.countries?.[0]?.states?.[0]?.areas?.[0]?.subareas || []
   console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
 
-  const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
+  const renderCamSubSections = camSubareas.map((subarea) => {
+    console.log(
+      '%c subarea.subarea ',
+      'background: blue; color: white',
+      subarea.subarea
+    )
+
+    return (
+      <div key={subarea.subarea}>
+        <h2>{subarea.subarea}</h2>
+        <div className="cam-container">
+          {/* {cams
+            .filter((cam) => cam.subarea === subarea.subarea)
+            .map((cam) => (
+              <CamCard key={cam.id} cam={cam} />
+            ))} */}
+          {cams.map((cam) => (
+            <CamCard key={cam.id} cam={cam} />
+          ))}
+        </div>
+      </div>
+    )
+  })
 
   return (
     <Layout
@@ -38,7 +62,8 @@ const CamsPage = ({
             <AdLarge />
           </div>
         </div>
-        <div className="cam-container">{camSections}</div>
+        {renderCamSubSections}
+        {/* <div className="cam-container">{camSections}</div> */}
       </div>
     </Layout>
   )
