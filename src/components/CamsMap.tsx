@@ -37,6 +37,8 @@ const CamsMap = ({ vectors }: Props) => {
     vector.lng,
   ])
 
+  const imageSrcRoot = process.env.AWS_IMAGE_SRC_ROOT || ''
+
   return (
     <MapContainer
       bounds={vectorArray}
@@ -94,7 +96,7 @@ const CamsMap = ({ vectors }: Props) => {
                     {vector.name}
                   </p>
                   <Image
-                    src={process.env.AWS_IMAGE_SRC_ROOT + vector.imageName}
+                    src={`${imageSrcRoot}${vector.imageName}`}
                     alt={vector.name}
                     style={{ width: '200px', height: 'auto' }}
                     width={260}

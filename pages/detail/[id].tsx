@@ -106,13 +106,10 @@ const Details = ({
     : '/images/no-image.jpg'
 
   return (
-    <Layout
-      documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
-    >
+    <Layout documentTitle={title} documentDescription={description}>
       <div className="layout">
         <AdLeaderboard />
-        <h1>Cam Details</h1>
+        <h1>{title} Details</h1>
         <div className="image-and-map">
           <div className="image">
             {mbcHostedYoutube ? (
