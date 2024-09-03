@@ -17,11 +17,52 @@ const CamsPage = ({
     return renderError()
   }
 
-  // const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
+  // CUSTOMIZE PAGE - with section type and target type
+  // Type options: country, state, & area
+  const camPageType = 'area'
+  const camPageTargetType = 'Oahu'
+
+  console.log(
+    '%c camPageType ',
+    'background: lightblue; color: blue',
+    camPageType
+  )
+  console.log(
+    '%c camPageTargetType ',
+    'background: lightblue; color: blue',
+    camPageTargetType
+  )
+
+  const findSubareas = (camDataStructure: Object, targetArea: string) => {
+    for (const country of camDataStructure.countries) {
+      for (const state of country.states) {
+        for (const area of state.areas) {
+          if (area.area === targetArea) {
+            return area.subareas
+          }
+        }
+      }
+    }
+    return null
+  }
+
+  const oahuSubareas = findSubareas(data, 'Oahu')
+
+  console.log(
+    '%c oahuSubareas ',
+    'background: orange; color: white',
+    oahuSubareas
+  )
+
+  const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
 
   const camSubareas =
     data.countries?.[0]?.states?.[0]?.areas?.[0]?.subareas || []
-  console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
+  // console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
+
+  // const camSubareas =
+  //   data.countries?.[0]?.states?.[0]?.areas?.[0]?.subareas || []
+  // console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
 
   const renderCamSubSections = camSubareas.map((subarea) => {
     console.log(
@@ -34,11 +75,6 @@ const CamsPage = ({
       <div key={subarea.subarea}>
         <h2>{subarea.subarea}</h2>
         <div className="cam-container">
-          {/* {cams
-            .filter((cam) => cam.subarea === subarea.subarea)
-            .map((cam) => (
-              <CamCard key={cam.id} cam={cam} />
-            ))} */}
           {cams.map((cam) => (
             <CamCard key={cam.id} cam={cam} />
           ))}
@@ -62,8 +98,8 @@ const CamsPage = ({
             <AdLarge />
           </div>
         </div>
+        <div className="cam-container">{camSections}</div>
         {renderCamSubSections}
-        {/* <div className="cam-container">{camSections}</div> */}
       </div>
     </Layout>
   )
