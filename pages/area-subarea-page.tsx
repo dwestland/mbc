@@ -17,24 +17,33 @@ const CamsPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE - with section type and target type
-  // Type options: country, state, & area
+  // CUSTOMIZE PAGE 1 of ? - with section type and target type
+  // camPageType options: country, state, area
+  // camPageTypes camPageTargetType
   const camPageType = 'area'
   const camPageTargetType = 'Oahu'
 
-  console.log(
-    '%c camPageType ',
-    'background: lightblue; color: blue',
-    camPageType
-  )
-  console.log(
-    '%c camPageTargetType ',
-    'background: lightblue; color: blue',
-    camPageTargetType
-  )
+  // const findSubareas = (
+  //   camDataStructure: { countries: any[] },
+  //   targetArea: string
+  // ) => {
+  //   const subareas: any[] = []
+  //   camDataStructure.countries.forEach((country) => {
+  //     country.states.forEach((state: any) => {
+  //       if (state.areas) {
+  //         state.areas.forEach((area: any) => {
+  //           if (area.area === targetArea) {
+  //             subareas.push(...area.subareas)
+  //           }
+  //         })
+  //       }
+  //     })
+  //   })
+  //   return subareas.length > 0 ? subareas : null
+  // }
 
-  const findSubareas = (camDataStructure: Object, targetArea: string) => {
-    for (const country of camDataStructure.countries) {
+  const findSubareas = (dataStructure: Object, targetArea: string) => {
+    for (const country of dataStructure.countries) {
       for (const state of country.states) {
         for (const area of state.areas) {
           if (area.area === targetArea) {
@@ -43,39 +52,24 @@ const CamsPage = ({
         }
       }
     }
-    return null
+    return null // return null if the area is not found
   }
 
-  const oahuSubareas = findSubareas(data, 'Oahu')
+  const pageSections = findSubareas(data, 'Oahu')
+  const pageSectionsArray = pageSections.map((area: Object) => area.subarea)
 
-  console.log(
-    '%c oahuSubareas ',
-    'background: orange; color: white',
-    oahuSubareas
-  )
+  // const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
 
-  const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
-
-  const camSubareas =
-    data.countries?.[0]?.states?.[0]?.areas?.[0]?.subareas || []
-  // console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
-
-  // const camSubareas =
-  //   data.countries?.[0]?.states?.[0]?.areas?.[0]?.subareas || []
-  // console.log('%c camSubareas ', 'background: red; color: white', camSubareas)
-
-  const renderCamSubSections = camSubareas.map((subarea) => {
-    console.log(
-      '%c subarea.subarea ',
-      'background: blue; color: white',
-      subarea.subarea
+  const renderCamSubSections = pageSections.map((subarea) => {
+    const filteredSections = cams.filter(
+      (cam) => cam.subarea === subarea.subarea
     )
 
     return (
       <div key={subarea.subarea}>
-        <h2>{subarea.subarea}</h2>
+        <h2>{subarea.subarea} Webcams</h2>
         <div className="cam-container">
-          {cams.map((cam) => (
+          {filteredSections.map((cam) => (
             <CamCard key={cam.id} cam={cam} />
           ))}
         </div>
@@ -89,7 +83,7 @@ const CamsPage = ({
       documentDescription="Best Beach Cams and Surf Cams on Maui, Hawaii with webcams at Kaanapali, Lahaina, Wailea and Kapalua."
     >
       <div className="layout">
-        <h1>area-subarea Page</h1>
+        <h1>area-subarea Webcams</h1>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -98,7 +92,7 @@ const CamsPage = ({
             <AdLarge />
           </div>
         </div>
-        <div className="cam-container">{camSections}</div>
+        {/* <div className="cam-container">{camSections}</div> */}
         {renderCamSubSections}
       </div>
     </Layout>
