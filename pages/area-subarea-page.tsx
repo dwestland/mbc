@@ -19,9 +19,10 @@ const CamsPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE 1 of ? - with section type and target type
+  // CUSTOMIZE PAGE 1 of 4 - Add camPageType and camPageTargetType
   // camPageType options: country, state, area
   const camPageType = 'area'
+  console.log('camPageType:', camPageType)
   const camPageTargetType = 'Oahu'
 
   const findSubareas = (
@@ -43,25 +44,12 @@ const CamsPage = ({
     return subareas.length > 0 ? subareas : null
   }
 
-  // const findSubareas = (dataStructure: Object, targetArea: string) => {
-  //   for (const country of dataStructure.countries) {
-  //     for (const state of country.states) {
-  //       for (const area of state.areas) {
-  //         if (area.area === targetArea) {
-  //           return area.subareas
-  //         }
-  //       }
-  //     }
-  //   }
-  //   return null // return null if the area is not found
-  // }
-
   const pageSections = findSubareas(data, camPageTargetType)
-  const pageSectionsArray = pageSections.map((area: Object) => area.subarea)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((area: { subarea: string }) => area.subarea)
+    : []
 
-  // const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
-
-  const renderCamSubSections = pageSections.map((subarea) => {
+  const renderCamSubSections = pageSections?.map((subarea) => {
     const filteredSections = cams.filter(
       (cam) => cam.subarea === subarea.subarea
     )
@@ -105,7 +93,6 @@ const CamsPage = ({
             <AdLarge />
           </div>
         </div>
-
         <ShowMoreText
           lines={2}
           more="show more"
@@ -113,13 +100,10 @@ const CamsPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
           <p>xxxx</p>
         </ShowMoreText>
-
-        {/* <div className="cam-container">{camSections}</div> */}
         {renderCamSubSections}
-
-        {/* <div className="panel"> */}
         <ShowMoreText
           lines={4}
           more="show more"
@@ -127,12 +111,11 @@ const CamsPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 3 of 4 - Add second text ~300 words, */}
+          {/* Things to Do and Links and Info */}
           <p>xxxx</p>
         </ShowMoreText>
-        {/* </div> */}
-
         <hr />
-
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
@@ -184,6 +167,7 @@ export const getServerSideProps: GetServerSideProps<
       throw new Error('Cams object is not valid or empty')
     }
 
+    // CUSTOMIZE PAGE 4 of 4 - Add camPageTargetType
     cams = cams.filter((cam) => cam.area === 'Oahu')
 
     return {
