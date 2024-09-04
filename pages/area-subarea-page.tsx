@@ -1,8 +1,10 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import Link from 'next/link'
 import Layout from '@/components/Layout'
-// import AdLeaderboard from '@/components/AdLeaderboard'
+import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
+import ShowMoreText from 'react-show-more-text'
 import CamCard from '@/components/CamCard'
 import * as types from '@/utils/types'
 import { renderError } from '@/utils/common'
@@ -19,43 +21,42 @@ const CamsPage = ({
 
   // CUSTOMIZE PAGE 1 of ? - with section type and target type
   // camPageType options: country, state, area
-  // camPageTypes camPageTargetType
   const camPageType = 'area'
   const camPageTargetType = 'Oahu'
 
-  // const findSubareas = (
-  //   camDataStructure: { countries: any[] },
-  //   targetArea: string
-  // ) => {
-  //   const subareas: any[] = []
-  //   camDataStructure.countries.forEach((country) => {
-  //     country.states.forEach((state: any) => {
-  //       if (state.areas) {
-  //         state.areas.forEach((area: any) => {
-  //           if (area.area === targetArea) {
-  //             subareas.push(...area.subareas)
-  //           }
-  //         })
-  //       }
-  //     })
-  //   })
-  //   return subareas.length > 0 ? subareas : null
-  // }
-
-  const findSubareas = (dataStructure: Object, targetArea: string) => {
-    for (const country of dataStructure.countries) {
-      for (const state of country.states) {
-        for (const area of state.areas) {
-          if (area.area === targetArea) {
-            return area.subareas
-          }
+  const findSubareas = (
+    camDataStructure: { countries: any[] },
+    targetArea: string
+  ) => {
+    const subareas: any[] = []
+    camDataStructure.countries.forEach((country) => {
+      country.states.forEach((state: any) => {
+        if (state.areas) {
+          state.areas.forEach((area: any) => {
+            if (area.area === targetArea) {
+              subareas.push(...area.subareas)
+            }
+          })
         }
-      }
-    }
-    return null // return null if the area is not found
+      })
+    })
+    return subareas.length > 0 ? subareas : null
   }
 
-  const pageSections = findSubareas(data, 'Oahu')
+  // const findSubareas = (dataStructure: Object, targetArea: string) => {
+  //   for (const country of dataStructure.countries) {
+  //     for (const state of country.states) {
+  //       for (const area of state.areas) {
+  //         if (area.area === targetArea) {
+  //           return area.subareas
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return null // return null if the area is not found
+  // }
+
+  const pageSections = findSubareas(data, camPageTargetType)
   const pageSectionsArray = pageSections.map((area: Object) => area.subarea)
 
   // const camSections = cams.map((cam) => <CamCard key={cam.id} cam={cam} />)
@@ -65,6 +66,10 @@ const CamsPage = ({
       (cam) => cam.subarea === subarea.subarea
     )
 
+    if (filteredSections.length === 0) {
+      return null
+    }
+
     return (
       <div key={subarea.subarea}>
         <h2>{subarea.subarea} Webcams</h2>
@@ -72,18 +77,26 @@ const CamsPage = ({
           {filteredSections.map((cam) => (
             <CamCard key={cam.id} cam={cam} />
           ))}
-        </div>
+        </div>{' '}
+        <AdLeaderboard />
       </div>
     )
   })
 
   return (
     <Layout
-      documentTitle="Beach Cams of Maui, Hawaii - Webcams at Kaanapali, Lahaina, Wailea and Kapalua"
-      documentDescription="Best Beach Cams and Surf Cams on Maui, Hawaii with webcams at Kaanapali, Lahaina, Wailea and Kapalua."
+      documentTitle="'MyBeachCams - Beach Webcams from around the World'"
+      documentDescription="Browse hundreds of beach webcams from all over the world, including Hawaii, California, Florida and other travel destinations."
     >
       <div className="layout">
-        <h1>area-subarea Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+              : '')}{' '}
+        </h3>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -92,9 +105,65 @@ const CamsPage = ({
             <AdLarge />
           </div>
         </div>
+
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>xxxx</p>
+        </ShowMoreText>
+
         {/* <div className="cam-container">{camSections}</div> */}
         {renderCamSubSections}
+
+        {/* <div className="panel"> */}
+        <ShowMoreText
+          lines={4}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          <p>xxxx</p>
+        </ShowMoreText>
+        {/* </div> */}
+
+        <hr />
+
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
+            <ol>
+              <li>
+                Check out the huge waves and professional surfers on the North
+                Shore Beaches
+              </li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>{camPageTargetType} Links and Local Information</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.gohawaii.com/islands/oahu"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Oahu Visitors Bureau
+                </a>{' '}
+                - The official website of the Island of Oahu
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
+      <hr />
+      <h2>
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>
     </Layout>
   )
 }
