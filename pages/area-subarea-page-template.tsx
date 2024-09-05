@@ -1,16 +1,16 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
+import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
-import ShowMoreText from 'react-show-more-text'
-import { renderError, findSubareas } from '@/utils/common'
-import RenderCamSubSections from '@/components/RenderCamSubSections'
 import CamsPageMap from '@/components/CamsPageMap'
+import RenderSubareaSections from '@/components/RenderSubareaSections'
 import data from '@/data/camLocationAreas'
+import { renderError, findSubareas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const CamsPage = ({
+const AreaSubareaPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -18,10 +18,7 @@ const CamsPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE 1 of 4 - Add camPageType and camPageTargetType
-  // camPageType options: country, state, area
-  const camPageType = 'area'
-  console.log('camPageType:', camPageType)
+  // CUSTOMIZE PAGE 1 of 4 - Add camPageTargetType
   const camPageTargetType = 'Oahu'
 
   const pageSections = findSubareas(data, camPageTargetType)
@@ -62,7 +59,7 @@ const CamsPage = ({
           <p>xxxx</p>
         </ShowMoreText>
 
-        <RenderCamSubSections pageSections={pageSections ?? []} cams={cams} />
+        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
 
         <ShowMoreText
           lines={4}
@@ -146,4 +143,4 @@ export const getServerSideProps: GetServerSideProps<
   }
 }
 
-export default CamsPage
+export default AreaSubareaPage
