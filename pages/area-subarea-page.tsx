@@ -2,14 +2,13 @@ import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
-import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import ShowMoreText from 'react-show-more-text'
-import CamCard from '@/components/CamCard'
-import * as types from '@/utils/types'
-import { renderError } from '@/utils/common'
+import { renderError, findSubareas } from '@/utils/common'
+import RenderCamSubSections from '@/components/RenderCamSubSections'
 import CamsPageMap from '@/components/CamsPageMap'
 import data from '@/data/camLocationAreas'
+import * as types from '@/utils/types'
 
 const CamsPage = ({
   cams,
@@ -25,51 +24,10 @@ const CamsPage = ({
   console.log('camPageType:', camPageType)
   const camPageTargetType = 'Oahu'
 
-  const findSubareas = (
-    camDataStructure: { countries: any[] },
-    targetArea: string
-  ) => {
-    const subareas: any[] = []
-    camDataStructure.countries.forEach((country) => {
-      country.states.forEach((state: any) => {
-        if (state.areas) {
-          state.areas.forEach((area: any) => {
-            if (area.area === targetArea) {
-              subareas.push(...area.subareas)
-            }
-          })
-        }
-      })
-    })
-    return subareas.length > 0 ? subareas : null
-  }
-
   const pageSections = findSubareas(data, camPageTargetType)
   const pageSectionsArray = pageSections
     ? pageSections.map((area: { subarea: string }) => area.subarea)
     : []
-
-  const renderCamSubSections = pageSections?.map((subarea) => {
-    const filteredSections = cams.filter(
-      (cam) => cam.subarea === subarea.subarea
-    )
-
-    if (filteredSections.length === 0) {
-      return null
-    }
-
-    return (
-      <div key={subarea.subarea}>
-        <h2>{subarea.subarea} Webcams</h2>
-        <div className="cam-container">
-          {filteredSections.map((cam) => (
-            <CamCard key={cam.id} cam={cam} />
-          ))}
-        </div>{' '}
-        <AdLeaderboard />
-      </div>
-    )
-  })
 
   return (
     <Layout
@@ -103,7 +61,9 @@ const CamsPage = ({
           {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
           <p>xxxx</p>
         </ShowMoreText>
-        {renderCamSubSections}
+
+        <RenderCamSubSections pageSections={pageSections ?? []} cams={cams} />
+
         <ShowMoreText
           lines={4}
           more="show more"

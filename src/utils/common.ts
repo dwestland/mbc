@@ -25,3 +25,22 @@ export function slugify(string: string) {
 export function getSixDigitRandom() {
   return Math.random().toString().substring(2, 8)
 }
+
+export const findSubareas = (
+  camDataStructure: { countries: any[] },
+  targetArea: string
+) => {
+  const subareas: any[] = []
+  camDataStructure.countries.forEach((country) => {
+    country.states.forEach((state: any) => {
+      if (state.areas) {
+        state.areas.forEach((area: any) => {
+          if (area.area === targetArea) {
+            subareas.push(...area.subareas)
+          }
+        })
+      }
+    })
+  })
+  return subareas.length > 0 ? subareas : null
+}
