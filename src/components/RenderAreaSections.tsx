@@ -3,28 +3,26 @@ import * as types from '@/utils/types'
 import CamCard from './CamCard'
 import AdLeaderboard from './AdLeaderboard'
 
-interface RenderCamSubSectionsProps {
-  pageSections: { subarea: string }[]
+interface RenderAreaSectionsProps {
+  pageAreas: { area: string }[]
   cams: types.Cams[]
 }
 
-const RenderCamSubSections: React.FC<RenderCamSubSectionsProps> = ({
-  pageSections,
+const RenderAreaSections: React.FC<RenderAreaSectionsProps> = ({
+  pageAreas,
   cams,
 }) => (
   <>
-    {pageSections.map((subarea) => {
-      const filteredSections = cams.filter(
-        (cam) => cam.subarea === subarea.subarea
-      )
+    {pageAreas.map((areaObj) => {
+      const filteredSections = cams.filter((cam) => cam.area === areaObj.area)
 
       if (filteredSections.length === 0) {
         return null
       }
 
       return (
-        <div key={subarea.subarea}>
-          <h2>{subarea.subarea} Webcams</h2>
+        <div key={areaObj.area}>
+          <h2>{areaObj.area} Webcams</h2>
           <div className="cam-container">
             {filteredSections.map((cam) => (
               <CamCard key={cam.id} cam={cam} />
@@ -37,4 +35,4 @@ const RenderCamSubSections: React.FC<RenderCamSubSectionsProps> = ({
   </>
 )
 
-export default RenderCamSubSections
+export default RenderAreaSections
