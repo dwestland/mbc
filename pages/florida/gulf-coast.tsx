@@ -1,153 +1,56 @@
 import React from 'react'
-import { InferGetStaticPropsType } from 'next'
-import ShowMoreText from 'react-show-more-text'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
-import CamCard from '@/components/CamCard'
-import data from '@/data/camLocationAreas'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import { getSixDigitRandom } from '@/utils/common'
-import MoreFloridaCams from '@/components/MoreFloridaCams'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
+import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+import RenderSubareaSections from '@/components/RenderSubareaSections'
+import data from '@/data/camLocationAreas'
+import { renderError, findSubareas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const GulfCoastPage = ({
+const AreaSubareaPage = ({
   cams,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  // Ensure cams and cams.cams are defined
-  if (!cams || !cams.cams || cams.cams.length === 0) {
-    return (
-      <Layout
-        documentTitle="Beach Cams in Miami and South Beach Florida"
-        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
-      >
-        <div className="layout">
-          <h1>No cams available</h1>
-        </div>
-      </Layout>
-    )
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return renderError()
   }
 
-  // Next modal SSR
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-  const floridaCams: any = cams
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'Gulf Coast'
 
-  const country = 'USA'
-  const state = 'Florida'
-  const area = 'Gulf Coast'
-
-  const countryObject = data.countries.filter((ele) => ele.country === country)
-  if (countryObject.length === 0) {
-    // Handle the case where the country is not found
-    return null
-  }
-
-  const stateObject = countryObject[0].states.find(
-    (ele) => ele.state === state
-  ) || { state: '', areas: [] }
-
-  if (!stateObject.areas) {
-    stateObject.areas = []
-  }
-
-  if (!stateObject) {
-    // Handle the case where the state is not found
-    return null
-  }
-
-  const areaObject = stateObject.areas.filter((ele) => ele.area === area)
-  if (areaObject.length === 0) {
-    // Handle the case where the area is not found
-    return null
-  }
-
-  const subareaObjects = areaObject[0].subareas
-  const subareaArray = subareaObjects.map((ele) => ele.subarea)
-
-  // Display cams WITH subareas
-  const camSections = subareaArray.map((subarea) => {
-    // check if subarea cams exist
-    const camCount = cams.cams
-      .map((cam: types.Cams) => cam.subarea)
-      .filter((ele) => ele === subarea).length
-    if (camCount === 0) {
-      return null
-    }
-
-    return (
-      <div key={getSixDigitRandom()}>
-        <AdLeaderboard />
-        <h2>{subarea} Webcams</h2>
-        <div key={subarea} className="cam-container">
-          {cams.cams.map((cam: types.Cams) => {
-            if (cam.subarea === subarea) {
-              return <CamCard key={cam.id} cam={cam} />
-            }
-            return null
-          })}
-        </div>
-      </div>
-    )
-  })
-
-  // Display cams WITHOUT subareas
-  const moreCams = () => {
-    const subareaCams = cams.cams.filter(
-      (cam: types.Cams) => cam.area === area && cam.subarea === ''
-    )
-
-    if (subareaCams.length === 0) {
-      return null
-    }
-
-    const result = subareaCams.map((cam: types.Cams) => (
-      <CamCard key={cam.id} cam={cam} />
-    ))
-
-    return (
-      <>
-        <AdLeaderboard />
-        <h2>{area} Webcams</h2>
-        <div className="cam-container">{result}</div>
-      </>
-    )
-  }
-
-  // Create vectors for map
-  const vectors = []
-  cams.cams.map((cam: types.Cams) => {
-    if (cam.area === area && cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id,
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
+  const pageSections = findSubareas(data, camPageTargetType)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((area: { subarea: string }) => area.subarea)
+    : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="Beach Cams on the Florida Gulf Coast from Tampa Bay, Fort Myers, Cape Coral and Clearwater"
-      documentDescription="Florida Gulf Coast, surf cam, beach cam, webcam, camera, Clearwater, Tampa Bay, Cape Coral, Fort Myers."
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
+      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageSectionsArray.join(
+        ', '
+      )}.`}
     >
       <div className="layout">
-        <h1>Gulf Coast Florida Webcams</h1>
+        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+              : '')}{' '}
+        </h3>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
           </div>
         </div>
-
         <ShowMoreText
           lines={2}
           more="show more"
@@ -155,6 +58,7 @@ const GulfCoastPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
             Immerse yourself in the Gulf Coast of Florida wit our live cams.
             From Clearwater to Naples, soak in breathtaking views. Revel in
@@ -167,63 +71,63 @@ const GulfCoastPage = ({
             providing a portal to paradise from Tampa Bay to Naples.
           </p>
         </ShowMoreText>
-        {camSections}
-        {moreCams()}
-        <div className="panel">
-          <ShowMoreText
-            lines={4}
-            more="show more"
-            less="show less"
-            anchorClass="anchorClass"
-            truncatedEndingComponent="... "
-          >
-            <p>
-              Journey deep into the heart of Florida's Gulf Coast. From Tampa
-              Bay's lively shores to Naples' serene beaches, these cams capture
-              it all. Each view brings you closer to the coast's wonders.
-            </p>
 
-            <p>
-              In St. Pete Beach, the Don Cesar Inn cam provides a grand view.
-              The iconic pink palace stands tall, overlooking the Gulf. Watch as
-              waves lap the shore. The Clearwater Beach cams deliver scenes of
-              white sand beaches. Each stream showcases the area's natural
-              beauty. Here, the sun paints the sky in vibrant hues.
-            </p>
-            <p>
-              Move south to Anna Maria Island, where the Bimini Bay cam awaits.
-              This cam reveals a sheltered bay, perfect for sailing and fishing.
-              You can almost feel the ocean breeze. Frenchy's Clearwater Beach
-              cam highlights the local charm. Watch as visitors savor seafood at
-              this beloved spot. The Gulf's gentle waves create a soothing
-              backdrop.
-            </p>
-            <p>
-              Head further down to Sarasota. Siesta Key's live cam shows the
-              island's famous quartz sands. The beach here is pure and soft.
-              Bird Key Yacht Club cam offers a glimpse of Sarasota Bay. Boats
-              drift by, adding a touch of tranquility. These cams provide a
-              serene escape.
-            </p>
-            <p>
-              In Fort Myers, the Pink Shell Resort cam invites you to explore.
-              Two angles show off the beach and marina. The calm waters are
-              ideal for a quiet getaway. The Naples Pier cam offers a historic
-              view. This iconic structure has stood since 1888. Nearby, the
-              Turtle Sunrise cam captures early morning light. Boats dot the
-              water, reflecting the dawn.
-            </p>
-            <p>
-              These webcams let you experience the Gulf Coast's essence. From
-              Tampa Bay to Naples, each scene tells a story. Dive in and
-              discover the magic of Florida's western shores, where every cam
-              connects you to the coast's vibrant life.
-            </p>
-          </ShowMoreText>
-        </div>
+        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
+
+        <ShowMoreText
+          lines={4}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
+          {/* Things to Do and Links and Info */}
+          <p>
+            Journey deep into the heart of Florida's Gulf Coast. From Tampa
+            Bay's lively shores to Naples' serene beaches, these cams capture it
+            all. Each view brings you closer to the coast's wonders.
+          </p>
+
+          <p>
+            In St. Pete Beach, the Don Cesar Inn cam provides a grand view. The
+            iconic pink palace stands tall, overlooking the Gulf. Watch as waves
+            lap the shore. The Clearwater Beach cams deliver scenes of white
+            sand beaches. Each stream showcases the area's natural beauty. Here,
+            the sun paints the sky in vibrant hues.
+          </p>
+          <p>
+            Move south to Anna Maria Island, where the Bimini Bay cam awaits.
+            This cam reveals a sheltered bay, perfect for sailing and fishing.
+            You can almost feel the ocean breeze. Frenchy's Clearwater Beach cam
+            highlights the local charm. Watch as visitors savor seafood at this
+            beloved spot. The Gulf's gentle waves create a soothing backdrop.
+          </p>
+          <p>
+            Head further down to Sarasota. Siesta Key's live cam shows the
+            island's famous quartz sands. The beach here is pure and soft. Bird
+            Key Yacht Club cam offers a glimpse of Sarasota Bay. Boats drift by,
+            adding a touch of tranquility. These cams provide a serene escape.
+          </p>
+          <p>
+            In Fort Myers, the Pink Shell Resort cam invites you to explore. Two
+            angles show off the beach and marina. The calm waters are ideal for
+            a quiet getaway. The Naples Pier cam offers a historic view. This
+            iconic structure has stood since 1888. Nearby, the Turtle Sunrise
+            cam captures early morning light. Boats dot the water, reflecting
+            the dawn.
+          </p>
+          <p>
+            These webcams let you experience the Gulf Coast's essence. From
+            Tampa Bay to Naples, each scene tells a story. Dive in and discover
+            the magic of Florida's western shores, where every cam connects you
+            to the coast's vibrant life.
+          </p>
+        </ShowMoreText>
+        <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in the Florida Gulf Coast</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Bask on white sands at Clearwater Beach.</li>
               <li>Walk along the historic Naples Pier.</li>
@@ -238,7 +142,7 @@ const GulfCoastPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Florida Gulf Coast Links and Local Information</h3>
+            <h3>{camPageTargetType} Links and Local Information</h3>
             <ul>
               <li>
                 <a
@@ -332,22 +236,48 @@ const GulfCoastPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/florida/">More Florida Beach Cams</Link>
-      </h2>
-      <MoreFloridaCams cams={floridaCams} />
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/florida`)
-  const cams: types.CamPageProps = await res.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    let cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.area === 'Gulf Coast')
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default GulfCoastPage
+export default AreaSubareaPage

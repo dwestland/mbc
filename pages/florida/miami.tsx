@@ -1,147 +1,52 @@
 import React from 'react'
-import { InferGetStaticPropsType } from 'next'
-import ShowMoreText from 'react-show-more-text'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
-import CamCard from '@/components/CamCard'
-import data from '@/data/camLocationAreas'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import { getSixDigitRandom } from '@/utils/common'
-import MoreFloridaCams from '@/components/MoreFloridaCams'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
+import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+import RenderSubareaSections from '@/components/RenderSubareaSections'
+import data from '@/data/camLocationAreas'
+import { renderError, findSubareas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const MiamiPage = ({
+const AreaSubareaPage = ({
   cams,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  // Ensure cams and cams.cams are defined
-  if (!cams || !cams.cams || cams.cams.length === 0) {
-    return (
-      <Layout
-        documentTitle="Beach Cams in Miami and South Beach Florida"
-        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
-      >
-        <div className="layout">
-          <h1>No cams available</h1>
-        </div>
-      </Layout>
-    )
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return renderError()
   }
+  console.log('cams:', cams)
 
-  // Next modal SSR
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-  const floridaCams: any = cams
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'Miami Beach'
 
-  const country = 'USA'
-  const state = 'Florida'
-  const area = 'Miami Beach'
-
-  const countryObject = data.countries.filter((ele) => ele.country === country)
-  if (countryObject.length === 0) {
-    // Handle the case where the country is not found
-    return null
-  }
-
-  const stateObject = countryObject[0].states.find(
-    (ele) => ele.state === state
-  ) || { state: '', areas: [] }
-
-  if (!stateObject.areas) {
-    stateObject.areas = []
-  }
-
-  if (!stateObject) {
-    // Handle the case where the state is not found
-    return null
-  }
-
-  const areaObject = stateObject.areas.filter((ele) => ele.area === area)
-  if (areaObject.length === 0) {
-    // Handle the case where the area is not found
-    return null
-  }
-
-  const subareaObjects = areaObject[0].subareas
-  const subareaArray = subareaObjects.map((ele) => ele.subarea)
-
-  // Display cams WITH subareas
-  const camSections = subareaArray.map((subarea) => {
-    // check if subarea cams exist
-    const camCount = cams.cams
-      .map((cam: types.Cams) => cam.subarea)
-      .filter((ele) => ele === subarea).length
-    if (camCount === 0) {
-      return null
-    }
-
-    return (
-      <div key={getSixDigitRandom()}>
-        <AdLeaderboard />
-        <h2>{subarea} Webcams</h2>
-        <div key={subarea} className="cam-container">
-          {cams.cams.map((cam: types.Cams) => {
-            if (cam.subarea === subarea) {
-              return <CamCard key={cam.id} cam={cam} />
-            }
-            return null
-          })}
-        </div>
-      </div>
-    )
-  })
-
-  // Display cams WITHOUT subareas
-  const moreCams = () => {
-    const subareaCams = cams.cams.filter(
-      (cam: types.Cams) => cam.area === area && cam.subarea === ''
-    )
-
-    if (subareaCams.length === 0) {
-      return null
-    }
-
-    const result = subareaCams.map((cam: types.Cams) => (
-      <CamCard key={cam.id} cam={cam} />
-    ))
-
-    return (
-      <>
-        <AdLeaderboard />
-        <h2>{area} Webcams</h2>
-        <div className="cam-container">{result}</div>
-      </>
-    )
-  }
-
-  // Create vectors for map
-  const vectors = []
-  cams.cams.map((cam: types.Cams) => {
-    if (cam.area === area && cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id,
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
+  const pageSections = findSubareas(data, camPageTargetType)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((area: { subarea: string }) => area.subarea)
+    : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="Beach Cams in Miami and South Beach Florida"
-      documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
+      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageSectionsArray.join(
+        ', '
+      )}.`}
     >
       <div className="layout">
-        <h1>Miami Beach Florida Webcams</h1>
+        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+              : '')}{' '}
+        </h3>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
@@ -154,6 +59,7 @@ const MiamiPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
             Immerse yourself in the exciting Miami area with our live beach
             webcams. From the pristine shores of West Palm Beach to the bustling
@@ -167,69 +73,70 @@ const MiamiPage = ({
             real-time updates from our webcams!
           </p>
         </ShowMoreText>
-        {camSections}
-        {moreCams()}
-        <div className="panel">
-          <ShowMoreText
-            lines={4}
-            more="show more"
-            less="show less"
-            anchorClass="anchorClass"
-            truncatedEndingComponent="... "
-          >
-            <p>
-              Discover the Miami area through our comprehensive collection of
-              webcams. Each location reveals a distinct slice of South Florida's
-              charm. Begin your adventure in the north, where the tranquil
-              waters of Stuart embrace you. Here, you can witness cars driving
-              through the serene Downtown Stuart.
-            </p>
 
-            <p>
-              Venture south to Jupiter Inlet, where the waves caress the shore.
-              This peaceful beach beckons those seeking solitude. The nearby
-              Jupiter Reef Club unveils breathtaking beach views, nestled away
-              from the city's hustle. You can almost feel the sand beneath your
-              feet as you watch the sun shimmer on the water.
-            </p>
+        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
 
-            <p>
-              In Palm Beach, the iconic Lake Worth Inlet encapsulates the allure
-              of the Atlantic. The Palm Beach Earth Cam frames the golden coast,
-              with waves crashing in a rhythmic dance against the shore. This
-              spot is ideal for those who savor life's finer moments. Picture
-              yourself strolling along the coast, the sea breeze weaving through
-              your hair.
-            </p>
+        <ShowMoreText
+          lines={4}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
+          {/* Things to Do and Links and Info */}
+          <p>
+            Discover the Miami area through our comprehensive collection of
+            webcams. Each location reveals a distinct slice of South Florida's
+            charm. Begin your adventure in the north, where the tranquil waters
+            of Stuart embrace you. Here, you can witness cars driving through
+            the serene Downtown Stuart.
+          </p>
 
-            <p>
-              As you journey further south, Boca Raton entices you with its
-              famed surf spots. The Boca Raton Inlet Cam provides a sweeping
-              view of the waves. Whether you're a surfer or an ocean admirer,
-              this spot is a must-experience. The nearby Deerfield Beach Pier
-              offers a contrasting scene. The live cams showcase fishermen
-              casting their lines, and sun-seekers basking in the warmth.
-            </p>
+          <p>
+            Venture south to Jupiter Inlet, where the waves caress the shore.
+            This peaceful beach beckons those seeking solitude. The nearby
+            Jupiter Reef Club unveils breathtaking beach views, nestled away
+            from the city's hustle. You can almost feel the sand beneath your
+            feet as you watch the sun shimmer on the water.
+          </p>
 
-            <p>
-              Fort Lauderdale is where the energy surges. The New River
-              streaming webcam animates the city's waterway. Watch as yachts,
-              kayaks, and rowboats glide through the river. The Elbo Room cam
-              captures the vibrant beachfront spectacle, a place where the
-              city's pulse truly resonates.
-            </p>
+          <p>
+            In Palm Beach, the iconic Lake Worth Inlet encapsulates the allure
+            of the Atlantic. The Palm Beach Earth Cam frames the golden coast,
+            with waves crashing in a rhythmic dance against the shore. This spot
+            is ideal for those who savor life's finer moments. Picture yourself
+            strolling along the coast, the sea breeze weaving through your hair.
+          </p>
 
-            <p>
-              Lastly, Miami's South Beach dazzles with its electric atmosphere.
-              The volleyball courts hum with action, and the Port of Miami
-              bustles with life. Whether planning a visit or simply daydreaming,
-              our webcams infuse Miami's excitement directly to you.
-            </p>
-          </ShowMoreText>
-        </div>
+          <p>
+            As you journey further south, Boca Raton entices you with its famed
+            surf spots. The Boca Raton Inlet Cam provides a sweeping view of the
+            waves. Whether you're a surfer or an ocean admirer, this spot is a
+            must-experience. The nearby Deerfield Beach Pier offers a
+            contrasting scene. The live cams showcase fishermen casting their
+            lines, and sun-seekers basking in the warmth.
+          </p>
+
+          <p>
+            Fort Lauderdale is where the energy surges. The New River streaming
+            webcam animates the city's waterway. Watch as yachts, kayaks, and
+            rowboats glide through the river. The Elbo Room cam captures the
+            vibrant beachfront spectacle, a place where the city's pulse truly
+            resonates.
+          </p>
+
+          <p>
+            Lastly, Miami's South Beach dazzles with its electric atmosphere.
+            The volleyball courts hum with action, and the Port of Miami bustles
+            with life. Whether planning a visit or simply daydreaming, our
+            webcams infuse Miami's excitement directly to you.
+          </p>
+        </ShowMoreText>
+        <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Miami</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Stroll along South Beach.</li>
               <li>Wander through Vizcaya Museum and Gardens.</li>
@@ -244,7 +151,7 @@ const MiamiPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Miami Links and Local Information</h3>
+            <h3>{camPageTargetType} Links and Local Information</h3>
             <ul>
               <li>
                 <a
@@ -327,22 +234,48 @@ const MiamiPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/florida/">More Florida Beach Cams</Link>
-      </h2>
-      <MoreFloridaCams cams={floridaCams} />
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/florida`)
-  const cams: types.CamPageProps = await res.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    let cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.area === 'Miami Beach')
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default MiamiPage
+export default AreaSubareaPage
