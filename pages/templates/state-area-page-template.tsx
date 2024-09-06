@@ -5,12 +5,12 @@ import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
 import CamsPageMap from '@/components/CamsPageMap'
-import RenderSubareaSections from '@/components/RenderSubareaSections'
+import RenderAreaSections from '@/components/RenderAreaSections'
 import data from '@/data/camLocationAreas'
-import { renderError, findSubareas } from '@/utils/common'
+import { renderError, findAreas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const AreaSubareaPage = ({
+const StateAreasPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -18,26 +18,29 @@ const AreaSubareaPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE 1 of 4 - Add camPageTargetType
-  const camPageTargetType = 'Oahu'
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'North Carolina'
 
-  const pageSections = findSubareas(data, camPageTargetType)
-  const pageSectionsArray = pageSections
-    ? pageSections.map((area: { subarea: string }) => area.subarea)
+  const pageAreas = findAreas(data, camPageTargetType)
+  const pageAreasArray = pageAreas
+    ? pageAreas.map((area: { area: string }) => area.area)
     : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="'MyBeachCams - Beach Webcams from around the World'"
-      documentDescription="Browse hundreds of beach webcams from all over the world, including Hawaii, California, Florida and other travel destinations."
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
+      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageAreasArray.join(
+        ', '
+      )}.`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Webcams</h1>
+        <h1>{camPageTargetType} Beach Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
           Featuring webcams from{' '}
-          {pageSectionsArray.slice(0, -1).join(', ') +
-            (pageSectionsArray.length > 1
-              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+          {pageAreasArray.slice(0, -1).join(', ') +
+            (pageAreasArray.length > 1
+              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
               : '')}{' '}
         </h3>
         <div className="content-and-ad">
@@ -55,11 +58,11 @@ const AreaSubareaPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>xxxx</p>
         </ShowMoreText>
 
-        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
+        <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} />
 
         <ShowMoreText
           lines={4}
@@ -68,19 +71,16 @@ const AreaSubareaPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 3 of 4 - Add second text ~300 words, */}
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
           <p>xxxx</p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in {camPageTargetType}</h3>
+            <h3>Top 5 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>
-                Check out the huge waves and professional surfers on the North
-                Shore Beaches
-              </li>
+              <li>Visit the white sand beaches with crystal clear water</li>
             </ol>
           </div>
           <div className="info">
@@ -88,13 +88,13 @@ const AreaSubareaPage = ({
             <ul>
               <li>
                 <a
-                  href="https://www.gohawaii.com/islands/oahu"
+                  href="https://www.visittheusa.com/state/north carolina"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Oahu Visitors Bureau
+                  Visit North Carolina
                 </a>{' '}
-                - The official website of the Island of Oahu
+                - Official tourism website for North Carolina
               </li>
             </ul>
           </div>
@@ -102,8 +102,11 @@ const AreaSubareaPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>
+        <Link href="/">More Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
@@ -124,8 +127,8 @@ export const getServerSideProps: GetServerSideProps<
       throw new Error('Cams object is not valid or empty')
     }
 
-    // CUSTOMIZE PAGE 4 of 4 - Add camPageTargetType
-    cams = cams.filter((cam) => cam.area === 'Oahu')
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.state === 'North Carolina')
 
     return {
       props: {
@@ -143,4 +146,4 @@ export const getServerSideProps: GetServerSideProps<
   }
 }
 
-export default AreaSubareaPage
+export default StateAreasPage

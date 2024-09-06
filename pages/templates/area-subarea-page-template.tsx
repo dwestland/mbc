@@ -5,12 +5,12 @@ import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
 import CamsPageMap from '@/components/CamsPageMap'
-import RenderStatesSections from '@/components/RenderStatesSections'
+import RenderSubareaSections from '@/components/RenderSubareaSections'
 import data from '@/data/camLocationAreas'
-import { renderError, findStates } from '@/utils/common'
+import { renderError, findSubareas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const CountryStatesPage = ({
+const AreaSubareaPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -18,25 +18,24 @@ const CountryStatesPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE 1 of 4 - Add camPageTargetType
-  const camPageType = 'country'
-  console.log('camPageType:', camPageType)
-  const camPageTargetType = 'Mexico'
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'Oahu'
 
-  const pageSections = findStates(data, camPageTargetType)
+  const pageSections = findSubareas(data, camPageTargetType)
   const pageSectionsArray = pageSections
-    ? pageSections.map((state: { state: string }) => state.state)
+    ? pageSections.map((area: { subarea: string }) => area.subarea)
     : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
-        .slice(0, 3)
-        .join(', ')} and more.`}
+      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageSectionsArray.join(
+        ', '
+      )}.`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
           Featuring webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
@@ -59,11 +58,11 @@ const CountryStatesPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>xxxx</p>
         </ShowMoreText>
 
-        <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
+        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
 
         <ShowMoreText
           lines={4}
@@ -72,16 +71,19 @@ const CountryStatesPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 3 of 4 - Add second text ~300 words, */}
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
           <p>xxxx</p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>
+                Check out the huge waves and professional surfers on the North
+                Shore Beaches
+              </li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +91,13 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://travel.state.gov/"
+                  href="https://www.gohawaii.com/islands/oahu"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  U.S. Department of State - Bureau of Consular Affairs
+                  Oahu Visitors Bureau
                 </a>{' '}
-                - Official travel information for visitors to the USA
+                - The official website of the Island of Oahu
               </li>
             </ul>
           </div>
@@ -103,8 +105,11 @@ const CountryStatesPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/">Explore More Global Beach Cams</Link>
-      </h2>
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
@@ -125,8 +130,8 @@ export const getServerSideProps: GetServerSideProps<
       throw new Error('Cams object is not valid or empty')
     }
 
-    // CUSTOMIZE PAGE 4 of 4 - Add camPageTargetType
-    cams = cams.filter((cam) => cam.country === 'Mexico')
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.area === 'Oahu')
 
     return {
       props: {
@@ -144,4 +149,4 @@ export const getServerSideProps: GetServerSideProps<
   }
 }
 
-export default CountryStatesPage
+export default AreaSubareaPage

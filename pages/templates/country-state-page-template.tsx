@@ -5,12 +5,12 @@ import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
 import CamsPageMap from '@/components/CamsPageMap'
-import RenderAreaSections from '@/components/RenderAreaSections'
+import RenderStatesSections from '@/components/RenderStatesSections'
 import data from '@/data/camLocationAreas'
-import { renderError, findAreas } from '@/utils/common'
+import { renderError, findStates } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const StateAreasPage = ({
+const CountryStatesPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
@@ -18,28 +18,31 @@ const StateAreasPage = ({
     return renderError()
   }
 
-  // CUSTOMIZE PAGE 1 of 4 - Add camPageTargetType
-  const camPageTargetType = 'North Carolina'
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageType = 'country'
+  console.log('camPageType:', camPageType)
+  const camPageTargetType = 'Mexico'
 
-  const pageAreas = findAreas(data, camPageTargetType)
-  const pageAreasArray = pageAreas
-    ? pageAreas.map((area: { area: string }) => area.area)
+  const pageSections = findStates(data, camPageTargetType)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((state: { state: string }) => state.state)
     : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageAreasArray.join(
-        ', '
-      )}.`}
+      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
+        .slice(0, 3)
+        .join(', ')} and more.`}
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
           Featuring webcams from{' '}
-          {pageAreasArray.slice(0, -1).join(', ') +
-            (pageAreasArray.length > 1
-              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
               : '')}{' '}
         </h3>
         <div className="content-and-ad">
@@ -57,11 +60,11 @@ const StateAreasPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>xxxx</p>
         </ShowMoreText>
 
-        <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} />
+        <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
 
         <ShowMoreText
           lines={4}
@@ -70,7 +73,7 @@ const StateAreasPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
-          {/* CUSTOMIZE PAGE 3 of 4 - Add second text ~300 words, */}
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
           <p>xxxx</p>
         </ShowMoreText>
@@ -87,13 +90,13 @@ const StateAreasPage = ({
             <ul>
               <li>
                 <a
-                  href="https://www.visittheusa.com/state/north carolina"
+                  href="https://travel.state.gov/"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  Visit North Carolina
+                  U.S. Department of State - Bureau of Consular Affairs
                 </a>{' '}
-                - Official tourism website for North Carolina
+                - Official travel information for visitors to the USA
               </li>
             </ul>
           </div>
@@ -101,8 +104,11 @@ const StateAreasPage = ({
       </div>
       <hr />
       <h2>
-        <Link href="/">More Beach Cams</Link>
-      </h2>
+        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
@@ -123,8 +129,8 @@ export const getServerSideProps: GetServerSideProps<
       throw new Error('Cams object is not valid or empty')
     }
 
-    // CUSTOMIZE PAGE 4 of 4 - Add camPageTargetType
-    cams = cams.filter((cam) => cam.state === 'North Carolina')
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.country === 'Mexico')
 
     return {
       props: {
@@ -142,4 +148,4 @@ export const getServerSideProps: GetServerSideProps<
   }
 }
 
-export default StateAreasPage
+export default CountryStatesPage
