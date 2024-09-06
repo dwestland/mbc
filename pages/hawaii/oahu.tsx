@@ -1,147 +1,51 @@
 import React from 'react'
-import { InferGetStaticPropsType } from 'next'
-import ShowMoreText from 'react-show-more-text'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
-import CamCard from '@/components/CamCard'
-import data from '@/data/camLocationAreas'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import { getSixDigitRandom } from '@/utils/common'
-import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
+import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+import RenderSubareaSections from '@/components/RenderSubareaSections'
+import data from '@/data/camLocationAreas'
+import { renderError, findSubareas } from '@/utils/common'
 import * as types from '@/utils/types'
 
-const OahuPage = ({
+const AreaSubareaPage = ({
   cams,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  // Ensure cams and cams.cams are defined
-  if (!cams || !cams.cams || cams.cams.length === 0) {
-    return (
-      <Layout
-        documentTitle="Beach Cams in Miami and South Beach Florida"
-        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
-      >
-        <div className="layout">
-          <h1>No cams available</h1>
-        </div>
-      </Layout>
-    )
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return renderError()
   }
 
-  // Next modal SSR
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-  const hawaiiCams: any = cams
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'Oahu'
 
-  const country = 'USA'
-  const state = 'Hawaii'
-  const area = 'Oahu'
-
-  const countryObject = data.countries.filter((ele) => ele.country === country)
-  if (countryObject.length === 0) {
-    // Handle the case where the country is not found
-    return null
-  }
-
-  const stateObject = countryObject[0].states.find(
-    (ele) => ele.state === state
-  ) || { state: '', areas: [] }
-
-  if (!stateObject.areas) {
-    stateObject.areas = []
-  }
-
-  if (!stateObject) {
-    // Handle the case where the state is not found
-    return null
-  }
-
-  const areaObject = stateObject.areas.filter((ele) => ele.area === area)
-  if (areaObject.length === 0) {
-    // Handle the case where the area is not found
-    return null
-  }
-
-  const subareaObjects = areaObject[0].subareas
-  const subareaArray = subareaObjects.map((ele) => ele.subarea)
-
-  // Display cams WITH subareas
-  const camSections = subareaArray.map((subarea) => {
-    // check if subarea cams exist
-    const camCount = cams.cams
-      .map((cam: types.Cams) => cam.subarea)
-      .filter((ele) => ele === subarea).length
-    if (camCount === 0) {
-      return null
-    }
-
-    return (
-      <div key={getSixDigitRandom()}>
-        <AdLeaderboard />
-        <h2>{subarea} Webcams</h2>
-        <div key={subarea} className="cam-container">
-          {cams.cams.map((cam: types.Cams) => {
-            if (cam.subarea === subarea) {
-              return <CamCard key={cam.id} cam={cam} />
-            }
-            return null
-          })}
-        </div>
-      </div>
-    )
-  })
-
-  // Display cams WITHOUT subareas
-  const moreCams = () => {
-    const subareaCams = cams.cams.filter(
-      (cam: types.Cams) => cam.area === area && cam.subarea === ''
-    )
-
-    if (subareaCams.length === 0) {
-      return null
-    }
-
-    const result = subareaCams.map((cam: types.Cams) => (
-      <CamCard key={cam.id} cam={cam} />
-    ))
-
-    return (
-      <>
-        <AdLeaderboard />
-        <h2>{area} Webcams</h2>
-        <div className="cam-container">{result}</div>
-      </>
-    )
-  }
-
-  // Create vectors for map
-  const vectors = []
-  cams.cams.map((cam: types.Cams) => {
-    if (cam.area === area && cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id,
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
+  const pageSections = findSubareas(data, camPageTargetType)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((area: { subarea: string }) => area.subarea)
+    : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="Beach Cams of Oahu, Hawaii - Webcams at Waikiki Beach, Honolulu and North Shore"
-      documentDescription="Best Beach Cams and Surf Cams in Oahu, Hawaii with webcams in Waikiki Beach, Honolulu and the North Shore."
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
+      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageSectionsArray.join(
+        ', '
+      )}.`}
     >
       <div className="layout">
-        <h1>Oahu Webcams</h1>
+        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+              : '')}{' '}
+        </h3>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
@@ -154,6 +58,7 @@ const OahuPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 2 of 4 - Add opening text ~120 words */}
           <p>
             Oahu is considered the "Heart of Hawaii" and is the most visited of
             all of the Hawaiian Islands. Oahu is also home to the world-famous
@@ -169,68 +74,63 @@ const OahuPage = ({
             Hawaiian vacation or holiday.
           </p>
         </ShowMoreText>
+        <RenderSubareaSections pageSections={pageSections ?? []} cams={cams} />
 
-        {camSections}
-        {moreCams()}
-
-        <div className="panel">
-          <ShowMoreText
-            lines={4}
-            more="show more"
-            less="show less"
-            anchorClass="anchorClass"
-            truncatedEndingComponent="... "
-          >
-            <p>
-              On the North Shore of Oahu, the beaches attract the top
-              professional surfers. Sunset Beach, Waimea Bay, Ehukai Beach,
-              Ali'i Beach and Banzai Pipeline are some of the legendary spots
-              along this amazing shoreline. In the winter, waves can reach as
-              high as 30 feet! These white-sandy beaches are also filled with
-              body-boarders, body-surfers and sun-worshipers as well.
-            </p>
-            <p>
-              Located near the North Shore is the remarkable Polynesian Cultural
-              Center, set in a 42-acre lagoon part, You can spend the entire day
-              there visiting the 7-island villages, canoe riders and enjoying
-              over 100 performers.
-            </p>
-            <p>
-              On the southern side of Oahu Island is world-famous Waikiki Beach.
-              Its boardwalks are jam-packed with hotels, bars and restaurants.
-              It is a popular and convenient location to stay while on vacation.
-              Waikiki is known for its long, endless days of sun, fine golden
-              sand, excellent surfing and a sandy lagoon ideal for swimming.
-              It's a great place to hang out day and night. It is also a very
-              popular honeymoon destination.
-            </p>
-            <p>
-              A short drive from Waikiki is Diamond Head. Diamond Head is the
-              awesome volcano crater on Oahu's south side. It got its name in
-              the late 1700's when British seamen saw calcite crystals sparkling
-              in the sunshine and thought they had found diamonds. Take a hike
-              up Diamond Head for panoramic views of Waikiki.
-            </p>
-            <p>
-              Close to Diamond Head is Hanauma Bay, which is considered the best
-              snorkeling in Hawaii. The safe, clam waters are protected by an
-              offshore reef. It is a great place to go for swimming, snorkeling,
-              or just sunbathing.
-            </p>
-            <p>
-              On the other side of Waikiki is the USS Arizona Memorial and Pearl
-              Harbor. This memorial commemorates the servicemen and women who
-              died in 1941 during the Japanese attack on Pearl Harbor. The USS
-              Missouri battleship is also there and houses a museum.
-            </p>
-          </ShowMoreText>
-        </div>
-
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
+          <p>
+            On the North Shore of Oahu, the beaches attract the top professional
+            surfers. Sunset Beach, Waimea Bay, Ehukai Beach, Ali'i Beach and
+            Banzai Pipeline are some of the legendary spots along this amazing
+            shoreline. In the winter, waves can reach as high as 30 feet! These
+            white-sandy beaches are also filled with body-boarders, body-surfers
+            and sun-worshipers as well.
+          </p>
+          <p>
+            Located near the North Shore is the remarkable Polynesian Cultural
+            Center, set in a 42-acre lagoon part, You can spend the entire day
+            there visiting the 7-island villages, canoe riders and enjoying over
+            100 performers.
+          </p>
+          <p>
+            On the southern side of Oahu Island is world-famous Waikiki Beach.
+            Its boardwalks are jam-packed with hotels, bars and restaurants. It
+            is a popular and convenient location to stay while on vacation.
+            Waikiki is known for its long, endless days of sun, fine golden
+            sand, excellent surfing and a sandy lagoon ideal for swimming. It's
+            a great place to hang out day and night. It is also a very popular
+            honeymoon destination.
+          </p>
+          <p>
+            A short drive from Waikiki is Diamond Head. Diamond Head is the
+            awesome volcano crater on Oahu's south side. It got its name in the
+            late 1700's when British seamen saw calcite crystals sparkling in
+            the sunshine and thought they had found diamonds. Take a hike up
+            Diamond Head for panoramic views of Waikiki.
+          </p>
+          <p>
+            Close to Diamond Head is Hanauma Bay, which is considered the best
+            snorkeling in Hawaii. The safe, clam waters are protected by an
+            offshore reef. It is a great place to go for swimming, snorkeling,
+            or just sunbathing.
+          </p>
+          <p>
+            On the other side of Waikiki is the USS Arizona Memorial and Pearl
+            Harbor. This memorial commemorates the servicemen and women who died
+            in 1941 during the Japanese attack on Pearl Harbor. The USS Missouri
+            battleship is also there and houses a museum.
+          </p>
+        </ShowMoreText>
         <hr />
-
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Oahu</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>
                 Check out the huge waves and professional surfers on the North
@@ -341,21 +241,47 @@ const OahuPage = ({
       <hr />
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>
-      <MoreHawaiiCams cams={hawaiiCams} />
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/hawaii`)
-  const cams: types.CamPageProps = await res.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    let cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.area === 'Oahu')
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default OahuPage
+export default AreaSubareaPage
