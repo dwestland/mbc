@@ -1,92 +1,54 @@
 import React from 'react'
-import { InferGetStaticPropsType } from 'next'
-import ShowMoreText from 'react-show-more-text'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
-import CamCard from '@/components/CamCard'
-import data from '@/data/camLocationAreas'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import { getSixDigitRandom } from '@/utils/common'
-import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
+import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+import RenderStatesSections from '@/components/RenderStatesSections'
+import data from '@/data/camLocationAreas'
+import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
+import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 
-const MexicoPage = ({
+const CountryStatesPage = ({
   cams,
-}: InferGetStaticPropsType<typeof getServerSideProps>) => {
-  // Ensure cams and cams.cams are defined
-  if (!cams || !cams.cams || cams.cams.length === 0) {
-    return (
-      <Layout
-        documentTitle="Beach Cams in Miami and South Beach Florida"
-        documentDescription="Best live web cams and surf cams at Miami Beach and South Beach in Florida."
-      >
-        <div className="layout">
-          <h1>No cams available</h1>
-        </div>
-      </Layout>
-    )
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return <ErrorLoadingWebcams />
   }
 
-  // Next modal SSR
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-  const hawaiiCams: any = cams
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageType = 'country'
+  console.log('camPageType:', camPageType)
+  const camPageTargetType = 'Mexico'
 
-  const country = 'Mexico'
-  const countryObject = data.countries.find((ele) => ele.country === country)
-
-  if (!countryObject) {
-    return null
-  }
-
-  const states = countryObject.states || []
-
-  // Create vectors for map
-  const vectors = cams.cams
-    .filter((cam: types.Cams) => cam.lat !== null && cam.lng !== null)
-    .map((cam: types.Cams) => ({
-      name: cam.title,
-      lat: cam.lat,
-      lng: cam.lng,
-      id: cam.id,
-      imageName: cam.imageName,
-    }))
-
-  const stateSections = states.map((stateObj) => {
-    const stateCams = cams.cams.filter(
-      (cam: types.Cams) => cam.state === stateObj.state
-    )
-
-    if (stateCams.length === 0) {
-      return null
-    }
-
-    return (
-      <div key={getSixDigitRandom()}>
-        <AdLeaderboard />
-        <h2>{stateObj.state} Webcams</h2>
-        <div className="cam-container">
-          {stateCams.map((cam: types.Cams) => (
-            <CamCard key={cam.id} cam={cam} />
-          ))}
-        </div>
-      </div>
-    )
-  })
+  const pageSections = findStates(data, camPageTargetType)
+  const pageSectionsArray = pageSections
+    ? pageSections.map((state: { state: string }) => state.state)
+    : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="Beach webcams in Mexico - MyBeachCams.com"
-      documentDescription="See Mexico's prime beaches through our live webcams. Encounter Cancun, Tulum, Cozumel, and more."
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
+      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
+        .slice(0, 3)
+        .join(', ')} and more.`}
     >
       <div className="layout">
-        <h1>Mexico Beach Webcams</h1>
+        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageSectionsArray.slice(0, -1).join(', ') +
+            (pageSectionsArray.length > 1
+              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
+              : '')}{' '}
+        </h3>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
@@ -97,8 +59,9 @@ const MexicoPage = ({
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent=" ... "
+          truncatedEndingComponent="... "
         >
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
             See Mexico's coastal gems. Gaze through live webcams in Cancun,
             Tulum, Puerto Vallarta, Playa del Carmen, and Cozumel. Each spot
@@ -112,78 +75,70 @@ const MexicoPage = ({
             link pulls you closer to Mexico's radiant shores.
           </p>
         </ShowMoreText>
-        {stateSections}
-        <div className="panel">
-          <ShowMoreText
-            lines={4}
-            more="show more"
-            less="show less"
-            anchorClass="anchorClass"
-            truncatedEndingComponent=" ... "
-          >
-            <p>
-              <p>
-                Mexico's coastlines lure you into adventure. Immerse yourself in
-                these vibrant locations through our webcams. Each spot promises
-                a distinct journey. Wander, plan your trip or envision your
-                paradise.
-              </p>
 
-              <p>
-                Cancun teems with more than just beaches. It's where luxury
-                fuses with nature. Roam through the bustling Hotel Zone. Bask in
-                pristine sands and translucent waters. Drift to nearby Isla
-                Mujeres. Its tranquil beaches cradle the soul, just a short boat
-                ride away. Witness the sunsets as they blaze across the sky in
-                vibrant hues.
-              </p>
+        <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
 
-              <p>
-                Tulum enthralls with its blend of history and nature. The
-                ancient Mayan ruins loom against the horizon. The beaches are
-                sanctuaries of powdery sands and azure waves. Dive into the
-                cenotes. These natural sinkholes are hidden treasures. Traverse
-                Tulum's eco-parks, where nature thrives untouched.
-              </p>
-
-              <p>
-                Puerto Vallarta melds old-world charm with contemporary grace.
-                Saunter along the cobblestone streets of the Zona Romantica.
-                This historic district pulses with culture. The Malecon, a
-                seaside promenade, pulsates with art and lively entertainment.
-                The beaches beckon for relaxation. Discover hidden coves and
-                weave through nearby jungle trails.
-              </p>
-
-              <p>
-                Playa del Carmen invites you to immerse in its vibrant streets.
-                Quinta Avenida is the town's beating heart. It's a rich mix of
-                shops, cafes, and local markets. The beaches here calm with
-                their gentle waves. Cozumel lies just a ferry ride away. There,
-                world-class diving spots await exploration.
-              </p>
-
-              <p>
-                Cozumel mesmerizes divers with its coral reefs teeming with
-                marine life. The waters are clear, unveiling underwater wonders
-                in vivid detail. Uncover Chankanaab Park. Here, you can snorkel,
-                dive, or relax in lush gardens. Cozumel also serves as a gateway
-                to exploring a rich underwater world.
-              </p>
-
-              <p>
-                These webcams offer a gateway into paradise. Use them to map
-                your trip or indulge in a virtual retreat. Each location holds
-                something exceptional. From ancient ruins to vibrant coral
-                reefs, Mexico's coasts are calling. The sun, sea, and sand are
-                just a click away.
-              </p>
-            </p>
-          </ShowMoreText>
-        </div>
+        <ShowMoreText
+          lines={4}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="... "
+        >
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
+          {/* Things to Do and Links and Info */}
+          <p>
+            Mexico's coastlines lure you into adventure. Immerse yourself in
+            these vibrant locations through our webcams. Each spot promises a
+            distinct journey. Wander, plan your trip or envision your paradise.
+          </p>
+          <p>
+            Cancun teems with more than just beaches. It's where luxury fuses
+            with nature. Roam through the bustling Hotel Zone. Bask in pristine
+            sands and translucent waters. Drift to nearby Isla Mujeres. Its
+            tranquil beaches cradle the soul, just a short boat ride away.
+            Witness the sunsets as they blaze across the sky in vibrant hues.
+          </p>
+          <p>
+            Tulum enthralls with its blend of history and nature. The ancient
+            Mayan ruins loom against the horizon. The beaches are sanctuaries of
+            powdery sands and azure waves. Dive into the cenotes. These natural
+            sinkholes are hidden treasures. Traverse Tulum's eco-parks, where
+            nature thrives untouched.
+          </p>
+          <p>
+            Puerto Vallarta melds old-world charm with contemporary grace.
+            Saunter along the cobblestone streets of the Zona Romantica. This
+            historic district pulses with culture. The Malecon, a seaside
+            promenade, pulsates with art and lively entertainment. The beaches
+            beckon for relaxation. Discover hidden coves and weave through
+            nearby jungle trails.
+          </p>
+          <p>
+            Playa del Carmen invites you to immerse in its vibrant streets.
+            Quinta Avenida is the town's beating heart. It's a rich mix of
+            shops, cafes, and local markets. The beaches here calm with their
+            gentle waves. Cozumel lies just a ferry ride away. There,
+            world-class diving spots await exploration.
+          </p>
+          <p>
+            Cozumel mesmerizes divers with its coral reefs teeming with marine
+            life. The waters are clear, unveiling underwater wonders in vivid
+            detail. Uncover Chankanaab Park. Here, you can snorkel, dive, or
+            relax in lush gardens. Cozumel also serves as a gateway to exploring
+            a rich underwater world.
+          </p>
+          <p>
+            These webcams offer a gateway into paradise. Use them to map your
+            trip or indulge in a virtual retreat. Each location holds something
+            exceptional. From ancient ruins to vibrant coral reefs, Mexico's
+            coasts are calling. The sun, sea, and sand are just a click away.
+          </p>
+        </ShowMoreText>
+        <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 10 Things to do in Mexico</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Immerse in the Great Maya Reef's depths.</li>
               <li>Unearth ancient ruins in Tulum.</li>
@@ -198,7 +153,7 @@ const MexicoPage = ({
             </ol>
           </div>
           <div className="info">
-            <h3>Mexico Links and Local Information</h3>
+            <h3>{camPageTargetType} Links and Local Information</h3>
             <ul>
               <li>
                 <a
@@ -288,8 +243,7 @@ const MexicoPage = ({
       <hr />
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>
-      <MoreHawaiiCams cams={hawaiiCams} />
+      </h2>{' '}
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
@@ -297,15 +251,39 @@ const MexicoPage = ({
   )
 }
 
-export async function getServerSideProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/mexico`)
-  const cams: types.CamPageProps = await res.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    let cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.country === 'Mexico')
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default MexicoPage
+export default CountryStatesPage
