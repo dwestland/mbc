@@ -59,7 +59,7 @@ const CountryStatesPage = ({
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
@@ -83,7 +83,7 @@ const CountryStatesPage = ({
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}

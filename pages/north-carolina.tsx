@@ -7,15 +7,16 @@ import AdLarge from '@/components/AdLarge'
 import CamsPageMap from '@/components/CamsPageMap'
 import RenderAreaSections from '@/components/RenderAreaSections'
 import data from '@/data/camLocationAreas'
-import { renderError, findAreas } from '@/utils/common'
+import { findAreas } from '@/utils/common'
 import * as types from '@/utils/types'
+import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 
 const StateAreasPage = ({
   cams,
   error,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   if (error) {
-    return renderError()
+    return <ErrorLoadingWebcams />
   }
 
   // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
@@ -56,7 +57,7 @@ const StateAreasPage = ({
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>xxxx</p>
@@ -69,7 +70,7 @@ const StateAreasPage = ({
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
