@@ -152,6 +152,7 @@ const data: Data = {
               subareas: [
                 { subarea: 'West Palm Beach' },
                 { subarea: 'Palm Beach' },
+                { subarea: 'Lake Worth Inlet' },
                 { subarea: 'Boca Raton' },
                 { subarea: 'Fort Lauderdale' },
                 { subarea: 'Hollywood' },
@@ -161,15 +162,12 @@ const data: Data = {
             {
               area: 'Florida Keys',
               subareas: [
-                { subarea: 'Key Largo' },
-                { subarea: 'Plantation Key' },
-                { subarea: 'Islamorada' },
-                { subarea: 'Marathon' },
-                { subarea: 'Big Pine Key' },
                 { subarea: 'Key West' },
-                { subarea: 'Lake Worth Inlet' },
-                { subarea: 'Florida Keys' },
-                { subarea: 'Surf' },
+                { subarea: 'Big Pine Key' },
+                { subarea: 'Marathon' },
+                { subarea: 'Islamorada' },
+                { subarea: 'Plantation Key' },
+                { subarea: 'Key Largo' },
               ],
             },
             {
@@ -223,10 +221,5 @@ const data: Data = {
     },
   ],
 }
-
-// console.log(data.countries[2].country)
-// console.log(data.countries[2].states[0].state)
-// console.log(data.countries[2].states[0].areas[0].area)
-// console.log(data.countries[2].states[0].areas[0].subareas[0].subarea)
 
 export default data
