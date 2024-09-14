@@ -20,8 +20,6 @@ const CountryStatesPage = ({
   }
 
   // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
-  const camPageType = 'country'
-  console.log('camPageType:', camPageType)
   const camPageTargetType = 'Mexico'
 
   const pageSections = findStates(data, camPageTargetType)
