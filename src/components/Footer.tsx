@@ -107,6 +107,104 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        <div>
+          <ul>
+            <li>
+              <Link href="/california/">
+                <a>United States</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/alabama/">
+                <a>Alabama</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/louisiana/">
+                <a>Louisiana</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/mississippi/">
+                <a>Mississippi</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/north-carolina/">
+                <a>North Carolina</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/texas/">
+                <a>Texas</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/washington/">
+                <a>Washington</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <Link href="/world/">
+                <a>World</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/aruba/">
+                <a>Aruba</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/bermuda/">
+                <a>Bermuda</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/bonaire/">
+                <a>Bonaire</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/curacao/">
+                <a>Curacao</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/dominican-republic/">
+                <a>Dominican Republic</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/jamaica/">
+                <a>Jamaica</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/mexico/">
+                <a>Mexico</a>
+              </Link>
+              <li>
+                <Link href="/new-zealand/">
+                  <a>New Zealand</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/sint-maarten/">
+                  <a>Sint Maarten</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/st-barts/">
+                  <a>St. Barts</a>
+                </Link>
+              </li>
+            </li>
+          </ul>
+        </div>
       </div>
       <p>Copyright &copy; 2005-{year} MyBeachCams.com</p>
       <p>

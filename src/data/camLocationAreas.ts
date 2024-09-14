@@ -181,6 +181,27 @@ const data: Data = {
             },
           ],
         },
+        // More states ****************************************************************
+        {
+          state: 'Alabama',
+          areas: [],
+        },
+        {
+          state: 'Louisiana',
+          areas: [],
+        },
+        {
+          state: 'Minnesota',
+          areas: [],
+        },
+        {
+          state: 'Mississippi',
+          areas: [],
+        },
+        {
+          state: 'New York',
+          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
+        },
         {
           state: 'North Carolina',
           areas: [
@@ -190,17 +211,62 @@ const data: Data = {
           ],
         },
         {
+          state: 'Oregon',
+          areas: [],
+        },
+        {
           state: 'South Carolina',
           areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
         },
         {
           state: 'Texas',
-          areas: [{ area: 'Galveston' }, { area: 'South Padre Island' }],
+          areas: [
+            { area: 'Galveston' },
+            { area: 'South Padre Island' },
+            { area: 'Corpus Christi' },
+          ],
         },
         {
-          state: 'New York',
-          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
+          state: 'Washington',
+          areas: [],
         },
+      ],
+    },
+    // More countries **************************************************************
+    {
+      country: 'Aruba',
+      states: [],
+    },
+    {
+      country: 'Bermuda',
+      states: [],
+    },
+    {
+      country: 'Bonaire',
+      states: [],
+    },
+    {
+      country: 'Canada',
+      states: [],
+    },
+    {
+      country: 'Costa Rica',
+      states: [{ state: 'Tamarindo' }, { state: 'Jaco' }],
+    },
+    {
+      country: 'Curacao',
+      states: [],
+    },
+    {
+      country: 'Dominican Republic',
+      states: [],
+    },
+    {
+      country: 'Jamaica',
+      states: [
+        { state: 'Kingston' },
+        { state: 'Montego Bay' },
+        { state: 'Negril' },
       ],
     },
     {
@@ -208,16 +274,20 @@ const data: Data = {
       states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
     },
     {
-      country: 'Costa Rica',
-      states: [{ state: 'Tamarindo' }, { state: 'Jaco' }],
+      country: 'New Zealand',
+      states: [{ state: 'Auckland' }, { state: 'Wellington' }],
     },
     {
-      country: 'Jamacia',
-      states: [
-        { state: 'Kingston' },
-        { state: 'Montego Bay' },
-        { state: 'Negril' },
-      ],
+      country: 'Sint Maarten',
+      states: [],
+    },
+    {
+      country: 'St. Barts',
+      states: [],
+    },
+    {
+      country: 'St. Croix',
+      states: [],
     },
   ],
 }
