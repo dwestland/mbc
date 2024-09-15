@@ -146,6 +146,11 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/south-carolina/">
+                    <a>South Carolina</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/texas/">
                     <a>Texas</a>
                   </Link>

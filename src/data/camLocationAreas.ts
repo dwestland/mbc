@@ -187,7 +187,31 @@ const data: Data = {
           areas: [],
         },
         {
+          state: 'Connecticut',
+          areas: [],
+        },
+        {
+          state: 'Delaware',
+          areas: [],
+        },
+        {
+          state: 'Georgia',
+          areas: [],
+        },
+        {
           state: 'Louisiana',
+          areas: [],
+        },
+        {
+          state: 'Maine',
+          areas: [],
+        },
+        {
+          state: 'Massachusetts',
+          areas: [],
+        },
+        {
+          state: 'Maryland',
           areas: [],
         },
         {
@@ -196,6 +220,14 @@ const data: Data = {
         },
         {
           state: 'Mississippi',
+          areas: [],
+        },
+        {
+          state: 'New Jersey',
+          areas: [],
+        },
+        {
+          state: 'New Hampshire',
           areas: [],
         },
         {
@@ -215,6 +247,10 @@ const data: Data = {
           areas: [],
         },
         {
+          state: 'Rhode Island',
+          areas: [],
+        },
+        {
           state: 'South Carolina',
           areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
         },
@@ -225,6 +261,10 @@ const data: Data = {
             { area: 'South Padre Island' },
             { area: 'Corpus Christi' },
           ],
+        },
+        {
+          state: 'Virginia',
+          areas: [],
         },
         {
           state: 'Washington',

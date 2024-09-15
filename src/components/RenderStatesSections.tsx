@@ -33,7 +33,7 @@ const RenderStatesSections: React.FC<RenderStatesSectionsProps> = ({
           <div key={stateObj.state}>
             <h2>{stateObj.state} Webcams</h2>
             <div className="cam-container">
-              {filteredSections.slice(0, 4).map((cam) => (
+              {filteredSections.map((cam) => (
                 <CamCard key={cam.id} cam={cam} />
               ))}
             </div>
@@ -47,7 +47,7 @@ const RenderStatesSections: React.FC<RenderStatesSectionsProps> = ({
         <div>
           <h2>{country} Webcams</h2>
           <div className="cam-container">
-            {camsWithoutState.slice(0, 4).map((cam) => (
+            {camsWithoutState.map((cam) => (
               <CamCard key={cam.id} cam={cam} />
             ))}
           </div>
