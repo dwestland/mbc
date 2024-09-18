@@ -131,8 +131,38 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/connecticut/">
+                    <a>Connecticut</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/delaware/">
+                    <a>Delaware</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/georgia/">
+                    <a>Georgia</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/louisiana/">
                     <a>Louisiana</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/maine/">
+                    <a>Maine</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/maryland/">
+                    <a>Maryland</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/massachusetts/">
+                    <a>Massachusetts</a>
                   </Link>
                 </li>
                 <li>
@@ -141,8 +171,33 @@ export default function Navbar() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/new-hampshire/">
+                    <a>New Hampshire</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/new-jersey/">
+                    <a>New Jersey</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/new-york/">
+                    <a>New York</a>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/north-carolina/">
                     <a>North Carolina</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/oregon/">
+                    <a>Oregon</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/rhode-island/">
+                    <a>Rhode Island</a>
                   </Link>
                 </li>
                 <li>
@@ -223,6 +278,11 @@ export default function Navbar() {
                 <li>
                   <Link href="/st-croix/">
                     <a>St. Croix</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="thailand/">
+                    <a>Thailand</a>
                   </Link>
                 </li>
               </ul>

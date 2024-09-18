@@ -207,11 +207,11 @@ const data: Data = {
           areas: [],
         },
         {
-          state: 'Massachusetts',
+          state: 'Maryland',
           areas: [],
         },
         {
-          state: 'Maryland',
+          state: 'Massachusetts',
           areas: [],
         },
         {
@@ -327,6 +327,10 @@ const data: Data = {
     },
     {
       country: 'St. Croix',
+      states: [],
+    },
+    {
+      country: 'Thailand',
       states: [],
     },
   ],
