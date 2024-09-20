@@ -31,9 +31,7 @@ const CountryStatesPage = ({
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
-        .slice(0, 3)
-        .join(', ')} and more.`}
+      documentDescription="Bonaire beach webcams offer views of tranquil beaches, coral reefs, and marine life for travel planning or enjoyment."
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
@@ -60,7 +58,19 @@ const CountryStatesPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+
+          <p>
+            Bonaire beckons with its tropical allure and crystal-clear waters.
+            Gaze through the Sorobon Beach webcam, unveiling the tranquil seas
+            and soft sands near the Dunkerbeck Pro Center. Submerge into the
+            underwater world with the Harbour Village Coral Reef Cam, where
+            Bonaire's coral reefs flourish with vibrant marine life. Set within
+            the Bonaire National Marine Park, it entices divers and nature
+            enthusiasts alike. These webcams open a portal to this serene
+            island, guiding your next beach escape or simply inviting you to
+            savor the coastal beauty from afar. Immerse yourself in Bonaire's
+            charm today.
+          </p>
         </ShowMoreText>
 
         <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
@@ -74,14 +84,55 @@ const CountryStatesPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            Bonaire dazzles as an island treasure, celebrated for its untouched
+            coastlines and rich marine life. The Sorobon Beach webcam frames a
+            glimpse of this sanctuary. Anchored at the Dunkerbeck Pro Center, it
+            reveals shimmering turquoise waters kissing soft, white sands. Watch
+            windsurfers carve through the shallow waves, mastering the breezes
+            of Sorobon. It's a perfect scene to feel the pulse of the Caribbean.
+          </p>
+          <p>
+            The Harbour Village Coral Reef Cam plunges into Bonaire's vibrant
+            underwater realm. Nestled in the Bonaire National Marine Park, this
+            live feed unveils a thriving coral landscape. Fish dart and dance
+            through the crystal waters, weaving among the vivid coral
+            formations. Even through a screen, the ocean's call to adventure is
+            undeniable, drawing divers and explorers alike.
+          </p>
+          <p>
+            Bonaire isn't just for beach lovers; it captivates anyone enchanted
+            by nature. The island's marine parks and reserves provide a
+            sanctuary for wildlife seekers and eco-travelers. Venture inland to
+            the rugged salt flats, where flocks of flamingos gather, painting
+            the landscape in hues of pink. Along the shores, snorkelers and
+            divers gravitate toward Bonaire's renowned reefs, pulled by the
+            allure of vibrant marine life and crystal-clear visibility.
+          </p>
+          <p>
+            These webcams unlock the essence of Bonaire's untouched beauty.
+            Whether you're shaping your next tropical escape or savoring the
+            island from afar, Bonaire's webcams offer a window into its raw,
+            unspoiled nature. They capture the soul of an island defined by the
+            sea, where every shoreline and reef sings with the richness of
+            nature's bounty.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Snorkel in Bonaire National Marine Park.</li>
+              <li>Explore the reefs at Klein Bonaire.</li>
+              <li>Relax on Sorobon Beach's soft sands.</li>
+              <li>Windsurf at Lac Bay's shallow waters.</li>
+              <li>Dive the famous Hilma Hooker shipwreck.</li>
+              <li>Swim at 1000 Steps Beach.</li>
+              <li>Visit the salt flats and see flamingos.</li>
+              <li>Kayak through the mangroves of Lac Bay.</li>
+              <li>Paddleboard along the coastline of Bonaire.</li>
+              <li>Watch marine life at the Coral Reef Cam.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +140,67 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://travel.state.gov/"
-                  rel="noopener noreferrer"
+                  href="https://www.tourismbonaire.com"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  U.S. Department of State - Bureau of Consular Affairs
+                  Tourism Bonaire
                 </a>{' '}
-                - Official travel information for visitors to the USA
+                - Find travel tips, island highlights, and activities to
+                explore.
+              </li>
+              <li>
+                <a
+                  href="https://www.bonairemarinepark.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bonaire Marine Park
+                </a>{' '}
+                - Learn about marine life and conservation efforts in Bonaire's
+                waters.
+              </li>
+              <li>
+                <a
+                  href="https://www.weather.com/weather/today/l/12.1736,-68.2906"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bonaire Weather
+                </a>{' '}
+                - Check live weather updates and forecasts for your trip.
+              </li>
+              <li>
+                <a
+                  href="https://www.stinapabonaire.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  STINAPA Bonaire
+                </a>{' '}
+                - Discover Bonaire's protected national parks and wildlife
+                reserves.
+              </li>
+              <li>
+                <a
+                  href="https://www.infobonaire.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Info Bonaire
+                </a>{' '}
+                - Get practical travel information, guides, and accommodation
+                tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.bonaireisland.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Bonaire Island Guide
+                </a>{' '}
+                - Find maps, events, and recommended activities on Bonaire.
               </li>
             </ul>
           </div>

@@ -31,9 +31,7 @@ const CountryStatesPage = ({
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
-        .slice(0, 3)
-        .join(', ')} and more.`}
+      documentDescription="Discover live Aruba beach webcams, featuring Eagle Beach and Oranjestad views, for travel plans or exploring coastal beauty."
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
@@ -60,7 +58,17 @@ const CountryStatesPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+          <p>
+            Explore the vibrant beaches of Aruba through our webcams. Famous for
+            white sands and clear waters, this island offers stunning views.
+            Check out Eagle Beach, perfect for sunbathing and water sports.
+            Nearby, Palm Beach is lively with resorts and beachfront cafes. The
+            webcams capture every moment, from sunsets to beach life. In
+            Oranjestad, cruise ships dock in the harbor. Go on a trip to Baby
+            Beach, ideal for snorkeling with calm waters. Each webcam offers a
+            window into Aruba's coastal beauty. Plan your trip or simply relax
+            and enjoy the scenes from home.
+          </p>
         </ShowMoreText>
 
         <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
@@ -74,14 +82,56 @@ const CountryStatesPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            Aruba is a Caribbean paradise, known for its shimmering beaches and
+            crystal waters. Eagle Beach stands out with its wide, open
+            shoreline. Soft sands stretch far, offering space for quiet walks or
+            sunbathing. You'll find water sports here, too, from paddleboarding
+            to jet skiing. Nearby, Palm Beach thrives with activity. Resorts
+            line the shore, and the beach bustles with life. It's a hotspot for
+            dining, with oceanfront cafes steps from the waves. Watch it all
+            unfold through our webcams.
+          </p>
+
+          <p>
+            In Oranjestad, Aruba's capital, the waterfront teems with action.
+            Cruise ships pull into port, bringing new visitors daily. It's a
+            lively spot full of shops and restaurants. If you love history, take
+            in Fort Zoutman, a historic landmark. The live feed captures the
+            area's charm and vibrancy.
+          </p>
+
+          <p>
+            Further down the coast lies Baby Beach. Its calm, shallow waters
+            make it perfect for snorkeling. Bright fish and gentle waves create
+            a relaxing underwater experience. It's the perfect spot for families
+            looking for a tranquil swim. You can also spot kite surfers along
+            the horizon, filling the sky with their colorful sails.
+          </p>
+
+          <p>
+            Aruba's natural beauty goes beyond the beaches. Rocky cliffs rise
+            along the northern coast. Natural bridges and rugged landscapes
+            offer a dramatic contrast to the soft sands. Whether you're planning
+            a visit or just enjoying the view, Aruba's magic is waiting. Tune
+            into our webcams for an ever-changing glimpse of paradise.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Relax on the soft sands of Eagle Beach.</li>
+              <li>Snorkel at Baby Beach's calm lagoon.</li>
+              <li>Explore the natural bridges on the northern coast.</li>
+              <li>Watch the sunset at Palm Beach.</li>
+              <li>Windsurf along the waves at Hadicurari Beach.</li>
+              <li>Stroll the lively Oranjestad waterfront.</li>
+              <li>Visit Arikok National Park's coastal cliffs.</li>
+              <li>Swim in the calm waters of Mangel Halto.</li>
+              <li>Kayak through the Spanish Lagoon mangroves.</li>
+              <li>Explore the vibrant reefs at Boca Catalina.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +139,65 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://travel.state.gov/"
-                  rel="noopener noreferrer"
+                  href="https://www.weather.com/weather/today/l/12.5539,-70.0544"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  U.S. Department of State - Bureau of Consular Affairs
+                  Aruba Weather Forecast
                 </a>{' '}
-                - Official travel information for visitors to the USA
+                - Check the latest weather updates for Eagle Beach.
+              </li>
+              <li>
+                <a
+                  href="https://www.visitaruba.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Aruba
+                </a>{' '}
+                - Find top attractions, dining options, and travel tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.aruba.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aruba Tourism Authority
+                </a>{' '}
+                - Learn about Aruba's culture, beaches, and travel itineraries.
+              </li>
+              <li>
+                <a
+                  href="https://www.arubaaloe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aruba Aloe Factory
+                </a>{' '}
+                - Visit the aloe factory and museum for a unique island
+                experience.
+              </li>
+              <li>
+                <a
+                  href="https://acf.aw/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Aruba Conservation Foundation
+                </a>{' '}
+                - Take care of Aruba's diverse ecosystems, both land and sea.
+              </li>
+              <li>
+                <a
+                  href="https://www.depalmtours.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  De Palm Tours
+                </a>{' '}
+                - Book island tours and water activities, including snorkeling
+                and jeep safaris.
               </li>
             </ul>
           </div>
