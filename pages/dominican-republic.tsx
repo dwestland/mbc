@@ -60,7 +60,17 @@ const CountryStatesPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+          <p>
+            Experience the Dominican Republic's beaches and coastal allure
+            through live webcams. Cabarete unveils stretches of white sand and
+            crystal-clear waters, ideal for surfers and windsurfers. Bozo Beach
+            and Playa Blanca beckon with vibrant coral reefs and transparent
+            seas. Punta Cana, perched on the eastern tip, entices with a blend
+            of Caribbean and Atlantic waters. Wander Monte Cristi's hidden
+            treasures, or witness the bustling energy of Boca Chica's ports.
+            These webcams transport you to the heart of the action, whether
+            you're plotting an escape or just wandering from afar.
+          </p>
         </ShowMoreText>
 
         <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
@@ -74,14 +84,61 @@ const CountryStatesPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            The Dominican Republic's coastlines brim with endless wonders. In
+            Cabarete, you'll encounter one of the world's premier spots for
+            surfing. The wind sculpts the waves here, crafting perfect
+            conditions for both novices and seasoned surfers. Cabarete Beach
+            unfurls along the northern shore, with velvety sand and constant
+            breezes. The beach town hums with life, offering savory cuisine and
+            a taste of local culture.
+          </p>
+          <p>
+            Further along, Bozo Beach dazzles with its immaculate coral reefs.
+            The lively sea creatures beneath the surface are worth glimpsing
+            from above or while snorkeling. The Bozo Beach cam captures the
+            serene, azure waters, making it a must-see for water sports
+            enthusiasts. Just nearby, the Playa Blanca underwater cam unveils a
+            hidden realm of marine life. From radiant fish to vivid coral, it
+            provides a portal into the breathtaking seabed of the Caribbean.
+          </p>
+          <p>
+            Punta Cana, on the island's eastern edge, is a place where dreams
+            converge. It's where the Caribbean Sea and Atlantic Ocean embrace.
+            This area is renowned for its opulent resorts and unending
+            beachfront vistas. The Hard Rock Hotel webcam offers a glimpse of
+            the turquoise waters and expansive sandy shores.
+          </p>
+          <p>
+            Monte Cristi's Buen Hombre Beach is a secluded treasure, offering
+            tranquil shores for unwinding. It's also a paradise for
+            kiteboarding. The gusty conditions make it ideal for thrill-seekers.
+            The Buen Hombre cam delivers a live look at this untouched beach,
+            far from the bustle of crowds.
+          </p>
+          <p>
+            Lastly, the bustling port of Boca Chica showcases another facet of
+            the island. The port webcams capture the daily rhythm of life,
+            offering views of trucks and ships. Whether you crave peace or
+            excitement, these webcams steer your journey through the Dominican
+            Republic's varied coastlines.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Relax on the white sands of Cabarete Beach.</li>
+              <li>Kiteboard at Buen Hombre Beach.</li>
+              <li>Snorkel over coral reefs at Bozo Beach.</li>
+              <li>Dive into the underwater world of Playa Blanca.</li>
+              <li>Swim in the turquoise waters of Punta Cana.</li>
+              <li>Surf the waves at Cabarete's famous breaks.</li>
+              <li>Paddleboard along the coast of Sosúa.</li>
+              <li>Explore the mangroves near Monte Cristi.</li>
+              <li>Visit the port at Boca Chica for local sights.</li>
+              <li>Sail along the coastline of the Samana Peninsula.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +146,63 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://travel.state.gov/"
-                  rel="noopener noreferrer"
+                  href="https://www.weather.com/weather/today/l/19.75,-70.41"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  U.S. Department of State - Bureau of Consular Affairs
+                  Cabarete Weather
                 </a>{' '}
-                - Official travel information for visitors to the USA
+                - Check real-time weather for Cabarete Beach.
+              </li>
+              <li>
+                <a
+                  href="https://www.dominicanrepublic.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Dominican Republic Travel
+                </a>{' '}
+                - Explore travel tips, guides, and local insights.
+              </li>
+              <li>
+                <a
+                  href="https://www.godominicanrepublic.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Go Dominican Republic
+                </a>{' '}
+                - Discover top destinations and things to do across the island.
+              </li>
+              <li>
+                <a
+                  href="https://www.puntacanainternationalairport.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Punta Cana International Airport
+                </a>{' '}
+                - Find flight info and services at Punta Cana Airport.
+              </li>
+              <li>
+                <a
+                  href="https://www.godivebayahibe.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Go Dive Bayahibe
+                </a>{' '}
+                - Explore diving tours and spots in Bayahibe.
+              </li>
+              <li>
+                <a
+                  href="https://www.caribefuntours.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Caribe Fun Tours
+                </a>{' '}
+                - Book tours and adventures across the Dominican Republic.
               </li>
             </ul>
           </div>
