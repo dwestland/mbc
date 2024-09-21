@@ -31,9 +31,7 @@ const StateAreasPage = ({
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageAreasArray.join(
-        ', '
-      )}.`}
+      documentDescription="Explore live Alabama beach webcams, view Gulf Shores, Orange Beach, Mobile Bay, and plan your coastal adventure."
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
@@ -60,7 +58,18 @@ const StateAreasPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+          <p>
+            Alabama's coastlines unveil breathtaking vistas and exciting
+            activities. Wander Gulf Shores, where expansive white sands meet the
+            glistening Gulf. The Beach Club Webcam frames this gem, ideal for
+            beachcombing and casting lines near the artificial reefs. Orange
+            Beach dazzles from Turquoise Place, offering a glimpse of its
+            tranquil shores. In Daphne, the Mobile Bay Delta Cam captures the
+            waterways where rivers converge, perfect for paddling. History
+            lovers can marvel at the USS Alabama Cam in Mobile, with views from
+            this National Historic Landmark. Mobile Bay's sunsets blaze
+            brilliantly from the Fairhope Pier, a sight not to be missed.
+          </p>
         </ShowMoreText>
 
         <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} />
@@ -74,14 +83,60 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            Alabama's Gulf Coast beckons with its distinctive allure. Gulf
+            Shores unfurls with stretches of powdery white sand and pristine
+            Gulf waters. The Beach Club Webcam frames this coastal haven, where
+            beachcombers meander along the shore. Anglers dot the waters,
+            casting lines near the man-made reefs. The Gulf teems with marine
+            life, making it a hotspot for both fishing and unwinding.
+          </p>
+          <p>
+            Orange Beach reveals another slice of coastal wonder. The Turquoise
+            Place webcams unveil sweeping views of the shoreline. From its
+            towering heights, the gentle Gulf waters kiss the sandy shore.
+            Orange Beach draws visitors seeking both exhilaration and
+            tranquility. Nearby trails and fishing spots add a dash of adventure
+            to this serene locale.
+          </p>
+          <p>
+            The Mobile Bay Delta uncovers a wilder side of Alabama's waterways.
+            This delta, where the Mobile and Tensaw Rivers entwine, offers a
+            vivid display of nature. From the webcam in Daphne, watch the rivers
+            carve through verdant wetlands. It's an inviting spot for paddling
+            or navigating by boat. The waters pulse with wildlife, offering a
+            window into Alabama's untamed beauty.
+          </p>
+          <p>
+            In Mobile, the USS Alabama Battleship Camera brings history into
+            sharp focus. The camera from this National Historic Landmark, where
+            the battleship stands sentinel in Battleship Memorial Park. It's
+            surrounded by vintage aircraft and vessels, anchoring Mobile Bay's
+            historical significance. It's a must for anyone exploring the area.
+          </p>
+          <p>
+            Fairhope Pier provides a more tranquil glimpse of Alabama's coast.
+            The Fairhope Piercam captures the sun sinking below the horizon,
+            painting Mobile Bay in fiery hues. The pier lures strollers,
+            fishermen, and those seeking a quiet moment by the water. It's a
+            gateway to the peaceful beauty of Alabama's bays.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Walk along Gulf Shores Beach.</li>
+              <li>Swim in the clear waters of Orange Beach.</li>
+              <li>Explore the Mobile Bay Delta by kayak.</li>
+              <li>Fish off Fairhope Pier at sunset.</li>
+              <li>Tour the USS Alabama Battleship Memorial Park.</li>
+              <li>Play a round of golf at Kiva Dunes Resort.</li>
+              <li>Hike the trails at Gulf State Park.</li>
+              <li>Relax on the sands of Dauphin Island Beach.</li>
+              <li>Watch dolphins from a boat tour in Mobile Bay.</li>
+              <li>Visit the Sea N Suds Beachfront Restaurant.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +144,78 @@ const StateAreasPage = ({
             <ul>
               <li>
                 <a
-                  href="https://www.visittheusa.com/state/north carolina"
-                  rel="noopener noreferrer"
+                  href="https://www.alabama.travel"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Visit North Carolina
+                  Alabama Travel
                 </a>{' '}
-                - Official tourism website for North Carolina
+                - Find travel guides, events, and vacation ideas for Alabama.
+              </li>
+              <li>
+                <a
+                  href="https://www.orangebeachal.gov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Orange Beach City Guide
+                </a>{' '}
+                - Discover local events, beach info, and city services for
+                Orange Beach.
+              </li>
+              <li>
+                <a
+                  href="https://www.gulfshores.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gulf Shores and Orange Beach Tourism
+                </a>{' '}
+                - Plan your beach vacation with lodging, dining, and activity
+                options.
+              </li>
+              <li>
+                <a
+                  href="https://weather.com/weather/today/l/30.2481,-87.6808"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gulf Shores Weather
+                </a>{' '}
+                - Get the latest weather updates for Gulf Shores and the Alabama
+                coast.
+              </li>
+              <li>
+                <a
+                  href="https://www.mobile.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Mobile
+                </a>{' '}
+                - Learn about Mobile's history, attractions, and upcoming
+                events.
+              </li>
+              <li>
+                <a
+                  href="https://www.alapark.com/parks/gulf-state-park"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gulf State Park
+                </a>{' '}
+                - Explore camping, hiking, and outdoor activities at Gulf State
+                Park.
+              </li>
+              <li>
+                <a
+                  href="https://www.acpinfo.com/the-first-time-visitors-guide-to-dauphin-island/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Dauphin Island Guide
+                </a>{' '}
+                - Find beach info and things to do on Dauphin Island.
               </li>
             </ul>
           </div>
