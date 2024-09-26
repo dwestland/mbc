@@ -200,7 +200,7 @@ const StateAreasPage = ({
                   Cajun Coast
                 </a>{' '}
                 - Explore events, dining, and outdoor activities along
-                Louisiana’s Cajun Coast.
+                Louisiana's Cajun Coast.
               </li>
               <li>
                 <a

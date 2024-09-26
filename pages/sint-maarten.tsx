@@ -120,7 +120,7 @@ const CountryStatesPage = ({
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Relax on Maho Beach and watch planes fly overhead.</li>
               <li>Snorkel at Simpson Bay and explore marine life.</li>

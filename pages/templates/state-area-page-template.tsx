@@ -79,7 +79,7 @@ const StateAreasPage = ({
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Visit the white sand beaches with crystal clear water</li>
             </ol>

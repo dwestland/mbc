@@ -231,7 +231,7 @@ const CountryStatesPage = ({
                 >
                   Cozumel Parks
                 </a>{' '}
-                - Experience Cozumel’s marine parks, eco-tours, and snorkeling
+                - Experience Cozumel's marine parks, eco-tours, and snorkeling
                 spots.
               </li>
             </ul>

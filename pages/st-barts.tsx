@@ -95,7 +95,7 @@ const CountryStatesPage = ({
           <p>
             Flamands Beach paints a different picture. Its vast, sweeping
             shoreline beckons surfers and sun-seekers alike. The Flamands Beach
-            webcam lets you witness the waves colliding with the sand. It’s a
+            webcam lets you witness the waves colliding with the sand. It's a
             place where the ocean unfurls endlessly, and the sunsets dazzle the
             horizon. This webcam offers a window into the more tranquil side of
             St. Barts, where nature dominates.
@@ -114,7 +114,7 @@ const CountryStatesPage = ({
             In Gustavia, the port cam uncovers a lively marina teeming with
             yachts. Gustavia is famed as one of the priciest destinations on the
             globe. The webcam exposes the pulse of the port, from the ships
-            arriving to the vibrant energy along the docks. Whether you’re
+            arriving to the vibrant energy along the docks. Whether you're
             planning a visit or savoring a virtual escape, the webcams of St.
             Barts open a vivid portal into this island's heartbeat.
           </p>
@@ -126,7 +126,7 @@ const CountryStatesPage = ({
             <ol>
               <li>Stroll along the white sands of St. Jean Beach.</li>
               <li>Snorkel in the crystal waters of Colombier Bay.</li>
-              <li>Sail around the island’s scenic coastline.</li>
+              <li>Sail around the island's scenic coastline.</li>
               <li>Hike to the summit of Morne de Vitet.</li>
               <li>Explore the vibrant Gustavia harbor.</li>
               <li>Paddleboard across the serene waters of Grand Cul-de-Sac.</li>
