@@ -31,9 +31,7 @@ const StateAreasPage = ({
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageAreasArray.join(
-        ', '
-      )}.`}
+      documentDescription="Explore New Hampshire's lakes, harbors, and beaches through live webcams showcasing scenic water views and travel spots."
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
@@ -60,7 +58,17 @@ const StateAreasPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+          <p>
+            New Jersey's beaches beckon with vibrant activity along the
+            Atlantic. Avalon Fishing Pier rises from Seven Mile Island, where
+            visitors wander its serene sands. In Ocean City, webcams unveil the
+            bustling boardwalk and the Fishing Pier, a sanctuary for anglers.
+            The Sea Isle City Beach Patrol cam reveals the pulse of Ludlam
+            Island, where water sports flourish. Margate Fishing Pier juts into
+            the surf, offering sweeping views of the beach and pier. For a dash
+            of urban energy, traverse the Atlantic City Boardwalk, renowned for
+            its lively four-mile stretch along the shore.
+          </p>
         </ShowMoreText>
 
         <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} />
@@ -74,14 +82,61 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            New Jersey's coast unfolds an unforgettable journey through diverse
+            landscapes. Avalon, perched on Seven Mile Island, beckons visitors
+            to wander its pristine shores. The Avalon Fishing Pier webcam
+            captures both the tranquil beaches and the bustling pier. It's a
+            prime spot for fishing enthusiasts and beachcombers alike. Seven
+            Mile Island also hosts a lively boardwalk, perfect for a leisurely
+            stroll with stunning coastal views.
+          </p>
+
+          <p>
+            In Ocean City, the pier at 14th Street draws anglers and sightseers.
+            The Ocean City Fishing Pier webcam unveils the charm of this seaside
+            town. The boardwalk stretches along the shore, teeming with local
+            shops, eateries, and beachgoers. The Ocean City Music Pier cam
+            offers a sweeping view of the coastline while the sounds of
+            entertainment and music fill the air.
+          </p>
+          <p>
+            Further south, the Sea Isle City Beach Patrol cam showcases the
+            vibrant beaches of Ludlam Island. This spot pulses with energy,
+            making it ideal for kayaking and paddleboarding. Thrill-seekers can
+            dive into water sports while others lounge by the waves. The Sea
+            Isle boardwalk tempts with adventure and relaxation, offering scenic
+            views and quaint shops.
+          </p>
+          <p>
+            Margate Fishing Pier thrusts into the Atlantic, delivering
+            breathtaking ocean views. The webcam captures the serene yet
+            animated beach scene. Margate's peaceful shores offer a calm escape
+            from the bustling boardwalks.
+          </p>
+          <p>
+            Lastly, Atlantic City's Boardwalk cam reveals the famed four-mile
+            stretch. Visitors can meander along this iconic path, feeling the
+            ocean breeze while soaking up the vibrant nightlife. From casinos to
+            restaurants, this energetic stretch offers something for everyone,
+            blending the pulse of the city with the calming sea.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
-            <h3>Top 5 Things to do in {camPageTargetType}</h3>
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Relax on the sands of Hampton Beach.</li>
+              <li>Take a boat tour on Lake Winnipesaukee.</li>
+              <li>Explore Portsmouth Harbor by kayak.</li>
+              <li>Watch the waves at Rye Beach.</li>
+              <li>Fish from the docks at Weirs Beach.</li>
+              <li>Paddleboard on Squam Lake.</li>
+              <li>Walk along the shores of Odiorne Point.</li>
+              <li>Visit Jenness State Beach for a swim.</li>
+              <li>Stroll the boardwalk at Hampton Beach.</li>
+              <li>Spot wildlife in Great Bay Estuary.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,13 +144,63 @@ const StateAreasPage = ({
             <ul>
               <li>
                 <a
-                  href="https://www.visittheusa.com/state/north carolina"
-                  rel="noopener noreferrer"
+                  href="https://www.weather.com/weather/today/l/39.3581,-74.4229"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Visit North Carolina
+                  Weather in Atlantic City
                 </a>{' '}
-                - Official tourism website for North Carolina
+                - Check local forecasts before hitting the beach.
+              </li>
+              <li>
+                <a
+                  href="https://visitnj.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit New Jersey
+                </a>{' '}
+                - Discover things to do, places to stay, and attractions.
+              </li>
+              <li>
+                <a
+                  href="https://oceancityvacation.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ocean City Vacation
+                </a>{' '}
+                - Plan your trip to Ocean City with event listings and guides.
+              </li>
+              <li>
+                <a
+                  href="https://www.atlanticcitynj.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Atlantic City Tourism
+                </a>{' '}
+                - Learn about top attractions, events, and local tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.capemay.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Cape May Guide
+                </a>{' '}
+                - Explore Cape May's beaches, restaurants, and activities.
+              </li>
+              <li>
+                <a
+                  href="https://www.visitavalonnj.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Avalon
+                </a>{' '}
+                - Find dining spots, events, and outdoor activities in Avalon.
               </li>
             </ul>
           </div>
