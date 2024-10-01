@@ -19,7 +19,6 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
         lat: true,
         lng: true,
         longDescription: true,
-        mbcHosted: true,
         mbcHostedYoutube: true,
         moreCams: true,
         postalCode: true,

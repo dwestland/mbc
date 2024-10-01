@@ -5,7 +5,7 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     try {
       const cams = await prisma.cams.findMany({
-        orderBy: [{ topCam: 'desc' }],
+        orderBy: [{ updatedAt: 'desc' }],
         where: {
           hidden: true,
         },

@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@prisma/client'
+// import prisma from '@/utils/prisma'
 
 const prisma = new PrismaClient()
 
@@ -14,7 +15,6 @@ export default async function handler(
         NOT: {
           hidden: true,
         },
-        country: 'Mexico',
       },
       select: {
         area: true,
