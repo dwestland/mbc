@@ -264,7 +264,7 @@ const AreaSubareaPage = ({
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
               <li>Take a drive across the Golden Gate Bridge</li>
-              <li>Visit Fisherman’s Wharf</li>
+              <li>Visit Fisherman's Wharf</li>
               <li>Take a ride on a cable car</li>
               <li>Walk around and window shop Union Square</li>
               <li>Tour the Victorian houses known as the "pink ladies"</li>

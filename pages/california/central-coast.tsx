@@ -267,7 +267,7 @@ const AreaSubareaPage = ({
               <li>
                 Take the coastal drive on Highway 1 between Cambria and Monterey
               </li>
-              <li>Take a tour of Hearst’s Castle</li>
+              <li>Take a tour of Hearst's Castle</li>
               <li>Take a stroll though Carmel</li>
               <li>Play golf in Pebble Beach</li>
               <li>Take the "17-Mile Drive" on the Monterey Peninsula</li>
