@@ -128,7 +128,7 @@ const CaliforniaPage = ({ californiaCams }) => {
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           <p>
             California is known as the Golden State. Its sunny weather, varied

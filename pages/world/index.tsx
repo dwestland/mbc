@@ -100,7 +100,7 @@ const FloridaPage = ({ floridaCams }) => {
       documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Miami, Los Angles, Miami, Northeast, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
-        <h1>Florida Webcams</h1>
+        <h1>World Webcams</h1>
         <div className="index-page-subheading">
           <h2>
             <span className="no-break">
@@ -343,7 +343,7 @@ const FloridaPage = ({ floridaCams }) => {
 }
 
 export async function getServerSideProps() {
-  const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/florida`)
+  const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/`)
   const floridaCams: types.WebcamProps = await moreCamsRes.json()
 
   return {

@@ -123,7 +123,7 @@ const HawaiiPage = ({ hawaiiCams }) => {
           more="show more"
           less="show less"
           anchorClass="anchorClass"
-          truncatedEndingComponent="... "
+          truncatedEndingComponent="&nbsp;&nbsp;"
         >
           <p>
             Watch the best Hawaii Beach Cams, featuring live webcams and surf
