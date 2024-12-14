@@ -25,7 +25,8 @@ export default async function init(req: NextApiRequest, res: NextApiResponse) {
   } = req.body
 
   const flagMessage = `
-  Title: ${title} ID#:${id}\r\n
+  Title: ${title}\r\n
+  ID#:${id}\r\n
   Location: ${subarea} ${area} ${state} ${country}\r\n
   Type: ${type}\r\n
   Message: ${message}\r\n

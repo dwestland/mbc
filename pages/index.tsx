@@ -32,7 +32,7 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         more="show more"
         less="show less"
         anchorClass="anchorClass"
-        truncatedEndingComponent="... "
+        truncatedEndingComponent="&nbsp;&nbsp;"
       >
         <p>
           We have links to over 300 Beach Cams in Florida, California and
@@ -65,7 +65,7 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         more="show more"
         less="show less"
         anchorClass="anchorClass"
-        truncatedEndingComponent="... "
+        truncatedEndingComponent="&nbsp;&nbsp;"
       >
         <p>
           Hawaii is a tropic travel destination within the United States and is
@@ -89,7 +89,7 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         more="show more"
         less="show less"
         anchorClass="anchorClass"
-        truncatedEndingComponent="... "
+        truncatedEndingComponent="&nbsp;&nbsp;"
       >
         <p>
           California is a mostly sunny state with hundreds of miles of gorgeous
@@ -110,17 +110,17 @@ const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
         more="show more"
         less="show less"
         anchorClass="anchorClass"
-        truncatedEndingComponent="... "
+        truncatedEndingComponent="&nbsp;&nbsp;"
       >
         <p>
           Step into Florida's vibrant world through our webcams. Unveil Miami's
           iconic South Beach or drift along the tranquil Florida Keys. Craft
           your travel plans as you glimpse real-time weather and surf scenes.
-          From Daytona Beach’s dawning skies to Naples' peaceful Gulf waters,
-          our webcams paint vivid portraits of Florida’s diverse beauty. Whether
-          you’re plotting a sandy retreat or simply savoring the view, these
-          live feeds offer a dynamic window into Florida’s allure. Ignite your
-          journey with just a click!
+          From Daytona Beachs dawning skies to Naples' peaceful Gulf waters, our
+          webcams paint vivid portraits of Floridas diverse beauty. Whether
+          youre plotting a sandy retreat or simply savoring the view, these live
+          feeds offer a dynamic window into Floridas allure. Ignite your journey
+          with just a click!
         </p>
       </ShowMoreText>
 
