@@ -9,7 +9,7 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const cams = await prisma.cams.findUnique({
       where: {
-        id: +req.query.id,
+        id: req.query.id ? +req.query.id : undefined,
       },
       select: {
         area: true,

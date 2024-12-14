@@ -32,7 +32,7 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
     )
 
     // Convert snake_case to camelCase
-    cams.map((cam) => {
+    cams.map((cam: any) => {
       cam.topCam = cam.top_cam
       delete cam.top_cam
 
