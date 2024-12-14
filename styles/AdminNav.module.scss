@@ -1,8 +1,8 @@
 .adminNav {
   align-items: center;
   background: var(--lightest-olive);
-  border: 1px solid var(--light-olive);
   border-radius: 5px;
+  border: 1px solid var(--light-olive);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: #333;
   display: flex;
@@ -10,6 +10,18 @@
   justify-content: space-between;
   margin-top: 7px;
   padding: 0 30px;
+
+  ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline;
+  }
 }
 
 @media (max-width: 768px) {
