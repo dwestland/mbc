@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import LoginLogout from '@/components/LoginLogout'
 import Search from '@/components/Search'
@@ -17,15 +18,12 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({
-  documentTitle,
-  documentDescription,
+  documentTitle = 'MyBeachCams - Beach Webcams from around the World', // Default value
+  documentDescription = 'Browse hundreds of beach webcams from all over the world, including Hawaii, California, Florida and other travel destinations.', // Default value
   children,
   nofollow,
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
-
-  const title = documentTitle
-  const description = documentDescription
 
   const { data: session } = useSession()
 
@@ -36,11 +34,13 @@ const Layout: FC<LayoutProps> = ({
     }
   }, [session])
 
+  const router = useRouter()
+
   return (
     <div>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{documentTitle}</title>
+        <meta name="description" content={documentDescription} />
         {nofollow ? (
           <meta name="robots" content="noindex, nofollow" />
         ) : (
@@ -51,7 +51,8 @@ const Layout: FC<LayoutProps> = ({
         <Navbar />
         <Showcase />
         <div className={styles.secondaryNav}>
-          <LoginLogout />
+          {/* <LoginLogout /> */}
+          {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
           <Search />
         </div>
         <div className={styles.container}>

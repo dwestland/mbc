@@ -8,15 +8,18 @@ export default function AdminNav() {
       <strong>ADMIN</strong>
       <ul>
         <li>
-          <Link href="/hidden">Hidden Page</Link>
+          <Link href="/hidden">Hidden Cams</Link>
         </li>
         <li>
-          <Link href="/youtube">YouTube Page</Link>
+          <Link href="/youtube">YouTube Cams</Link>
         </li>
         <li>
           <Link href="/webcam/USA/California/Los-Angeles/youtube-test">
             YouTube Test
           </Link>
+        </li>
+        <li>
+          <Link href="/login">Log Out</Link>
         </li>
       </ul>
       <Link href="/cams/add">
