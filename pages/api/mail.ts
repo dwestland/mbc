@@ -2,7 +2,13 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import mail from '@sendgrid/mail'
 import prisma from '@/utils/prisma'
 
-mail.setApiKey(process.env.SENDGRID_API_KEY)
+const apiKey = process.env.SENDGRID_API_KEY
+
+if (!apiKey) {
+  throw new Error('SENDGRID_API_KEY is not defined')
+}
+
+mail.setApiKey(apiKey)
 
 export default async function init(req: NextApiRequest, res: NextApiResponse) {
   const { name, email, message } = req.body
