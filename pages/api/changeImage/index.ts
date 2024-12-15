@@ -1,5 +1,5 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { IncomingForm } from 'formidable'
-// import mv from 'mv'
 import AWS from 'aws-sdk'
 import fs from 'fs'
 
@@ -11,8 +11,7 @@ export const config = {
 
 // Pass id and file name
 // Put request to cams table
-
-export default async (req, res) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   await new Promise((resolve, reject) => {
     const form = new IncomingForm()
 
@@ -26,8 +25,11 @@ export default async (req, res) => {
       })
 
       const uploadFile = () => {
-        const fileContent = fs.readFileSync(files.file.filepath)
-        const filename: string = files.file.originalFilename
+        const fileContent =
+          files.file && files.file[0]
+            ? fs.readFileSync(files.file[0].filepath)
+            : null
+        const filename: string = files.file?.[0]?.originalFilename ?? ''
 
         const params = {
           Bucket: process.env.AWS_BUCKET_NAME,
@@ -36,24 +38,23 @@ export default async (req, res) => {
           ContentType: 'image/jpeg',
         }
 
-        s3.upload(params, (error, data) => {
-          if (error) {
-            console.log('Error', error)
-          } else {
-            console.log('Upload Success', data.Location)
+        s3.upload(
+          {
+            ...params,
+            Bucket: params.Bucket || '',
+            Body: fileContent || undefined,
+          },
+          (error, data) => {
+            if (error) {
+              console.log('Error', error)
+            } else {
+              console.log('Upload Success', data.Location)
+            }
           }
-        })
+        )
       }
 
       uploadFile()
-
-      // // Save file locally
-      // const oldPath = files.file.filepath
-      // const newPath = `./public/webcam-images/${files.file.originalFilename}`
-
-      // mv(oldPath, newPath, (error) => {
-      //   console.log(error)
-      // })
 
       res.status(200).json({ fields, files })
 
@@ -61,3 +62,5 @@ export default async (req, res) => {
     })
   })
 }
+
+export default handler
