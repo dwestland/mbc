@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
-import { InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import AdLarge from '@/components/AdLarge'
 import dynamic from 'next/dynamic'
 import FlagModal from '@/components/FlagModal'
 import AdminWebcamPage from '@/components/AdminWebcamPage'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+// import * as types from '@/types/index'
+
+// TODO - Import interface and fix roles error
 
 interface WebcamProps {
   hawaiiCams: { title: string }[]
@@ -180,23 +183,23 @@ const Webcam = ({
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { params } = context.query
 
   // Create webcam page path
   const result = ['/webcam-page?']
-  for (let i = 0; i <= params.length - 2; i++) {
+  for (let i = 0; i <= (params ?? []).length - 2; i++) {
     if (i === 0) {
       /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
-      result.push(`country=${params[0]}`)
+      result.push(`country=${params?.[0]}`)
     }
     if (i === 1) {
       /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
-      result.push(`&state=${params[1]}`)
+      result.push(`&state=${params?.[1]}`)
     }
   }
   /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
-  result.push(`&titleSlug=${params[params.length - 1]}`)
+  result.push(`&titleSlug=${params?.[params?.length - 1] ?? ''}`)
   const queryString = result.join('')
 
   // Call webcam dynamic page
