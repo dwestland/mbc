@@ -3,16 +3,27 @@ import { useRouter } from 'next/router'
 import Layout from '@/components/Layout'
 import AdLeaderboard from '@/components/AdLeaderboard'
 import CamCard from '@/components/CamCard'
+import * as types from '@/utils/types'
+
+interface SearchResults {
+  cams: types.Cams[]
+}
 
 const SearchCams = () => {
   const router = useRouter()
-  const [searchResults, setSearchResults] = useState({ cams: [] })
-  const [searchDisplay, setSearchDisplay] = useState(null)
+  const [searchResults, setSearchResults] = useState<SearchResults>({
+    cams: [],
+  })
+  const [searchDisplay, setSearchDisplay] = useState<
+    Array<JSX.Element> | string | JSX.Element | null
+  >(null)
 
   const searchTerm = router.query.term
   const searchUrl = `${process.env.NEXT_PUBLIC_API}/cams/search`
 
   useEffect(() => {
+    if (!searchTerm) return
+
     fetch(searchUrl, {
       method: 'POST',
       headers: {
@@ -25,7 +36,7 @@ const SearchCams = () => {
       }),
     })
       .then((res) => res.json())
-      .then((results) => {
+      .then((results: SearchResults) => {
         setSearchResults(results)
       })
       .catch((err) => console.log('err', err))
@@ -34,7 +45,7 @@ const SearchCams = () => {
   useEffect(() => {
     if (searchResults.cams.length === 0) {
       setSearchDisplay('No results found')
-      return null
+      return
     }
 
     if (searchResults.cams.length > 50) {
@@ -43,7 +54,7 @@ const SearchCams = () => {
           Too many results, please refine your search
         </div>
       )
-      return null
+      return
     }
 
     const result = searchResults.cams.map((cam) => (
@@ -51,13 +62,12 @@ const SearchCams = () => {
     ))
 
     setSearchDisplay(result)
-    return null
   }, [searchResults])
 
   return (
     <Layout
       documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
+      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
     >
       <div className="layout">
         <AdLeaderboard />
