@@ -8,14 +8,16 @@ import * as types from '@/utils/types'
 import CamCard from '@/components/CamCard'
 import ShowMoreText from 'react-show-more-text'
 
-const CaliforniaPage = ({ californiaCams }) => {
+const CaliforniaPage = ({ californiaCams }: { californiaCams: any }) => {
   const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
     ssr: false,
   })
 
   const sanDiegoCams = () => {
-    const cams = californiaCams.cams.filter((cam) => cam.area === 'San Diego')
-    const result = cams.map((cam: types.Cams, idx) => {
+    const cams = californiaCams.cams.filter(
+      (cam: types.Cams) => cam.area === 'San Diego'
+    )
+    const result = cams.map((cam: types.Cams, idx: number) => {
       if (idx < 7) {
         return <CamCard key={cam.id} cam={cam} />
       }
@@ -25,8 +27,10 @@ const CaliforniaPage = ({ californiaCams }) => {
   }
 
   const losAngelesCams = () => {
-    const cams = californiaCams.cams.filter((cam) => cam.area === 'Los Angeles')
-    const result = cams.map((cam: types.Cams, idx) => {
+    const cams = californiaCams.cams.filter(
+      (cam: types.Cams) => cam.area === 'Los Angeles'
+    )
+    const result = cams.map((cam: types.Cams, idx: number) => {
       if (idx < 7) {
         return <CamCard key={cam.id} cam={cam} />
       }
@@ -37,9 +41,9 @@ const CaliforniaPage = ({ californiaCams }) => {
 
   const centralCoastCams = () => {
     const cams = californiaCams.cams.filter(
-      (cam) => cam.area === 'Central Coast'
+      (cam: types.Cams) => cam.area === 'Central Coast'
     )
-    const result = cams.map((cam: types.Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx: number) => {
       if (idx < 7) {
         return <CamCard key={cam.id} cam={cam} />
       }
@@ -50,9 +54,9 @@ const CaliforniaPage = ({ californiaCams }) => {
 
   const sanFranciscoCams = () => {
     const cams = californiaCams.cams.filter(
-      (cam) => cam.area === 'San Francisco'
+      (cam: types.Cams) => cam.area === 'San Francisco'
     )
-    const result = cams.map((cam: types.Cams, idx) => {
+    const result = cams.map((cam: types.Cams, idx: number) => {
       if (idx < 7) {
         return <CamCard key={cam.id} cam={cam} />
       }
@@ -62,14 +66,20 @@ const CaliforniaPage = ({ californiaCams }) => {
   }
 
   // Create vectors for map
-  const vectors = []
+  const vectors: {
+    name: string
+    lat: number
+    lng: number
+    id: string
+    imageName: string
+  }[] = []
   californiaCams.cams.map((cam: types.Cams) => {
     if (cam.lat !== null && cam.lng !== null) {
       const vector = {
         name: cam.title,
         lat: cam.lat,
         lng: cam.lng,
-        id: cam.id,
+        id: cam.id.toString(),
         imageName: cam.imageName,
       }
       vectors.push(vector)
