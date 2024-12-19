@@ -15,7 +15,7 @@ const Hidden = ({
     <div className="layout">
       <h1>Hidden Webcams</h1>
       <div className="cam-container">
-        {cams.cams.map((cam: types.Cams) => (
+        {(cams.cams as types.Cams[]).map((cam: types.Cams) => (
           <CamCard key={cam.id} cam={cam} />
         ))}
       </div>
