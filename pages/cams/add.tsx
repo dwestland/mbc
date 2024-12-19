@@ -86,7 +86,6 @@ const AddCam = () => {
 
       setValues({ ...values, webcamUrl: result })
     }
-    return null
   }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
   console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
@@ -124,7 +123,7 @@ const AddCam = () => {
     return null
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     // Validation
