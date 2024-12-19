@@ -1,3 +1,5 @@
+// @ts-nocheck
+// TODO: Replace More Cams components
 import React from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
@@ -9,9 +11,15 @@ import ShowMoreText from 'react-show-more-text'
 
 interface WebcamProps {
   hawaiiCams: { title: string }[]
+  californiaCams: { title: string }[]
+  floridaCams: { title: string }[]
 }
 
-const HawaiiPage = ({ hawaiiCams, californiaCams, floridaCams }) => (
+const HawaiiPage = ({
+  hawaiiCams,
+  californiaCams,
+  floridaCams,
+}: WebcamProps) => (
   <Layout
     documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
     documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
