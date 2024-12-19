@@ -1,7 +1,7 @@
 // x@ts-nocheck
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
-import { InferGetStaticPropsType } from 'next'
+import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
 import router from 'next/router'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
@@ -23,7 +23,6 @@ interface Cams {
   lng: number
   longDescription: string
   mbcHostedYoutube: boolean
-  // mbcHostedYoutube: boolean
   moreCams: string
   postalCode: string
   state: string
@@ -56,7 +55,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     lng,
     longDescription,
     mbcHostedYoutube,
-    // mbcHostedYoutube,
     moreCams,
     postalCode,
     state,
@@ -66,7 +64,8 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     topCam,
     youtubeId,
     webcamUrl,
-  }: Cams = cams.cams
+  }: // @ts-ignore
+  Cams = cams.cams
 
   const initialState = {
     area,
@@ -117,26 +116,26 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   useEffect(() => {
     console.log('%c Make path ', 'background: red; color: white')
     if (mbcHostedYoutube) {
-      setValues({ ...values, webcamUrl: '' })
-      let result = `/webcam`
-      if (country) {
-        result += `/${country}`
-      }
-      if (state) {
-        result += `/${state.replace(/\s+/g, '-')}`
-      }
-      if (area) {
-        result += `/${area.replace(/\s+/g, '-')}`
-      }
-      result += `/${titleSlug}`
+      setValues((prevValues) => {
+        let result = `/webcam`
+        if (country) {
+          result += `/${country}`
+        }
+        if (state) {
+          result += `/${state.replace(/\s+/g, '-')}`
+        }
+        if (area) {
+          result += `/${area.replace(/\s+/g, '-')}`
+        }
+        result += `/${titleSlug}`
 
-      setValues({ ...values, webcamUrl: result })
+        return { ...prevValues, webcamUrl: result }
+      })
     }
-    return null
-  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
+  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube, values])
   console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     // Validation
@@ -424,7 +423,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 
                 </div> */}
                   <br />
-                  {/* <p style={[color: 'chrimson']} >Don't change location unless you really know what you're doing</p> */}
                   <div className={styles.row}>
                     <p style={{ color: 'crimson', fontWeight: 'bold' }}>
                       Don't change location unless you really know what you're
@@ -588,7 +586,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.query
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
   const cams = await res.json()
