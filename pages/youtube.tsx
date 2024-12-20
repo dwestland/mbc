@@ -26,6 +26,10 @@ const YouTube = ({
   const handlePageChange = async (page: number) => {
     setCurrentPage(page)
     await fetchCams(page)
+    // Scroll the page to the top after loading the new data
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
   }
 
   return (
@@ -36,10 +40,21 @@ const YouTube = ({
     >
       <div className="layout">
         <h1>YouTube Hosted Webcams</h1>
-        <p>Total published YouTube cams: {totalCams}</p>
+        <p
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <span>Total published YouTube cams: {totalCams}</span>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+        </p>
         <div className="cam-container">
           {cams.map((cam: types.Cams) => (
-            <CamCard key={cam.id} cam={cam as types.Cams} />
+            <CamCard key={cam.id} cam={cam} />
           ))}
         </div>
         <div className="pagination">
