@@ -65,13 +65,13 @@ const AddCam = () => {
 
   useEffect(() => {
     const result = slugify(title)
-    setValues({ ...values, titleSlug: result })
+    setValues((v) => ({ ...v, titleSlug: result }))
   }, [title])
 
   useEffect(() => {
     console.log('%c Make path ', 'background: red; color: white')
     if (mbcHostedYoutube) {
-      setValues({ ...values, webcamUrl: '' })
+      setValues((v) => ({ ...v, webcamUrl: '' }))
       let result = `/webcam`
       if (country) {
         result += `/${country}`
@@ -84,7 +84,7 @@ const AddCam = () => {
       }
       result += `/${titleSlug}`
 
-      setValues({ ...values, webcamUrl: result })
+      setValues((v) => ({ ...v, webcamUrl: result }))
     }
   }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
   console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
