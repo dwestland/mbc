@@ -19,7 +19,7 @@ export default function AdminNav() {
           </Link>
         </li>
         <li>
-          <Link href="/login">Log Out</Link>
+          <Link href="/login">Log Out Page</Link>
         </li>
       </ul>
       <Link href="/cams/add">

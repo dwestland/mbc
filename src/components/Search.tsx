@@ -5,7 +5,7 @@ import styles from '@/styles/Search.module.scss'
 const Search = () => {
   const [term, setTerm] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (term) {
       router.push(`/search-results?term=${term}`)
