@@ -4,23 +4,23 @@ import Layout from '@/components/Layout'
 import CamCard from '@/components/YouTubeCamCard'
 import * as types from '@/utils/types'
 
-const PAGE_SIZE = 8
+const CARDS_PER_PAGE = 8
 
 const YouTube = ({
   initialCams,
   totalCams,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const [cams, setCams] = useState(initialCams)
+  const [cams, setCams] = useState<types.Cams[]>(initialCams as types.Cams[])
   const [currentPage, setCurrentPage] = useState(1)
 
-  const totalPages = Math.ceil(totalCams / PAGE_SIZE)
+  const totalPages = Math.ceil(totalCams / CARDS_PER_PAGE)
 
   const fetchCams = async (page: number) => {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API}/cams/youtube?page=${page}&limit=${PAGE_SIZE}`
+      `${process.env.NEXT_PUBLIC_API}/cams/youtube?page=${page}&limit=${CARDS_PER_PAGE}`
     )
     const data: types.CamPageProps = await res.json()
-    setCams(data.cams)
+    setCams(data.cams as types.Cams[])
   }
 
   const handlePageChange = async (page: number) => {
@@ -39,7 +39,7 @@ const YouTube = ({
         <p>Total published YouTube cams: {totalCams}</p>
         <div className="cam-container">
           {cams.map((cam: types.Cams) => (
-            <CamCard key={cam.id} cam={cam} />
+            <CamCard key={cam.id} cam={cam as types.Cams} />
           ))}
         </div>
         <div className="pagination">
@@ -68,7 +68,7 @@ const YouTube = ({
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/cams/youtube?page=1&limit=${PAGE_SIZE}`
+    `${process.env.NEXT_PUBLIC_API}/cams/youtube?page=1&limit=${CARDS_PER_PAGE}`
   )
   const { cams, totalCams }: types.CamPageProps = await res.json()
 
