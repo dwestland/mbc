@@ -43,6 +43,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
+    // TODO Fix role type
+    // @ts-ignore
     if (session?.user?.role === 'ADMIN') {
       setIsAdmin(true)
     }
