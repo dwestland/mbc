@@ -1,6 +1,61 @@
-# mbc
+# MBC
 
-**Run local dev environment:**
+## **Tech Stack**
+
+### **Frontend**
+
+- **Next.js** Version 12+
+- **React** Version 17+
+- **TypeScript**
+- **SCSS**
+
+### **Backend**
+
+- **Next.js API Routes**
+- **Node.js** Version 16+
+- **Prisma** Version 4+
+
+### **Database**
+
+- **PostgreSQL** Version 15+
+- **Prod,Hosted on Neon**
+
+### **DevOps & Hosting**
+
+- **Staging Hosted on Vercel**
+- **AWS S3 for Image Hosting**
+
+### **Mapping & Geolocation**
+
+- **React-Leaflet** Version 3+
+- **OpenStreetMap (OSM)**
+
+### **Authentication**
+
+- **NextAuth.js** Version 4+
+
+### **Development Tools**
+
+- **Visual Studio Code**
+- **AI Tools - GitHub Copilot & ChatGPT4o**
+- **Git**
+- **ESLint** & **Prettier**
+
+### **Key Features**
+
+- **Dynamic Webcam Display**: Webcams organized by countries, states/regions, and specific areas.
+- **API-Driven Architecture**: Modular and reusable API endpoints for fetching webcam data.
+- **Interactive Maps**: Visualize webcam locations globally with zoom and click functionality.
+- **SEO Optimization**: Metadata and content structure designed for search engine performance.
+
+---
+
+**-----------------------------------------------------------------------**
+
+**Browse on iPhone**
+http://don.local, http://192.168.l.l4:3100
+
+**Run local dev environment:** (Currently running Node 20.4)
 
 ```
 npm run dev
@@ -12,17 +67,21 @@ npm run dev
 http://localhost:3100
 ```
 
+**Login Page::**
+
+```
+http://localhost:3100/login
+```
+
+```
+https://www.mybeachcams.com/login
+```
+
 **Git Clone**
 
 ```
 git clone https://github.com/dwestland/mbc.git mbc20221023
 ```
-
-<!-- ### Migrate Prisma
-
-```
-npx prisma migrate dev --name my-named-migration
-``` -->
 
 ### Migrate Prisma Development
 
@@ -39,10 +98,22 @@ npm run migrate:prod
 Adding Prisma Migrate to an existing project
 https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate/add-prisma-migrate-to-a-project#baseline-your-production-environment
 
+**Generate client library on the production server**
+
+```
+npx prisma generate
+```
+
 **Push Prisma**
 
 ```
 npx prisma db push
+```
+
+### Psisma Schema Lintting
+
+```
+npx prisma format
 ```
 
 ### Seed database
@@ -88,3 +159,20 @@ server {
   error_log  /var/log/nginx/stg.mybeachcams.com_error.log;
 }
 ````
+
+**301 redirects**
+
+How To Create Temporary and Permanent Redirects with Nginx
+https://www.digitalocean.com/community/tutorials/how-to-create-temporary-and-permanent-redirects-with-nginx
+
+server {
+
+# 301 Redirect for single pages
+
+rewrite /realestate/about.php /realestate/about/ permanent;
+
+rewrite /california/san_diego /california/san-diego permanent;
+rewrite /california/los_angeles /california/los-angeles permanent;
+rewrite /california/central_coast /california/central-coast permanent;
+rewrite /california/san_francisco /california/san-francisco permanent;
+}
