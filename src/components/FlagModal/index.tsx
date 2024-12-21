@@ -38,7 +38,7 @@ export default function FlagModal({
   const [isBrowser, setIsBrowser] = useState(false)
   const [values, setValues] = useState(initialState)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target
