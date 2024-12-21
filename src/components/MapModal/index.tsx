@@ -20,9 +20,9 @@ export default function MapModal({
 }: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
-  const handleClose = (e) => {
+  const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     onClose()
   }
@@ -64,10 +64,11 @@ export default function MapModal({
   )
 
   if (isBrowser) {
-    return ReactDOM.createPortal(
-      modalContent,
-      document.getElementById('modal-root')
-    )
+    const modalRoot = document.getElementById('modal-root')
+    if (modalRoot) {
+      return ReactDOM.createPortal(modalContent, modalRoot)
+    }
+    return null
   }
   return null
 }
