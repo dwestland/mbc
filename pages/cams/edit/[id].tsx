@@ -1,4 +1,3 @@
-// x@ts-nocheck
 import React, { useState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { InferGetStaticPropsType, GetServerSidePropsContext } from 'next'
@@ -78,7 +77,6 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
     lng,
     longDescription,
     mbcHostedYoutube,
-    // mbcHostedYoutube,
     moreCams,
     postalCode,
     state,
@@ -110,7 +108,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 
   useEffect(() => {
     const result = slugify(title)
-    setValues({ ...values, titleSlug: result })
+    setValues((prevValues) => ({ ...prevValues, titleSlug: result }))
   }, [title])
 
   useEffect(() => {

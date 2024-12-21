@@ -40,7 +40,7 @@ const SearchCams = () => {
         setSearchResults(results)
       })
       .catch((err) => console.log('err', err))
-  }, [searchTerm])
+  }, [searchTerm, searchUrl])
 
   useEffect(() => {
     if (searchResults.cams.length === 0) {

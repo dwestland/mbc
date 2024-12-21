@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import prisma from '@/utils/prisma'
 import { getSession } from 'next-auth/react'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const session: any = await getSession({ req })
   if (req.method !== 'PUT') {
     return res.status(405).json({ message: 'Method not allowed' })
@@ -71,3 +71,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   return null
 }
+
+export default handler
