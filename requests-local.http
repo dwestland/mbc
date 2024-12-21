@@ -2,19 +2,30 @@
 @baseurl = http://localhost:3100/api
 
 
-### Get Mexico cams  
+### Get Mexico cams
 GET {{baseurl}}/cams/mexico HTTP/1.1
 
 
-### Get all cams  
+### Get all cams
 GET {{baseurl}}/cams HTTP/1.1
 
 
-### Get hidden cams  
+### Get all cams-all
+GET {{baseurl}}/cams-all HTTP/1.1
+
+
+
+### Get hidden cams
 GET {{baseurl}}/cams/hidden HTTP/1.1
 
 
-### Get YouTube cams  
+############################################
+### Get hidden2 cams
+GET {{baseurl}}/cams/hidden2 HTTP/1.1
+############################################
+
+
+### Get YouTube cams
 GET {{baseurl}}/cams/youtube HTTP/1.1
 
 
