@@ -18,7 +18,7 @@ const EsriLeafletGeoCoder = (props: Props) => {
         : null,
     }
 
-    const GeoSearch = new ELG.Geosearch(searchOptions)
+    const GeoSearch = new (ELG as any).Geosearch(searchOptions)
     GeoSearch.addTo(map)
 
     return () => {
