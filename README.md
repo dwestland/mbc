@@ -80,7 +80,15 @@ https://www.mybeachcams.com/login
 **Git Clone**
 
 ```
-git clone https://github.com/dwestland/mbc.git mbc20221023
+git clone https://github.com/dwestland/mbc.git
+```
+
+**Check for TS, ESLint errors**
+
+```
+npx tsc --noEmit
+
+npx eslint
 ```
 
 ### Migrate Prisma Development
