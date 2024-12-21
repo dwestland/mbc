@@ -20,7 +20,7 @@ export default function ImageUploadModal({
   const [src, setSrc] = useState()
   const [blob, setBlob] = useState<Blob | null>(null)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
   useEffect(() => {
     if (blob !== null) {
@@ -49,22 +49,25 @@ export default function ImageUploadModal({
         300
       )
     })
-  const pasteHandler = async (e: ClipboardEvent) => {
-    const { clipboardData } = e
-    if (!clipboardData) {
-      return
-    }
-    const { items } = clipboardData
-    const imageData = items[0].getAsFile()
-    if (!imageData) {
-      return
-    }
-    const resizedImage = await resizeFile(imageData)
-    setBlob(resizedImage as Blob)
-  }
-
   useEffect(() => {
+    const pasteHandler = async (e: Event) => {
+      const clipboardEvent = e as ClipboardEvent
+      const { clipboardData } = clipboardEvent
+      if (!clipboardData) {
+        return
+      }
+      const { items } = clipboardData
+      const imageData = items[0].getAsFile()
+      if (!imageData) {
+        return
+      }
+      const resizedImage = await resizeFile(imageData)
+      setBlob(resizedImage as Blob)
+    }
     window.addEventListener('paste', pasteHandler)
+    return () => {
+      window.removeEventListener('paste', pasteHandler)
+    }
   }, [])
 
   const handleClose = () => {

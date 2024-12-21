@@ -57,6 +57,7 @@ module.exports = {
     'prefer-destructuring': ['error', { object: true, array: false }],
     'react/no-danger': 'off',
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
+    '@next/next/no-img-element': 'off',
   },
   settings: {
     react: {
