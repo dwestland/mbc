@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.7",
+    "@types/esri-leaflet-geocoder": "^2.2.7",
     "@types/formidable": "^3.4.5",
     "@types/next-auth": "^3.15.0",
     "@types/react-dom": "^19.0.2",

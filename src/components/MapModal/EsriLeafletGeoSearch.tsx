@@ -14,7 +14,7 @@ const EsriLeafletGeoCoder = (props: Props) => {
     const searchOptions = {
       ...props,
       providers: props.providers
-        ? props.providers.map((provider) => ELG[provider]())
+        ? props.providers.map((provider) => (ELG as any)[provider]())
         : null,
     }
 
