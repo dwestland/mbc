@@ -4,42 +4,19 @@ import Image from 'next/image'
 import styles from '@/styles/AdminWebcamPage.module.scss'
 
 export default function AdminWebcamPage(cams: any) {
-  console.log('%c cams ', 'background: blue; color: white', cams)
-  //   interface WebcamProps {
-  //     cams: [
-  //       {
-  //         id: number
-  //         title: string
-  //         webcamUrl: string
-  //         imageName: string
-  //         description: string
-  //         country: string
-  //         state: string
-  //         area: string
-  //         subarea: string
-  //         lat: number
-  //         lng: number
-  //         topCam: boolean
-  //         mbcHosted: boolean
-  //       }
-  //     ]
-  //   }
-
-  // @xts-ignore
+  // x@xts-ignore
   const {
+    hidden,
     id,
-    title,
-    webcamUrl,
     imageName,
-    description,
-    country,
-    state,
-    area,
-    subarea,
-    lat,
-    lng,
+    mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    title,
+    titleSlug,
     topCam,
-    mbcHosted,
+    youtubeId,
+    webcamUrl,
   }: // eslint-disable-next-line react/destructuring-assignment
   any = cams.cams
 
@@ -48,53 +25,51 @@ export default function AdminWebcamPage(cams: any) {
     : '/images/no-image.jpg'
 
   return (
-    <>
-      <div className={styles.admin}>
-        <div className="image">
-          <Image src={imageUrl} width={400} height={300} alt={title} />
-        </div>
-        <div className={styles.camInfo}>
-          <div className={styles.link}>
-            <Link href={`/cams/edit/${id}`}>
-              <a className="btn link-as-button">Edit</a>
-            </Link>
-          </div>
-          <p>
-            <strong>Title:</strong> {title}
-          </p>
-          <p>
-            <strong>webcamUrl:</strong>&nbsp;
-            <Link href={webcamUrl}>
-              <a target="_blank">{webcamUrl}</a>
-            </Link>
-          </p>
-          <p>
-            <strong>Image Name:</strong> {imageName}
-          </p>
-          <p>
-            <strong>ID:</strong> {id}
-          </p>
-          <p>
-            <strong>Description:</strong> {description}
-          </p>
-          <p>
-            <strong>Country:</strong> {country} &nbsp;
-            <strong>State:</strong> {state} &nbsp;
-            <strong>Area:</strong> {area}
-            <strong>Subarea:</strong> {subarea}
-          </p>
-          <p>
-            <strong>Latitude:</strong> {lat}
-            &nbsp; &nbsp;
-            <strong>Longitude:</strong> {lng}
-          </p>
-          <p>
-            <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
-            &nbsp; &nbsp;
-            <strong>MBC Hosted:</strong> {mbcHosted ? 'Yes' : 'No'}
-          </p>
-        </div>
+    <div className={styles.admin}>
+      <div className="image">
+        <Image src={imageUrl} width={400} height={300} alt={title} />
       </div>
-    </>
+      <div className={styles.camInfo}>
+        <div className={styles.link}>
+          <Link href={`/cams/edit/${id}`}>
+            <a className="btn link-as-button">Edit</a>
+          </Link>
+        </div>
+        <p>
+          <strong>Title:</strong> {title}
+        </p>
+        <p>
+          <strong>webcamUrl:</strong>&nbsp;
+          <Link href={webcamUrl}>
+            <a target="_blank" rel="noopener noreferrer">
+              {webcamUrl}
+            </a>
+          </Link>
+        </p>
+        <p>
+          <strong>Image Name:</strong> {imageName}
+        </p>
+        <p>
+          <strong>ID:</strong> {id}
+          &nbsp; &nbsp;
+          <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+          &nbsp; &nbsp;
+          <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+          &nbsp; &nbsp;
+          <strong>MBC Hosted YouTube:</strong> {mbcHostedYoutube ? 'Yes' : 'No'}
+        </p>
+        <p>
+          <strong>Postal Code:</strong> {postalCode}
+          &nbsp; &nbsp;
+          <strong>More Cams:</strong> {moreCams}
+        </p>
+        <p>
+          <strong>Title Slug:</strong> {titleSlug}
+        </p>
+        <p>
+          <strong>YouTube ID:</strong> {youtubeId}
+        </p>
+      </div>
+    </div>
   )
 }

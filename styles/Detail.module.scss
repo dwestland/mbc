@@ -1,15 +1,26 @@
 .admin {
-  align-items: center;
   background: var(--lightest-olive);
-  border: 1px solid var(--light-olive);
   border-radius: 5px;
+  border: 1px solid var(--light-olive);
   box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
   color: #333;
-  display: flex;
-  height: 60px;
-  justify-content: space-between;
   margin-top: 7px;
   padding: 0 30px;
+}
+
+.adminButtons {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.camAdminInfo {
+  display: flex;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+  width: 100%;
 }
 
 .camInfo {
@@ -25,4 +36,9 @@
   button {
     margin: 20px auto;
   }
+}
+
+.description {
+  margin: 5px 0;
+  width: 100%;
 }

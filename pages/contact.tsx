@@ -18,7 +18,7 @@ export default function ContactPage() {
     setValues({ ...values, [name]: value })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     // Validation
@@ -101,6 +101,7 @@ export default function ContactPage() {
                 />
               </label>
             </div>
+            <br />
             <button type="submit" className="btn">
               Submit
             </button>

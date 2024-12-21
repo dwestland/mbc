@@ -53,6 +53,17 @@ hr:after {
   font-size: 18px;
 }
 
+.green-dot {
+  background-color: rgb(52, 193, 104);
+  border-radius: 50%;
+  display: inline-block;
+  height: 10px;
+  margin-right: 6px;
+  position: relative;
+  top: 9px;
+  width: 10px;
+}
+
 /* Webcam Pages
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .more-cams {
@@ -70,9 +81,11 @@ hr:after {
   width: 260px;
   word-wrap: break-word;
   h2 {
+    font-size: 40px;
+    hyphens: auto;
     line-height: 140%;
     margin: 0;
-    font-size: 40px;
+    word-break: break-word;
     span {
       font-size: 55px;
     }
@@ -187,6 +200,11 @@ form {
     border-radius: 5px;
     height: 350px;
     width: 100%;
+
+    // Change marker color
+    .leaflet-marker-pane img {
+      filter: hue-rotate(110deg);
+    }
   }
   form {
     padding-right: 15px;
@@ -404,6 +422,7 @@ form {
   overflow: hidden;
   padding-bottom: 56.25%;
   position: relative;
+  margin: 10px 0;
 }
 
 .video-responsive iframe {
@@ -424,4 +443,60 @@ form {
 
 .leaflet-container {
   z-index: 0 !important;
+}
+
+/* Pagination for youtube page
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  line-height: 32px;
+}
+
+/* Leaflet map markers for cluster icons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.marker-cluster-small {
+  background-color: hsl(5, 100%, 80%) !important;
+}
+
+.marker-cluster-small div {
+  background-color: hsl(5, 100%, 60%) !important;
+  color: #fff !important;
+}
+
+.marker-cluster-medium {
+  background-color: hsl(205, 90%, 80%) !important;
+}
+
+.marker-cluster-medium div {
+  background-color: hsl(205, 90%, 50%) !important;
+  color: #fff !important;
+}
+
+.marker-cluster-large {
+  background-color: hsl(16, 90%, 70%) !important;
+}
+
+.marker-cluster-large div {
+  background-color: hsl(16, 90%, 40%) !important;
+  color: #fff !important;
 }

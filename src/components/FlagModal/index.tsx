@@ -38,14 +38,14 @@ export default function FlagModal({
   const [isBrowser, setIsBrowser] = useState(false)
   const [values, setValues] = useState(initialState)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target
     setValues({ ...values, [name]: value })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     // Validation
@@ -215,10 +215,11 @@ export default function FlagModal({
   )
 
   if (isBrowser) {
-    return ReactDOM.createPortal(
-      modalContent,
-      document.getElementById('modal-root')
-    )
+    const modalRoot = document.getElementById('modal-root')
+    if (modalRoot) {
+      return ReactDOM.createPortal(modalContent, modalRoot)
+    }
+    return null
   }
 
   return null

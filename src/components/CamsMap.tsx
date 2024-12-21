@@ -9,16 +9,17 @@ import {
 import { GestureHandling } from 'leaflet-gesture-handling'
 import * as L from 'leaflet'
 import 'leaflet-gesture-handling/dist/leaflet-gesture-handling.css'
-// import MarkerClusterGroup from 'react-leaflet-markercluster'
-// import 'react-leaflet-markercluster/dist/styles.min.css'
-
-// 33.9765, -118.4483
+import Image from 'next/image'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
+import 'react-leaflet-markercluster/dist/styles.min.css'
 
 interface Props {
   vectors: {
     lat: number
     lng: number
     name: string
+    id: number
+    imageName?: string
   }[]
 }
 
@@ -28,13 +29,15 @@ const CamsMap = ({ vectors }: Props) => {
   })
 
   if (vectors.length === 0) {
-    vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey' }]
+    vectors = [{ lat: 33.9765, lng: -118.4483, name: 'Marina del Rey', id: 1 }]
   }
 
   const vectorArray: [number, number][] = vectors.map((vector) => [
     vector.lat,
     vector.lng,
   ])
+
+  const imageSrcRoot = process.env.AWS_IMAGE_SRC_ROOT || ''
 
   return (
     <MapContainer
@@ -47,8 +50,8 @@ const CamsMap = ({ vectors }: Props) => {
         <LayersControl.BaseLayer checked name="Watercolor">
           <TileLayer
             attribution='&copy; <a href="http://stamen.com">Stamen Design</a> contributors'
-            url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
-            maxNativeZoom={17}
+            // eslint-disable-next-line no-template-curly-in-string
+            url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=`${process.env.STADIA_API_KEY}`"
           />
         </LayersControl.BaseLayer>
 
@@ -56,6 +59,13 @@ const CamsMap = ({ vectors }: Props) => {
           <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Nat Geo">
+          <TileLayer
+            attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
           />
         </LayersControl.BaseLayer>
 
@@ -68,18 +78,36 @@ const CamsMap = ({ vectors }: Props) => {
         </LayersControl.BaseLayer>
       </LayersControl>
       {/* <MarkerClusterGroup> */}
-      {vectors.map((vector) => (
-        <Marker
-          key={`${vector.lat}${vector.lat}${vector.lng}`}
-          position={[vector.lat, vector.lng]}
-        >
-          <Popup>
-            <div>
-              <h3>{vector.name}</h3>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup>
+        {vectors.map((vector) => (
+          <Marker key={`${vector.id}`} position={[vector.lat, vector.lng]}>
+            <Popup>
+              <div>
+                <a href={`/detail/${vector.id}`} target="_blank" rel="noopener">
+                  <p
+                    style={{
+                      margin: '5px 0',
+                      color: '#000',
+                      fontWeight: 'bold',
+                      fontSize: '12px',
+                      width: '200px',
+                    }}
+                  >
+                    {vector.name}
+                  </p>
+                  <Image
+                    src={`${imageSrcRoot}${vector.imageName}`}
+                    alt={vector.name}
+                    style={{ width: '200px', height: 'auto' }}
+                    width={260}
+                    height={195}
+                  />
+                </a>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
       {/* </MarkerClusterGroup> */}
     </MapContainer>
   )

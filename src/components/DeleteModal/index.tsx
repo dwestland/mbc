@@ -9,10 +9,10 @@ interface Props {
   title: string
 }
 
-export default function ImageUploadModal({ onClose, deleteCam, title }: Props) {
+export default function DeleteModal({ onClose, deleteCam, title }: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
   const handleClose = () => {
     onClose()
@@ -61,10 +61,10 @@ export default function ImageUploadModal({ onClose, deleteCam, title }: Props) {
   )
 
   if (isBrowser) {
-    return ReactDOM.createPortal(
-      modalContent,
-      document.getElementById('modal-root')
-    )
+    const modalRoot = document.getElementById('modal-root')
+    if (modalRoot) {
+      return ReactDOM.createPortal(modalContent, modalRoot)
+    }
   }
 
   return null

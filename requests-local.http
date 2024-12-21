@@ -2,8 +2,31 @@
 @baseurl = http://localhost:3100/api
 
 
-### Get all cams  
+### Get Mexico cams
+GET {{baseurl}}/cams/mexico HTTP/1.1
+
+
+### Get all cams
 GET {{baseurl}}/cams HTTP/1.1
+
+
+### Get all cams-all
+GET {{baseurl}}/cams-all HTTP/1.1
+
+
+
+### Get hidden cams
+GET {{baseurl}}/cams/hidden HTTP/1.1
+
+
+############################################
+### Get hidden2 cams
+GET {{baseurl}}/cams/hidden2 HTTP/1.1
+############################################
+
+
+### Get YouTube cams
+GET {{baseurl}}/cams/youtube HTTP/1.1
 
 
 ### Get ID from latest cam
@@ -11,7 +34,7 @@ GET {{baseurl}}/cams/latestId HTTP/1.1
 
 
 ### Get cam by ID
-GET {{baseurl}}/cams/600 HTTP/1.1
+GET {{baseurl}}/cams/585 HTTP/1.1
 
 
 ### Add Cam
@@ -65,7 +88,7 @@ Content-Type: application/json
 {
   "data":
     {
-      "id": 274
+      "id": 790
     }
 }
 
@@ -95,3 +118,8 @@ Content-Type: application/json
 ### Get all Hawaii cams
 GET {{baseurl}}/cams/hawaii HTTP/1.1
 
+
+### Get a webcam page
+
+GET {{baseurl}}/webcam-page?country=USA&state=Hawaii&area=Kauai&title=live-lawai-beach-resort-webcam-kauai-poipu HTTP/1.1
+# GET {{baseurl}}/webcam-page HTTP/1.1

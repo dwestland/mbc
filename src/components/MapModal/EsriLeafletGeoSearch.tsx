@@ -14,11 +14,11 @@ const EsriLeafletGeoCoder = (props: Props) => {
     const searchOptions = {
       ...props,
       providers: props.providers
-        ? props.providers.map((provider) => ELG[provider]())
+        ? props.providers.map((provider) => (ELG as any)[provider]())
         : null,
     }
 
-    const GeoSearch = new ELG.Geosearch(searchOptions)
+    const GeoSearch = new (ELG as any).Geosearch(searchOptions)
     GeoSearch.addTo(map)
 
     return () => {

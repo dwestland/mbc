@@ -10,19 +10,25 @@ import styles from '@/styles/CamCard.module.scss'
 interface CamCardProps {
   // refreshData: () => void
   cam: {
-    id: number
-    title: string
-    webcamUrl: string
-    imageName: string
-    description: string
-    country: string
-    state: string
     area: string
-    subarea: string
+    country: string
+    description: string
+    hidden: boolean
+    id: number
+    imageName: string
     lat: number
     lng: number
+    longDescription: string
+    mbcHostedYoutube: boolean
+    moreCams: string
+    postalCode: string
+    state: string
+    subarea: string
+    title: string
+    titleSlug: string
     topCam: boolean
-    mbcHosted: boolean
+    youtubeId: string
+    webcamUrl: string
   }
 }
 
@@ -73,28 +79,48 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
 
   return (
     <div className={`${styles.card} bs`}>
-      <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
-        <Image
-          src={imageUrl}
-          width={260}
-          height={195}
-          alt={cam.title}
-          className={styles.img}
-        />
-      </a>
-
-      <div className={styles.body}>
-        <a href={cam.webcamUrl} target="_blank" rel="noreferrer">
-          <h3>{cam.title}</h3>
+      {cam.mbcHostedYoutube ? (
+        <Link href={cam.webcamUrl}>
+          <a className={styles.pointer} target="_blank" rel="noopener">
+            <Image
+              src={imageUrl}
+              width={260}
+              height={195}
+              alt={cam.title}
+              className={styles.img}
+            />
+          </a>
+        </Link>
+      ) : (
+        <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
+          <Image
+            src={imageUrl}
+            width={260}
+            height={195}
+            alt={cam.title}
+            className={styles.img}
+          />
         </a>
-        {cam.description}
+      )}
+      <div className={styles.body}>
+        {cam.mbcHostedYoutube ? (
+          <Link href={cam.webcamUrl}>
+            <a className={styles.pointer} target="_blank" rel="noopener">
+              <h3>{cam.title}</h3>
+            </a>
+          </Link>
+        ) : (
+          <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
+            <h3>{cam.title}</h3>
+          </a>
+        )}
+        <p>{cam.description}</p>
       </div>
       <div className={styles.footer}>
         {isAdmin && (
           <div className={styles.adminContainer}>
             <div className={styles.admin}>
               <div className={styles.link}>ID:{cam.id}</div>
-
               <div className={styles.link}>
                 <Link href={`/cams/edit/${cam.id}`}>
                   <a className="button button-primary">Edit</a>
@@ -125,16 +151,21 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
                 lng: <strong>{cam.lng}</strong>
               </li>
               <li>
-                Top Cam: <strong>{String(cam.topCam)}</strong>
+                Top Cam: <strong>{cam.topCam ? 'Yes' : 'No'}</strong>
               </li>
               <li>
-                MBC Hosted: <strong>{String(cam.mbcHosted)}</strong>
+                Hidden: <strong>{cam.hidden ? 'Yes' : 'No'}</strong>
+              </li>
+              <li>
+                MBC Hosted YouTube:{' '}
+                <strong>{cam.mbcHostedYoutube ? 'Yes' : 'No'}</strong>
               </li>
             </ul>
           </div>
         )}
         <div className={styles.user}>
           <div className={styles.link}>
+            {cam.mbcHostedYoutube && <span className={styles.dot}>&nbsp;</span>}
             <Link href={`/detail/${cam.id}`}>
               <a className="button button-primary">Details</a>
             </Link>

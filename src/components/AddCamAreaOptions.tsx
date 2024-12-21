@@ -18,15 +18,22 @@ const AddCamAreaOptions: FC<AddCamAreaOptionsProps> = ({
   values,
   statesObjectArray,
 }) => {
-  const [areasSelectOptions, setAreasSelectOptions] = useState([])
-  const [areasObjectArray, setAreasObjectArray] = useState([])
+  const [areasSelectOptions, setAreasSelectOptions] = useState<
+    { value: string; label: string }[]
+  >([])
+  const [areasObjectArray, setAreasObjectArray] = useState<{ area: string }[]>(
+    []
+  )
 
   // Create area options
   useEffect(() => {
     setAreasObjectArray(
-      statesObjectArray?.filter((ele) => ele.state === values.state)[0]?.areas
+      statesObjectArray?.filter(
+        (ele: { state: string; areas: { area: string }[] }) =>
+          ele.state === values.state
+      )[0]?.areas
     )
-  }, [values.state])
+  }, [values.state, statesObjectArray])
 
   useEffect(() => {
     const areasArray = areasObjectArray?.map((item) => item.area) // ['Hawaii', 'California', 'Florida']

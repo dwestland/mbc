@@ -17,13 +17,18 @@ const AddCamStateOptions: FC<AddCamStateOptionsProps> = ({
   handleInputChange,
   values,
 }) => {
-  const [stateSelectOptions, setStateSelectOptions] = useState([])
-  const [statesObjectArray, setStatesObjectArray] = useState([])
+  const [stateSelectOptions, setStateSelectOptions] = useState<
+    { value: string; label: string }[]
+  >([])
+  const [statesObjectArray, setStatesObjectArray] = useState<
+    { state: string }[]
+  >([])
 
   // Create state options
   useEffect(() => {
     setStatesObjectArray(
-      data.countries.filter((ele) => ele.country === values.country)[0]?.states
+      data.countries.filter((ele) => ele.country === values.country)[0]
+        ?.states || []
     )
   }, [values.country])
 

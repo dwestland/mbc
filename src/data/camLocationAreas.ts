@@ -1,4 +1,27 @@
-const data = {
+interface Subarea {
+  subarea: string
+}
+
+interface Area {
+  area: string
+  subareas?: Subarea[]
+}
+
+interface State {
+  state: string
+  areas?: Area[]
+}
+
+interface Country {
+  country: string
+  states?: State[]
+}
+
+interface Data {
+  countries: Country[]
+}
+
+const data: Data = {
   countries: [
     {
       country: 'USA',
@@ -10,19 +33,18 @@ const data = {
               area: 'Maui',
               subareas: [
                 { subarea: 'Kaanapali' },
-                { subarea: 'North Shore' },
-                { subarea: 'Napili' },
                 { subarea: 'Lahaina' },
-                { subarea: 'Maui Surf' },
+                { subarea: 'Kihei' },
+                { subarea: 'Kahului' },
               ],
             },
             {
               area: 'Oahu',
               subareas: [
                 { subarea: 'Waikiki' },
+                { subarea: 'North Shore' },
                 { subarea: 'Honolulu' },
                 { subarea: 'Oahu Surf' },
-                { subarea: 'Waimea Bay' },
               ],
             },
             {
@@ -32,7 +54,6 @@ const data = {
                 { subarea: 'Waikoloa Coast' },
                 { subarea: 'Observatory Cams' },
                 { subarea: 'Volcano Cams' },
-                { subarea: 'Big Island Surf' },
               ],
             },
             {
@@ -41,7 +62,6 @@ const data = {
                 { subarea: 'Princeville' },
                 { subarea: 'Poipu' },
                 { subarea: 'Lihue' },
-                { subarea: 'Kauai Surf' },
               ],
             },
           ],
@@ -52,33 +72,37 @@ const data = {
             {
               area: 'San Diego',
               subareas: [
+                { subarea: 'San Diego Bay' },
                 { subarea: 'Del Mar' },
                 { subarea: 'Mission Bay' },
-                { subarea: 'San Diego Surf' },
-                { subarea: 'More San Diego' },
+                { subarea: 'San Diego Zoo' },
               ],
             },
             {
               area: 'Los Angeles',
               subareas: [
                 {
-                  subarea:
-                    'Westside - Venice - Santa Monica - Pacific Palisades',
+                  subarea: 'Westside',
                 },
+
+                { subarea: 'Santa Monica' },
+                { subarea: 'Malibu' },
                 { subarea: 'South Bay' },
+                { subarea: 'Long Beach' },
+
                 { subarea: 'Catalina Island' },
                 { subarea: 'Orange County' },
                 { subarea: 'Laguna Beach' },
-                { subarea: 'Los Angeles Surf' },
               ],
             },
             {
               area: 'Central Coast',
               subareas: [
-                { subarea: 'Monterey Bay' },
-                { subarea: 'San Luis Obispo' },
                 { subarea: 'Santa Barbara' },
-                { subarea: 'Central Coast Surf' },
+                { subarea: 'Monterey Bay' },
+                { subarea: 'Morro Bay' },
+                { subarea: 'San Luis Obispo' },
+                { subarea: 'Ventura' },
               ],
             },
             {
@@ -86,7 +110,7 @@ const data = {
               subareas: [
                 { subarea: 'San Francisco Bay' },
                 { subarea: 'Mendocino' },
-                { subarea: 'San Francisco Surf' },
+                { subarea: 'Northern California' },
               ],
             },
           ],
@@ -97,66 +121,53 @@ const data = {
             {
               area: 'Panhandle',
               subareas: [
-                { subarea: 'Panama City' },
-                { subarea: 'St. Teresa' },
                 { subarea: 'Pensacola' },
-                { subarea: 'Gulf Breeze' },
-                { subarea: 'Perdido Key' },
-                { subarea: 'Okaloosa Island' },
-                { subarea: 'Navarre Beach' },
-                { subarea: 'Destin Beach' },
-                { subarea: 'Sandestin Beach' },
-                { subarea: 'Cape San Blas' },
-                { subarea: 'Panhandle Surf' },
+                { subarea: 'Destin' },
+                { subarea: 'Miramar Beach' },
+                { subarea: 'Santa Rosa Beach' },
+                { subarea: 'Panama City' },
+                { subarea: 'Alligator Point' },
               ],
             },
             {
               area: 'Northeast',
               subareas: [
-                { subarea: 'St. Augustine' },
                 { subarea: 'Jacksonville Beach' },
-                { subarea: 'Fernandina Beach' },
-                { subarea: 'Ponte Vedra Beach' },
+                { subarea: 'St. Augustine' },
                 { subarea: 'Flagler Beach' },
-                { subarea: 'Northeast Surf' },
               ],
             },
             {
               area: 'East Central',
               subareas: [
                 { subarea: 'Daytona Beach' },
-                { subarea: 'New Smyrna Beach' },
-                { subarea: 'Sebastian Inlet' },
-                { subarea: 'Cocoa Beach' },
-                { subarea: 'Vero Beach' },
                 { subarea: 'Cape Canaveral' },
-                { subarea: 'Ormond Beach' },
-                { subarea: 'Jetty Park' },
-                { subarea: 'Spanish House' },
-                { subarea: 'East Central Surf' },
+                { subarea: 'Melbourne' },
+                { subarea: 'Fort Pierce Inlet' },
+                { subarea: 'Jensen Beach' },
               ],
             },
             {
               area: 'Miami Beach',
               subareas: [
+                { subarea: 'West Palm Beach' },
+                { subarea: 'Palm Beach' },
+                { subarea: 'Lake Worth Inlet' },
+                { subarea: 'Boca Raton' },
+                { subarea: 'Fort Lauderdale' },
+                { subarea: 'Hollywood' },
                 { subarea: 'Miami Beach' },
-                { subarea: 'South Beach' },
-                { subarea: 'Miami Surf' },
               ],
             },
             {
-              area: 'South East Florida and The Keys',
+              area: 'Florida Keys',
               subareas: [
-                { subarea: 'Fort Lauderdale' },
-                { subarea: 'Fort Pierce Inlet' },
-                { subarea: 'Jensen Beach' },
-                { subarea: 'Jupiter Inlet' },
-                { subarea: 'West Palm Beach' },
-                { subarea: 'Lake Worth Inlet' },
-                { subarea: 'Boca Raton' },
-                { subarea: 'Hollywood Beach' },
-                { subarea: 'Florida Keys' },
-                { subarea: 'Surf' },
+                { subarea: 'Key West' },
+                { subarea: 'Big Pine Key' },
+                { subarea: 'Marathon' },
+                { subarea: 'Islamorada' },
+                { subarea: 'Plantation Key' },
+                { subarea: 'Key Largo' },
               ],
             },
             {
@@ -165,30 +176,164 @@ const data = {
                 { subarea: 'Tampa Bay' },
                 { subarea: 'Sarasota' },
                 { subarea: 'Fort Myers' },
-                { subarea: 'Cape Haze - Charlotte Harbor' },
-                { subarea: 'Captiva Island Off of Cape Coral' },
-                { subarea: 'Vanderbilt south of Cape Coral' },
                 { subarea: 'Naples' },
-                { subarea: 'Clearwater' },
-                { subarea: 'Gulf Coast Surf' },
               ],
             },
           ],
         },
+        // More states ****************************************************************
         {
-          state: 'NC',
+          state: 'Alabama',
+          areas: [],
+        },
+        {
+          state: 'Connecticut',
+          areas: [],
+        },
+        {
+          state: 'Delaware',
+          areas: [],
+        },
+        {
+          state: 'Georgia',
+          areas: [],
+        },
+        {
+          state: 'Louisiana',
+          areas: [],
+        },
+        {
+          state: 'Maine',
+          areas: [],
+        },
+        {
+          state: 'Maryland',
+          areas: [],
+        },
+        {
+          state: 'Massachusetts',
+          areas: [],
+        },
+        {
+          state: 'Minnesota',
+          areas: [],
+        },
+        {
+          state: 'Mississippi',
+          areas: [],
+        },
+        {
+          state: 'New Jersey',
+          areas: [],
+        },
+        {
+          state: 'New Hampshire',
+          areas: [],
+        },
+        {
+          state: 'New York',
+          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
+        },
+        {
+          state: 'North Carolina',
+          areas: [
+            { area: 'Outer Banks' },
+            { area: 'Wilmington' },
+            { area: 'Kitty Hawk' },
+          ],
+        },
+        {
+          state: 'Oregon',
+          areas: [],
+        },
+        {
+          state: 'Rhode Island',
+          areas: [],
+        },
+        {
+          state: 'South Carolina',
+          areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
+        },
+        {
+          state: 'Texas',
+          areas: [
+            { area: 'Galveston' },
+            { area: 'South Padre Island' },
+            { area: 'Corpus Christi' },
+          ],
+        },
+        {
+          state: 'Virginia',
+          areas: [],
+        },
+        {
+          state: 'Washington',
           areas: [],
         },
       ],
     },
-    { country: 'MEX', states: [] },
-    { country: 'CAN', states: [] },
+    // More countries **************************************************************
+    {
+      country: 'Aruba',
+      states: [],
+    },
+    {
+      country: 'Bermuda',
+      states: [],
+    },
+    {
+      country: 'Bonaire',
+      states: [],
+    },
+    {
+      country: 'Canada',
+      states: [],
+    },
+    {
+      country: 'Costa Rica',
+      states: [{ state: 'Tamarindo' }, { state: 'Jaco' }],
+    },
+    {
+      country: 'Curacao',
+      states: [],
+    },
+    {
+      country: 'Dominican Republic',
+      states: [],
+    },
+    {
+      country: 'Jamaica',
+      states: [
+        { state: 'Kingston' },
+        { state: 'Montego Bay' },
+        { state: 'Negril' },
+      ],
+    },
+    {
+      country: 'Mexico',
+      states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
+    },
+    {
+      country: 'New Zealand',
+      states: [{ state: 'Auckland' }, { state: 'Wellington' }],
+    },
+    {
+      country: 'Sint Maarten',
+      states: [],
+    },
+    {
+      country: 'St. Barts',
+      states: [],
+    },
+    {
+      country: 'St. Croix',
+      states: [],
+    },
+    {
+      country: 'Thailand',
+      states: [],
+    },
   ],
 }
-
-// console.log(data.countries[2].country)
-// console.log(data.countries[2].states[0].state)
-// console.log(data.countries[2].states[0].areas[0].area)
-// console.log(data.countries[2].states[0].areas[0].subareas[0].subarea)
 
 export default data

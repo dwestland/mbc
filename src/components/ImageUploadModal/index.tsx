@@ -18,9 +18,9 @@ export default function ImageUploadModal({
 }: Props) {
   const [isBrowser, setIsBrowser] = useState(false)
   const [src, setSrc] = useState()
-  const [blob, setBlob] = useState(null)
+  const [blob, setBlob] = useState<Blob | null>(null)
 
-  useEffect(() => setIsBrowser(true))
+  useEffect(() => setIsBrowser(true), [])
 
   useEffect(() => {
     if (blob !== null) {
@@ -32,7 +32,7 @@ export default function ImageUploadModal({
     }
   }, [blob])
 
-  const resizeFile = (file) =>
+  const resizeFile = (file: any) =>
     new Promise((resolve) => {
       Resizer.imageFileResizer(
         file,
@@ -42,25 +42,32 @@ export default function ImageUploadModal({
         65,
         0,
         (uri) => {
-          resolve(uri)
+          resolve(uri as Blob)
         },
         'blob',
         400,
         300
       )
     })
-  const pasteHandler = async (e) => {
-    const { items } = e.clipboardData || e.originalEvent.clipboardData
-    const imageData = items[0].getAsFile()
-    if (!imageData) {
-      return
-    }
-    const resizedImage = await resizeFile(imageData)
-    setBlob(resizedImage)
-  }
-
   useEffect(() => {
+    const pasteHandler = async (e: Event) => {
+      const clipboardEvent = e as ClipboardEvent
+      const { clipboardData } = clipboardEvent
+      if (!clipboardData) {
+        return
+      }
+      const { items } = clipboardData
+      const imageData = items[0].getAsFile()
+      if (!imageData) {
+        return
+      }
+      const resizedImage = await resizeFile(imageData)
+      setBlob(resizedImage as Blob)
+    }
     window.addEventListener('paste', pasteHandler)
+    return () => {
+      window.removeEventListener('paste', pasteHandler)
+    }
   }, [])
 
   const handleClose = () => {
@@ -146,10 +153,11 @@ export default function ImageUploadModal({
   )
 
   if (isBrowser) {
-    return ReactDOM.createPortal(
-      modalContent,
-      document.getElementById('modal-root')
-    )
+    const modalRoot = document.getElementById('modal-root')
+    if (modalRoot) {
+      return ReactDOM.createPortal(modalContent, modalRoot)
+    }
+    return null
   }
 
   return null

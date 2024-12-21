@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { Prisma } from '@prisma/client'
 import prisma from '@/utils/prisma'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' })
   }
@@ -17,15 +17,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     // Raw SQL query to search multiple tables
     const cams: any = await prisma.$queryRaw(
-      Prisma.sql`select id, title, description, lat, lng, top_cam, mbc_hosted, country, state, area, subarea, webcam_url, image_name
+      Prisma.sql`select id, title, description, country, state, area, subarea, webcam_url, image_name
         from cams
         where to_tsvector(
           title || ' ' || 
           description || ' ' || 
-          lat || ' ' || 
-          lng || ' ' || 
-          top_cam || ' ' || 
-          mbc_hosted || ' ' || 
           country || ' ' || 
           state || ' ' || 
           area || ' ' || 
@@ -36,7 +32,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     )
 
     // Convert snake_case to camelCase
-    cams.map((cam) => {
+    cams.map((cam: any) => {
       cam.topCam = cam.top_cam
       delete cam.top_cam
 
@@ -59,3 +55,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
   return null
 }
+
+export default getCams

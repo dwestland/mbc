@@ -4,10 +4,13 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
+    // 'plugin:react/recommended',
     'airbnb',
     'prettier',
     'plugin:import/typescript',
+    // 'plugin:@next/next/recommended',
+    'next',
+    // 'next/core-web-vitals',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -51,6 +54,10 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/prop-types': 'off',
     'no-plusplus': 'off',
+    'prefer-destructuring': ['error', { object: true, array: false }],
+    'react/no-danger': 'off',
+    'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
+    '@next/next/no-img-element': 'off',
   },
   settings: {
     react: {

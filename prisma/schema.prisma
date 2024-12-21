@@ -5,23 +5,23 @@ datasource db {
 
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearch"]
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 // Next Auth
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String  @map("user_id")
-  type               String
-  provider           String
-  providerAccountId  String  @map("provider_account_id")
-  refresh_token      String? @db.Text
-  access_token       String? @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String? @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
+  type              String
+  provider          String
+  providerAccountId String  @map("provider_account_id")
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -47,10 +47,10 @@ model User {
   email         String    @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
-  role Role     @default(USER)
+  role          Role      @default(USER)
 
-  accounts  Account[]
-  sessions  Session[]
+  accounts Account[]
+  sessions Session[]
   // blogs     Blogs[]
 
   createdAt DateTime @default(now()) @map(name: "created_at")
@@ -70,19 +70,27 @@ model VerificationToken {
 }
 
 model Cams {
-  id          Int      @id @default(autoincrement())
-  title       String 
-  webcamUrl   String   @map(name: "webcam_url")
-  imageName   String?  @map(name: "image_name")
-  description String?
-  country     String
-  state       String?
-  area        String?
-  subarea     String?
-  lat         Decimal?  @db.Decimal(precision: 8, scale: 6) @default(0)
-  lng         Decimal?  @db.Decimal(precision: 9, scale: 6) @default(0)
-  topCam      Boolean?  @map(name: "top_cam") @default(false)
-  mbcHosted   Boolean?  @map(name: "mbc_hosted")  @default(false)
+  address          String?
+  area             String?
+  country          String
+  description      String?
+  droneFootage     Boolean? @default(false) @map(name: "drone_footage")
+  hidden           Boolean? @default(false)
+  id               Int      @id @default(autoincrement())
+  imageName        String?  @map(name: "image_name")
+  lat              Decimal? @default(0) @db.Decimal(precision: 8, scale: 6)
+  lng              Decimal? @default(0) @db.Decimal(precision: 9, scale: 6)
+  longDescription  String?  @map(name: "long_description")
+  mbcHostedYoutube Boolean? @default(false) @map(name: "mbc_hosted_youtube")
+  moreCams         String?  @map(name: "more_cams")
+  postalCode       String?  @map(name: "postal_code")
+  state            String?
+  subarea          String?
+  title            String
+  titleSlug        String?  @map(name: "title_slug")
+  topCam           Boolean? @default(false) @map(name: "top_cam")
+  youtubeId        String?  @map(name: "youtube_id")
+  webcamUrl        String   @map(name: "webcam_url")
 
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
@@ -91,11 +99,11 @@ model Cams {
 }
 
 model Message {
-  id         Int    @id @default(autoincrement())
+  id      Int    @id @default(autoincrement())
   name    String
   email   String
   message String
-  
+
   createdAt DateTime @default(now()) @map(name: "created_at")
 
   @@map(name: "message")

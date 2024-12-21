@@ -11,23 +11,29 @@ import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
 import AdLeaderboard from '@/components/AdLeaderboard'
 
-interface CamsDetailProps {
-  cams: { title: string }[]
-}
+// interface CamsDetailProps {
+//   cams: { title: string }[]
+// }
 interface Cams {
-  id: string
-  title: string
-  webcamUrl: string
-  imageName: string
-  description: string
-  country: string
-  state: string
   area: string
-  subarea: string
+  country: string
+  description: string
+  hidden: boolean
+  id: string
+  imageName: string
   lat: number
   lng: number
+  longDescription: string
+  mbcHostedYoutube: boolean
+  moreCams: string
+  postalCode: string
+  state: string
+  subarea: string
+  title: string
+  titleSlug: string
   topCam: boolean
-  mbcHosted: boolean
+  youtubeId: string
+  webcamUrl: string
 }
 
 const Details = ({
@@ -43,19 +49,25 @@ const Details = ({
   const [showFlagModal, setShowFlagModal] = useState(false)
 
   const {
-    id,
-    title,
-    webcamUrl,
-    imageName,
-    description,
-    country,
-    state,
     area,
-    subarea,
+    country,
+    description,
+    hidden,
+    id,
+    imageName,
     lat,
     lng,
+    longDescription,
+    mbcHostedYoutube,
+    moreCams,
+    postalCode,
+    state,
+    subarea,
+    title,
+    titleSlug,
     topCam,
-    mbcHosted,
+    youtubeId,
+    webcamUrl,
   }: Cams = cams.cams
 
   const deleteUrl = `${process.env.NEXT_PUBLIC_API}/cams/delete`
@@ -94,91 +106,153 @@ const Details = ({
     : '/images/no-image.jpg'
 
   return (
-    <Layout
-      documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
-    >
+    <Layout documentTitle={title} documentDescription={description}>
       <div className="layout">
         <AdLeaderboard />
-        <h1>Cam Details</h1>
-
+        <h1>{title} Details</h1>
         <div className="image-and-map">
-          <div className="image" style={{ cursor: 'pointer' }}>
-            <a href={webcamUrl} rel="noreferrer" target="_blank">
-              <Image src={imageUrl} width={400} height={300} alt={title} />
-            </a>
+          <div className="image">
+            {mbcHostedYoutube ? (
+              <Link href={webcamUrl}>
+                <a target="_blank" rel="noopener">
+                  <Image src={imageUrl} width={400} height={300} alt={title} />
+                </a>
+              </Link>
+            ) : (
+              <a href={webcamUrl} target="_blank" rel="noopener noreferrer">
+                <Image src={imageUrl} width={400} height={300} alt={title} />
+              </a>
+            )}
           </div>
-
           <div className="map">
             <DetailsMap lat={lat || 0} lng={lng || 0} />
           </div>
         </div>
-
         {isAdmin && (
           <div className={styles.admin}>
-            <div className={styles.link}>
-              <strong>ID:</strong> {id}
+            <div className={styles.adminButtons}>
+              <div className={styles.link}>
+                <Link href={`/cams/edit/${id}`}>
+                  <a className="btn link-as-button">Edit</a>
+                </Link>
+              </div>
+              <button type="button" onClick={handleDelete} className="btn ">
+                Delete Cam
+              </button>
+            </div>
+            <div className={styles.camAdminInfo}>
+              <div>
+                <strong>ID:</strong> {id}
+              </div>
+              <div>
+                <strong>Top Cam:</strong> {topCam ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>MBC Hosted YouTube:</strong>{' '}
+                {mbcHostedYoutube ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>Hidden:</strong> {hidden ? 'Yes' : 'No'}
+              </div>
+              <div>
+                <strong>More Cams:</strong> {moreCams}
+              </div>
+              <div>
+                <strong>Postal Code:</strong> {postalCode}
+              </div>
+
+              <div>
+                <strong>YouTube ID:</strong> {youtubeId}
+              </div>
+            </div>
+            <div className={styles.description}>
+              <div>
+                <strong>Title Slug:</strong> {titleSlug}
+              </div>
             </div>
             <div>
-              <strong>Top Cam:</strong> {String(topCam)}
+              <p>
+                <strong>webcamUrl:</strong>&nbsp;
+                {mbcHostedYoutube ? (
+                  <Link href={webcamUrl}>
+                    <a target="_blank" rel="noopener">
+                      {webcamUrl}
+                    </a>
+                  </Link>
+                ) : (
+                  <a href={webcamUrl} target="_blank" rel="noopener noreferrer">
+                    {webcamUrl}
+                  </a>
+                )}
+              </p>
             </div>
-            <div>
-              <strong>MBC Hosted:</strong> {String(mbcHosted)}
+            <div className={styles.description}>
+              <div>
+                <strong>Long Description:</strong> {longDescription}
+              </div>
             </div>
-            <div className={styles.link}>
-              <Link href={`/cams/edit/${id}`}>
-                <a className="btn link-as-button">Edit</a>
-              </Link>
-            </div>
-            <button type="button" onClick={handleDelete} className="btn ">
-              Delete Cam
-            </button>
           </div>
         )}
         <AdLeaderboard />
         <div className={styles.camInfo}>
-          <a
-            className="btn link-as-button"
-            href={webcamUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            Go to Cam
-          </a>
+          {mbcHostedYoutube ? (
+            <Link href={webcamUrl}>
+              <a className="btn link-as-button" target="_blank" rel="noopener">
+                Go to Cam
+              </a>
+            </Link>
+          ) : (
+            <a
+              href={webcamUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn link-as-button"
+            >
+              Go to Cam
+            </a>
+          )}
           <h3>
             <strong>Title:</strong> {title}
           </h3>
-          <p>
-            <strong>webcamUrl:</strong>&nbsp;
-            <a href={webcamUrl} rel="noreferrer" target="_blank">
-              {webcamUrl}
-            </a>
-          </p>
-          <p>
+          {/* <p>
             <strong>Image Name:</strong> {imageName}
-          </p>
+          </p> */}
           <p>
             <strong>Description:</strong> {description}
           </p>
           <p>
-            <strong>Country:</strong> {country}
+            <strong>Country: </strong>
+            {country}&nbsp;&nbsp;&nbsp;
+            {state && (
+              <>
+                <strong>State / Main Area: </strong>
+                {state}
+                <br />
+              </>
+            )}
+            {area && (
+              <>
+                <strong>Area: </strong>
+                {area} &nbsp;&nbsp;&nbsp;
+              </>
+            )}
+            {subarea && (
+              <>
+                <strong>Sub-area: </strong>
+                {subarea}&nbsp;&nbsp;&nbsp;
+                <br />
+              </>
+            )}
+            <strong>Latitude: </strong>
+            {lat}&nbsp;&nbsp;&nbsp;
+            <strong>Longitude: </strong>
+            {lng}
           </p>
-          <p>
-            <strong>State:</strong> {state}
-          </p>
-          <p>
-            <strong>Area:</strong> {area}
-          </p>
-          <p>
-            <strong>Subarea:</strong> {subarea}
-          </p>
-          <p>
-            <strong>Latitude:</strong> {lat}
-          </p>
-          <p>
-            <strong>Longitude:</strong> {lng}
-          </p>
-          <button className="btn" type="button" onClick={handleFlag}>
+          <button
+            className="btn ghostButton"
+            type="button"
+            onClick={handleFlag}
+          >
             Flag this Cam
           </button>
         </div>
@@ -209,7 +283,7 @@ const Details = ({
 export async function getServerSideProps(context) {
   const { id } = context.query
   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
-  const cams: CamsDetailProps = await res.json()
+  const cams: Cams = await res.json()
 
   return {
     props: {

@@ -18,6 +18,14 @@
     vertical-align: top;
   }
 
+  .description textarea {
+    height: 70px;
+  }
+
+  .longDescription textarea {
+    height: 140px;
+  }
+
   .row {
     margin: 15px 0;
   }
@@ -36,11 +44,14 @@
     margin-top: 20px;
     text-align: center;
   }
+
+  .pointer {
+    cursor: pointer;
+  }
 }
 
 .formContainer {
-  border: 1px solid #000;
-  // margin: 15px 0;
+  border: 1px solid var(--light-olive);
   padding: 10px;
   button {
     float: right;
