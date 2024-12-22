@@ -121,7 +121,7 @@ export default function Navbar() {
               <span>United States</span>
               <ul className="dropdown-menu dropdown-menu--animated">
                 <li>
-                  <Link href="/florida/">
+                  <Link href="/usa/">
                     <a>USA</a>
                   </Link>
                 </li>
