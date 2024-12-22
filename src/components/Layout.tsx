@@ -36,6 +36,19 @@ const Layout: FC<LayoutProps> = ({
 
   const router = useRouter()
 
+  const environmentIndicator = (() => {
+    if (typeof window !== 'undefined') {
+      const { host } = window.location
+      if (host.includes('localhost')) {
+        return <span className={styles.environmentIndicator}>LOCALHOST</span>
+      }
+      if (host.includes('stage.mybeachcams.com')) {
+        return <span className={styles.environmentIndicator}>STAGING</span>
+      }
+    }
+    return null
+  })()
+
   return (
     <div>
       <Head>
@@ -50,6 +63,7 @@ const Layout: FC<LayoutProps> = ({
       <div className={styles.body}>
         <Navbar />
         <Showcase />
+        {environmentIndicator}
         <div className={styles.secondaryNav}>
           {/* <LoginLogout /> */}
           {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
