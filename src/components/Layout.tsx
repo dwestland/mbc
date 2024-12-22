@@ -67,39 +67,6 @@ const Layout: FC<LayoutProps> = ({
         <div className={styles.secondaryNav}>
           {/* <LoginLogout /> */}
           {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
-
-          {/* {(() => {
-            if (typeof window !== 'undefined') {
-              const { host } = window.location
-              if (host.includes('localhost')) {
-                return (
-                  <span
-                    style={{
-                      color: 'crimson',
-                      fontWeight: 'bold',
-                      fontSize: '20px',
-                    }}
-                  >
-                    LOCALHOST
-                  </span>
-                )
-              }
-              if (host.includes('stage.mybeachcams.com')) {
-                return (
-                  <span
-                    style={{
-                      color: 'crimson',
-                      fontWeight: 'bold',
-                      fontSize: '20px',
-                    }}
-                  >
-                    STAGING
-                  </span>
-                )
-              }
-            } 
-            return null
-          })()} */}
           <Search />
         </div>
         <div className={styles.container}>
