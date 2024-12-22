@@ -54,7 +54,9 @@ const Layout: FC<LayoutProps> = ({
       <Head>
         <title>{documentTitle}</title>
         <meta name="description" content={documentDescription} />
-        {nofollow ? (
+        {nofollow ||
+        (typeof window !== 'undefined' &&
+          window.location.hostname === 'stage.mybeachcams.com') ? (
           <meta name="robots" content="noindex, nofollow" />
         ) : (
           <meta name="robots" content="index, follow" />
