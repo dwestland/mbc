@@ -25,6 +25,20 @@ const Layout: FC<LayoutProps> = ({
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
 
+  // Set default props to avoid the ESLint error
+  Layout.defaultProps = {
+    nofollow: false,
+  }
+
+  // const shouldNofollow = process.env.NEXT_PUBLIC_NOFOLLOW
+
+  // TODO: Remove
+  console.log(
+    '%c process.env.NEXT_PUBLIC_NOFOLLOW ',
+    'background: red; color: white',
+    process.env.NEXT_PUBLIC_NOFOLLOW
+  )
+
   const { data: session } = useSession()
 
   useEffect(() => {
@@ -54,9 +68,8 @@ const Layout: FC<LayoutProps> = ({
       <Head>
         <title>{documentTitle}</title>
         <meta name="description" content={documentDescription} />
-        {nofollow ||
-        (typeof window !== 'undefined' &&
-          window.location.hostname === 'stage.mybeachcams.com') ? (
+        {nofollow || process.env.NEXT_PUBLIC_NOFOLLOW ? (
+          // {nofollow || shouldNofollow ? (
           <meta name="robots" content="noindex, nofollow" />
         ) : (
           <meta name="robots" content="index, follow" />
@@ -79,11 +92,6 @@ const Layout: FC<LayoutProps> = ({
       </div>
     </div>
   )
-}
-
-// Set default props to avoid the ESLint error
-Layout.defaultProps = {
-  nofollow: false,
 }
 
 export default Layout
