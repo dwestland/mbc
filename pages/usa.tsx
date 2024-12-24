@@ -10,7 +10,7 @@ import data from '@/data/camLocationAreas'
 import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
 import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
-// import NewMoreHawaiiCams from '@/components/NewMoreHawaiiCams'
+import NewMoreHawaiiCams from '@/components/NewMoreHawaiiCams'
 
 const CountryStatesPage = ({
   cams,
@@ -27,7 +27,6 @@ const CountryStatesPage = ({
   const pageSectionsArray = pageSections
     ? pageSections.map((state: { state: string }) => state.state)
     : []
-
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
@@ -100,6 +99,7 @@ const CountryStatesPage = ({
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>{' '}
+      <NewMoreHawaiiCams cams={{ cams: [cams[0]] }} />
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
