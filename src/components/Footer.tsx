@@ -110,7 +110,7 @@ const Footer = () => {
         <div>
           <ul>
             <li>
-              <Link href="/california/">
+              <Link href="/usa/">
                 <a>United States</a>
               </Link>
             </li>
