@@ -2,15 +2,31 @@
 import { SessionProvider } from 'next-auth/react'
 import { AppProps } from 'next/app'
 import React from 'react'
+import Script from 'next/script'
 import '@/styles/globals.scss'
 
 export default function App({
   Component,
   pageProps: { ...pageProps },
 }: AppProps) {
+  const GA_MEASUREMENT_ID = 'G-C3QDQFZBDD'
+
   return (
     <SessionProvider session={(pageProps as any).session} refetchInterval={0}>
-      {/* @ts-ignore */}
+      {/* This loads the main Google Analytics script */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      {/* This sets up the dataLayer */}
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
       <Component {...pageProps} />
     </SessionProvider>
   )

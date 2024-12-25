@@ -18,8 +18,8 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({
-  documentTitle = 'MyBeachCams - Beach Webcams from around the World', // Default value
-  documentDescription = 'Browse hundreds of beach webcams from all over the world, including Hawaii, California, Florida and other travel destinations.', // Default value
+  documentTitle = 'MyBeachCams - Webcams from around the World', // Default value
+  documentDescription = 'Browse hundreds of beach cams and webcams from all over the world, including Hawaii, California, Florida and other travel destinations.', // Default value
   children,
   nofollow,
 }): JSX.Element => {
@@ -30,6 +30,7 @@ const Layout: FC<LayoutProps> = ({
     nofollow: false,
   }
 
+  // Use environment variable for SSR
   const shouldNofollow = process.env.NEXT_PUBLIC_NOFOLLOW === 'true'
 
   const { data: session } = useSession()
