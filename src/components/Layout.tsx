@@ -30,14 +30,7 @@ const Layout: FC<LayoutProps> = ({
     nofollow: false,
   }
 
-  // const shouldNofollow = process.env.NEXT_PUBLIC_NOFOLLOW
-
-  // TODO: Remove
-  console.log(
-    '%c process.env.NEXT_PUBLIC_NOFOLLOW ',
-    'background: red; color: white',
-    process.env.NEXT_PUBLIC_NOFOLLOW
-  )
+  const shouldNofollow = process.env.NEXT_PUBLIC_NOFOLLOW === 'true'
 
   const { data: session } = useSession()
 
@@ -68,8 +61,7 @@ const Layout: FC<LayoutProps> = ({
       <Head>
         <title>{documentTitle}</title>
         <meta name="description" content={documentDescription} />
-        {nofollow || process.env.NEXT_PUBLIC_NOFOLLOW ? (
-          // {nofollow || shouldNofollow ? (
+        {nofollow || shouldNofollow ? (
           <meta name="robots" content="noindex, nofollow" />
         ) : (
           <meta name="robots" content="index, follow" />
