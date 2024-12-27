@@ -99,7 +99,8 @@ const CountryStatesPage = ({
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>{' '}
-      <NewMoreHawaiiCams cams={{ cams: [cams[0]] }} />
+      {/* <NewMoreHawaiiCams cams={{ cams: [cams[0]] }} /> */}
+      <NewMoreHawaiiCams cams={{ cams }} />
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
