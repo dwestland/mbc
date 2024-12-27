@@ -36,12 +36,9 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   const [showFlagModal, setShowFlagModal] = useState(false)
 
   const imageUrl: string = cam.imageName
-    ? process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGE_URL + cam.imageName
-    : '/images/no-image.jpg'
-
-  // const imageUrl: string = cam.imageName
-  //   ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
-  //   : '/images/no-image.jpg'
+    ? // process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
+      process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGE_URL + cam.imageName
+    : 'https://images.mybeachcams.com/no-image.jpg'
 
   const { data: session } = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
