@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import Image from 'next/image'
 import router from 'next/router'
 import DeleteModal from '@/components/DeleteModal'
 import FlagModal from '@/components/FlagModal'
