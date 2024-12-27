@@ -37,8 +37,12 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   const [showFlagModal, setShowFlagModal] = useState(false)
 
   const imageUrl: string = cam.imageName
-    ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
+    ? process.env.NEXT_PUBLIC_CLOUDFLARE_IMAGE_URL + cam.imageName
     : '/images/no-image.jpg'
+
+  // const imageUrl: string = cam.imageName
+  //   ? process.env.AWS_IMAGE_SRC_ROOT + cam.imageName
+  //   : '/images/no-image.jpg'
 
   const { data: session } = useSession()
   const [isAdmin, setIsAdmin] = useState(false)
@@ -82,7 +86,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
       {cam.mbcHostedYoutube ? (
         <Link href={cam.webcamUrl}>
           <a className={styles.pointer} target="_blank" rel="noopener">
-            <Image
+            <img
               src={imageUrl}
               width={260}
               height={195}
@@ -93,7 +97,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
         </Link>
       ) : (
         <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
-          <Image
+          <img
             src={imageUrl}
             width={260}
             height={195}

@@ -4,6 +4,7 @@ module.exports = {
     domains: [
       'localhost',
       'www.mybeachcams.com',
+      'images.mybeachcams.com',
       'mybeachcams-images.s3.us-west-1.amazonaws.com',
     ],
   },
