@@ -11,6 +11,8 @@ import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
 import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 import NewMoreHawaiiCams from '@/components/NewMoreHawaiiCams'
+import NewMoreCaliforniaCams from '@/components/NewMoreCaliforniaCams'
+import NewMoreFloridaCams from '@/components/NewMoreFloridaCams'
 
 const CountryStatesPage = ({
   cams,
@@ -96,10 +98,34 @@ const CountryStatesPage = ({
         </div>
       </div>
       <hr />
+
       <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>{' '}
-      <NewMoreHawaiiCams cams={{ cams: cams.slice(0, 7) }} />
+        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+      </h2>
+      <NewMoreHawaiiCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
+        }}
+      />
+
+      <h2>
+        <Link href="/california/">California Beach Cams</Link>
+      </h2>
+      <NewMoreCaliforniaCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
+        }}
+      />
+
+      <h2>
+        <Link href="/florida/">Florida Beach Cams</Link>
+      </h2>
+      <NewMoreFloridaCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
+        }}
+      />
+
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
