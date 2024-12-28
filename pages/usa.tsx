@@ -1,5 +1,3 @@
-// @ts-nocheck
-// TODO: Remove this
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
@@ -101,9 +99,7 @@ const CountryStatesPage = ({
       <h2>
         <Link href="/hawaii/">More Hawaii Beach Cams</Link>
       </h2>{' '}
-      {/* <NewMoreHawaiiCams cams={{ cams: [cams[0]] }} /> */}
-      {/* TODO: Fix cams TS error */}
-      <NewMoreHawaiiCams cams={{ cams }} />
+      <NewMoreHawaiiCams cams={{ cams: cams.slice(0, 7) }} />
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>

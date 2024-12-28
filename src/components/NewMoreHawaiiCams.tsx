@@ -1,5 +1,4 @@
 import React from 'react'
-// import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import CamCard from '@/components/CamCard'
 import * as types from '@/utils/types'
