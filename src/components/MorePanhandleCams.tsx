@@ -15,7 +15,7 @@ function MorePanhandleCams({ cams }: types.MoreWebcamProps) {
             <h2>
               MORE
               <br />
-              <span>PANHANDLE</span>
+              <span>PAN HANDLE</span>
               <br />
               CAMS
             </h2>

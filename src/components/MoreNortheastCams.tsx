@@ -15,7 +15,7 @@ function MoreNortheastCams({ cams }: types.MoreWebcamProps) {
             <h2>
               MORE
               <br />
-              <span>NORTHEAST</span>
+              <span>NORTH EAST</span>
               <br />
               CAMS
             </h2>
