@@ -1,133 +1,86 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import * as types from '@/utils/types'
-import CamCard from '@/components/CamCard'
 import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+// import RenderAreaSections from '@/components/RenderAreaSections'
+import data from '@/data/camLocationAreas'
+import { findAreas } from '@/utils/common'
+import * as types from '@/utils/types'
+import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
+import MoreLosAngelesCams from '@/components/MoreLosAngelesCams'
+import MoreSanDiegoCams from '@/components/MoreSanDiegoCams'
+import MoreCentralCoastCams from '@/components/MoreCentralCoastCams'
+import MoreSanFranciscoCams from '@/components/MoreSanFranciscoCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
-const CaliforniaPage = ({ californiaCams }: { californiaCams: any }) => {
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-
-  const sanDiegoCams = () => {
-    const cams = californiaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'San Diego'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
+const StateAreasPage = ({
+  cams,
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return <ErrorLoadingWebcams />
   }
 
-  const losAngelesCams = () => {
-    const cams = californiaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Los Angeles'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
+  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
+  const camPageTargetType = 'California'
 
-  const centralCoastCams = () => {
-    const cams = californiaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Central Coast'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  const sanFranciscoCams = () => {
-    const cams = californiaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'San Francisco'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  // Create vectors for map
-  const vectors: {
-    name: string
-    lat: number
-    lng: number
-    id: string
-    imageName: string
-  }[] = []
-  californiaCams.cams.map((cam: types.Cams) => {
-    if (cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id.toString(),
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
+  const pageAreas = findAreas(data, camPageTargetType)
+  const pageAreasArray = pageAreas
+    ? pageAreas.map((area: { area: string }) => area.area)
+    : []
 
   return (
+    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle="California Beach Cams - Webcams in San Diego, Los Angeles and San Francisco"
+      // TODO:
+      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
       documentDescription="Best Beach Cams and Surf Cams in California featuring webcams in San Diego, Los Angeles, Central Coast and San Francisco and much more"
     >
       <div className="layout">
-        <h1>California Webcams</h1>
-        <div className="index-page-subheading">
-          <h2>
-            <span className="no-break">
-              <Link href="/california/san-diego">
-                <a>San Diego</a>
-              </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              <Link href="/california/los-angeles">
-                <a>Los Angeles</a>
-              </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              <Link href="/california/central-coast">
-                <a>Cental Coast</a>
-              </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              {' '}
-              <Link href="/california/san-francisco">
-                <a>San Francisco</a>
-              </Link>
-            </span>
-          </h2>
-        </div>
+        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h3 style={{ marginTop: '0' }}>
+          Featuring webcams from{' '}
+          {pageAreasArray.slice(0, -1).join(', ') +
+            (pageAreasArray.length > 1
+              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
+              : '')}{' '}
+        </h3>
+        <h3>
+          <span className="no-break">
+            <Link href="/california/san-diego">
+              <a>San Diego</a>
+            </Link>
+          </span>
+          &nbsp;
+          <span className="subheading-emoji"> 🌴 </span>&nbsp;
+          <span className="no-break">
+            <Link href="/california/los-angeles">
+              <a>Los Angeles</a>
+            </Link>
+          </span>
+          &nbsp;
+          <span className="subheading-emoji"> 🌴 </span>&nbsp;
+          <span className="no-break">
+            <Link href="/california/central-coast">
+              <a>Cental Coast</a>
+            </Link>
+          </span>
+          &nbsp;
+          <span className="subheading-emoji"> 🌴 </span>&nbsp;
+          <span className="no-break">
+            {' '}
+            <Link href="/california/san-francisco">
+              <a>San Francisco</a>
+            </Link>
+          </span>
+        </h3>
+
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
@@ -140,6 +93,7 @@ const CaliforniaPage = ({ californiaCams }: { californiaCams: any }) => {
           anchorClass="anchorClass"
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
+          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
             California is known as the Golden State. Its sunny weather, varied
             landscape and the allure of fame and fortune have enticed millions
@@ -153,163 +107,156 @@ const CaliforniaPage = ({ californiaCams }: { californiaCams: any }) => {
             of these exciting destinations. Either way, enjoy the view!
           </p>
         </ShowMoreText>
-        <AdLeaderboard />
+
         <h2>
-          <Link href="/california/san-diego">
-            <a>San Diego</a>
-          </Link>
+          <Link href="/california/los-angeles/">Los Angeles Webcams</Link>
+        </h2>
+        <p>
+          Los Angeles is home to many of the mainland's top beaches. Click on
+          Los Angeles Beach Cams to find streaming video webcams of such LA hot
+          spots as Venice Beach, Santa Monica Pier, Hermosa Beach, Newport
+          Beach, Laguna and even Catalina Island. Check out the great weather
+          and see what's happening in the LA scene.
+        </p>
+        <MoreLosAngelesCams
+          cams={{
+            cams: cams.filter((cam) => cam.area === 'Los Angeles').slice(0, 7),
+          }}
+        />
+        <AdLeaderboard />
+
+        <h2>
+          <Link href="/california/san-diego/">San Diego Webams</Link>
         </h2>
         <p>
           San Diego, known for its year-round sunshine and balmy temperatures,
-          is a great place for some fun-in-the-sun. Click on{' '}
-          <Link href="/california/san-diego/">
-            <a>San Diego Beach Cams</a>
-          </Link>{' '}
-          and check out these live, streaming video web cams of the Del Mar, La
-          Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach and
+          is a great place for some fun-in-the-sun. Click on San Diego Beach
+          Cams and check out these live, streaming video web cams of the Del
+          Mar, La Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach and
           Imperial Beach areas. You'll then see why San Diego is one of the most
           popular vacation spots in the U.S.A.
         </p>
-        <div className="cam-container">
-          {sanDiegoCams()}
-          <div className="more-cams">
-            <Link href="/california/san-diego">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>SAN DIEGO</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
+        <MoreSanDiegoCams
+          cams={{
+            cams: cams.filter((cam) => cam.area === 'San Diego').slice(0, 7),
+          }}
+        />
         <AdLeaderboard />
         <h2>
-          <Link href="/california/los-angeles">
-            <a>Los Angeles Beach Cams</a>
-          </Link>
-        </h2>
-        <p>
-          Los Angeles is home to many of the mainland's top beaches. Click on{' '}
-          <Link href="/california/los-angeles/">
-            <a>Los Angeles Beach Cams</a>
-          </Link>{' '}
-          to find streaming video webcams of such LA hot spots as Venice Beach,
-          Santa Monica Pier, Hermosa Beach, Newport Beach, Laguna and even
-          Catalina Island. Check out the great weather and see what's happening
-          in the LA scene.{' '}
-          <Link href="/california/los-angeles/">
-            <a>Los Angeles Beach Cams</a>
-          </Link>{' '}
-          to find streaming video webcams of such LA hot spots as Venice Beach,
-          Santa Monica Pier, Hermosa Beach, Newport Beach, Laguna and even
-          Catalina Island. Check out the great weather and see what's happening
-          in the LA scene.
-        </p>
-        <div className="cam-container">
-          {losAngelesCams()}
-          <div className="more-cams">
-            <Link href="/california/los-angeles">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>LOS ANGELES</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/california/central-coast">
-            <a>Cental Coast Beach Cams</a>
-          </Link>
+          <Link href="/california/central-coast/">Central Coast Webcams</Link>
         </h2>
         <p>
           Along the west coast between Los Angeles and San Francisco is a series
           of terrific resort towns. Many of them are weekend getaways for
-          Angelinos. Click on{' '}
-          <Link href="/california/central-coast/">
-            <a>Central Coast Beach Cams</a>
-          </Link>{' '}
-          to see live, streaming video of these areas. It starts at Ventura and
-          Santa Barbara, and then goes up the coast to Baywood and San Simeon,
-          and finally to Big Sur, Pebble Beach and Monterey. These webcams will
-          probably make you want to get in the car and drive up the coast along
-          scenic Highway 1.
+          Angelinos. Click on Central Coast Beach Cams to see live, streaming
+          video of these areas. It starts at Ventura and Santa Barbara, and then
+          goes up the coast to Baywood and San Simeon, and finally to Big Sur,
+          Pebble Beach and Monterey. These webcams will probably make you want
+          to get in the car and drive up the coast along scenic Highway 1.
         </p>
-        <div className="cam-container">
-          {centralCoastCams()}
-          <div className="more-cams">
-            <Link href="/california/central-coast">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>CENTRAL COAST</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
+        <MoreCentralCoastCams
+          cams={{
+            cams: cams
+              .filter((cam) => cam.area === 'Central Coast')
+              .slice(0, 7),
+          }}
+        />
         <AdLeaderboard />
+
         <h2>
-          <Link href="/california/san-francisco">
-            <a>San Francisco & Beach Northern California Cams</a>
-          </Link>
+          <Link href="/california/san-francisco/">San Francisco Webcams</Link>
         </h2>
         <p>
           San Francisco is known as the "City by the Bay." This worldly,
           seductive city is full of culture, magnificent sights and outstanding
           food. Its famous sights include the Golden Gate Bridge, cable cars and
-          steep rolling hills overlooking the bay and ocean. See the web cams at{' '}
-          <Link href="/california/san-francisco/">
-            <a>San Francisco Beach Cams</a>
-          </Link>{' '}
-          to view streaming live pictures of this incredible area, including San
-          Francisco Bay, The Golden Gate Bridge and Alcatraz Island.
+          steep rolling hills overlooking the bay and ocean. See the web cams at
+          San Francisco Beach Cams to view streaming live pictures of this
+          incredible area, including San Francisco Bay, The Golden Gate Bridge
+          and Alcatraz Island.
         </p>
-        <div className="cam-container">
-          {sanFranciscoCams()}
-          <div className="more-cams">
-            <Link href="/california/san-francisco">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>SAN FRAN</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
+        <MoreSanFranciscoCams
+          cams={{
+            cams: cams
+              .filter((cam) => cam.area === 'San Francisco')
+              .slice(0, 7),
+          }}
+        />
+        <AdLeaderboard />
+        <h1>Cams Displayed Here</h1>
+        {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
+
+        <ShowMoreText
+          lines={4}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
+          {/* Things to Do and Links and Info */}
+          <p>xxx</p>
+        </ShowMoreText>
+        <hr />
+        <div className="things-and-info">
+          <div className="things">
+            <h3>Top 10 Things to do in {camPageTargetType}</h3>
+            <ol>
+              <li>x</li>
+            </ol>
+          </div>
+          <div className="info">
+            <h3>{camPageTargetType} Links and Local Information</h3>
+            <ul>
+              <li>x</li>
+            </ul>
           </div>
         </div>
-        <AdLeaderboard />
       </div>
+      <hr />
+      <h2>
+        <Link href="/">More Beach Cams</Link>
+      </h2>{' '}
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
-  const moreCamsRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/cams/california`
-  )
-  const californiaCams: types.WebcamProps = await moreCamsRes.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      californiaCams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    let cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
+    cams = cams.filter((cam) => cam.state === 'California')
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default CaliforniaPage
+export default StateAreasPage
