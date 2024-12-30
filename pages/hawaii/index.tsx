@@ -14,6 +14,7 @@ import MoreMauiCams from '@/components/MoreMauiCams'
 import MoreOahuCams from '@/components/MoreOahuCams'
 import MoreBigIslandCams from '@/components/MoreBigIslandCams'
 import MoreKauaiCams from '@/components/MoreKauaiCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 const StateAreasPage = ({
   cams,
@@ -124,6 +125,7 @@ const StateAreasPage = ({
             cams: cams.filter((cam) => cam.area === 'Maui').slice(0, 7),
           }}
         />
+        <AdLeaderboard />
 
         <h2>
           <Link href="/hawaii/oahu/">Oahu Island Webams</Link>
@@ -140,6 +142,7 @@ const StateAreasPage = ({
             cams: cams.filter((cam) => cam.area === 'Oahu').slice(0, 7),
           }}
         />
+        <AdLeaderboard />
 
         <h2>
           <Link href="/hawaii/bigisland/">Big Island Webams</Link>
@@ -158,6 +161,7 @@ const StateAreasPage = ({
             cams: cams.filter((cam) => cam.area === 'Big Island').slice(0, 7),
           }}
         />
+        <AdLeaderboard />
 
         <h2>
           <Link href="/hawaii/kauai/">Kauai Island Webams</Link>
@@ -175,6 +179,7 @@ const StateAreasPage = ({
             cams: cams.filter((cam) => cam.area === 'Kauai').slice(0, 7),
           }}
         />
+        <AdLeaderboard />
 
         <h1>Cams Displayed Here</h1>
         {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
