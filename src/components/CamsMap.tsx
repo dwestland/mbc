@@ -47,18 +47,18 @@ const CamsMap = ({ vectors }: Props) => {
       boundsOptions={{ padding: [50, 50] }}
     >
       <LayersControl position="topright">
-        <LayersControl.BaseLayer checked name="Watercolor">
+        <LayersControl.BaseLayer checked name="Street Map">
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Watercolor">
           <TileLayer
             attribution='&copy; <a href="http://stamen.com">Stamen Design</a> contributors'
             // eslint-disable-next-line no-template-curly-in-string
             url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=`${process.env.STADIA_API_KEY}`"
-          />
-        </LayersControl.BaseLayer>
-
-        <LayersControl.BaseLayer name="Street Map">
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
         </LayersControl.BaseLayer>
 
