@@ -244,6 +244,11 @@ const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link href="/japan/">
+                <a>Japan</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/mexico/">
                 <a>Mexico</a>
               </Link>
@@ -260,6 +265,11 @@ const Footer = () => {
               <li>
                 <Link href="/st-barts/">
                   <a>St. Barts</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/taiwan/">
+                  <a>Taiwan</a>
                 </Link>
               </li>
               <li>
