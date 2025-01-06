@@ -3,11 +3,6 @@ import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
 import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
-// import AdLarge from '@/components/AdLarge'
-// import CamsPageMap from '@/components/CamsPageMap'
-// import RenderStatesSections from '@/components/RenderStatesSections'
-// import data from '@/data/camLocationAreas'
-// import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
 import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 import MoreWebcams from '@/components/MoreWebcams'
@@ -24,30 +19,14 @@ const WorldPage = ({
     return <ErrorLoadingWebcams />
   }
 
-  // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
-  const camPageTargetType = 'USA'
-
-  // const pageSections = findStates(data, camPageTargetType)
-  // const pageSectionsArray = pageSections
-  // ? pageSections.map((state: { state: string }) => state.state)
-  // : []
   return (
-    // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle="Best Webcams around the World"
       documentDescription="Browse hundreds of beach webcams from around the world"
     >
       <div className="layout">
-        {/* <h1>{camPageTargetType} Beach Webcams</h1> */}
         <h1>Best Webcams from around the World</h1>
         <h2>MyBeachCams.com</h2>
-        {/* <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageSectionsArray.slice(0, -1).join(', ') +
-            (pageSectionsArray.length > 1
-              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
-              : '')}{' '}
-        </h3> */}
         <div className="links-container">
           <ul>
             <li>
@@ -122,14 +101,6 @@ const WorldPage = ({
             </li>
           </ul>
         </div>
-        {/* <div className="content-and-ad">
-          <div className="content">
-            <CamsPageMap cams={cams} />
-          </div>
-          <div className="ad">
-            <AdLarge />
-          </div>
-        </div> */}
         <ShowMoreText
           lines={2}
           more="show more"
@@ -137,7 +108,6 @@ const WorldPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
-          {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
             We have links to over 600 Webcams in Florida, California, Hawaii and
             all over the world. You will find webcams with live, streaming video
@@ -157,9 +127,6 @@ const WorldPage = ({
             information, maps and links. Enjoy the <em>Hawaii Beach Cams!</em>
           </p>
         </ShowMoreText>
-
-        {/* <h1>Cams displayed here</h1> */}
-        {/* <RenderStatesSections pageSections={pageSections ?? []} cams={cams} /> */}
       </div>
       <hr />
       <h2>
@@ -171,7 +138,7 @@ const WorldPage = ({
         }}
       />
       <h2>
-        <Link href="/hawaii/">USA Webcams</Link>
+        <Link href="/hawaii/"> Webcams</Link>
       </h2>
       <MoreUSACams
         cams={{
@@ -212,8 +179,6 @@ const WorldPage = ({
         anchorClass="anchorClass"
         truncatedEndingComponent="&nbsp;&nbsp;"
       >
-        {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
-        {/* Things to Do and Links and Info */}
         <p>
           Hawaii is a tropic travel destination within the United States and is
           one of the top choices for vacations. For US travelers, you can get to
@@ -225,21 +190,6 @@ const WorldPage = ({
           place to visit from the comfort of your own computer.
         </p>
       </ShowMoreText>
-      <hr />
-      <div className="things-and-info">
-        <div className="things">
-          <h3>Top 10 Things to do in {camPageTargetType}</h3>
-          <ol>
-            <li>x</li>
-          </ol>
-        </div>
-        <div className="info">
-          <h3>{camPageTargetType} Links and Local Information</h3>
-          <ul>
-            <li>x</li>
-          </ul>
-        </div>
-      </div>
     </Layout>
   )
 }
@@ -259,9 +209,6 @@ export const getServerSideProps: GetServerSideProps<
     if (!Array.isArray(cams) || cams.length === 0) {
       throw new Error('Cams object is not valid or empty')
     }
-
-    // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
-    // cams = cams.filter((cam) => cam.country === 'USA')
 
     return {
       props: {

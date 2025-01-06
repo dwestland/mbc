@@ -5,7 +5,6 @@ import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
 import CamsPageMap from '@/components/CamsPageMap'
-// import RenderStatesSections from '@/components/RenderStatesSections'
 import data from '@/data/camLocationAreas'
 import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
@@ -38,7 +37,7 @@ const CountryStatesPage = ({
         .join(', ')} and more.`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>US Beach Webcams</h1>
         <div className="links-container">
           <ul>
             <li>
@@ -106,13 +105,6 @@ const CountryStatesPage = ({
             </li>
           </ul>
         </div>
-        {/* <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageSectionsArray.slice(0, -1).join(', ') +
-            (pageSectionsArray.length > 1
-              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
-              : '')}{' '}
-        </h3> */}
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -131,9 +123,6 @@ const CountryStatesPage = ({
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>xxx</p>
         </ShowMoreText>
-
-        <h1>Cams displayed here</h1>
-        {/* <RenderStatesSections pageSections={pageSections ?? []} cams={cams} /> */}
       </div>
       <hr />
 
