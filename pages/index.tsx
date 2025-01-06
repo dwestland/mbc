@@ -12,9 +12,9 @@ import * as types from '@/utils/types'
 import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 import MoreWebcams from '@/components/MoreWebcams'
 import MoreUSACams from '@/components/MoreUSACams'
-import NewMoreHawaiiCams from '@/components/NewMoreHawaiiCams'
-import NewMoreCaliforniaCams from '@/components/NewMoreCaliforniaCams'
-import NewMoreFloridaCams from '@/components/NewMoreFloridaCams'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
 
 const WorldPage = ({
   cams,
@@ -181,7 +181,7 @@ const WorldPage = ({
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
       </h2>
-      <NewMoreHawaiiCams
+      <MoreHawaiiCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
@@ -189,7 +189,7 @@ const WorldPage = ({
       <h2>
         <Link href="/california/">California Beach Cams</Link>
       </h2>
-      <NewMoreCaliforniaCams
+      <MoreCaliforniaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
@@ -197,7 +197,7 @@ const WorldPage = ({
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
       </h2>
-      <NewMoreFloridaCams
+      <MoreFloridaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}

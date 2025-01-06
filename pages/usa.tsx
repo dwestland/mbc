@@ -10,9 +10,9 @@ import data from '@/data/camLocationAreas'
 import { findStates } from '@/utils/common'
 import * as types from '@/utils/types'
 import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
-import NewMoreHawaiiCams from '@/components/NewMoreHawaiiCams'
-import NewMoreCaliforniaCams from '@/components/NewMoreCaliforniaCams'
-import NewMoreFloridaCams from '@/components/NewMoreFloridaCams'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
 
 const CountryStatesPage = ({
   cams,
@@ -164,7 +164,7 @@ const CountryStatesPage = ({
           </li>
         </ul>
       </div>
-      <NewMoreHawaiiCams
+      <MoreHawaiiCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
@@ -197,7 +197,7 @@ const CountryStatesPage = ({
           </li>
         </ul>
       </div>
-      <NewMoreCaliforniaCams
+      <MoreCaliforniaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
@@ -240,7 +240,7 @@ const CountryStatesPage = ({
           </li>
         </ul>
       </div>
-      <NewMoreFloridaCams
+      <MoreFloridaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}
