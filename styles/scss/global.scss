@@ -155,6 +155,39 @@ form {
   }
 }
 
+/* Link Container
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.links-container {
+  border: 1.5px solid var(--text-link-color);
+  padding: 15px 25px;
+  // border-radius: 4px;
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+.links-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.links-container li {
+  line-height: 16px;
+  margin: 0px;
+}
+@media (max-width: 768px) {
+  .links-container ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .links-container ul {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Things to Do & Local Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .things-and-info {

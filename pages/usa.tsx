@@ -39,13 +39,80 @@ const CountryStatesPage = ({
     >
       <div className="layout">
         <h1>{camPageTargetType} Beach Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/alabama/">Alabama</Link>
+            </li>
+            <li>
+              <Link href="/california/">California</Link>
+            </li>
+            <li>
+              <Link href="/connecticut/">Connecticut</Link>
+            </li>
+            <li>
+              <Link href="/delaware/">Delaware</Link>
+            </li>
+            <li>
+              <Link href="/florida/">Florida</Link>
+            </li>
+            <li>
+              <Link href="/georgia/">Georgia</Link>
+            </li>
+            <li>
+              <Link href="/hawaii/">Hawaii</Link>
+            </li>
+            <li>
+              <Link href="/louisiana/">Louisiana</Link>
+            </li>
+            <li>
+              <Link href="/maine/">Maine</Link>
+            </li>
+            <li>
+              <Link href="/maryland/">Maryland</Link>
+            </li>
+            <li>
+              <Link href="/massachusetts/">Massachusetts</Link>
+            </li>
+            <li>
+              <Link href="/mississippi/">Mississippi</Link>
+            </li>
+            <li>
+              <Link href="/new-hampshire/">New Hampshire</Link>
+            </li>
+            <li>
+              <Link href="/new-jersey/">New Jersey</Link>
+            </li>
+            <li>
+              <Link href="/new-york/">New York</Link>
+            </li>
+            <li>
+              <Link href="/north-carolina/">North Carolina</Link>
+            </li>
+            <li>
+              <Link href="/oregon/">Oregon</Link>
+            </li>
+            <li>
+              <Link href="/rhode-island/">Rhode Island</Link>
+            </li>
+            <li>
+              <Link href="/south-carolina/">South Carolina</Link>
+            </li>
+            <li>
+              <Link href="/texas/">Texas</Link>
+            </li>
+            <li>
+              <Link href="/washington/">Washington</Link>
+            </li>
+          </ul>
+        </div>
+        {/* <h3 style={{ marginTop: '0' }}>
           Featuring webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
             (pageSectionsArray.length > 1
               ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
               : '')}{' '}
-        </h3>
+        </h3> */}
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -67,41 +134,36 @@ const CountryStatesPage = ({
 
         <h1>Cams displayed here</h1>
         {/* <RenderStatesSections pageSections={pageSections ?? []} cams={cams} /> */}
-
-        <ShowMoreText
-          lines={4}
-          more="show more"
-          less="show less"
-          anchorClass="anchorClass"
-          truncatedEndingComponent="&nbsp;&nbsp;"
-        >
-          {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
-          {/* Things to Do and Links and Info */}
-          <p>xxx</p>
-          <p>xxx</p>
-          <p>xxx</p>
-        </ShowMoreText>
-        <hr />
-        <div className="things-and-info">
-          <div className="things">
-            <h3>Top 10 Things to do in {camPageTargetType}</h3>
-            <ol>
-              <li>x</li>
-            </ol>
-          </div>
-          <div className="info">
-            <h3>{camPageTargetType} Links and Local Information</h3>
-            <ul>
-              <li>x</li>
-            </ul>
-          </div>
-        </div>
       </div>
       <hr />
 
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/hawaii/kauai/">
+              <a>Kauai Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/oahu/">
+              <a>Oahu Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/maui/">
+              <a>Maui Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/bigisland/">
+              <a>Big Island</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <NewMoreHawaiiCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
@@ -111,6 +173,30 @@ const CountryStatesPage = ({
       <h2>
         <Link href="/california/">California Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/california/san-diego/">
+              <a>San Diego</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/los-angeles/">
+              <a>Los Angeles</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/central-coast/">
+              <a>Central Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/san-francisco/">
+              <a>San Francisco</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <NewMoreCaliforniaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
@@ -120,6 +206,40 @@ const CountryStatesPage = ({
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/florida/miami/">
+              <a>Miami Beach</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/florida-keys/">
+              <a>Florida Keys</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/gulf-coast/">
+              <a>Gulf Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/east-central/">
+              <a>East Central</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/panhandle/">
+              <a>Panhandle</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/northeast/">
+              <a>Northeast</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <NewMoreFloridaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
@@ -129,6 +249,35 @@ const CountryStatesPage = ({
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
+
+      <ShowMoreText
+        lines={4}
+        more="show more"
+        less="show less"
+        anchorClass="anchorClass"
+        truncatedEndingComponent="&nbsp;&nbsp;"
+      >
+        {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
+        {/* Things to Do and Links and Info */}
+        <p>xxx</p>
+        <p>xxx</p>
+        <p>xxx</p>
+      </ShowMoreText>
+      <hr />
+      <div className="things-and-info">
+        <div className="things">
+          <h3>Top 10 Things to do in {camPageTargetType}</h3>
+          <ol>
+            <li>x</li>
+          </ol>
+        </div>
+        <div className="info">
+          <h3>{camPageTargetType} Links and Local Information</h3>
+          <ul>
+            <li>x</li>
+          </ul>
+        </div>
+      </div>
     </Layout>
   )
 }

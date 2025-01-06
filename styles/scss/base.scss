@@ -2,6 +2,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
   --text-color: #222;
+  --text-link-color: hsl(192, 76%, 35%);
 }
 
 /* Base Styles
@@ -95,7 +96,7 @@ p {
 }
 
 a {
-  color: hsl(192, 76%, 35%);
+  color: var(--text-link-color);
   text-decoration: none;
   &:hover {
     color: hsl(192, 76%, 30%);
