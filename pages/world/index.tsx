@@ -116,7 +116,26 @@ const WorldPage = ({
           anchorClass="anchorClass"
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
-          <p>xxx</p>
+          <p>
+            Discover captivating beach views with webcams from stunning
+            locations around the globe. Explore the serene shores of Aruba,
+            Bermuda, and Bonaire. Witness the vibrant waters of Curacao and
+            Jamaica. From Thailand's tropical coastlines to New Zealand's rugged
+            bays, these webcams bring distant paradises closer.
+          </p>
+          <p>
+            The United States offers an incredible variety of webcams. See the
+            iconic beaches of California, Hawaii's lush shores, and Florida's
+            lively piers. Each webcam showcases local charm, from bustling
+            boardwalks to tranquil sunsets. Experience live views of surfers,
+            sailboats, and historic landmarks.
+          </p>
+          <p>
+            Whether planning a trip or dreaming of escape, these webcams
+            inspire. Watch for changing weather, find your next travel
+            destination, or simply unwind. Dive into a world of oceanfront
+            beauty, streaming live at your fingertips.
+          </p>
         </ShowMoreText>
       </div>
       <hr />
@@ -162,9 +181,48 @@ const WorldPage = ({
         anchorClass="anchorClass"
         truncatedEndingComponent="&nbsp;&nbsp;"
       >
-        <p>xxx</p>
-        <p>xxx</p>
-        <p>xxx</p>
+        <p>
+          Webcams offer a window to some of the world's best beaches. From the
+          United States to tropical islands, these streams capture moments of
+          beauty. Each location showcases unique features, from bustling shores
+          to calm waters. Discover the charm of sandy coasts, ocean breezes, and
+          breathtaking views.
+        </p>
+        <p>
+          The United States presents a range of coastal experiences.
+          California's iconic Venice Beach webcam shows surfers and boardwalk
+          scenes. Hawaii's webcams reveal lush beaches, clear waters, and
+          snorkeling spots. Florida features piers, lively beaches, and sunset
+          views. These webcams connect visitors to the heart of each location.
+        </p>
+        <p>
+          Travel beyond the U.S. to tropical escapes. Aruba's webcams showcase
+          turquoise seas and golden sands. Bermuda offers vibrant beach views
+          and historic charm. Bonaire and Curacao feature serene waters ideal
+          for diving and exploring. Jamaica's webcams highlight vibrant beach
+          life and stunning coastlines.
+        </p>
+        <p>
+          In Asia, Thailand's streams provide glimpses of pristine beaches.
+          Taiwan features lively coastlines and unique cultural charm. Japan's
+          coastal views include serene harbors and dramatic landscapes. For
+          those seeking natural wonders, these webcams deliver unforgettable
+          scenes.
+        </p>
+        <p>
+          Explore New Zealand's rugged bays and vast beaches. Mexico's webcams
+          reveal warm sands, turquoise waters, and lively resorts. The Caribbean
+          islands, including Sint Maarten and St. Barts, showcase luxury and
+          unspoiled beauty. Each webcam captures the essence of its destination.
+        </p>
+        <p>
+          Plan trips with these live views or simply enjoy the sights. Watch
+          changing weather, ocean activity, and vibrant scenes unfold. These
+          webcams bring travel dreams closer. Whether exploring the United
+          States or distant shores, immerse yourself in these stunning views.
+          Connect with beaches worldwide, live and in real-time, all from the
+          comfort of your home.
+        </p>
       </ShowMoreText>
     </Layout>
   )
