@@ -91,6 +91,7 @@ const data: Data = {
                 { subarea: 'Long Beach' },
 
                 { subarea: 'Catalina Island' },
+                { subarea: 'LAX' },
                 { subarea: 'Orange County' },
                 { subarea: 'Laguna Beach' },
               ],
@@ -174,6 +175,8 @@ const data: Data = {
               area: 'Gulf Coast',
               subareas: [
                 { subarea: 'Tampa Bay' },
+                { subarea: 'Clearwater' },
+                { subarea: 'St. Petersburg' },
                 { subarea: 'Sarasota' },
                 { subarea: 'Fort Myers' },
                 { subarea: 'Naples' },
@@ -310,6 +313,10 @@ const data: Data = {
       ],
     },
     {
+      country: 'Japan',
+      states: [],
+    },
+    {
       country: 'Mexico',
       states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
     },
@@ -327,6 +334,10 @@ const data: Data = {
     },
     {
       country: 'St. Croix',
+      states: [],
+    },
+    {
+      country: 'Taiwan',
       states: [],
     },
     {
