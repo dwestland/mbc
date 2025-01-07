@@ -138,34 +138,121 @@ const WorldPage = ({
           </p>
         </ShowMoreText>
       </div>
-      <hr />
+      {/* <hr /> */}
+
       <h2>
-        <Link href="/hawaii/"> Webcams</Link>
+        <Link href="/hawaii/">World Webcams</Link>
       </h2>
+
       <MoreUSACams
         cams={{
           cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
         }}
       />
+
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/hawaii/kauai/">
+              <a>Kauai Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/oahu/">
+              <a>Oahu Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/maui/">
+              <a>Maui Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/bigisland/">
+              <a>Big Island</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <MoreHawaiiCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
       />
+
       <h2>
         <Link href="/california/">California Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/california/san-diego/">
+              <a>San Diego</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/los-angeles/">
+              <a>Los Angeles</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/central-coast/">
+              <a>Central Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/san-francisco/">
+              <a>San Francisco</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <MoreCaliforniaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
       />
+
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
       </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/florida/miami/">
+              <a>Miami Beach</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/florida-keys/">
+              <a>Florida Keys</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/gulf-coast/">
+              <a>Gulf Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/east-central/">
+              <a>East Central</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/panhandle/">
+              <a>Panhandle</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/northeast/">
+              <a>Northeast</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
       <MoreFloridaCams
         cams={{
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
