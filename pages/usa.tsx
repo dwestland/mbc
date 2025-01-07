@@ -129,7 +129,7 @@ const CountryStatesPage = ({
           </p>
         </ShowMoreText>
       </div>
-      <hr />
+
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
       </h2>
@@ -162,6 +162,7 @@ const CountryStatesPage = ({
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
       />
+
       <h2>
         <Link href="/california/">California Beach Cams</Link>
       </h2>
@@ -194,6 +195,7 @@ const CountryStatesPage = ({
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
       />
+
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
       </h2>
