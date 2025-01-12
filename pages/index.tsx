@@ -97,6 +97,11 @@ const WorldPage = ({
             </Link>
           </li>
           <li>
+            <Link href="/bali/">
+              <a>Bali</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/bermuda/">
               <a>Bermuda</a>
             </Link>
@@ -117,6 +122,16 @@ const WorldPage = ({
             </Link>
           </li>
           <li>
+            <Link href="/greece/">
+              <a>Greece</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/italy/">
+              <a>Italy</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/jamaica/">
               <a>Jamaica</a>
             </Link>
@@ -132,8 +147,23 @@ const WorldPage = ({
             </Link>
           </li>
           <li>
+            <Link href="/netherlands/">
+              <a>Netherlands</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/new-zealand/">
               <a>New Zealand</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/portugal/">
+              <a>Portugal</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/spain/">
+              <a>Spain</a>
             </Link>
           </li>
           <li>
@@ -172,7 +202,6 @@ const WorldPage = ({
       <h2>
         <Link href="/hawaii/"> US Webcams</Link>
       </h2>
-
       <div className="links-container">
         <ul>
           <li>
@@ -240,6 +269,7 @@ const WorldPage = ({
           </li>
         </ul>
       </div>
+
       <MoreUSACams
         cams={{
           cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
@@ -354,9 +384,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}
       />
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
-      </p>
+
       <ShowMoreText
         lines={4}
         more="show more"
@@ -420,6 +448,9 @@ const WorldPage = ({
           live, stunning glimpses of places far away.
         </p>
       </ShowMoreText>
+      <p style={{ textAlign: 'center' }}>
+        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </p>
     </Layout>
   )
 }

@@ -36,6 +36,11 @@ const WorldPage = ({
               </Link>
             </li>
             <li>
+              <Link href="/bali/">
+                <a>Bali</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/bermuda/">
                 <a>Bermuda</a>
               </Link>
@@ -56,6 +61,16 @@ const WorldPage = ({
               </Link>
             </li>
             <li>
+              <Link href="/greece/">
+                <a>Greece</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/italy/">
+                <a>Italy</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/jamaica/">
                 <a>Jamaica</a>
               </Link>
@@ -71,8 +86,23 @@ const WorldPage = ({
               </Link>
             </li>
             <li>
+              <Link href="/netherlands/">
+                <a>Netherlands</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/new-zealand/">
                 <a>New Zealand</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/portugal/">
+                <a>Portugal</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/spain/">
+                <a>Spain</a>
               </Link>
             </li>
             <li>
