@@ -130,7 +130,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
         return { ...prevValues, webcamUrl: result }
       })
     }
-  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube, values])
+  }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
   console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -585,14 +585,32 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { id } = context.query
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
-  const cams = await res.json()
+  try {
+    const { id } = context.query
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/${id}`)
 
-  return {
-    props: {
-      cams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch cam: ${res.status}`)
+    }
+
+    const cams = await res.json()
+
+    if (!cams) {
+      return {
+        notFound: true,
+      }
+    }
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error) {
+    console.error('Error fetching cam:', error)
+    return {
+      notFound: true,
+    }
   }
 }
 
