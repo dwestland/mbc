@@ -50,35 +50,40 @@ const StateAreasPage = ({
               ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
               : '')}{' '}
         </h3>
-        <h3>
-          <span className="no-break">
-            <Link href="/florida/miami/">
-              <a>Miami</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/florida/gulf-coast/">
-              <a>Gulf Coast</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/florida/east-central/">
-              <a>East Central</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/florida/florida-keys/">
-              <a>Florida Keys</a>
-            </Link>
-          </span>
-        </h3>
-
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/florida/miami/">
+                <a>Miami Beach</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/florida-keys/">
+                <a>Florida Keys</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/gulf-coast/">
+                <a>Gulf Coast</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/east-central/">
+                <a>East Central</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/panhandle/">
+                <a>Panhandle</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/florida/northeast/">
+                <a>Northeast</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -114,11 +119,19 @@ const StateAreasPage = ({
         <h2>
           <Link href="/florida/miami/">Miami Beach Webcams</Link>
         </h2>
-        <p>
-          Miami Beach is a popular destination for tourists and locals alike.
-          It's known for its beautiful beaches, vibrant nightlife, and beautiful
-          people.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Miami Beach is a popular destination for tourists and locals alike.
+            It's known for its beautiful beaches, vibrant nightlife, and
+            beautiful people.
+          </p>
+        </ShowMoreText>
         <MoreMiamiCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Miami Beach').slice(0, 7),
@@ -129,11 +142,19 @@ const StateAreasPage = ({
         <h2>
           <Link href="/florida/florida-keys/">Florida Keys Webcams</Link>
         </h2>
-        <p>
-          The Florida Keys are a chain of islands that stretch from the southern
-          tip of Florida to Cuba. They offer beautiful beaches, crystal-clear
-          waters, and a unique Caribbean vibe.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            The Florida Keys are a chain of islands that stretch from the
+            southern tip of Florida to Cuba. They offer beautiful beaches,
+            crystal-clear waters, and a unique Caribbean vibe.
+          </p>
+        </ShowMoreText>
         <MoreFloridaKeysCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Florida Keys').slice(0, 7),
@@ -144,15 +165,24 @@ const StateAreasPage = ({
         <h2>
           <Link href="/florida/gulf-coast/">Gulf Coast Webcams</Link>
         </h2>
-        <p>
-          The Gulf Coast offers great beach destinations on the waters of the
-          Gulf of Mexico. The group of barrier islands near Tampa Bay offers
-          fantastic beaches. Fort Myers offers beautiful wide beaches and white
-          soft sand with plenty of water sports. From hiking to fishing, Cap
-          Coral is the perfect destination for the outdoor enthusiast.
-          Clearwater has tranquil breezes, crystal waters and award-winning
-          beaches. Check out the live Gulf Coast Beach Cams for streaming video.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            The Gulf Coast offers great beach destinations on the waters of the
+            Gulf of Mexico. The group of barrier islands near Tampa Bay offers
+            fantastic beaches. Fort Myers offers beautiful wide beaches and
+            white soft sand with plenty of water sports. From hiking to fishing,
+            Cap Coral is the perfect destination for the outdoor enthusiast.
+            Clearwater has tranquil breezes, crystal waters and award-winning
+            beaches. Check out the live Gulf Coast Beach Cams for streaming
+            video.
+          </p>
+        </ShowMoreText>
         <MoreGulfCoastCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Gulf Coast').slice(0, 7),
@@ -177,15 +207,23 @@ const StateAreasPage = ({
         <h2>
           <Link href="/florida/panhandle/">Panhandle Webcams</Link>
         </h2>
-        <p>
-          The Florida Panhandle has over 200 miles of beaches. Pensacola Beach
-          offers the whitest beaches in Florida with a natural feel. Panama City
-          Beach is located on a pristine beach on the Gulf of Mexico coast.
-          Destin Beach is one of the world's most beautiful beaches. A long thin
-          barrier island along the Panhandle, St. George Island is a serene
-          vacation spot. See Florida Panhandle Beach Cams with streaming live
-          camera feeds of the beaches.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            The Florida Panhandle has over 200 miles of beaches. Pensacola Beach
+            offers the whitest beaches in Florida with a natural feel. Panama
+            City Beach is located on a pristine beach on the Gulf of Mexico
+            coast. Destin Beach is one of the world's most beautiful beaches. A
+            long thin barrier island along the Panhandle, St. George Island is a
+            serene vacation spot. See Florida Panhandle Beach Cams with
+            streaming live camera feeds of the beaches.
+          </p>
+        </ShowMoreText>
         <MorePanhandleCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Panhandle').slice(0, 7),
@@ -196,23 +234,27 @@ const StateAreasPage = ({
         <h2>
           <Link href="/florida/northeast/">North East Webcams</Link>
         </h2>
-        <p>
-          Northeastern Florida's primary attraction is its beaches. Jacksonville
-          has vast stretches of gorgeous beaches and waterways. St. Augustine
-          offers 42 miles of pristine beaches. See the webcams at Northeast
-          Florida Beach Cams to view streaming live camera pictures of various
-          beaches.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Northeastern Florida's primary attraction is its beaches.
+            Jacksonville has vast stretches of gorgeous beaches and waterways.
+            St. Augustine offers 42 miles of pristine beaches. See the webcams
+            at Northeast Florida Beach Cams to view streaming live camera
+            pictures of various beaches.
+          </p>
+        </ShowMoreText>
         <MoreNortheastCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Northeast').slice(0, 7),
           }}
         />
         <AdLeaderboard />
-
-        <h1>Cams Displayed Here</h1>
-        {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
-
         <ShowMoreText
           lines={4}
           more="show more"
@@ -224,7 +266,7 @@ const StateAreasPage = ({
           {/* Things to Do and Links and Info */}
           <p>xxx</p>
         </ShowMoreText>
-        <hr />
+        {/* <hr /> */}
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
@@ -240,10 +282,10 @@ const StateAreasPage = ({
           </div>
         </div>
       </div>
-      <hr />
+      {/* <hr />
       <h2>
         <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
+      </h2>{' '} */}
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>

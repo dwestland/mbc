@@ -48,36 +48,30 @@ const StateAreasPage = ({
               ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
               : '')}{' '}
         </h3>
-        <h3>
-          <span className="no-break">
-            <Link href="/california/san-diego">
-              <a>San Diego</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/california/los-angeles">
-              <a>Los Angeles</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/california/central-coast">
-              <a>Cental Coast</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            {' '}
-            <Link href="/california/san-francisco">
-              <a>San Francisco</a>
-            </Link>
-          </span>
-        </h3>
-
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/california/san-diego/">
+                <a>San Diego</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/los-angeles/">
+                <a>Los Angeles</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/central-coast/">
+                <a>Central Coast</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/san-francisco/">
+                <a>San Francisco</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -111,13 +105,21 @@ const StateAreasPage = ({
         <h2>
           <Link href="/california/los-angeles/">Los Angeles Webcams</Link>
         </h2>
-        <p>
-          Los Angeles is home to many of the mainland's top beaches. Click on
-          Los Angeles Beach Cams to find streaming video webcams of such LA hot
-          spots as Venice Beach, Santa Monica Pier, Hermosa Beach, Newport
-          Beach, Laguna and even Catalina Island. Check out the great weather
-          and see what's happening in the LA scene.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Los Angeles is home to many of the mainland's top beaches. Click on
+            Los Angeles Beach Cams to find streaming video webcams of such LA
+            hot spots as Venice Beach, Santa Monica Pier, Hermosa Beach, Newport
+            Beach, Laguna and even Catalina Island. Check out the great weather
+            and see what's happening in the LA scene.
+          </p>
+        </ShowMoreText>
         <MoreLosAngelesCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Los Angeles').slice(0, 7),
@@ -126,34 +128,52 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/california/san-diego/">San Diego Webams</Link>
+          <Link href="/california/san-diego/">San Diego Webcams</Link>
         </h2>
-        <p>
-          San Diego, known for its year-round sunshine and balmy temperatures,
-          is a great place for some fun-in-the-sun. Click on San Diego Beach
-          Cams and check out these live, streaming video web cams of the Del
-          Mar, La Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach and
-          Imperial Beach areas. You'll then see why San Diego is one of the most
-          popular vacation spots in the U.S.A.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            San Diego, known for its year-round sunshine and balmy temperatures,
+            is a great place for some fun-in-the-sun. Click on San Diego Beach
+            Cams and check out these live, streaming video web cams of the Del
+            Mar, La Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach
+            and Imperial Beach areas. You'll then see why San Diego is one of
+            the most popular vacation spots in the U.S.A.
+          </p>
+        </ShowMoreText>
         <MoreSanDiegoCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'San Diego').slice(0, 7),
           }}
         />
         <AdLeaderboard />
+
         <h2>
           <Link href="/california/central-coast/">Central Coast Webcams</Link>
         </h2>
-        <p>
-          Along the west coast between Los Angeles and San Francisco is a series
-          of terrific resort towns. Many of them are weekend getaways for
-          Angelinos. Click on Central Coast Beach Cams to see live, streaming
-          video of these areas. It starts at Ventura and Santa Barbara, and then
-          goes up the coast to Baywood and San Simeon, and finally to Big Sur,
-          Pebble Beach and Monterey. These webcams will probably make you want
-          to get in the car and drive up the coast along scenic Highway 1.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Along the west coast between Los Angeles and San Francisco is a
+            series of terrific resort towns. Many of them are weekend getaways
+            for Angelinos. Click on Central Coast Beach Cams to see live,
+            streaming video of these areas. It starts at Ventura and Santa
+            Barbara, and then goes up the coast to Baywood and San Simeon, and
+            finally to Big Sur, Pebble Beach and Monterey. These webcams will
+            probably make you want to get in the car and drive up the coast
+            along scenic Highway 1.
+          </p>
+        </ShowMoreText>
         <MoreCentralCoastCams
           cams={{
             cams: cams
@@ -166,15 +186,23 @@ const StateAreasPage = ({
         <h2>
           <Link href="/california/san-francisco/">San Francisco Webcams</Link>
         </h2>
-        <p>
-          San Francisco is known as the "City by the Bay." This worldly,
-          seductive city is full of culture, magnificent sights and outstanding
-          food. Its famous sights include the Golden Gate Bridge, cable cars and
-          steep rolling hills overlooking the bay and ocean. See the web cams at
-          San Francisco Beach Cams to view streaming live pictures of this
-          incredible area, including San Francisco Bay, The Golden Gate Bridge
-          and Alcatraz Island.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            San Francisco is known as the "City by the Bay." This worldly,
+            seductive city is full of culture, magnificent sights and
+            outstanding food. Its famous sights include the Golden Gate Bridge,
+            cable cars and steep rolling hills overlooking the bay and ocean.
+            See the web cams at San Francisco Beach Cams to view streaming live
+            pictures of this incredible area, including San Francisco Bay, The
+            Golden Gate Bridge and Alcatraz Island.
+          </p>
+        </ShowMoreText>
         <MoreSanFranciscoCams
           cams={{
             cams: cams
@@ -183,9 +211,6 @@ const StateAreasPage = ({
           }}
         />
         <AdLeaderboard />
-        <h1>Cams Displayed Here</h1>
-        {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
-
         <ShowMoreText
           lines={4}
           more="show more"
@@ -197,7 +222,7 @@ const StateAreasPage = ({
           {/* Things to Do and Links and Info */}
           <p>xxx</p>
         </ShowMoreText>
-        <hr />
+        {/* <hr /> */}
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
@@ -213,10 +238,10 @@ const StateAreasPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
+      {/* <hr /> */}
+      {/* <h2>
         <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
+      </h2>{' '} */}
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
