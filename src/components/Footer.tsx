@@ -284,13 +284,13 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/spain/">
-                <a>Spain</a>
+              <Link href="/sint-maarten/">
+                <a>Sint Maarten</a>
               </Link>
             </li>
             <li>
-              <Link href="/sint-maarten/">
-                <a>Sint Maarten</a>
+              <Link href="/spain/">
+                <a>Spain</a>
               </Link>
             </li>
             <li>

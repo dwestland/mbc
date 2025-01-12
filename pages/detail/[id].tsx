@@ -107,9 +107,10 @@ const Details = ({
 
   return (
     <Layout documentTitle={title} documentDescription={description}>
-      <div className="layout">
+      <div className="layout" style={{ paddingTop: '7px' }}>
         <AdLeaderboard />
-        <h1>{title} Details</h1>
+        <h2 style={{ marginTop: '20px' }}>Details Page:</h2>
+        <h1 style={{ marginTop: '10px' }}>{title}</h1>
         <div className="image-and-map">
           <div className="image">
             {mbcHostedYoutube ? (
