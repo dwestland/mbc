@@ -281,6 +281,10 @@ const data: Data = {
       states: [],
     },
     {
+      country: 'Bali',
+      states: [],
+    },
+    {
       country: 'Bermuda',
       states: [],
     },
@@ -305,6 +309,14 @@ const data: Data = {
       states: [],
     },
     {
+      country: 'Greece',
+      states: [],
+    },
+    {
+      country: 'Italy',
+      states: [],
+    },
+    {
       country: 'Jamaica',
       states: [
         { state: 'Kingston' },
@@ -321,11 +333,23 @@ const data: Data = {
       states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
     },
     {
+      country: 'Netherlands',
+      states: [],
+    },
+    {
       country: 'New Zealand',
       states: [{ state: 'Auckland' }, { state: 'Wellington' }],
     },
     {
+      country: 'Portugal',
+      states: [],
+    },
+    {
       country: 'Sint Maarten',
+      states: [],
+    },
+    {
+      country: 'Spain',
       states: [],
     },
     {
