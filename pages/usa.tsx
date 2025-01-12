@@ -10,6 +10,7 @@ import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
 import MoreFloridaCams from '@/components/MoreFloridaCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 const CountryStatesPage = ({
   cams,
@@ -162,6 +163,7 @@ const CountryStatesPage = ({
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/california/">California Beach Cams</Link>
@@ -195,6 +197,7 @@ const CountryStatesPage = ({
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
@@ -238,6 +241,8 @@ const CountryStatesPage = ({
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
+
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
