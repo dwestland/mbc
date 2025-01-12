@@ -11,6 +11,7 @@ import MoreUSACams from '@/components/MoreUSACams'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
 import MoreFloridaCams from '@/components/MoreFloridaCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 const WorldPage = ({
   cams,
@@ -138,7 +139,6 @@ const WorldPage = ({
           </p>
         </ShowMoreText>
       </div>
-      {/* <hr /> */}
 
       <h2>
         <Link href="/hawaii/">World Webcams</Link>
@@ -149,6 +149,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
@@ -182,6 +183,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/california/">California Beach Cams</Link>
@@ -215,6 +217,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
@@ -258,6 +261,8 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
+
       <p style={{ textAlign: 'center' }}>
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
