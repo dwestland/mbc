@@ -230,11 +230,11 @@ export default function Navbar() {
                     <a>Aruba</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/bali/">
                     <a>Bali</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/bermuda/">
                     <a>Bermuda</a>
@@ -255,16 +255,16 @@ export default function Navbar() {
                     <a>Dominican Republic</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/greece/">
                     <a>Greece</a>
                   </Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link href="/italy/">
                     <a>Italy</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/jamaica/">
                     <a>Jamaica</a>
@@ -280,31 +280,31 @@ export default function Navbar() {
                     <a>Mexico</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/netherlands/">
                     <a>Netherlands</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/new-zealand/">
                     <a>New Zealand</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/portugal/">
                     <a>Portugal</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/sint-maarten/">
                     <a>Sint Maarten</a>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/spain/">
                     <a>Spain</a>
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/st-barts/">
                     <a>St. Barts</a>
