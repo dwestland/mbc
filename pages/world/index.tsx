@@ -35,11 +35,11 @@ const WorldPage = ({
                 <a>Aruba</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/bali/">
                 <a>Bali</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/bermuda/">
                 <a>Bermuda</a>
@@ -60,16 +60,16 @@ const WorldPage = ({
                 <a>Dominican Republic</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/greece/">
                 <a>Greece</a>
               </Link>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <Link href="/italy/">
                 <a>Italy</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/jamaica/">
                 <a>Jamaica</a>
@@ -85,31 +85,31 @@ const WorldPage = ({
                 <a>Mexico</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/netherlands/">
                 <a>Netherlands</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/new-zealand/">
                 <a>New Zealand</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/portugal/">
                 <a>Portugal</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/sint-maarten/">
                 <a>Sint Maarten</a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/spain/">
                 <a>Spain</a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/st-barts/">
                 <a>St. Barts</a>
@@ -293,8 +293,8 @@ const WorldPage = ({
       />
       <AdLeaderboard />
 
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
       <ShowMoreText
         lines={4}
