@@ -30,15 +30,15 @@ const CountryStatesPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
-        .slice(0, 3)
-        .join(', ')} and more.`}
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={
+        "Explore Japan's coastal beauty with live beach webcams. Discover ports, beaches, and vibrant waterfronts."
+      }
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
             (pageSectionsArray.length > 1
               ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
@@ -60,7 +60,26 @@ const CountryStatesPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
-          <p>xxxx</p>
+          <p>
+            Japan's coastlines captivate with stunning beauty and rich history.
+            From the Sea of Japan to the Pacific Ocean, explore endless charm.
+            Nagasaki Port offers views of ships gliding under the Venus-Wing
+            Bridge. Beppu Bay reveals vibrant cityscapes and sparkling waters.
+            Oita Airport frames the Seto Inland Sea, where planes and nature
+            meet. Takamatsu Port hums with ferries and cruises, anchored by the
+            Tamamo Lighthouse.
+          </p>
+          <p>
+            Sekiya Beach enchants with serene shores and sunsets, while Sado
+            Island looms on clear days. Akita Port showcases bustling terminals
+            on Honshu Island. At Oma Fishing Port, fishermen tackle bluefin tuna
+            in a dance of tradition and livelihood. Shirahama Ohama Beach
+            glistens with white sands, inviting surfers and divers alike.
+          </p>
+          <p>
+            These live webcams offer a window into Japan's coastal allure.
+            Perfect for weather checks, travel plans, or pure inspiration.
+          </p>
         </ShowMoreText>
 
         <RenderStatesSections pageSections={pageSections ?? []} cams={cams} />
@@ -74,14 +93,66 @@ const CountryStatesPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxxx</p>
+          <p>
+            Japan's shores are a treasure of natural and cultural wonders.
+            Nagasaki Port, nestled between mountains and sea, reflects history
+            and trade. Watch cruise ships pass under the Venus-Wing Bridge. The
+            port connects Japan's past and present, blending tradition with
+            modern life.
+          </p>
+          <p>
+            Beppu Bay, in Oita Prefecture, sparkles with activity. The bay is
+            lined with bustling cityscapes and stunning coastlines. Route 10
+            hugs the shore, offering scenic views of the blue waters. This
+            webcam captures the vibrant energy of Beppu's coastal charm.
+          </p>
+          <p>
+            Oita Airport sits near the vast Seto Inland Sea. Here, you can see
+            planes take off against a backdrop of tranquil waters. The
+            surrounding area blends modern aviation with breathtaking natural
+            scenery. This view highlights the harmony of technology and nature.
+          </p>
+          <p>
+            Takamatsu Port is alive with ferries, cruises, and energy. The
+            Tamamo Lighthouse stands as a beacon near the pier. This harbor
+            connects travelers to Shikoku's hidden gems. It's a hub of movement
+            and discovery, captured perfectly on this webcam.
+          </p>
+          <p>
+            Sekiya Beach, along the Sea of Japan, is calm and serene. Golden
+            sands meet the gentle waves, creating a peaceful retreat. On clear
+            days, Sado Island's silhouette rises on the horizon. This is a
+            favorite spot for those seeking tranquility.
+          </p>
+          <p>
+            Akita Port pulses with life on Honshu Island. Ships unload cargo
+            while vehicles crisscross the terminal. This webcam offers a glimpse
+            into Japan's maritime trade and coastal activity. Oma Fishing Port,
+            farther north, is a center for bluefin tuna fishing. The docks buzz
+            with the effort of skilled fishermen.
+          </p>
+          <p>
+            Shirahama Ohama Beach in Shimoda gleams with soft white sands. Its
+            clear waters attract divers, swimmers, and surfers. This beach is a
+            perfect escape for adventure and relaxation. Explore Japan's dynamic
+            coastline through these webcams and plan your next journey.
+          </p>
         </ShowMoreText>
         <hr />
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Visit the white sand beaches with crystal clear water</li>
+              <li>Relax on the sands of Shirahama Ohama Beach.</li>
+              <li>Watch ships at Nagasaki Port's Venus-Wing Bridge.</li>
+              <li>Stroll along the shores of Beppu Bay.</li>
+              <li>Explore the harbor at Takamatsu Port.</li>
+              <li>Fish for bluefin tuna at Oma Fishing Port.</li>
+              <li>Walk the coastline of Sekiya Beach.</li>
+              <li>Spot planes over the Seto Inland Sea near Oita Airport.</li>
+              <li>Visit the lighthouse at Tamamo Pier in Takamatsu.</li>
+              <li>Watch cargo ships at Akita Port.</li>
+              <li>Surf the waves at Shirahama Ohama Beach.</li>
             </ol>
           </div>
           <div className="info">
@@ -89,23 +160,99 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://travel.state.gov/"
-                  rel="noopener noreferrer"
+                  href="https://www.japan.travel/en/"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  U.S. Department of State - Bureau of Consular Affairs
+                  Japan National Tourism Organization
                 </a>{' '}
-                - Official travel information for visitors to the USA
+                - Explore destinations, culture, and travel tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.japan-guide.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Japan Guide
+                </a>{' '}
+                - Find attractions, itineraries, and local insights.
+              </li>
+              <li>
+                <a
+                  href="https://www.weather.com/weather/today/l/32.7399,129.8709"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Weather in Nagasaki
+                </a>{' '}
+                - Check conditions at Nagasaki Port.
+              </li>
+              <li>
+                <a
+                  href="https://www.weather.com/weather/today/l/34.6915,138.9727"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Weather in Shimoda
+                </a>{' '}
+                - Plan your visit to Shirahama Ohama Beach.
+              </li>
+              <li>
+                <a
+                  href="https://japanrailpass.net/en/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Japan Rail Pass
+                </a>{' '}
+                - Learn about train routes and passes for easy travel.
+              </li>
+              <li>
+                <a
+                  href="https://www.klook.com/en-US/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Klook
+                </a>{' '}
+                - Book tours, activities, and unique local experiences.
+              </li>
+              <li>
+                <a
+                  href="https://www.japantimes.co.jp/travel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Japan Times Travel
+                </a>{' '}
+                - Read articles on travel destinations and tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.jtbusa.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  JTB Travel
+                </a>{' '}
+                - Discover packages and services for exploring Japan.
+              </li>
+              <li>
+                <a
+                  href="https://www.japanican.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Japanican
+                </a>{' '}
+                - Reserve hotels, tours, and local experiences.
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
+      <p className="legend">
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
     </Layout>

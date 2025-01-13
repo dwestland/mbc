@@ -10,6 +10,7 @@ import MoreUSACams from '@/components/MoreUSACams'
 import MoreHawaiiCams from '@/components/MoreHawaiiCams'
 import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
 import MoreFloridaCams from '@/components/MoreFloridaCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
 const WorldPage = ({
   cams,
@@ -96,11 +97,11 @@ const WorldPage = ({
               <a>Aruba</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/bali/">
               <a>Bali</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/bermuda/">
               <a>Bermuda</a>
@@ -121,16 +122,16 @@ const WorldPage = ({
               <a>Dominican Republic</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/greece/">
               <a>Greece</a>
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link href="/italy/">
               <a>Italy</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/jamaica/">
               <a>Jamaica</a>
@@ -146,31 +147,31 @@ const WorldPage = ({
               <a>Mexico</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/netherlands/">
               <a>Netherlands</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/new-zealand/">
               <a>New Zealand</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/portugal/">
               <a>Portugal</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/sint-maarten/">
               <a>Sint Maarten</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/spain/">
               <a>Spain</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/st-barts/">
               <a>St. Barts</a>
@@ -198,6 +199,7 @@ const WorldPage = ({
           cams: cams.slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/hawaii/"> US Webcams</Link>
@@ -275,6 +277,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/hawaii/">Hawaii Beach Cams</Link>
@@ -308,6 +311,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/california/">California Beach Cams</Link>
@@ -341,6 +345,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <h2>
         <Link href="/florida/">Florida Beach Cams</Link>
@@ -384,6 +389,7 @@ const WorldPage = ({
           cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
         }}
       />
+      <AdLeaderboard />
 
       <ShowMoreText
         lines={4}
@@ -448,7 +454,7 @@ const WorldPage = ({
           live, stunning glimpses of places far away.
         </p>
       </ShowMoreText>
-      <p style={{ textAlign: 'center' }}>
+      <p className="legend">
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
     </Layout>

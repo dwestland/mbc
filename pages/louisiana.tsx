@@ -34,9 +34,9 @@ const StateAreasPage = ({
       documentDescription="Explore Louisiana's live beach and street webcams, showcasing scenic coastlines, rivers, and vibrant city views."
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageAreasArray.slice(0, -1).join(', ') +
             (pageAreasArray.length > 1
               ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
@@ -217,11 +217,7 @@ const StateAreasPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
+      <p className="legend">
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
     </Layout>
