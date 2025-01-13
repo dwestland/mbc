@@ -1,6 +1,5 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import Link from 'next/link'
 import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
@@ -34,9 +33,9 @@ const CountryStatesPage = ({
       documentDescription="Explore live Bermuda beach webcams showcasing harbors, beaches, and city views for travel planning or virtual escape."
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
             (pageSectionsArray.length > 1
               ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
@@ -217,11 +216,7 @@ const CountryStatesPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
+      <p className="legend">
         <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
       </p>
     </Layout>
