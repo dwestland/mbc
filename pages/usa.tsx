@@ -243,8 +243,8 @@ const CountryStatesPage = ({
       />
       <AdLeaderboard />
 
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
       <ShowMoreText
         lines={4}

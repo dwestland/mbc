@@ -34,9 +34,9 @@ const CountryStatesPage = ({
       documentDescription="Explore live Thailand beach webcams showcasing Chaweng and Lamai beaches, ocean views, and vibrant beach life."
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
             (pageSectionsArray.length > 1
               ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
@@ -208,12 +208,8 @@ const CountryStatesPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )
