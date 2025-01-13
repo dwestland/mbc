@@ -30,14 +30,13 @@ const AreaSubareaPage = ({
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
       documentTitle={`${camPageTargetType}, ${state} Webcams - MyBeachCams`}
-      documentDescription={`Explore beach webcams from ${camPageTargetType}, ${state} including ${' '} ${
+      documentDescription={`Explore beach webcams from ${camPageTargetType}, ${state} including ${
         pageSectionsArray.length === 1
           ? pageSectionsArray[0]
           : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
               pageSectionsArray[pageSectionsArray.length - 1]
             }.`
-      }
-        </h3>`}
+      }`}
     >
       <div className="layout">
         <h1>
