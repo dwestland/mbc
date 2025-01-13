@@ -455,7 +455,7 @@ const WorldPage = ({
         </p>
       </ShowMoreText>
       <p className="legend">
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )
