@@ -42,9 +42,9 @@ const StateAreasPage = ({
       documentDescription="Best beach webcams in Miami Beach, Florida Keys, Gulf Coast, East Central, Panhandle and the Northeast."
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageAreasArray.slice(0, -1).join(', ') +
             (pageAreasArray.length > 1
               ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
@@ -176,7 +176,7 @@ const StateAreasPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           <p>
-            Florida’s Gulf Coast offers calm waters and soft sand. Clearwater
+            Florida's Gulf Coast offers calm waters and soft sand. Clearwater
             Beach is famous for its pristine shorelines. Naples features
             stunning sunsets and quiet beaches. Siesta Key has white quartz sand
             and clear views. Explore Fort Myers for water sports and wildlife.
@@ -224,7 +224,7 @@ const StateAreasPage = ({
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           <p>
-            Florida’s Panhandle offers over 200 miles of beaches. Pensacola
+            Florida's Panhandle offers over 200 miles of beaches. Pensacola
             Beach has soft, white sand and clear waters. Destin is perfect for
             fishing and emerald coast views. Panama City Beach features lively
             piers and family spots. St. George Island is serene and natural. The
@@ -430,8 +430,8 @@ const StateAreasPage = ({
       <h2>
         <Link href="/">More Beach Cams</Link>
       </h2>{' '} */}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )
