@@ -40,9 +40,9 @@ const StateAreasPage = ({
       documentDescription="Best beach webcams in California featuring San Diego, Los Angeles, Central Coast and San Francisco and more."
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
+        <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
+          Featuring beach webcams from{' '}
           {pageAreasArray.slice(0, -1).join(', ') +
             (pageAreasArray.length > 1
               ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
@@ -383,8 +383,8 @@ const StateAreasPage = ({
       {/* <h2>
         <Link href="/">More Beach Cams</Link>
       </h2>{' '} */}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )
