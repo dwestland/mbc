@@ -36,7 +36,7 @@ const CountryStatesPage = ({
     >
       <div className="layout">
         <h1>{camPageTargetType} Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
+        <h3 className="cam-page-subheading">
           Featuring beach webcams from{' '}
           {pageSectionsArray.slice(0, -1).join(', ') +
             (pageSectionsArray.length > 1
