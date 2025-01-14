@@ -187,55 +187,105 @@ const data: Data = {
         // More states ****************************************************************
         {
           state: 'Alabama',
-          areas: [],
+          areas: [
+            { area: 'Gulf Shores' },
+            { area: 'Orange Beach' },
+            { area: 'Mobile Bay' },
+          ],
         },
         {
           state: 'Connecticut',
-          areas: [],
+          areas: [
+            { area: 'Westbrook' },
+            { area: 'Mystic' },
+            { area: 'New London' },
+          ],
         },
         {
           state: 'Delaware',
-          areas: [],
+          areas: [
+            { area: 'Rehoboth Beach' },
+            { area: 'Mispillion Harbor' },
+            { area: 'Bethany Beach' },
+          ],
         },
         {
           state: 'Georgia',
-          areas: [],
+          areas: [
+            { area: 'Tybee Island' },
+            { area: 'St. Simons Island' },
+            { area: 'Jekyll Island' },
+          ],
         },
         {
           state: 'Louisiana',
-          areas: [],
+          areas: [
+            { area: 'Grand Isle' },
+            { area: 'New Orleans' },
+            { area: 'Hale Boggs Bridge' },
+          ],
         },
         {
           state: 'Maine',
-          areas: [],
+          areas: [
+            { area: 'Ogunquit' },
+            { area: 'York' },
+            { area: 'Boothbay Harbor ' },
+          ],
         },
         {
           state: 'Maryland',
-          areas: [],
+          areas: [
+            { area: 'Ocean City' },
+            { area: 'Assateague Island' },
+            { area: 'Easton' },
+          ],
         },
         {
           state: 'Massachusetts',
-          areas: [],
+          areas: [
+            { area: 'Cape Cod' },
+            { area: 'Newburyport' },
+            { area: 'Nahant' },
+          ],
         },
         {
           state: 'Minnesota',
-          areas: [],
+          areas: [{ area: 'xxx' }, { area: 'xxx' }, { area: 'xxx' }],
         },
         {
           state: 'Mississippi',
-          areas: [],
-        },
-        {
-          state: 'New Jersey',
-          areas: [],
+          areas: [
+            { area: 'Biloxi' },
+            { area: "D'Iberville" },
+            { area: 'St. Louis' },
+          ],
         },
         {
           state: 'New Hampshire',
-          areas: [],
+          areas: [
+            { area: 'Lake Winnipesaukee' },
+            { area: 'Portsmouth Harbor' },
+            { area: 'Hampton Beach' },
+          ],
         },
         {
+          state: 'New Jersey',
+          areas: [
+            { area: 'Atlantic City' },
+            { area: 'Ocean City' },
+            { area: 'Avalon' },
+          ],
+        },
+
+        {
           state: 'New York',
-          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
+          areas: [
+            { area: 'New York City' },
+            { area: 'Long Island' },
+            { area: 'Fire Island' },
+            { area: 'Hampton Bays' },
+          ],
         },
         {
           state: 'North Carolina',
@@ -247,15 +297,28 @@ const data: Data = {
         },
         {
           state: 'Oregon',
-          areas: [],
+          areas: [
+            { area: 'Lincoln City' },
+            { area: 'Newport' },
+            { area: 'Aurora' },
+          ],
         },
         {
           state: 'Rhode Island',
-          areas: [],
+          areas: [
+            { area: 'Wakefield' },
+            { area: 'Newport' },
+            { area: 'Narragansett' },
+          ],
         },
         {
           state: 'South Carolina',
-          areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
+          areas: [
+            { area: 'Myrtle Beach' },
+            { area: 'Charleston' },
+            { area: 'Pawleys Island' },
+            { area: 'Hilton Head Island' },
+          ],
         },
         {
           state: 'Texas',
@@ -263,15 +326,21 @@ const data: Data = {
             { area: 'Galveston' },
             { area: 'South Padre Island' },
             { area: 'Corpus Christi' },
+            { area: 'Rockport' },
           ],
         },
         {
           state: 'Virginia',
-          areas: [],
+          areas: [{ area: 'xxx' }, { area: 'xxx' }, { area: 'xxx' }],
         },
         {
           state: 'Washington',
-          areas: [],
+          areas: [
+            { area: 'Friday Harbor' },
+            { area: 'Seattle' },
+            { area: 'Port of Kalama' },
+            { area: 'Westport' },
+          ],
         },
       ],
     },
@@ -334,7 +403,7 @@ const data: Data = {
     },
     {
       country: 'Netherlands',
-      states: [],
+      states: [{ state: 'Zandvoort' }],
     },
     {
       country: 'New Zealand',

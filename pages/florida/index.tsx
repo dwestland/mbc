@@ -37,18 +37,24 @@ const StateAreasPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      // TODO:
       documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
-      documentDescription="Best beach webcams in Miami Beach, Florida Keys, Gulf Coast, East Central, Panhandle and the Northeast."
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageAreasArray.length === 1
+          ? pageAreasArray[0]
+          : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+              pageAreasArray[pageAreasArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
         <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring beach webcams from{' '}
-          {pageAreasArray.slice(0, -1).join(', ') +
-            (pageAreasArray.length > 1
-              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
-              : '')}{' '}
+          Explore beach webcams from {camPageTargetType} including{' '}
+          {pageAreasArray.length === 1
+            ? pageAreasArray[0]
+            : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+                pageAreasArray[pageAreasArray.length - 1]
+              }`}
         </h3>
         <div className="links-container">
           <ul>
