@@ -29,19 +29,24 @@ const CountryStatesPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse hundreds of beach webcams from ${camPageTargetType}, including ${pageSectionsArray
-        .slice(0, 3)
-        .join(', ')} and more.`}
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageSectionsArray.length === 1
+          ? pageSectionsArray[0]
+          : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
+              pageSectionsArray[pageSectionsArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
         <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring beach webcams from{' '}
-          {pageSectionsArray.slice(0, -1).join(', ') +
-            (pageSectionsArray.length > 1
-              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
-              : '')}{' '}
+          Explore beach webcams from {camPageTargetType} including{' '}
+          {pageSectionsArray.length === 1
+            ? pageSectionsArray[0]
+            : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
+                pageSectionsArray[pageSectionsArray.length - 1]
+              }`}
         </h3>
         <div className="content-and-ad">
           <div className="content">

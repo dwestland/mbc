@@ -184,7 +184,7 @@ const data: Data = {
             },
           ],
         },
-        // More states ****************************************************************
+        // More states ********************************************************
         {
           state: 'Alabama',
           areas: [
@@ -347,23 +347,32 @@ const data: Data = {
     // More countries **************************************************************
     {
       country: 'Aruba',
-      states: [],
+      states: [
+        { state: 'Eagle Beach' },
+        { state: 'Palm Beach' },
+        { state: 'Oranjestad' },
+      ],
     },
     {
       country: 'Bali',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Bermuda',
-      states: [],
+      states: [
+        { state: 'Hamilton' },
+        { state: 'Port of Bermuda' },
+        { state: 'Pembroke' },
+        { state: 'Flats Village' },
+      ],
     },
     {
       country: 'Bonaire',
-      states: [],
+      states: [{ state: 'Sorobon Beach' }],
     },
     {
       country: 'Canada',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Costa Rica',
@@ -371,19 +380,29 @@ const data: Data = {
     },
     {
       country: 'Curacao',
-      states: [],
+      states: [
+        { state: 'Mambo Beach' },
+        { state: 'Willemstad' },
+        { state: 'Klein Curacao' },
+        { state: 'Jan Thiel Beach' },
+      ],
     },
     {
       country: 'Dominican Republic',
-      states: [],
+      states: [
+        { state: 'Hamilton' },
+        { state: 'Pembroke' },
+        { state: 'Flats Village' },
+        { state: 'Port of Bermuda' },
+      ],
     },
     {
       country: 'Greece',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Italy',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Jamaica',
@@ -395,11 +414,24 @@ const data: Data = {
     },
     {
       country: 'Japan',
-      states: [],
+      states: [
+        { state: 'Nagasaki Port' },
+        { state: 'Beppu Bay' },
+        { state: 'Oita Airport' },
+        { state: 'Takamatsu Port' },
+        { state: 'Sekiya Beach' },
+      ],
     },
     {
       country: 'Mexico',
-      states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
+      states: [
+        { state: 'Cancun' },
+        { state: 'Baja' },
+        { state: 'Acapulco' },
+        { state: 'Puerto Vallarta' },
+        { state: 'Playa del Carmen' },
+        { state: 'Cozumel' },
+      ],
     },
     {
       country: 'Netherlands',
@@ -407,35 +439,65 @@ const data: Data = {
     },
     {
       country: 'New Zealand',
-      states: [{ state: 'Auckland' }, { state: 'Wellington' }],
+      states: [
+        { state: 'Auckland' },
+        { state: 'Wellington' },
+        { state: 'Castlepoint' },
+      ],
     },
     {
       country: 'Portugal',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Sint Maarten',
-      states: [],
+      states: [
+        { state: 'Maho Beach' },
+        { state: 'Philipsburg' },
+        { state: 'Simpson Bay' },
+        { state: 'Dawn Beach' },
+      ],
     },
     {
       country: 'Spain',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'St. Barts',
-      states: [],
+      states: [
+        { state: 'St. Barts' },
+        { state: 'Gustavia' },
+        { state: 'St. Jean' },
+        { state: 'Flamands Beach' },
+      ],
     },
     {
       country: 'St. Croix',
-      states: [],
+      states: [
+        { state: 'Frederiksted' },
+        { state: 'Cane Bay Beach' },
+        { state: 'Christiansted' },
+        { state: 'Buck Island' },
+      ],
     },
     {
       country: 'Taiwan',
-      states: [],
+      states: [
+        { state: 'Yongan Fishing Harbor' },
+        { state: 'Nanfang’ao Fishing Ports' },
+        { state: 'Dashshibi Hill' },
+        { state: 'Taitung' },
+        { state: 'Dongshi Wharf' },
+      ],
     },
     {
       country: 'Thailand',
-      states: [],
+      states: [
+        { state: 'Koh Samui' },
+        { state: 'Koh Tao' },
+        { state: 'Koh Phangan' },
+        { state: 'Koh Chang' },
+      ],
     },
   ],
 }

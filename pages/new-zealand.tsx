@@ -29,13 +29,19 @@ const CountryStatesPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription="Explore live beach webcams in New Zealand, featuring stunning views of Auckland and Wellington's coastlines and harbors.."
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageSectionsArray.length === 1
+          ? pageSectionsArray[0]
+          : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
+              pageSectionsArray[pageSectionsArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
         <h1>{camPageTargetType} Webcams</h1>
         <h3 style={{ marginTop: '0' }}>
-          Featuring beach webcams from{' '}
+          Explore beach webcams from {camPageTargetType} including{' '}
           {pageSectionsArray.length === 1
             ? pageSectionsArray[0]
             : `${pageSectionsArray.slice(0, -1).join(', ')} and ${

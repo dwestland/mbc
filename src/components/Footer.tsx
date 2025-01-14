@@ -299,6 +299,11 @@ const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link href="/st-croix/">
+                <a>St. Croix</a>
+              </Link>
+            </li>
+            <li>
               <Link href="/taiwan/">
                 <a>Taiwan</a>
               </Link>
