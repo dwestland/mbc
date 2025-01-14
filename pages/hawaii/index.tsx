@@ -46,7 +46,7 @@ const StateAreasPage = ({
     >
       <div className="layout">
         <h1>{camPageTargetType} Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
+        <h3 className="cam-page-subheading">
           Explore beach webcams from {camPageTargetType} including{' '}
           {pageAreasArray.length === 1
             ? pageAreasArray[0]
