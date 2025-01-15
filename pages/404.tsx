@@ -17,7 +17,12 @@ export default function NotFoundPage() {
           &nbsp;&nbsp; Page not Found
         </h1>
         <h4>404 Error</h4>
+        {/* <p>Redirecting to home page in 15 seconds...</p> */}
         <Link href="/">Go Back Home</Link>
+        {/* {typeof window !== 'undefined' &&
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 15000)} */}
       </div>
     </Layout>
   )

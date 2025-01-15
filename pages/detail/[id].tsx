@@ -106,7 +106,10 @@ const Details = ({
     : '/images/no-image.jpg'
 
   return (
-    <Layout documentTitle={title} documentDescription={description}>
+    <Layout
+      documentTitle={`${title} - Details Page`}
+      documentDescription={`Webcam details about ${title} with a link to the live webcam, interactive map of the area and Latitude and Longitude.`}
+    >
       <div className="layout" style={{ paddingTop: '7px' }}>
         <AdLeaderboard />
         <h2 style={{ marginTop: '20px' }}>Details Page:</h2>

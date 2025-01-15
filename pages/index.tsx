@@ -72,7 +72,7 @@ const WorldPage = ({
           <p>
             Plan your trip with Florida's sunny sands and turquoise waters as
             your guide. Marvel at vibrant sunsets or watch surfers ride the
-            waves. Our collection spans over 600 webcams across Hawaii,
+            waves. Our collection spans over 800 webcams across Hawaii,
             California, Florida, and beyond, showcasing beaches from Aruba to
             Thailand. Whether checking the weather, finding inspiration for your
             next getaway, or simply enjoying the view, MyBeachCams.com connects

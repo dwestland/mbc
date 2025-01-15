@@ -306,10 +306,6 @@ const WorldPage = ({
         }}
       />
       <AdLeaderboard />
-
-      <p className="legend">
-        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
-      </p>
       <ShowMoreText
         lines={4}
         more="show more"
@@ -358,6 +354,9 @@ const WorldPage = ({
           States or distant shores, immerse yourself in these stunning views.
           Connect with beaches worldwide, live and in real-time, all from the
           comfort of your home.
+        </p>
+        <p className="legend">
+          <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
         </p>
       </ShowMoreText>
     </Layout>
