@@ -108,7 +108,7 @@ export default function FlagModal({
         <div className={styles.body}>
           <div className={styles.form}>
             <form method="post" onSubmit={handleSubmit} className={styles.form}>
-              <h3 style={{ marginTop: '0' }}>
+              <h3 className="cam-page-subheading">
                 Flag: <strong>{title}</strong>
               </h3>
               <p>

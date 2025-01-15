@@ -3,8 +3,8 @@ import Layout from '@/components/Layout'
 
 const PrivacyPolicy = () => (
   <Layout
-    documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-    documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Maui, Los Angles, Miami, Oahu, San Francisco, Kauai and Fort Lauderdale"
+    documentTitle="Privacy Policy for MyBeachCams"
+    documentDescription="Privacy Policy for MyBeachCams.com - Learn about how we collect, use, and protect your personal information when you use our website."
   >
     <div className="layout">
       <div className="container">

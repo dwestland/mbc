@@ -91,6 +91,7 @@ const data: Data = {
                 { subarea: 'Long Beach' },
 
                 { subarea: 'Catalina Island' },
+                { subarea: 'LAX' },
                 { subarea: 'Orange County' },
                 { subarea: 'Laguna Beach' },
               ],
@@ -174,6 +175,8 @@ const data: Data = {
               area: 'Gulf Coast',
               subareas: [
                 { subarea: 'Tampa Bay' },
+                { subarea: 'Clearwater' },
+                { subarea: 'St. Petersburg' },
                 { subarea: 'Sarasota' },
                 { subarea: 'Fort Myers' },
                 { subarea: 'Naples' },
@@ -181,58 +184,108 @@ const data: Data = {
             },
           ],
         },
-        // More states ****************************************************************
+        // More states ********************************************************
         {
           state: 'Alabama',
-          areas: [],
+          areas: [
+            { area: 'Gulf Shores' },
+            { area: 'Orange Beach' },
+            { area: 'Mobile Bay' },
+          ],
         },
         {
           state: 'Connecticut',
-          areas: [],
+          areas: [
+            { area: 'Westbrook' },
+            { area: 'Mystic' },
+            { area: 'New London' },
+          ],
         },
         {
           state: 'Delaware',
-          areas: [],
+          areas: [
+            { area: 'Rehoboth Beach' },
+            { area: 'Mispillion Harbor' },
+            { area: 'Bethany Beach' },
+          ],
         },
         {
           state: 'Georgia',
-          areas: [],
+          areas: [
+            { area: 'Tybee Island' },
+            { area: 'St. Simons Island' },
+            { area: 'Jekyll Island' },
+          ],
         },
         {
           state: 'Louisiana',
-          areas: [],
+          areas: [
+            { area: 'Grand Isle' },
+            { area: 'New Orleans' },
+            { area: 'Hale Boggs Bridge' },
+          ],
         },
         {
           state: 'Maine',
-          areas: [],
+          areas: [
+            { area: 'Ogunquit' },
+            { area: 'York' },
+            { area: 'Boothbay Harbor ' },
+          ],
         },
         {
           state: 'Maryland',
-          areas: [],
+          areas: [
+            { area: 'Ocean City' },
+            { area: 'Assateague Island' },
+            { area: 'Easton' },
+          ],
         },
         {
           state: 'Massachusetts',
-          areas: [],
+          areas: [
+            { area: 'Cape Cod' },
+            { area: 'Newburyport' },
+            { area: 'Nahant' },
+          ],
         },
         {
           state: 'Minnesota',
-          areas: [],
+          areas: [{ area: 'xxx' }, { area: 'xxx' }, { area: 'xxx' }],
         },
         {
           state: 'Mississippi',
-          areas: [],
-        },
-        {
-          state: 'New Jersey',
-          areas: [],
+          areas: [
+            { area: 'Biloxi' },
+            { area: "D'Iberville" },
+            { area: 'St. Louis' },
+          ],
         },
         {
           state: 'New Hampshire',
-          areas: [],
+          areas: [
+            { area: 'Lake Winnipesaukee' },
+            { area: 'Portsmouth Harbor' },
+            { area: 'Hampton Beach' },
+          ],
         },
         {
+          state: 'New Jersey',
+          areas: [
+            { area: 'Atlantic City' },
+            { area: 'Ocean City' },
+            { area: 'Avalon' },
+          ],
+        },
+
+        {
           state: 'New York',
-          areas: [{ area: 'Long Island' }, { area: 'Fire Island' }],
+          areas: [
+            { area: 'New York City' },
+            { area: 'Long Island' },
+            { area: 'Fire Island' },
+            { area: 'Hampton Bays' },
+          ],
         },
         {
           state: 'North Carolina',
@@ -244,15 +297,28 @@ const data: Data = {
         },
         {
           state: 'Oregon',
-          areas: [],
+          areas: [
+            { area: 'Lincoln City' },
+            { area: 'Newport' },
+            { area: 'Aurora' },
+          ],
         },
         {
           state: 'Rhode Island',
-          areas: [],
+          areas: [
+            { area: 'Wakefield' },
+            { area: 'Newport' },
+            { area: 'Narragansett' },
+          ],
         },
         {
           state: 'South Carolina',
-          areas: [{ area: 'Myrtle Beach' }, { area: 'Charleston' }],
+          areas: [
+            { area: 'Myrtle Beach' },
+            { area: 'Charleston' },
+            { area: 'Pawleys Island' },
+            { area: 'Hilton Head Island' },
+          ],
         },
         {
           state: 'Texas',
@@ -260,34 +326,53 @@ const data: Data = {
             { area: 'Galveston' },
             { area: 'South Padre Island' },
             { area: 'Corpus Christi' },
+            { area: 'Rockport' },
           ],
         },
         {
           state: 'Virginia',
-          areas: [],
+          areas: [{ area: 'xxx' }, { area: 'xxx' }, { area: 'xxx' }],
         },
         {
           state: 'Washington',
-          areas: [],
+          areas: [
+            { area: 'Friday Harbor' },
+            { area: 'Seattle' },
+            { area: 'Port of Kalama' },
+            { area: 'Westport' },
+          ],
         },
       ],
     },
     // More countries **************************************************************
     {
       country: 'Aruba',
-      states: [],
+      states: [
+        { state: 'Eagle Beach' },
+        { state: 'Palm Beach' },
+        { state: 'Oranjestad' },
+      ],
+    },
+    {
+      country: 'Bali',
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Bermuda',
-      states: [],
+      states: [
+        { state: 'Hamilton' },
+        { state: 'Port of Bermuda' },
+        { state: 'Pembroke' },
+        { state: 'Flats Village' },
+      ],
     },
     {
       country: 'Bonaire',
-      states: [],
+      states: [{ state: 'Sorobon Beach' }],
     },
     {
       country: 'Canada',
-      states: [],
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Costa Rica',
@@ -295,11 +380,29 @@ const data: Data = {
     },
     {
       country: 'Curacao',
-      states: [],
+      states: [
+        { state: 'Mambo Beach' },
+        { state: 'Willemstad' },
+        { state: 'Klein Curacao' },
+        { state: 'Jan Thiel Beach' },
+      ],
     },
     {
       country: 'Dominican Republic',
-      states: [],
+      states: [
+        { state: 'Hamilton' },
+        { state: 'Pembroke' },
+        { state: 'Flats Village' },
+        { state: 'Port of Bermuda' },
+      ],
+    },
+    {
+      country: 'Greece',
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
+    },
+    {
+      country: 'Italy',
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Jamaica',
@@ -310,28 +413,91 @@ const data: Data = {
       ],
     },
     {
+      country: 'Japan',
+      states: [
+        { state: 'Nagasaki Port' },
+        { state: 'Beppu Bay' },
+        { state: 'Oita Airport' },
+        { state: 'Takamatsu Port' },
+        { state: 'Sekiya Beach' },
+      ],
+    },
+    {
       country: 'Mexico',
-      states: [{ state: 'Cancun' }, { state: 'Baja' }, { state: 'Acapulco' }],
+      states: [
+        { state: 'Cancun' },
+        { state: 'Baja' },
+        { state: 'Acapulco' },
+        { state: 'Puerto Vallarta' },
+        { state: 'Playa del Carmen' },
+        { state: 'Cozumel' },
+      ],
+    },
+    {
+      country: 'Netherlands',
+      states: [{ state: 'Zandvoort' }],
     },
     {
       country: 'New Zealand',
-      states: [{ state: 'Auckland' }, { state: 'Wellington' }],
+      states: [
+        { state: 'Auckland' },
+        { state: 'Wellington' },
+        { state: 'Castlepoint' },
+      ],
+    },
+    {
+      country: 'Portugal',
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'Sint Maarten',
-      states: [],
+      states: [
+        { state: 'Maho Beach' },
+        { state: 'Philipsburg' },
+        { state: 'Simpson Bay' },
+        { state: 'Dawn Beach' },
+      ],
+    },
+    {
+      country: 'Spain',
+      states: [{ state: 'xxx' }, { state: 'xxx' }, { state: 'xxx' }],
     },
     {
       country: 'St. Barts',
-      states: [],
+      states: [
+        { state: 'St. Barts' },
+        { state: 'Gustavia' },
+        { state: 'St. Jean' },
+        { state: 'Flamands Beach' },
+      ],
     },
     {
       country: 'St. Croix',
-      states: [],
+      states: [
+        { state: 'Frederiksted' },
+        { state: 'Cane Bay Beach' },
+        { state: 'Christiansted' },
+        { state: 'Buck Island' },
+      ],
+    },
+    {
+      country: 'Taiwan',
+      states: [
+        { state: 'Yongan Fishing Harbor' },
+        { state: 'Nanfang’ao Fishing Ports' },
+        { state: 'Dashshibi Hill' },
+        { state: 'Taitung' },
+        { state: 'Dongshi Wharf' },
+      ],
     },
     {
       country: 'Thailand',
-      states: [],
+      states: [
+        { state: 'Koh Samui' },
+        { state: 'Koh Tao' },
+        { state: 'Koh Phangan' },
+        { state: 'Koh Chang' },
+      ],
     },
   ],
 }

@@ -1,23 +1,26 @@
 import React from 'react'
+// import { InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import CamCard from '@/components/CamCard'
 import * as types from '@/utils/types'
 
-function MoreFloridaCams({ cams }: types.MoreWebcamProps) {
+function MoreWebcams({ cams }: types.MoreWebcamProps) {
   return (
     <div className="cam-container">
       {cams.cams.map(
         (cam, idx) => idx < 7 && <CamCard key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
-        <Link href="/florida">
+        <Link href="/world">
           <a>
             <h2>
               MORE
               <br />
-              <span>FLORIDA</span>
-              <br />
-              CAMS
+              <span>
+                WEB
+                <br />
+                CAMS
+              </span>
             </h2>
           </a>
         </Link>
@@ -26,4 +29,4 @@ function MoreFloridaCams({ cams }: types.MoreWebcamProps) {
   )
 }
 
-export default MoreFloridaCams
+export default MoreWebcams

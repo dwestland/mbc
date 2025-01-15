@@ -1,6 +1,5 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import Link from 'next/link'
 import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
@@ -30,19 +29,24 @@ const StateAreasPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageAreasArray.join(
-        ', '
-      )}.`}
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageAreasArray.length === 1
+          ? pageAreasArray[0]
+          : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+              pageAreasArray[pageAreasArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageAreasArray.slice(0, -1).join(', ') +
-            (pageAreasArray.length > 1
-              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
-              : '')}{' '}
+        <h1>{camPageTargetType} Webcams</h1>
+        <h3 className="cam-page-subheading">
+          Explore beach webcams from {camPageTargetType} including{' '}
+          {pageAreasArray.length === 1
+            ? pageAreasArray[0]
+            : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+                pageAreasArray[pageAreasArray.length - 1]
+              }`}
         </h3>
         <div className="content-and-ad">
           <div className="content">
@@ -217,12 +221,8 @@ const StateAreasPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )

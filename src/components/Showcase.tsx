@@ -5,10 +5,10 @@ export default function Showcase() {
   return (
     <div className={styles.showcase}>
       <div className={styles.container}>
-        <span className={styles.logo}>My Beach Cams.com</span>
-        <h3 className={styles.subHeading}>
-          Live Webcams from Hawaii, Florida and California
-        </h3>
+        <span className={styles.logo}>MyBeachCams.com</span>
+        <span className={styles.subHeading}>
+          Webcams from Hawaii, Florida, California and Around the World
+        </span>
       </div>
     </div>
   )

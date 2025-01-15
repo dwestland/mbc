@@ -1,6 +1,5 @@
 import React from 'react'
 import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import Link from 'next/link'
 import ShowMoreText from 'react-show-more-text'
 import Layout from '@/components/Layout'
 import AdLarge from '@/components/AdLarge'
@@ -21,7 +20,7 @@ const AreaSubareaPage = ({
 
   // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
   const camPageTargetType = 'Florida Keys'
-
+  const state = cams[0]?.state || ''
   const pageSections = findSubareas(data, camPageTargetType)
   const pageSectionsArray = pageSections
     ? pageSections.map((area: { subarea: string }) => area.subarea)
@@ -30,19 +29,26 @@ const AreaSubareaPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription={`Browse beach webcams from ${camPageTargetType}, including ${pageSectionsArray.join(
-        ', '
-      )}.`}
+      documentTitle={`${camPageTargetType}, ${state} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType}, ${state} including ${
+        pageSectionsArray.length === 1
+          ? pageSectionsArray[0]
+          : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
+              pageSectionsArray[pageSectionsArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageSectionsArray.slice(0, -1).join(', ') +
-            (pageSectionsArray.length > 1
-              ? ` and ${pageSectionsArray[pageSectionsArray.length - 1]}`
-              : '')}{' '}
+        <h1>
+          {camPageTargetType}, {state} Webcams
+        </h1>
+        <h3 className="cam-page-subheading">
+          Explore beach webcams from {camPageTargetType}, {state} including{' '}
+          {pageSectionsArray.length === 1
+            ? pageSectionsArray[0]
+            : `${pageSectionsArray.slice(0, -1).join(', ')} and ${
+                pageSectionsArray[pageSectionsArray.length - 1]
+              }`}
         </h3>
         <div className="content-and-ad">
           <div className="content">
@@ -223,12 +229,8 @@ const AreaSubareaPage = ({
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/hawaii/">More Hawaii Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )

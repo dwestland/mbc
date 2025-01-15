@@ -35,49 +35,49 @@ const StateAreasPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      // TODO:
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription="Best Beach Cams and Surf Cams in California featuring webcams in San Diego, Los Angeles, Central Coast and San Francisco and much more"
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageAreasArray.length === 1
+          ? pageAreasArray[0]
+          : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+              pageAreasArray[pageAreasArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageAreasArray.slice(0, -1).join(', ') +
-            (pageAreasArray.length > 1
-              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
-              : '')}{' '}
+        <h1>{camPageTargetType} Webcams</h1>
+        <h3 className="cam-page-subheading">
+          Explore beach webcams from {camPageTargetType} including{' '}
+          {pageAreasArray.length === 1
+            ? pageAreasArray[0]
+            : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+                pageAreasArray[pageAreasArray.length - 1]
+              }`}
         </h3>
-        <h3>
-          <span className="no-break">
-            <Link href="/california/san-diego">
-              <a>San Diego</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/california/los-angeles">
-              <a>Los Angeles</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/california/central-coast">
-              <a>Cental Coast</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            {' '}
-            <Link href="/california/san-francisco">
-              <a>San Francisco</a>
-            </Link>
-          </span>
-        </h3>
-
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/california/san-diego/">
+                <a>San Diego</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/los-angeles/">
+                <a>Los Angeles</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/central-coast/">
+                <a>Central Coast</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/california/san-francisco/">
+                <a>San Francisco</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -95,29 +95,41 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
-            California is known as the Golden State. Its sunny weather, varied
-            landscape and the allure of fame and fortune have enticed millions
-            of Americans to "go west." On this popular website you will find a
-            series of live streaming webcams from all along this famous West
-            Coast. From San Diego in the southern tip of California, up through
-            Los Angeles and Santa Barbara and then through Monterey and San
-            Francisco, you will see exciting live images of beaches, boardwalks,
-            bays and even marine life. These images will most likely either
-            remind you of a fond memory or make you want to trip out to see some
-            of these exciting destinations. Either way, enjoy the view!
+            California's coast offers endless adventures and stunning views.
+            From San Diego to San Francisco, explore diverse beaches and
+            bustling harbors through live webcams. In San Diego, enjoy sweeping
+            views of Mission Bay, Coronado Beach, and Ocean Beach, catch surfers
+            at Scripps Pier, or watch marine life at Birch Aquarium's kelp
+            forest cam. Los Angeles brings iconic spots like Santa Monica Pier,
+            Venice Beach, and the serene shores of Catalina Island, with lively
+            boardwalks and Pacific views from Long Beach Harbor. Head to the
+            Central Coast for Pismo Beach, Big Sur's cliffs, and Pebble Beach's
+            famous golf course, while Carpinteria and Cambria webcams showcase
+            tranquil settings and vibrant sunsets. In San Francisco, webcams
+            capture the Golden Gate Bridge, Muir Beach's cove, and the Mendocino
+            coast. Whether planning a trip or enjoying the views, California's
+            webcams connect you to its coastal magic.
           </p>
         </ShowMoreText>
 
         <h2>
           <Link href="/california/los-angeles/">Los Angeles Webcams</Link>
         </h2>
-        <p>
-          Los Angeles is home to many of the mainland's top beaches. Click on
-          Los Angeles Beach Cams to find streaming video webcams of such LA hot
-          spots as Venice Beach, Santa Monica Pier, Hermosa Beach, Newport
-          Beach, Laguna and even Catalina Island. Check out the great weather
-          and see what's happening in the LA scene.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Los Angeles offers iconic beaches and ocean views. Visit Venice
+            Beach for art and street performers. Santa Monica Pier is a favorite
+            spot. Long Beach features a lively harbor. Explore Catalina Island's
+            scenic shores. Pacific Palisades has stunning cliffs and surf. LA's
+            coastline is a mix of relaxation and vibrant activity.
+          </p>
+        </ShowMoreText>
         <MoreLosAngelesCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Los Angeles').slice(0, 7),
@@ -126,34 +138,49 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/california/san-diego/">San Diego Webams</Link>
+          <Link href="/california/san-diego/">San Diego Webcams</Link>
         </h2>
-        <p>
-          San Diego, known for its year-round sunshine and balmy temperatures,
-          is a great place for some fun-in-the-sun. Click on San Diego Beach
-          Cams and check out these live, streaming video web cams of the Del
-          Mar, La Jolla/ Torrey Pines, San Diego Bay and Marina, Ocean Beach and
-          Imperial Beach areas. You'll then see why San Diego is one of the most
-          popular vacation spots in the U.S.A.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            San Diego is known for its sunny beaches and bays. Visit Coronado
+            Beach for soft sands and ocean views. Mission Bay is perfect for
+            water sports. La Jolla offers tide pools and marine life. Ocean
+            Beach has a lively pier and boardwalk. San Diego's coast blends
+            beauty and adventure.
+          </p>
+        </ShowMoreText>
         <MoreSanDiegoCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'San Diego').slice(0, 7),
           }}
         />
         <AdLeaderboard />
+
         <h2>
           <Link href="/california/central-coast/">Central Coast Webcams</Link>
         </h2>
-        <p>
-          Along the west coast between Los Angeles and San Francisco is a series
-          of terrific resort towns. Many of them are weekend getaways for
-          Angelinos. Click on Central Coast Beach Cams to see live, streaming
-          video of these areas. It starts at Ventura and Santa Barbara, and then
-          goes up the coast to Baywood and San Simeon, and finally to Big Sur,
-          Pebble Beach and Monterey. These webcams will probably make you want
-          to get in the car and drive up the coast along scenic Highway 1.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            The Central Coast features stunning cliffs and quiet beaches. Big
+            Sur offers rugged views and scenic trails. Pismo Beach is great for
+            sunsets and clamming. Monterey Bay is home to diverse marine life.
+            Pebble Beach showcases iconic golf courses. Carpinteria and Cambria
+            provide peaceful escapes. The Central Coast is a haven for nature
+            lovers.
+          </p>
+        </ShowMoreText>
         <MoreCentralCoastCams
           cams={{
             cams: cams
@@ -166,15 +193,22 @@ const StateAreasPage = ({
         <h2>
           <Link href="/california/san-francisco/">San Francisco Webcams</Link>
         </h2>
-        <p>
-          San Francisco is known as the "City by the Bay." This worldly,
-          seductive city is full of culture, magnificent sights and outstanding
-          food. Its famous sights include the Golden Gate Bridge, cable cars and
-          steep rolling hills overlooking the bay and ocean. See the web cams at
-          San Francisco Beach Cams to view streaming live pictures of this
-          incredible area, including San Francisco Bay, The Golden Gate Bridge
-          and Alcatraz Island.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            San Francisco blends city life with coastal beauty. The Golden Gate
+            Bridge towers over the bay. Ocean Beach offers wide sandy stretches.
+            Muir Beach has a quiet cove and trails. The Mendocino coast is
+            rugged and scenic. Explore the bay's waterfronts and iconic
+            landmarks. San Francisco's coast is rich with sights and
+            experiences.
+          </p>
+        </ShowMoreText>
         <MoreSanFranciscoCams
           cams={{
             cams: cams
@@ -183,9 +217,6 @@ const StateAreasPage = ({
           }}
         />
         <AdLeaderboard />
-        <h1>Cams Displayed Here</h1>
-        {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
-
         <ShowMoreText
           lines={4}
           more="show more"
@@ -195,30 +226,171 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxx</p>
+          <p>
+            California's coastline is a treasure of natural beauty. From sandy
+            beaches to dramatic cliffs, this state has it all. With live
+            webcams, you can explore it from anywhere.
+          </p>
+          <p>
+            In San Diego, experience the charm of Mission Bay and its calm
+            waters. Watch boats glide past on the Coronado cam or surfers ride
+            waves at Ocean Beach. The Scripps Pier cam shows sea life and ocean
+            conditions. Visit the Birch Aquarium cam for a glimpse beneath the
+            waves.
+          </p>
+          <p>
+            Los Angeles offers iconic spots and vibrant beaches. The Santa
+            Monica Pier cam showcases the bustling boardwalk. Venice Beach
+            brings a mix of art, surf, and sun. From Catalina Island, enjoy
+            breathtaking views of Avalon Harbor or Two Harbors. Long Beach
+            Harbor provides a serene backdrop of the Pacific.
+          </p>
+          <p>
+            The Central Coast offers peace and scenic vistas. Pismo Beach is
+            perfect for sunsets and clam digging. Big Sur's webcam reveals
+            rugged cliffs and the vast ocean. Pebble Beach Golf Links shows the
+            18th green against a coastal backdrop. Carpinteria Beach is a hidden
+            gem with quiet shores and views of Santa Barbara.
+          </p>
+          <p>
+            In San Francisco, webcams highlight the city's iconic landmarks. The
+            Golden Gate Bridge dominates the skyline. Ocean Beach offers endless
+            sandy stretches south of the bridge. Muir Beach is a tranquil escape
+            with its lagoon and quiet cove. Mendocino's Headlands cam captures
+            the beauty of Northern California's rugged coast.
+          </p>
+          <p>
+            Whether planning a trip or exploring virtually, these webcams
+            provide a window to California's dynamic shores. Witness its diverse
+            landscapes and vibrant coastal life. Each cam offers a unique
+            perspective, connecting you to the magic of the Golden State. From
+            San Diego to San Francisco, every location has a story to tell.
+          </p>
         </ShowMoreText>
-        <hr />
+        {/* <hr /> */}
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>x</li>
+              <li>Walk along the Santa Monica Pier.</li>
+              <li>Watch surfers at Venice Beach.</li>
+              <li>Explore tide pools in La Jolla.</li>
+              <li>Visit Mission Bay for paddleboarding.</li>
+              <li>Take a ferry to Catalina Island.</li>
+              <li>Relax on Coronado Beach's sandy shores.</li>
+              <li>Hike the trails at Big Sur.</li>
+              <li>Stroll the boardwalk at Ocean Beach.</li>
+              <li>View wildlife at Monterey Bay Aquarium.</li>
+              <li>Watch sunsets from Pismo Beach.</li>
             </ol>
           </div>
           <div className="info">
             <h3>{camPageTargetType} Links and Local Information</h3>
             <ul>
-              <li>x</li>
+              <li>
+                <a
+                  href="https://www.visitcalifornia.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit California
+                </a>{' '}
+                - Discover travel tips, events, and attractions across the
+                state.
+              </li>
+              <li>
+                <a
+                  href="https://www.weather.com/weather/today/l/34.0161,-118.4996"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Santa Monica Weather
+                </a>{' '}
+                - Get real-time weather updates for Santa Monica Pier.
+              </li>
+              <li>
+                <a
+                  href="https://www.nps.gov/state/ca/index.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  National Park Service
+                </a>{' '}
+                - Plan visits to California's national parks and preserves.
+              </li>
+              <li>
+                <a
+                  href="https://www.sandiego.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  San Diego Tourism Authority
+                </a>{' '}
+                - Find activities, dining options, and beach guides in San
+                Diego.
+              </li>
+              <li>
+                <a
+                  href="https://www.visitcatalinaisland.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Catalina Island
+                </a>{' '}
+                - Learn about ferry schedules, island attractions, and local
+                events.
+              </li>
+              <li>
+                <a
+                  href="https://www.bigsurcalifornia.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Big Sur Visitors Guide
+                </a>{' '}
+                - Explore hiking trails, scenic drives, and local landmarks.
+              </li>
+              <li>
+                <a
+                  href="https://aqicn.org/map/los-angeles/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Los Angeles Air Quality
+                </a>{' '}
+                - Check air quality conditions for outdoor activities in LA.
+              </li>
+              <li>
+                <a
+                  href="https://www.sfgate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  SF Gate
+                </a>{' '}
+                - Stay informed on San Francisco's weather, news, and local
+                happenings.
+              </li>
+              <li>
+                <a
+                  href="https://www.californiabeaches.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  California Beaches
+                </a>{' '}
+                - Explore detailed guides to beaches and coastal activities.
+              </li>
             </ul>
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
+      {/* <hr /> */}
+      {/* <h2>
         <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      </h2>{' '} */}
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )

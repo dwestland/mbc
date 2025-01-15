@@ -1,12 +1,9 @@
 .showcase {
-  // TODO: More text shadow
-
   background: #000 url('https://images.mybeachcams.com/mybeachcams.jpg')
     no-repeat center center / cover;
   margin-top: 46px;
-  text-shadow: 1px 1px 1px rgb(75, 75, 75);
+  text-shadow: 0px 0px 10px #000;
 }
-
 .container {
   color: #fff;
   cursor: default;

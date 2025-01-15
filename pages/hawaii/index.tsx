@@ -35,48 +35,49 @@ const StateAreasPage = ({
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
     <Layout
-      // TODO:
-      documentTitle={`${camPageTargetType} Beach Webcams - MyBeachCams`}
-      documentDescription="Explore Georgia beach webcams, featuring live views from Tybee Island and St. Simons Island for trip planning and weather updates."
+      documentTitle={`${camPageTargetType} Webcams - MyBeachCams`}
+      documentDescription={`Explore beach webcams from ${camPageTargetType} including ${
+        pageAreasArray.length === 1
+          ? pageAreasArray[0]
+          : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+              pageAreasArray[pageAreasArray.length - 1]
+            }.`
+      }`}
     >
       <div className="layout">
-        <h1>{camPageTargetType} Beach Webcams</h1>
-        <h3 style={{ marginTop: '0' }}>
-          Featuring webcams from{' '}
-          {pageAreasArray.slice(0, -1).join(', ') +
-            (pageAreasArray.length > 1
-              ? ` and ${pageAreasArray[pageAreasArray.length - 1]}`
-              : '')}{' '}
+        <h1>{camPageTargetType} Webcams</h1>
+        <h3 className="cam-page-subheading">
+          Explore beach webcams from {camPageTargetType} including{' '}
+          {pageAreasArray.length === 1
+            ? pageAreasArray[0]
+            : `${pageAreasArray.slice(0, -1).join(', ')} and ${
+                pageAreasArray[pageAreasArray.length - 1]
+              }`}
         </h3>
-        <h3>
-          <span className="no-break">
-            <Link href="/hawaii/maui/">
-              <a>Maui</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/hawaii/oahu/">
-              <a>Oahu</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/hawaii/kauai">
-              <a>Kauai</a>
-            </Link>
-          </span>
-          &nbsp;
-          <span className="subheading-emoji"> 🌴 </span>&nbsp;
-          <span className="no-break">
-            <Link href="/hawaii/bigisland/">
-              <a>Big Island</a>
-            </Link>
-          </span>
-        </h3>
-
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/hawaii/kauai/">
+                <a>Kauai Island</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/hawaii/oahu/">
+                <a>Oahu Island</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/hawaii/maui/">
+                <a>Maui Island</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/hawaii/bigisland/">
+                <a>Big Island</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
         <div className="content-and-ad">
           <div className="content">
             <CamsPageMap cams={cams} />
@@ -94,32 +95,41 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
-            Watch the best Hawaii Beach Cams, featuring live webcams and surf
-            cams from Waikiki, Oahu, Lahaina, Maui and all of the top resort
-            areas. We also give you comprehensive travel tips, local
-            information, maps and links. Enjoy the Hawaii Beach Cams!
+            Hawaii offers a blend of stunning beaches, rugged cliffs, and
+            tranquil bays. Explore live webcams from Maui, Oahu, Kauai, and the
+            Big Island. Maui features Kaanapali's sandy shores and Wailea's
+            luxury resorts. On Oahu, Waikiki's bustling beach scene contrasts
+            with the North Shore's legendary surf. Kauai's lush landscapes and
+            Poipu's calm waters invite relaxation. The Big Island showcases
+            volcanic marvels and serene spots like Kona's bays.
           </p>
           <p>
-            The island of Maui is one of the most popular vacation destinations,
-            featuring the beaches of Kaanapali, Lahaina, Wailea and Kapalua. It
-            has 33 miles of exquisite public beaches. Some of these beaches even
-            have jewel-toned sand. See the webcams at Maui Beach Cams to view
-            streaming live camera pictures of the amazing natural beauty found
-            on various locations on the Island of Maui.
+            Each webcam provides a window into Hawaii's beauty. Watch surfers
+            ride waves, families enjoy soft sands, or the vivid sunsets over the
+            Pacific. Perfect for planning your next trip, checking local
+            weather, or escaping to paradise from your screen. Discover Hawaii's
+            magic, one live view at a time.
           </p>
         </ShowMoreText>
 
         <h2>
           <Link href="/hawaii/maui/">Maui Island Webams</Link>
         </h2>
-        <p>
-          The island of Maui is one of the most popular vacation destinations,
-          featuring the beaches of Kaanapali, Lahaina, Wailea and Kapalua. It
-          has 33 miles of exquisite public beaches. Some of these beaches even
-          have jewel-toned sand. See the webcams at Maui Beach Cams to view
-          streaming live camera pictures of the amazing natural beauty found on
-          various locations on the Island of Maui.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Maui is an island with stunning beaches and clear waters. Kaanapali
+            Beach is great for swimming and relaxing. Wailea offers calm shores
+            and snorkeling. Visit Haleakalā to see a volcanic crater. Lahaina is
+            a historic town with shops and dining. Maui's natural beauty and
+            vibrant spots create unforgettable experiences.
+          </p>
+        </ShowMoreText>
         <MoreMauiCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Maui').slice(0, 7),
@@ -130,13 +140,21 @@ const StateAreasPage = ({
         <h2>
           <Link href="/hawaii/oahu/">Oahu Island Webams</Link>
         </h2>
-        <p>
-          The Island of Oahu is home to World-famous Waikiki Beach and Honolulu.
-          It is the most visited of all the Hawaiian Islands. Its famed North
-          Shore draws the top professional surfers in the world to ride its
-          30-foot waves. See the webcams at Oahu Beach Cams to view streaming
-          live camera pictures of various hot spots on the island.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Oahu is home to Waikiki Beach and its lively shores. The North Shore
+            draws surfers to its giant winter waves. Explore Diamond Head for
+            sweeping island views. Visit Pearl Harbor for history and
+            remembrance. Honolulu offers dining and vibrant culture. Oahu blends
+            natural beauty with exciting urban experiences.
+          </p>
+        </ShowMoreText>
         <MoreOahuCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Oahu').slice(0, 7),
@@ -147,15 +165,22 @@ const StateAreasPage = ({
         <h2>
           <Link href="/hawaii/bigisland/">Big Island Webams</Link>
         </h2>
-        <p>
-          The Island of Hawaii is commonly referred to as "The Big Island." It
-          is almost twice as large as all of the other Hawaiian Island combined.
-          It is home to some of the most luxurious resort areas including the
-          Kona Coast, Waikoloa Coast and Kailua Kona. It's also the home to Kona
-          gourmet coffee. See the webcams at Big Island Beach Cams to view
-          streaming live pictures of the amazing sights on the Big Island of
-          Hawaii.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            The Big Island offers diverse landscapes and adventures. Kona has
+            calm bays and sunny beaches. Visit Hilo for lush gardens and
+            waterfalls. Explore Kīlauea's volcanic wonders in Hawai'i Volcanoes
+            National Park. Mauna Kea offers stargazing and snowy peaks. The Big
+            Island combines natural beauty with unique experiences for every
+            traveler.
+          </p>
+        </ShowMoreText>
         <MoreBigIslandCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Big Island').slice(0, 7),
@@ -166,24 +191,27 @@ const StateAreasPage = ({
         <h2>
           <Link href="/hawaii/kauai/">Kauai Island Webams</Link>
         </h2>
-        <p>
-          Kauai is a lush paradise. It is known as the "Garden Isle" for its
-          brilliant flowers. It is also home to the "wettest place on earth" and
-          "The Grand Canyon of the Pacific." On its famed North Shore are
-          Princeville, Hanalei Bay and the Na Pali Shoreline. Other top resort
-          areas include Lihue and Poipu. See the webcams at Kauai Beach Cams to
-          view streaming live pictures of this beautiful and lush island.
-        </p>
+        <ShowMoreText
+          lines={2}
+          more="show more"
+          less="show less"
+          anchorClass="anchorClass"
+          truncatedEndingComponent="&nbsp;&nbsp;"
+        >
+          <p>
+            Kauai is the “Garden Isle” with lush cliffs and valleys. Poipu Beach
+            offers calm waters and golden sands. Hanalei Bay is surrounded by
+            green mountains. Explore the Na Pali Coast by boat or hike. Visit
+            Waimea Canyon for stunning views. Kauai's natural beauty and
+            peaceful spots make it unforgettable.
+          </p>
+        </ShowMoreText>
         <MoreKauaiCams
           cams={{
             cams: cams.filter((cam) => cam.area === 'Kauai').slice(0, 7),
           }}
         />
         <AdLeaderboard />
-
-        <h1>Cams Displayed Here</h1>
-        {/* <RenderAreaSections pageAreas={pageAreas ?? []} cams={cams} /> */}
-
         <ShowMoreText
           lines={4}
           more="show more"
@@ -193,30 +221,156 @@ const StateAreasPage = ({
         >
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
-          <p>xxx</p>
+          <p>
+            Hawaii is a treasure trove of natural wonders. Its islands feature
+            diverse beaches, dramatic coastlines, and vibrant ocean life. Maui
+            offers Kaanapali Beach, where golden sands meet clear waters.
+            Nearby, Wailea boasts luxury resorts and serene coves perfect for
+            snorkeling. Don't miss Napili Bay for family-friendly swimming and
+            relaxing views.
+          </p>
+          <p>
+            On Oahu, explore the world-famous Waikiki Beach. This lively spot
+            blends bustling energy with scenic beauty. The island's North Shore
+            is a haven for surfers. Winter waves here attract professionals from
+            around the world. Waikiki webcams capture the action of city
+            beaches, while North Shore cams reveal its raw surf power.
+          </p>
+          <p>
+            Kauai, the "Garden Isle," enchants with lush green cliffs and
+            valleys. Poipu Beach on the South Shore offers calm waters ideal for
+            swimming. Hanalei Bay, nestled on the North Shore, is surrounded by
+            misty mountains. Explore live views of Kauai's shoreline, from
+            tranquil lagoons to rugged coasts.
+          </p>
+          <p>
+            The Big Island showcases unique landscapes. Kona is home to quiet
+            bays and thriving marine life. Hilo's shores offer views of rolling
+            waves and black-sand beaches. Watch live feeds from Keauhou Bay or
+            Waikoloa Beach for a glimpse of local charm. Volcano webcams provide
+            a rare look at Kīlauea's dramatic activity.
+          </p>
+          <p>
+            Each live cam brings Hawaii to your screen. Witness surfers riding
+            waves, beachgoers enjoying soft sands, or sunsets painting the sky.
+            These views help you plan adventures or experience the islands from
+            afar. Whether you seek calm bays, vibrant beaches, or hidden coastal
+            gems, Hawaii delivers.
+          </p>
+          <p>
+            Let these webcams guide your journey. From Maui's golden beaches to
+            Kauai's rugged cliffs, Hawaii's beauty is unmatched. Start exploring
+            today with live views that inspire and inform.
+          </p>
         </ShowMoreText>
-        <hr />
+
         <div className="things-and-info">
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>x</li>
+              <li>Relax on Waikiki Beach and enjoy the views.</li>
+              <li>Snorkel at Hanauma Bay Nature Preserve.</li>
+              <li>Surf the waves on Oahu's North Shore.</li>
+              <li>Walk along Kaanapali Beach in Maui.</li>
+              <li>Explore tide pools at Poipu Beach in Kauai.</li>
+              <li>Swim in the calm waters of Napili Bay.</li>
+              <li>Visit Hilo Bay for black-sand beaches.</li>
+              <li>Kayak along the Na Pali Coast in Kauai.</li>
+              <li>Dive with manta rays off the Big Island.</li>
+              <li>Watch the sunset at Wailea Beach in Maui.</li>
             </ol>
           </div>
           <div className="info">
             <h3>{camPageTargetType} Links and Local Information</h3>
             <ul>
-              <li>x</li>
+              <li>
+                <a
+                  href="https://www.gohawaii.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Go Hawaii
+                </a>{' '}
+                - Find guides, maps, and travel tips for all islands.
+              </li>
+              <li>
+                <a
+                  href="https://www.weather.com/weather/today/l/20.7967,-156.3319"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Maui Weather
+                </a>{' '}
+                - Check current weather for planning beach days.
+              </li>
+              <li>
+                <a
+                  href="https://www.nps.gov/havo/index.htm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Hawai'i Volcanoes National Park
+                </a>{' '}
+                - Discover trails, volcanic sites, and visitor information.
+              </li>
+              <li>
+                <a
+                  href="https://www.hawaiibeachsafety.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Hawaii Beach Safety
+                </a>{' '}
+                - Review beach conditions and ocean safety tips.
+              </li>
+              <li>
+                <a
+                  href="https://www.surfrider.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Surfrider Foundation
+                </a>{' '}
+                - Learn about beach conservation and surf-friendly locations.
+              </li>
+              <li>
+                <a
+                  href="https://www.hawaiinewsnow.com/traffic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Honolulu Traffic
+                </a>{' '}
+                - Monitor live traffic updates for smooth travel.
+              </li>
+              <li>
+                <a
+                  href="https://www.hawaiihumpbackwhale.noaa.gov"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Humpback Whale Sanctuary
+                </a>{' '}
+                - Learn about whale watching and ocean life.
+              </li>
+              <li>
+                <a
+                  href="https://www.mauivisitorsguide.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Maui Visitors Guide
+                </a>{' '}
+                - Explore activities, beaches, and Maui travel ideas.
+              </li>
             </ul>
           </div>
         </div>
       </div>
-      <hr />
-      <h2>
-        <Link href="/">More Beach Cams</Link>
-      </h2>{' '}
-      <p style={{ textAlign: 'center' }}>
-        <span className="green-dot">&nbsp;</span>MyBeachCam hosted page
+      {/* <hr /> */}
+      {/* <h2><Link href="/">More Beach Cams</Link></h2>{' '} */}
+      <p className="legend">
+        <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
       </p>
     </Layout>
   )

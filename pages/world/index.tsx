@@ -1,157 +1,145 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
-import Layout from '@/components/Layout'
+import { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Link from 'next/link'
-import AdLeaderboard from '@/components/AdLeaderboard'
-import AdLarge from '@/components/AdLarge'
-import * as types from '@/utils/types'
-import CamCard from '@/components/CamCard'
 import ShowMoreText from 'react-show-more-text'
+import Layout from '@/components/Layout'
+import AdLarge from '@/components/AdLarge'
+import CamsPageMap from '@/components/CamsPageMap'
+import * as types from '@/utils/types'
+import ErrorLoadingWebcams from '@/components/ErrorLoadingWebcams'
+import MoreUSACams from '@/components/MoreUSACams'
+import MoreHawaiiCams from '@/components/MoreHawaiiCams'
+import MoreCaliforniaCams from '@/components/MoreCaliforniaCams'
+import MoreFloridaCams from '@/components/MoreFloridaCams'
+import AdLeaderboard from '@/components/AdLeaderboard'
 
-const FloridaPage = ({ floridaCams }: { floridaCams: any }) => {
-  const CamsMap: any = dynamic(() => import('@/components/CamsMap'), {
-    ssr: false,
-  })
-
-  const panhandleCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Panhandle'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
+const WorldPage = ({
+  cams,
+  error,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  if (error) {
+    return <ErrorLoadingWebcams />
   }
-
-  const northEastCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Northeast'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  const eastCentralCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'East Central'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  const miamiBeachCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Miami Beach'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-  const souteastKeysCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Florida Keys'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  const gulfCoastCams = () => {
-    const cams = floridaCams.cams.filter(
-      (cam: types.Cams) => cam.area === 'Gulf Coast'
-    )
-    const result = cams.map((cam: types.Cams, idx: number) => {
-      if (idx < 7) {
-        return <CamCard key={cam.id} cam={cam} />
-      }
-      return null
-    })
-    return result
-  }
-
-  // Create vectors for map
-  const vectors: {
-    name: string
-    lat: number
-    lng: number
-    id: number
-    imageName: string
-  }[] = []
-  floridaCams.cams.map((cam: types.Cams) => {
-    if (cam.lat !== null && cam.lng !== null) {
-      const vector = {
-        name: cam.title,
-        lat: cam.lat,
-        lng: cam.lng,
-        id: cam.id,
-        imageName: cam.imageName,
-      }
-      vectors.push(vector)
-    }
-    return null
-  })
 
   return (
     <Layout
-      documentTitle="MyBeachCams.com - Webcams of Hawaii, Florida and California"
-      documentDescription="Best Web Cams and Surf Cams in Hawaii, Florida and California and and local information about Miami, Los Angles, Miami, Northeast, San Francisco, Kauai and Fort Lauderdale"
+      documentTitle="Webcams around the World - MyBeachCams"
+      documentDescription="Browse hundreds of beach webcams from around the world"
     >
       <div className="layout">
-        <h1>World Webcams</h1>
-        <div className="index-page-subheading">
-          <h2>
-            <span className="no-break">
-              <Link href="/florida/miami/">
-                <a>Miami</a>
+        <h1>Live Webcams from Countries around the World</h1>
+        <div className="links-container">
+          <ul>
+            <li>
+              <Link href="/aruba/">
+                <a>Aruba</a>
               </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              <Link href="/florida/gulf-coast/">
-                <a>Gulf Coast</a>
+            </li>
+            {/* <li>
+              <Link href="/bali/">
+                <a>Bali</a>
               </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              <Link href="/florida/east-central/">
-                <a>East Central</a>
+            </li> */}
+            <li>
+              <Link href="/bermuda/">
+                <a>Bermuda</a>
               </Link>
-            </span>
-            &nbsp;
-            <span className="subheading-emoji"> 🌴 </span>&nbsp;
-            <span className="no-break">
-              <Link href="/florida/florida-keys/">
-                <a>Florida Keys</a>
+            </li>
+            <li>
+              <Link href="/bonaire/">
+                <a>Bonaire</a>
               </Link>
-            </span>
-          </h2>
+            </li>
+            <li>
+              <Link href="/curacao/">
+                <a>Curacao</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/dominican-republic/">
+                <a>Dominican Republic</a>
+              </Link>
+            </li>
+            {/* <li>
+              <Link href="/greece/">
+                <a>Greece</a>
+              </Link>
+            </li> */}
+            {/* <li>
+              <Link href="/italy/">
+                <a>Italy</a>
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/jamaica/">
+                <a>Jamaica</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/japan/">
+                <a>Japan</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/mexico/">
+                <a>Mexico</a>
+              </Link>
+            </li>
+            {/* <li>
+              <Link href="/netherlands/">
+                <a>Netherlands</a>
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/new-zealand/">
+                <a>New Zealand</a>
+              </Link>
+            </li>
+            {/* <li>
+              <Link href="/portugal/">
+                <a>Portugal</a>
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/sint-maarten/">
+                <a>Sint Maarten</a>
+              </Link>
+            </li>
+            {/* <li>
+              <Link href="/spain/">
+                <a>Spain</a>
+              </Link>
+            </li> */}
+            <li>
+              <Link href="/st-barts/">
+                <a>St. Barts</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/st-croix/">
+                <a>St. Croix</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/taiwan/">
+                <a>Taiwan</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/thailand/">
+                <a>Thailand</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/usa/">
+                <a>United States</a>
+              </Link>
+            </li>
+          </ul>
         </div>
         <div className="content-and-ad">
           <div className="content">
-            <CamsMap vectors={vectors} />
+            <CamsPageMap cams={cams} />
           </div>
           <div className="ad">
             <AdLarge />
@@ -165,210 +153,246 @@ const FloridaPage = ({ floridaCams }: { floridaCams: any }) => {
           truncatedEndingComponent="&nbsp;&nbsp;"
         >
           <p>
-            Floridas beaches captivate the soul, offering a slice of paradise in
-            every corner of the state. From the vibrant sands of Miami Beach to
-            the tranquil shores of the Florida Keys, this page unveils live
-            webcams that animate the Sunshine State. Gaze at the gentle waves of
-            the Gulf Coast or immerse in the bustling activity along the
-            Atlantic Ocean. Planning a trip? These cams deliver real-time
-            glimpses of Floridas most popular destinations, guiding you to the
-            perfect spot. Whether youre daydreaming about your next escape or
-            assessing the current weather, these live streams anchor you to
-            Floridas allure.
+            Explore the world's beaches with our live webcams. From Aruba's
+            white sands to Bermuda's clear waters, each destination offers a
+            unique view. See Bonaire's diving spots and Curacao's lively shores.
+            Jamaica's vibrant beaches and St. Croix's serene coasts invite you
+            to escape.
+          </p>
+
+          <p>
+            Asia's webcams bring Japan's tranquil bays, Taiwan's bustling
+            harbors, and Thailand's vibrant beaches to life. In New Zealand,
+            discover rugged cliffs and hidden coves. Mexico's shores blend
+            ancient culture with ocean beauty. Sint Maarten and St. Barts reveal
+            turquoise waters and island charm.
+          </p>
+
+          <p>
+            These webcams also highlight U.S. favorites. California's Venice
+            Beach shows surfers and boardwalk life. Hawaii features lush beaches
+            and snorkeling hotspots. Florida's webcams capture piers, lively
+            beaches, and calm waters.
+          </p>
+
+          <p>
+            Whether you're planning a trip or seeking a serene escape, these
+            streams inspire. Watch live as waves roll in, sunsets glow, and
+            oceanfront life unfolds. Experience the world's beaches, one webcam
+            at a time.
           </p>
         </ShowMoreText>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/miami/">Miami Beach Cams</Link>
-        </h2>
-        <p>
-          Miami Beach Florida is the world's most famous beach resort, famed for
-          its white sand beaches and as a meeting place for celebrities and
-          millionaires. Miami Beach is also a popular tourist destination,
-          especially among Europeans and South Americans. It has been featured
-          in many movies and television shows including Scarface, Cocoon, Miami
-          Vice and Baywatch. Watch live streaming webcams of Miami.
-        </p>
-        <div className="cam-container">
-          {miamiBeachCams()}
-          <div className="more-cams">
-            <Link href="/florida/miami">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>MIAMI</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/florida-keys/">
-            <a>Florida Keys Cams</a>
-          </Link>
-        </h2>
-        <p>
-          Immerse yourself in the Florida Keys via live webcams. Wander through
-          pristine beaches, vibrant coral reefs, and quaint coastal towns. From
-          Key Largo to Key West, these cameras transport the island paradise to
-          you. Survey the weather, map out your day, or simply revel in the
-          sights. Plunge into the island life, glimpse exotic wildlife, and
-          envision your next journey. Ideal for planning or a brief, virtual
-          tropical escape.
-        </p>
-        <div className="cam-container">
-          {souteastKeysCams()}
-          <div className="more-cams">
-            <Link href="/florida//florida-keys">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>FLORIDA KEYS</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/gulf-coast">
-            <a>Gulf Coast Beach Cams</a>
-          </Link>
-        </h2>
-        <p>
-          Witness the Gulf Coast through live beach cams. Stroll along white
-          sand shores, vibrant coastal towns, and tranquil waters. From Florida
-          to Texas, these webcams unveil the Gulfs allure. Gauge the weather,
-          craft your beach day, or simply savor the ocean vistas. Unearth local
-          charm, glimpse marine life, and envision your next retreat. Ideal for
-          planning or a virtual beachside escape.
-        </p>
-        <div className="cam-container">
-          {gulfCoastCams()}
-          <div className="more-cams">
-            <Link href="/florida/gulf-coast">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>GULF COAST</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/east-central">
-            <a>East Central Cams</a>
-          </Link>
-        </h2>
-        <p>
-          East Central Florida is a great place to visit. Ocean and beaches,
-          things to do and places to go. See Daytona Beach, Cape Canaveral,
-          Space Coast (Cape Kennedy) and New Smyrna Beach. Stay tuned to our
-          live streaming webcams and enjoy beautiful beaches.
-        </p>
-        <div className="cam-container">
-          {eastCentralCams()}
-          <div className="more-cams">
-            <Link href="/florida/east-central">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>EAST CENTRAL</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/panhandle">
-            <a>Panhandle Beach Cams</a>
-          </Link>
-        </h2>
-        <p>
-          Come see the Florida Panhandle and everything it has to offer. The
-          Florida Panhandle is a great place to visit with beautiful ocean and
-          beaches and fun activities. Come and explore! Jacksonville Beach and
-          the St. Augustine Panhandle is one of the US's most beautiful places
-          to visit, come and experience it for yourself. Panhandle Beach Cams
-          provide an amazing live streaming experience to those around the world
-          who want to watch the beach life at its best.
-        </p>
-        <div className="cam-container">
-          {panhandleCams()}
-          <div className="more-cams">
-            <Link href="/florida/panhandle">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>PAN HANDLE</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
-        <h2>
-          <Link href="/florida/northeast/">
-            <a>Northeast Beach Cams</a>
-          </Link>
-        </h2>
-        <p>
-          Northeast Florida, the Sunshine State, has many attractions. Ocean and
-          beaches are plentiful, as well as places to see and do. There is so
-          much to visit in this part of Florida. Watch live streaming videos of
-          the top beaches in Northeast Florida with an interactive map and lots
-          more information about attractions, tourist attractions and more!
-        </p>
-        <div className="cam-container">
-          {northEastCams()}
-          <div className="more-cams">
-            <Link href="/florida/northeast">
-              <a>
-                <h2>
-                  MORE
-                  <br />
-                  <span>NORTH EAST</span>
-                  <br />
-                  CAMS
-                </h2>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <AdLeaderboard />
       </div>
+
+      <h2>
+        <Link href="/hawaii/">World Webcams</Link>
+      </h2>
+
+      <MoreUSACams
+        cams={{
+          cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
+        }}
+      />
+      <AdLeaderboard />
+
+      <h2>
+        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+      </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/hawaii/kauai/">
+              <a>Kauai Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/oahu/">
+              <a>Oahu Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/maui/">
+              <a>Maui Island</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/hawaii/bigisland/">
+              <a>Big Island</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <MoreHawaiiCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'Hawaii').slice(0, 7),
+        }}
+      />
+      <AdLeaderboard />
+
+      <h2>
+        <Link href="/california/">California Beach Cams</Link>
+      </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/california/san-diego/">
+              <a>San Diego</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/los-angeles/">
+              <a>Los Angeles</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/central-coast/">
+              <a>Central Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/california/san-francisco/">
+              <a>San Francisco</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <MoreCaliforniaCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'California').slice(0, 7),
+        }}
+      />
+      <AdLeaderboard />
+
+      <h2>
+        <Link href="/florida/">Florida Beach Cams</Link>
+      </h2>
+      <div className="links-container">
+        <ul>
+          <li>
+            <Link href="/florida/miami/">
+              <a>Miami Beach</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/florida-keys/">
+              <a>Florida Keys</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/gulf-coast/">
+              <a>Gulf Coast</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/east-central/">
+              <a>East Central</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/panhandle/">
+              <a>Panhandle</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/florida/northeast/">
+              <a>Northeast</a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <MoreFloridaCams
+        cams={{
+          cams: cams.filter((cam) => cam.state === 'Florida').slice(0, 7),
+        }}
+      />
+      <AdLeaderboard />
+      <ShowMoreText
+        lines={4}
+        more="show more"
+        less="show less"
+        anchorClass="anchorClass"
+        truncatedEndingComponent="&nbsp;&nbsp;"
+      >
+        <p>
+          Webcams offer a window to some of the world's best beaches. From the
+          United States to tropical islands, these streams capture moments of
+          beauty. Each location showcases unique features, from bustling shores
+          to calm waters. Discover the charm of sandy coasts, ocean breezes, and
+          breathtaking views.
+        </p>
+        <p>
+          The United States presents a range of coastal experiences.
+          California's iconic Venice Beach webcam shows surfers and boardwalk
+          scenes. Hawaii's webcams reveal lush beaches, clear waters, and
+          snorkeling spots. Florida features piers, lively beaches, and sunset
+          views. These webcams connect visitors to the heart of each location.
+        </p>
+        <p>
+          Travel beyond the U.S. to tropical escapes. Aruba's webcams showcase
+          turquoise seas and golden sands. Bermuda offers vibrant beach views
+          and historic charm. Bonaire and Curacao feature serene waters ideal
+          for diving and exploring. Jamaica's webcams highlight vibrant beach
+          life and stunning coastlines.
+        </p>
+        <p>
+          In Asia, Thailand's streams provide glimpses of pristine beaches.
+          Taiwan features lively coastlines and unique cultural charm. Japan's
+          coastal views include serene harbors and dramatic landscapes. For
+          those seeking natural wonders, these webcams deliver unforgettable
+          scenes.
+        </p>
+        <p>
+          Explore New Zealand's rugged bays and vast beaches. Mexico's webcams
+          reveal warm sands, turquoise waters, and lively resorts. The Caribbean
+          islands, including Sint Maarten and St. Barts, showcase luxury and
+          unspoiled beauty. Each webcam captures the essence of its destination.
+        </p>
+        <p>
+          Plan trips with these live views or simply enjoy the sights. Watch
+          changing weather, ocean activity, and vibrant scenes unfold. These
+          webcams bring travel dreams closer. Whether exploring the United
+          States or distant shores, immerse yourself in these stunning views.
+          Connect with beaches worldwide, live and in real-time, all from the
+          comfort of your home.
+        </p>
+        <p className="legend">
+          <span className="green-dot">&nbsp;</span>MyBeachCams hosted page
+        </p>
+      </ShowMoreText>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
-  const moreCamsRes = await fetch(`${process.env.NEXT_PUBLIC_API}/cams/`)
-  const floridaCams: types.WebcamProps = await moreCamsRes.json()
+export const getServerSideProps: GetServerSideProps<
+  types.CamsPageProps2
+> = async () => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
 
-  return {
-    props: {
-      floridaCams,
-    },
+    if (!res.ok) {
+      throw new Error(`Failed to fetch, status: ${res.status}`)
+    }
+
+    const cams: types.Cams[] = await res.json()
+
+    if (!Array.isArray(cams) || cams.length === 0) {
+      throw new Error('Cams object is not valid or empty')
+    }
+
+    return {
+      props: {
+        cams,
+      },
+    }
+  } catch (error: any) {
+    console.error('Error fetching cams:', error)
+    return {
+      props: {
+        cams: [],
+        error: error.message || 'An error occurred',
+      },
+    }
   }
 }
 
-export default FloridaPage
+export default WorldPage

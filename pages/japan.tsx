@@ -19,7 +19,7 @@ const CountryStatesPage = ({
   }
 
   // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
-  const camPageTargetType = 'Mexico'
+  const camPageTargetType = 'Japan'
 
   const pageSections = findStates(data, camPageTargetType)
   const pageSectionsArray = pageSections
@@ -65,16 +65,24 @@ const CountryStatesPage = ({
         >
           {/* CUSTOMIZE PAGE 3 of 5 - Add opening text ~120 words */}
           <p>
-            See Mexico's coastal gems. Gaze through live webcams in Cancun,
-            Tulum, Puerto Vallarta, Playa del Carmen, and Cozumel. Each spot
-            teems with its own allure. Cancun dazzles with powdery sands and
-            electric nightlife. Tulum whispers of ancient ruins and turquoise
-            waves. Puerto Vallarta merges traditional charm with sleek
-            modernity. Playa del Carmen invites you to stroll through seaside
-            shops and savor local cuisine. Cozumel, a diver's haven, reveals
-            vibrant coral wonders. Harness these webcams to glimpse the weather,
-            plan your adventure, or simply drift into a seaside reverie. Each
-            link pulls you closer to Mexico's radiant shores.
+            Japan's coastlines captivate with stunning beauty and rich history.
+            From the Sea of Japan to the Pacific Ocean, explore endless charm.
+            Nagasaki Port offers views of ships gliding under the Venus-Wing
+            Bridge. Beppu Bay reveals vibrant cityscapes and sparkling waters.
+            Oita Airport frames the Seto Inland Sea, where planes and nature
+            meet. Takamatsu Port hums with ferries and cruises, anchored by the
+            Tamamo Lighthouse.
+          </p>
+          <p>
+            Sekiya Beach enchants with serene shores and sunsets, while Sado
+            Island looms on clear days. Akita Port showcases bustling terminals
+            on Honshu Island. At Oma Fishing Port, fishermen tackle bluefin tuna
+            in a dance of tradition and livelihood. Shirahama Ohama Beach
+            glistens with white sands, inviting surfers and divers alike.
+          </p>
+          <p>
+            These live webcams offer a window into Japan's coastal allure.
+            Perfect for weather checks, travel plans, or pure inspiration.
           </p>
         </ShowMoreText>
 
@@ -90,51 +98,48 @@ const CountryStatesPage = ({
           {/* CUSTOMIZE PAGE 4 of 5 - Add second text ~300 words, */}
           {/* Things to Do and Links and Info */}
           <p>
-            Mexico's coastlines lure you into adventure. Immerse yourself in
-            these vibrant locations through our webcams. Each spot promises a
-            distinct journey. Wander, plan your trip or envision your paradise.
+            Japan's shores are a treasure of natural and cultural wonders.
+            Nagasaki Port, nestled between mountains and sea, reflects history
+            and trade. Watch cruise ships pass under the Venus-Wing Bridge. The
+            port connects Japan's past and present, blending tradition with
+            modern life.
           </p>
           <p>
-            Cancun teems with more than just beaches. It's where luxury fuses
-            with nature. Roam through the bustling Hotel Zone. Bask in pristine
-            sands and translucent waters. Drift to nearby Isla Mujeres. Its
-            tranquil beaches cradle the soul, just a short boat ride away.
-            Witness the sunsets as they blaze across the sky in vibrant hues.
+            Beppu Bay, in Oita Prefecture, sparkles with activity. The bay is
+            lined with bustling cityscapes and stunning coastlines. Route 10
+            hugs the shore, offering scenic views of the blue waters. This
+            webcam captures the vibrant energy of Beppu's coastal charm.
           </p>
           <p>
-            Tulum enthralls with its blend of history and nature. The ancient
-            Mayan ruins loom against the horizon. The beaches are sanctuaries of
-            powdery sands and azure waves. Dive into the cenotes. These natural
-            sinkholes are hidden treasures. Traverse Tulum's eco-parks, where
-            nature thrives untouched.
+            Oita Airport sits near the vast Seto Inland Sea. Here, you can see
+            planes take off against a backdrop of tranquil waters. The
+            surrounding area blends modern aviation with breathtaking natural
+            scenery. This view highlights the harmony of technology and nature.
           </p>
           <p>
-            Puerto Vallarta melds old-world charm with contemporary grace.
-            Saunter along the cobblestone streets of the Zona Romantica. This
-            historic district pulses with culture. The Malecon, a seaside
-            promenade, pulsates with art and lively entertainment. The beaches
-            beckon for relaxation. Discover hidden coves and weave through
-            nearby jungle trails.
+            Takamatsu Port is alive with ferries, cruises, and energy. The
+            Tamamo Lighthouse stands as a beacon near the pier. This harbor
+            connects travelers to Shikoku's hidden gems. It's a hub of movement
+            and discovery, captured perfectly on this webcam.
           </p>
           <p>
-            Playa del Carmen invites you to immerse in its vibrant streets.
-            Quinta Avenida is the town's beating heart. It's a rich mix of
-            shops, cafes, and local markets. The beaches here calm with their
-            gentle waves. Cozumel lies just a ferry ride away. There,
-            world-class diving spots await exploration.
+            Sekiya Beach, along the Sea of Japan, is calm and serene. Golden
+            sands meet the gentle waves, creating a peaceful retreat. On clear
+            days, Sado Island's silhouette rises on the horizon. This is a
+            favorite spot for those seeking tranquility.
           </p>
           <p>
-            Cozumel mesmerizes divers with its coral reefs teeming with marine
-            life. The waters are clear, unveiling underwater wonders in vivid
-            detail. Uncover Chankanaab Park. Here, you can snorkel, dive, or
-            relax in lush gardens. Cozumel also serves as a gateway to exploring
-            a rich underwater world.
+            Akita Port pulses with life on Honshu Island. Ships unload cargo
+            while vehicles crisscross the terminal. This webcam offers a glimpse
+            into Japan's maritime trade and coastal activity. Oma Fishing Port,
+            farther north, is a center for bluefin tuna fishing. The docks buzz
+            with the effort of skilled fishermen.
           </p>
           <p>
-            These webcams offer a gateway into paradise. Use them to map your
-            trip or indulge in a virtual retreat. Each location holds something
-            exceptional. From ancient ruins to vibrant coral reefs, Mexico's
-            coasts are calling. The sun, sea, and sand are just a click away.
+            Shirahama Ohama Beach in Shimoda gleams with soft white sands. Its
+            clear waters attract divers, swimmers, and surfers. This beach is a
+            perfect escape for adventure and relaxation. Explore Japan's dynamic
+            coastline through these webcams and plan your next journey.
           </p>
         </ShowMoreText>
         <hr />
@@ -142,16 +147,16 @@ const CountryStatesPage = ({
           <div className="things">
             <h3>Top 10 Things to do in {camPageTargetType}</h3>
             <ol>
-              <li>Immerse in the Great Maya Reef's depths.</li>
-              <li>Unearth ancient ruins in Tulum.</li>
-              <li>Meander through Cancun's Hotel Zone.</li>
-              <li>Bask on Playa del Carmen's shores.</li>
-              <li>Plunge into Cozumel's vibrant reefs.</li>
-              <li>Descend into the cenotes near Tulum.</li>
-              <li>Saunter along the Malecon in Puerto Vallarta.</li>
-              <li>Drift to Isla Mujeres for tranquil sands.</li>
-              <li>Browse at Quinta Avenida in Playa del Carmen.</li>
-              <li>Savor sunset sails off Cancun's coast.</li>
+              <li>Relax on the sands of Shirahama Ohama Beach.</li>
+              <li>Watch ships at Nagasaki Port's Venus-Wing Bridge.</li>
+              <li>Stroll along the shores of Beppu Bay.</li>
+              <li>Explore the harbor at Takamatsu Port.</li>
+              <li>Fish for bluefin tuna at Oma Fishing Port.</li>
+              <li>Walk the coastline of Sekiya Beach.</li>
+              <li>Spot planes over the Seto Inland Sea near Oita Airport.</li>
+              <li>Visit the lighthouse at Tamamo Pier in Takamatsu.</li>
+              <li>Watch cargo ships at Akita Port.</li>
+              <li>Surf the waves at Shirahama Ohama Beach.</li>
             </ol>
           </div>
           <div className="info">
@@ -159,84 +164,93 @@ const CountryStatesPage = ({
             <ul>
               <li>
                 <a
-                  href="https://www.weather.com/weather/today/l/21.1619,-86.8515"
+                  href="https://www.japan.travel/en/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Cancun Weather
+                  Japan National Tourism Organization
                 </a>{' '}
-                - Monitor local weather patterns and sculpt your day.
+                - Explore destinations, culture, and travel tips.
               </li>
               <li>
                 <a
-                  href="https://www.visitmexico.com/en"
+                  href="https://www.japan-guide.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Visit Mexico
+                  Japan Guide
                 </a>{' '}
-                - Unearth top attractions, local events, and travel insights.
+                - Find attractions, itineraries, and local insights.
               </li>
               <li>
                 <a
-                  href="https://www.lonelyplanet.com/mexico/cancun"
+                  href="https://www.weather.com/weather/today/l/32.7399,129.8709"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Lonely Planet Cancun
+                  Weather in Nagasaki
                 </a>{' '}
-                - Delve into expert travel tips and explore must-see locales.
+                - Check conditions at Nagasaki Port.
               </li>
               <li>
                 <a
-                  href="https://www.tripadvisor.com/Tourism-g150807-Cancun_Yucatan_Peninsula-Vacations.html"
+                  href="https://www.weather.com/weather/today/l/34.6915,138.9727"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  TripAdvisor Cancun
+                  Weather in Shimoda
                 </a>{' '}
-                - Peruse traveler reviews, top eateries, and activity ideas.
+                - Plan your visit to Shirahama Ohama Beach.
               </li>
               <li>
                 <a
-                  href="https://www.alltrails.com/mexico"
+                  href="https://japanrailpass.net/en/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  AllTrails Mexico
+                  Japan Rail Pass
                 </a>{' '}
-                - Uncover hiking trails, detailed maps, and outdoor escapades.
+                - Learn about train routes and passes for easy travel.
               </li>
               <li>
                 <a
-                  href="https://www.lonelyplanet.com/mexico/yucatan-peninsula/tulum"
+                  href="https://www.klook.com/en-US/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Lonely Planet Tulum
+                  Klook
                 </a>{' '}
-                - Discover local landmarks, hidden wonders, and travel advice.
+                - Book tours, activities, and unique local experiences.
               </li>
               <li>
                 <a
-                  href="https://www.cancun.com"
+                  href="https://www.japantimes.co.jp/travel/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Cancun.com
+                  Japan Times Travel
                 </a>{' '}
-                - Explore Cancun's best beaches, nightlife, and adventure tours.
+                - Read articles on travel destinations and tips.
               </li>
               <li>
                 <a
-                  href="https://www.cozumelparks.com"
+                  href="https://www.jtbusa.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Cozumel Parks
+                  JTB Travel
                 </a>{' '}
-                - Experience Cozumel's marine parks, eco-tours, and snorkeling
-                spots.
+                - Discover packages and services for exploring Japan.
+              </li>
+              <li>
+                <a
+                  href="https://www.japanican.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Japanican
+                </a>{' '}
+                - Reserve hotels, tours, and local experiences.
               </li>
             </ul>
           </div>
@@ -266,7 +280,7 @@ export const getServerSideProps: GetServerSideProps<
     }
 
     // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
-    cams = cams.filter((cam) => cam.country === 'Mexico')
+    cams = cams.filter((cam) => cam.country === 'Japan')
 
     return {
       props: {

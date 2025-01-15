@@ -50,8 +50,8 @@ export default function ContactPage() {
 
   return (
     <Layout
-      documentTitle="MyBeachCams.com - Contact Page"
-      documentDescription="Please use this form to contact us"
+      documentTitle="Contact Page - MyBeachCams"
+      documentDescription="Please use this form to contact us, we would love to hear from you!"
     >
       <Toaster
         toastOptions={{
