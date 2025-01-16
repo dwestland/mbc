@@ -1,35 +1,32 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["fullTextSearch"]
 }
 
-// Next Auth
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 model Account {
   id                String  @id @default(cuid())
   userId            String  @map("user_id")
   type              String
   provider          String
   providerAccountId String  @map("provider_account_id")
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
 
-// Next Auth
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique @map("session_token")
@@ -40,7 +37,6 @@ model Session {
   @@map("sessions")
 }
 
-// Next Auth
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -48,18 +44,14 @@ model User {
   emailVerified DateTime? @map("email_verified")
   image         String?
   role          Role      @default(USER)
-
-  accounts Account[]
-  sessions Session[]
-  // blogs     Blogs[]
-
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @default(now()) @map("updated_at")
+  accounts      Account[]
+  sessions      Session[]
 
   @@map("users")
 }
 
-// Next Auth
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -70,56 +62,53 @@ model VerificationToken {
 }
 
 model Cams {
-  address          String?
-  area             String?
-  country          String
-  description      String?
-  droneFootage     Boolean? @default(false) @map(name: "drone_footage")
-  hidden           Boolean? @default(false)
-  id               Int      @id @default(autoincrement())
-  imageName        String?  @map(name: "image_name")
-  lat              Decimal? @default(0) @db.Decimal(precision: 8, scale: 6)
-  lng              Decimal? @default(0) @db.Decimal(precision: 9, scale: 6)
-  longDescription  String?  @map(name: "long_description")
-  mbcHostedYoutube Boolean? @default(false) @map(name: "mbc_hosted_youtube")
-  moreCams         String?  @map(name: "more_cams")
-  postalCode       String?  @map(name: "postal_code")
-  state            String?
-  subarea          String?
+  id               Int      @id(map: "cams_pkey_1") @default(autoincrement())
   title            String
-  titleSlug        String?  @map(name: "title_slug")
-  topCam           Boolean? @default(false) @map(name: "top_cam")
-  youtubeId        String?  @map(name: "youtube_id")
-  webcamUrl        String   @map(name: "webcam_url")
+  webcamUrl        String   @map("webcam_url")
+  imageName        String?  @map("image_name")
+  description      String?
+  country          String
+  state            String?
+  area             String?
+  subarea          String?
+  lat              Decimal? @default(0) @db.Decimal(8, 6)
+  lng              Decimal? @default(0) @db.Decimal(9, 6)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @default(now()) @map("updated_at")
+  topCam           Boolean? @default(false) @map("top_cam")
+  hidden           Boolean? @default(false)
+  longDescription  String?  @map("long_description")
+  mbcHostedYoutube Boolean? @default(false) @map("mbc_hosted_youtube")
+  moreCams         String?  @map("more_cams")
+  titleSlug        String?  @map("title_slug")
+  postalCode       String?  @map("postal_code")
+  youtubeId        String?  @map("youtube_id")
+  address          String?
+  droneFootage     Boolean? @default(false) @map("drone_footage")
 
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
-
-  @@map(name: "cams")
+  @@map("cams")
 }
 
 model Message {
-  id      Int    @id @default(autoincrement())
-  name    String
-  email   String
-  message String
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
 
-  createdAt DateTime @default(now()) @map(name: "created_at")
-
-  @@map(name: "message")
+  @@map("message")
 }
 
 model Flag {
-  id      Int    @id @default(autoincrement())
-  camId   Int    @map(name: "cam_id")
-  name    String
-  email   String
-  type    String
-  message String
+  id        Int      @id @default(autoincrement())
+  camId     Int      @map("cam_id")
+  name      String
+  email     String
+  type      String
+  message   String
+  createdAt DateTime @default(now()) @map("created_at")
 
-  createdAt DateTime @default(now()) @map(name: "created_at")
-
-  @@map(name: "flag")
+  @@map("flag")
 }
 
 enum Role {
