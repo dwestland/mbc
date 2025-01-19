@@ -51,6 +51,7 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
           topCam,
           youtubeId,
           webcamUrl,
+          updatedAt: new Date(),
         },
       })
       res.status(201).json({ message: 'Cam saved' })
