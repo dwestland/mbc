@@ -54,7 +54,13 @@ module.exports = {
     'react/no-unescaped-entities': 0,
     'react/prop-types': 'off',
     'no-plusplus': 'off',
-    'prefer-destructuring': ['error', { object: true, array: false }],
+    // 'prefer-destructuring': ['error', { object: true, array: false }],
+    'prefer-destructuring': [
+      'error',
+      {
+        AssignmentExpression: { array: true },
+      },
+    ],
     'react/no-danger': 'off',
     'react/jsx-no-target-blank': ['error', { allowReferrer: true }],
     '@next/next/no-img-element': 'off',

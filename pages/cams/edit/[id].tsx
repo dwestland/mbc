@@ -117,13 +117,13 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
       setValues((prevValues) => {
         let result = `/webcam`
         if (country) {
-          result += `/${country}`
+          result += `/${country.toLowerCase().replace(/\s+/g, '-')}`
         }
         if (state) {
-          result += `/${state.replace(/\s+/g, '-')}`
+          result += `/${state.toLowerCase().replace(/\s+/g, '-')}`
         }
         if (area) {
-          result += `/${area.replace(/\s+/g, '-')}`
+          result += `/${area.toLowerCase().replace(/\s+/g, '-')}`
         }
         result += `/${titleSlug}`
 

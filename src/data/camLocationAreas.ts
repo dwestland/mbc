@@ -1,3 +1,5 @@
+// All names must contain only capitalized words
+
 interface Subarea {
   subarea: string
 }
@@ -24,7 +26,7 @@ interface Data {
 const data: Data = {
   countries: [
     {
-      country: 'USA',
+      country: 'United States',
       states: [
         {
           state: 'Hawaii',
