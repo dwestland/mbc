@@ -190,7 +190,9 @@ const WorldPage = ({
 
       <MoreUSACams
         cams={{
-          cams: cams.filter((cam) => cam.country === 'USA').slice(0, 7),
+          cams: cams
+            .filter((cam) => cam.country === 'United States')
+            .slice(0, 7),
         }}
       />
       <AdLeaderboard />

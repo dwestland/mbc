@@ -88,7 +88,7 @@ git clone https://github.com/dwestland/mbc.git
 ```
 npx tsc --noEmit
 
-npx eslint
+npx eslint . --ext .ts,.tsx
 ```
 
 ### Migrate Prisma Development
@@ -118,7 +118,7 @@ npx prisma generate
 npx prisma db push
 ```
 
-### Psisma Schema Lintting
+### Prisma Schema Linting
 
 ```
 npx prisma format

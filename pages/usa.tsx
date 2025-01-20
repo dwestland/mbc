@@ -21,7 +21,7 @@ const CountryStatesPage = ({
   }
 
   // CUSTOMIZE PAGE 1 of 5 - Add camPageTargetType
-  const camPageTargetType = 'USA'
+  const camPageTargetType = 'United States'
 
   return (
     // CUSTOMIZE PAGE 2 of 5 - Add title and description
@@ -30,7 +30,7 @@ const CountryStatesPage = ({
       documentDescription="Explore live U.S. beach webcams showcasing coastlines, ocean views, landmarks, and travel planning resources at MyBeachCams.com."
     >
       <div className="layout">
-        <h1>US Beach Webcams</h1>
+        <h1>United States Beach Webcams</h1>
         <div className="links-container">
           <ul>
             <li>
@@ -450,7 +450,7 @@ export const getServerSideProps: GetServerSideProps<
     }
 
     // CUSTOMIZE PAGE 5 of 5 - Add camPageTargetType
-    cams = cams.filter((cam) => cam.country === 'USA')
+    cams = cams.filter((cam) => cam.country === 'United States')
 
     return {
       props: {
