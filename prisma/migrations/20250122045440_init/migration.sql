@@ -64,7 +64,7 @@ CREATE TABLE "cams" (
     "lat" DECIMAL(8,6) DEFAULT 0,
     "lng" DECIMAL(9,6) DEFAULT 0,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "top_cam" BOOLEAN DEFAULT false,
     "hidden" BOOLEAN DEFAULT false,
     "long_description" TEXT,
@@ -75,8 +75,6 @@ CREATE TABLE "cams" (
     "youtube_id" TEXT,
     "address" TEXT,
     "drone_footage" BOOLEAN DEFAULT false,
-    "continent" TEXT,
-    "time_zone" TEXT,
 
     CONSTRAINT "cams_pkey_1" PRIMARY KEY ("id")
 );
@@ -105,38 +103,6 @@ CREATE TABLE "flag" (
     CONSTRAINT "flag_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "temp_banner" (
-    "id" SERIAL NOT NULL,
-    "is_visible" BOOLEAN NOT NULL DEFAULT false,
-    "description" TEXT,
-    "html_code" TEXT NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "temp_banner_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "cams_tags" (
-    "cam_id" INTEGER NOT NULL,
-    "tag_id" INTEGER NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "cams_tags_pkey" PRIMARY KEY ("cam_id","tag_id")
-);
-
--- CreateTable
-CREATE TABLE "tag" (
-    "id" SERIAL NOT NULL,
-    "name" TEXT NOT NULL,
-    "description" TEXT,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "tag_pkey" PRIMARY KEY ("id")
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "accounts_provider_provider_account_id_key" ON "accounts"("provider", "provider_account_id");
 
@@ -152,17 +118,8 @@ CREATE UNIQUE INDEX "verificationtokens_token_key" ON "verificationtokens"("toke
 -- CreateIndex
 CREATE UNIQUE INDEX "verificationtokens_identifier_token_key" ON "verificationtokens"("identifier", "token");
 
--- CreateIndex
-CREATE UNIQUE INDEX "tag_name_key" ON "tag"("name");
-
 -- AddForeignKey
 ALTER TABLE "accounts" ADD CONSTRAINT "accounts_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "sessions" ADD CONSTRAINT "sessions_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "users"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "cams_tags" ADD CONSTRAINT "cams_tags_cam_id_fkey" FOREIGN KEY ("cam_id") REFERENCES "cams"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "cams_tags" ADD CONSTRAINT "cams_tags_tag_id_fkey" FOREIGN KEY ("tag_id") REFERENCES "tag"("id") ON DELETE CASCADE ON UPDATE CASCADE;

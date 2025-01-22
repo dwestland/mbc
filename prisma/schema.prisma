@@ -62,32 +62,29 @@ model VerificationToken {
 }
 
 model Cams {
-  id               Int         @id(map: "cams_pkey_1") @default(autoincrement())
+  id               Int      @id(map: "cams_pkey_1") @default(autoincrement())
   title            String
-  webcamUrl        String      @map("webcam_url")
-  imageName        String?     @map("image_name")
+  webcamUrl        String   @map("webcam_url")
+  imageName        String?  @map("image_name")
   description      String?
   country          String
   state            String?
   area             String?
   subarea          String?
-  lat              Decimal?    @default(0) @db.Decimal(8, 6)
-  lng              Decimal?    @default(0) @db.Decimal(9, 6)
-  createdAt        DateTime    @default(now()) @map("created_at")
-  updatedAt        DateTime    @map("updated_at")
-  topCam           Boolean?    @default(false) @map("top_cam")
-  hidden           Boolean?    @default(false)
-  longDescription  String?     @map("long_description")
-  mbcHostedYoutube Boolean?    @default(false) @map("mbc_hosted_youtube")
-  moreCams         String?     @map("more_cams")
-  titleSlug        String?     @map("title_slug")
-  postalCode       String?     @map("postal_code")
-  youtubeId        String?     @map("youtube_id")
+  lat              Decimal? @default(0) @db.Decimal(8, 6)
+  lng              Decimal? @default(0) @db.Decimal(9, 6)
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @default(now()) @map("updated_at")
+  topCam           Boolean? @default(false) @map("top_cam")
+  hidden           Boolean? @default(false)
+  longDescription  String?  @map("long_description")
+  mbcHostedYoutube Boolean? @default(false) @map("mbc_hosted_youtube")
+  moreCams         String?  @map("more_cams")
+  titleSlug        String?  @map("title_slug")
+  postalCode       String?  @map("postal_code")
+  youtubeId        String?  @map("youtube_id")
   address          String?
-  droneFootage     Boolean?    @default(false) @map("drone_footage")
-  continent        String?
-  timeZone         String?     @map("time_zone")
-  cams_tags        cams_tags[] @relation("camsTocams_tags")
+  droneFootage     Boolean? @default(false) @map("drone_footage")
 
   @@map("cams")
 }
@@ -112,36 +109,6 @@ model Flag {
   createdAt DateTime @default(now()) @map("created_at")
 
   @@map("flag")
-}
-
-model TempBanner {
-  id          Int      @id @default(autoincrement())
-  isVisible   Boolean  @default(false) @map("is_visible")
-  description String?
-  JSXlCode    String   @map("jsx_code")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
-
-  @@map("temp_banner")
-}
-
-model cams_tags {
-  cam_id     Int
-  tag_id     Int
-  created_at DateTime @default(now())
-  cams       Cams     @relation("camsTocams_tags", fields: [cam_id], references: [id], onDelete: Cascade)
-  tag        tag      @relation(fields: [tag_id], references: [id], onDelete: Cascade)
-
-  @@id([cam_id, tag_id])
-}
-
-model tag {
-  id          Int         @id @default(autoincrement())
-  name        String      @unique
-  description String?
-  created_at  DateTime    @default(now())
-  updated_at  DateTime
-  cams_tags   cams_tags[]
 }
 
 enum Role {
