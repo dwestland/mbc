@@ -56,10 +56,17 @@ const getCams = async (req: NextApiRequest, res: NextApiResponse) => {
       })
       res.status(201).json({ message: 'Cam saved' })
     } catch (err) {
-      res.status(500).json({ message: 'Sorry, unable to handle request' })
+      console.error('Failed to create cam:', {
+        error: err,
+        requestBody: req.body.data,
+      })
+      res.status(500).json({
+        message: 'Sorry, unable to handle request',
+        error: err instanceof Error ? err.message : 'Unknown error',
+      })
     }
   } else {
-    res.statusCode = 401
+    res.status(401)
     res.end(`Unauthorized`)
   }
 

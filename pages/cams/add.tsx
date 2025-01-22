@@ -41,7 +41,6 @@ const AddCam = () => {
   const [showLatLngModal, setShowLatLngModal] = useState(false)
   const [showImageUploadModal, setShowImageUploadModal] = useState(false)
   const [previewImage, setPreviewImage] = useState('/images/no-image.jpg')
-  const [id, setId] = useState(0)
   const {
     area,
     country,
@@ -101,28 +100,6 @@ const AddCam = () => {
     reloadImage()
   }, [imageName])
 
-  useEffect(() => {
-    if (id === 0) {
-      return
-    }
-    Router.push({
-      pathname: `/detail/${id + 1}`,
-    })
-  }, [id])
-
-  const getLatestId = async () => {
-    await fetch(latestIdUrl)
-      .then((res) => res.json())
-      .then((camId) => {
-        const newId = camId.cams[0].id
-        setId(newId)
-        return camId
-      })
-      .catch((err) => console.log('err', err))
-
-    return null
-  }
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -162,27 +139,46 @@ const AddCam = () => {
       return
     }
 
-    fetch(addUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        data: values,
-      }),
-    })
-      .then((res) => {
-        if (res.status === 201) {
-          toast.success('Cam Saved')
-          setPreviewImage('/images/no-image.jpg')
-          setValues(initialState)
-        }
+    try {
+      const response = await fetch(addUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: values,
+        }),
       })
-      .catch((error) => {
-        toast.error('Error posting to database')
-        console.warn(error)
+
+      if (response.status === 201) {
+        toast.success('Cam Saved')
+        // Get the latest ID first
+        const latestIdResponse = await fetch(latestIdUrl)
+        const latestIdData = await latestIdResponse.json()
+        const newId = latestIdData.cams[0].id
+
+        // Reset form
+        setPreviewImage('/images/no-image.jpg')
+        setValues(initialState)
+
+        // Navigate to detail page
+        Router.push(`/detail/${newId}`)
+      } else {
+        const errorData = await response.json()
+        console.error('Failed to save cam:', {
+          status: response.status,
+          error: errorData,
+          sentData: values,
+        })
+        toast.error(`Error: ${errorData.message || 'Failed to save cam'}`)
+      }
+    } catch (error) {
+      console.error('Network error while saving cam:', {
+        error,
+        sentData: values,
       })
-    getLatestId()
+      toast.error('Network error while saving cam')
+    }
   }
 
   const handleInputChange = (e: any) => {
