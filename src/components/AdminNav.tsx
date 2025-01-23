@@ -14,7 +14,7 @@ export default function AdminNav() {
           <Link href="/youtube">YouTube Cams</Link>
         </li>
         <li>
-          <Link href="/webcam/USA/California/Los-Angeles/youtube-test">
+          <Link href="/webcam/united-states/california/los-angeles/youtube-test">
             YouTube Test
           </Link>
         </li>

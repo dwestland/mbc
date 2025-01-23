@@ -33,22 +33,29 @@ GET {{baseurl}}/cams/585 HTTP/1.1
 ### Add Cam
 POST {{baseurl}}/cams/add HTTP/1.1
 Content-Type: application/json
+Cookie: _ga_C3QDQFZBDD=GS1.1.1737561190.36.1.1737563756.0.0.0; _ga=GA1.1.1397527348.1737006841; next-auth.csrf-token=e8acc8eca43c1cef0a029a6242f15fe3479e32a157f3c9ba4b4b21102070e881%7C8b8fb91aae464d4c2dfbabb3f23d3a7407a282b7e897ab8e286f5c46109c6f90; next-auth.callback-url=http%3A%2F%2Flocalhost%3A3100%2Flogin; next-auth.session-token=b6971385-4dec-48a5-8985-387a1afe63eb
 
 {
-  "data": {
-    "title": "My New Title",
-    "webcamUrl": "xxx",
-    "imageName": "test-554736.jpg",
-    "description": "xxx",
-    "country": "USA",
-    "state": "Hawaii",
-    "area": "Kauai",
-    "subarea": "Poipu",
-    "lat": "22.0552",
-    "lng": "-159.5088",
-    "topCam": false,
-    "mbcHosted": false
-  }
+    "data": {
+        "area": "Kauai",
+        "country": "United States",
+        "description": "x",
+        "hidden": false,
+        "imageName": "test-2-975238.jpg",
+        "lat": "-0.0199",
+        "lng": "-0.0814",
+        "longDescription": "x",
+        "mbcHostedYoutube": true,
+        "moreCams": "",
+        "postalCode": "",
+        "state": "Hawaii",
+        "subarea": "Princeville",
+        "title": "test 2",
+        "titleSlug": "test-2",
+        "topCam": false,
+        "youtubeId": "x",
+        "webcamUrl": "/webcam/united-states/hawaii/kauai/test-2"
+    }
 }
 
 
