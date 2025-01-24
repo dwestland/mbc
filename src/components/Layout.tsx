@@ -49,6 +49,10 @@ const Layout: FC<LayoutProps> = ({
       setEnvIndicator('LOCALHOST')
     } else if (host.includes('stage.mybeachcams.com')) {
       setEnvIndicator('STAGING')
+    } else if (host.includes('vercel.app')) {
+      setEnvIndicator('VERCEL PREVIEW')
+    } else {
+      setEnvIndicator(null) // Show nothing if not localhost or stage
     }
   }, [])
 
