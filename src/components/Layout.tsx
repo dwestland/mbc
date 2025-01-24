@@ -24,6 +24,7 @@ const Layout: FC<LayoutProps> = ({
   nofollow,
 }): JSX.Element => {
   const [isAdmin, setIsAdmin] = useState(false)
+  const [envIndicator, setEnvIndicator] = useState<string | null>(null)
 
   // Set default props to avoid the ESLint error
   Layout.defaultProps = {
@@ -42,20 +43,20 @@ const Layout: FC<LayoutProps> = ({
     }
   }, [session])
 
-  const router = useRouter()
-
-  const environmentIndicator = (() => {
-    if (typeof window !== 'undefined') {
-      const { host } = window.location
-      if (host.includes('localhost')) {
-        return <span className={styles.environmentIndicator}>LOCALHOST</span>
-      }
-      if (host.includes('stage.mybeachcams.com')) {
-        return <span className={styles.environmentIndicator}>STAGING</span>
-      }
+  useEffect(() => {
+    const { host } = window.location
+    if (host.includes('localhost')) {
+      setEnvIndicator('LOCALHOST')
+    } else if (host.includes('stage.mybeachcams.com')) {
+      setEnvIndicator('STAGING')
+    } else if (host.includes('vercel.app')) {
+      setEnvIndicator('VERCEL PREVIEW')
+    } else {
+      setEnvIndicator(null) // Show nothing if not localhost or stage
     }
-    return null
-  })()
+  }, [])
+
+  const router = useRouter()
 
   return (
     <div>
@@ -71,7 +72,11 @@ const Layout: FC<LayoutProps> = ({
       <div className={styles.body}>
         <Navbar />
         <Showcase />
-        {environmentIndicator}
+        {envIndicator ? (
+          <span className={styles.environmentIndicator}>{envIndicator}</span>
+        ) : (
+          <span className={styles.environmentIndicator}>Loading...</span>
+        )}
         <div className={styles.secondaryNav}>
           {/* <LoginLogout /> */}
           {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
