@@ -40,6 +40,53 @@ const YouTube = ({
     >
       <div className="layout">
         <h1>YouTube Hosted Webcams</h1>
+
+        {/* Duplicate Pagination Buttons */}
+        <div
+          className="pagination"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginBottom: '20px',
+          }}
+        >
+          <div>
+            <button
+              type="button"
+              onClick={() => handlePageChange(1)}
+              disabled={currentPage === 1}
+              style={{ marginRight: '8px' }}
+            >
+              First
+            </button>
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              style={{ marginRight: '8px' }}
+            >
+              Previous
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              style={{ marginRight: '8px' }}
+            >
+              Next
+            </button>
+            <button
+              type="button"
+              onClick={() => handlePageChange(totalPages)}
+              disabled={currentPage === totalPages}
+            >
+              Last
+            </button>
+          </div>
+        </div>
+
         <p
           style={{
             display: 'flex',
@@ -57,24 +104,45 @@ const YouTube = ({
             <CamCard key={cam.id} cam={cam} />
           ))}
         </div>
-        <div className="pagination">
-          <button
-            type="button"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
-          <span>
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            type="button"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
+        <div
+          className="pagination"
+          style={{ display: 'flex', justifyContent: 'space-between' }}
+        >
+          <div>
+            <button
+              type="button"
+              onClick={() => handlePageChange(1)}
+              disabled={currentPage === 1}
+              style={{ marginRight: '8px' }}
+            >
+              First
+            </button>
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              style={{ marginRight: '8px' }}
+            >
+              Previous
+            </button>
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              style={{ marginRight: '8px' }}
+            >
+              Next
+            </button>
+            <button
+              type="button"
+              onClick={() => handlePageChange(totalPages)}
+              disabled={currentPage === totalPages}
+            >
+              Last
+            </button>
+          </div>
         </div>
       </div>
     </Layout>
