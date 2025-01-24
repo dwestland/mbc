@@ -18,12 +18,13 @@
 ### **Database**
 
 - **PostgreSQL** Version 15+
-- **Prod,Hosted on Neon**
+- **Prod,Hosted on Neon - AWS Oregon**
 
 ### **DevOps & Hosting**
 
 - **Staging Hosted on Vercel**
 - **AWS S3 for Image Hosting**
+- **Cloudflare CDN & DNS**
 
 ### **Mapping & Geolocation**
 

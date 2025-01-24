@@ -68,7 +68,7 @@ const AddCam = () => {
   }, [title])
 
   useEffect(() => {
-    console.log('%c Make path ', 'background: red; color: white')
+    // console.log('%c Make path ', 'background: red; color: white')
     if (mbcHostedYoutube) {
       setValues((v) => ({ ...v, webcamUrl: '' }))
       let result = `/webcam`
@@ -86,7 +86,7 @@ const AddCam = () => {
       setValues((v) => ({ ...v, webcamUrl: result }))
     }
   }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
-  console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
+  // console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
   useEffect(() => {
     const reloadImage = async () => {

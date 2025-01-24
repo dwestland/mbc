@@ -112,7 +112,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
   }, [title])
 
   useEffect(() => {
-    console.log('%c Make path ', 'background: red; color: white')
+    // console.log('%c Make path ', 'background: red; color: white')
     if (mbcHostedYoutube) {
       setValues((prevValues) => {
         let result = `/webcam`
@@ -131,7 +131,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
       })
     }
   }, [country, state, area, subarea, titleSlug, mbcHostedYoutube])
-  console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
+  // console.log('%c webcamUrl ', 'background: blue; color: white', webcamUrl)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
