@@ -92,9 +92,16 @@ const AddCam = () => {
     const reloadImage = async () => {
       if (imageName) {
         const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + imageName
-        await fetch(imageUrl)
-          .then((res) => setPreviewImage(res.url))
-          .catch((err) => console.log('err', err))
+        try {
+          const res = await fetch(imageUrl)
+          if (res.ok) {
+            setPreviewImage(res.url)
+          } else {
+            console.error('Image fetch failed:', res.status)
+          }
+        } catch (err) {
+          console.error('Error fetching image:', err)
+        }
       }
     }
     reloadImage()
