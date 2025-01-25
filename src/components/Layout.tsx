@@ -51,7 +51,7 @@ const Layout: FC<LayoutProps> = ({
     } else if (host.includes('stage.mybeachcams.com')) {
       setEnvIndicator('STAGING')
     } else if (host.includes('vercel.app')) {
-      setEnvIndicator('VERCEL PREVIEW')
+      setEnvIndicator('VERCEL DOMAIN')
     } else {
       setEnvIndicator(null) // Show nothing if not localhost or stage
     }
@@ -60,8 +60,9 @@ const Layout: FC<LayoutProps> = ({
   const router = useRouter()
 
   // TODO: Add Amin controls and database API
-  const bannerMessage =
-    'Welcome to the new MyBeachCams redesign! Enjoy our live webcams.'
+  // const bannerMessage =
+  //   'Welcome to the new MyBeachCams redesign! Enjoy our live webcams.'
+  const bannerMessage = ''
 
   return (
     <div>
