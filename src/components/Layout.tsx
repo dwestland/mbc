@@ -9,6 +9,7 @@ import Navbar from './Navbar'
 import Showcase from './Showcase'
 import AdminNav from './AdminNav'
 import Footer from './Footer'
+import TempBanner from './TempBanner'
 
 interface LayoutProps {
   documentTitle: string
@@ -58,6 +59,10 @@ const Layout: FC<LayoutProps> = ({
 
   const router = useRouter()
 
+  // TODO: Add Amin controls and database API
+  const bannerMessage =
+    'Welcome to the new MyBeachCams redesign! Enjoy our live webcams.'
+
   return (
     <div>
       <Head>
@@ -72,10 +77,9 @@ const Layout: FC<LayoutProps> = ({
       <div className={styles.body}>
         <Navbar />
         <Showcase />
-        {envIndicator ? (
+        <TempBanner message={bannerMessage} />
+        {envIndicator && (
           <span className={styles.environmentIndicator}>{envIndicator}</span>
-        ) : (
-          <span className={styles.environmentIndicator}>Loading...</span>
         )}
         <div className={styles.secondaryNav}>
           {/* <LoginLogout /> */}
