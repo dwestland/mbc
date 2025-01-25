@@ -60,8 +60,9 @@ const Layout: FC<LayoutProps> = ({
   const router = useRouter()
 
   // TODO: Add Amin controls and database API
-  const bannerMessage =
-    'Welcome to the new MyBeachCams redesign! Enjoy our live webcams.'
+  // const bannerMessage =
+  //   'Welcome to the new MyBeachCams redesign! Enjoy our live webcams.'
+  const bannerMessage = ''
 
   return (
     <div>
