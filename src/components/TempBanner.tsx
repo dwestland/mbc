@@ -1,11 +1,26 @@
 import React from 'react'
 
-// TODO - Add DB driven component to display a temporary top banner
+interface TopBannerProps {
+  message: string
+}
 
-export default function Navbar() {
+const TempBanner: React.FC<TopBannerProps> = ({ message }) => {
+  if (!message) return null
+
   return (
-    <div>
-      <h1>this is TempBanner</h1>
+    <div
+      style={{
+        backgroundColor: '#f8d7da',
+        border: '1px solid #f5c6cb',
+        color: '#721c24',
+        marginBottom: '0px',
+        padding: '10px',
+        textAlign: 'center',
+      }}
+    >
+      {message}
     </div>
   )
 }
+
+export default TempBanner
