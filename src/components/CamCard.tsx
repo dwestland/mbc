@@ -79,9 +79,21 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
 
   return (
     <div className={`${styles.card} bs`}>
-      {cam.mbcHostedYoutube ? (
-        <Link href={cam.webcamUrl}>
-          <a className={styles.pointer} target="_blank" rel="noopener">
+      <div className={styles.imgContainer}>
+        {cam.mbcHostedYoutube ? (
+          <Link href={cam.webcamUrl}>
+            <a className={styles.pointer} target="_blank" rel="noopener">
+              <img
+                src={imageUrl}
+                width={260}
+                height={195}
+                alt={cam.title}
+                className={styles.img}
+              />
+            </a>
+          </Link>
+        ) : (
+          <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
             <img
               src={imageUrl}
               width={260}
@@ -90,18 +102,8 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
               className={styles.img}
             />
           </a>
-        </Link>
-      ) : (
-        <a href={cam.webcamUrl} target="_blank" rel="noopener noreferrer">
-          <img
-            src={imageUrl}
-            width={260}
-            height={195}
-            alt={cam.title}
-            className={styles.img}
-          />
-        </a>
-      )}
+        )}
+      </div>
       <div className={styles.body}>
         {cam.mbcHostedYoutube ? (
           <Link href={cam.webcamUrl}>
