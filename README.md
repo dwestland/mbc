@@ -45,13 +45,12 @@
 ### **Key Features**
 
 - **Dynamic Webcam Display**: Webcams organized by countries, states/regions, and specific areas.
+- **Backend Functionality**: Ability to create and edit webcams through an AdminDashboard.
 - **API-Driven Architecture**: Modular and reusable API endpoints for fetching webcam data.
 - **Interactive Maps**: Visualize webcam locations globally with zoom and click functionality.
 - **SEO Optimization**: Metadata and content structure designed for search engine performance.
 
----
-
-**-----------------------------------------------------------------------**
+## Project Notes
 
 **Browse on iPhone**
 http://don.local, http://192.168.l.l4:3100
@@ -139,8 +138,6 @@ https://nextjs.org/docs/advanced-features/debugging
 
 ### Nginx Server Block
 
-````
-
 ```nginx
 # Redirect from http to https
 server {
@@ -167,18 +164,14 @@ server {
   access_log  /var/log/nginx/stg.mybeachcams.com_access.log;
   error_log  /var/log/nginx/stg.mybeachcams.com_error.log;
 }
-````
+```
 
 **301 redirects**
 
 How To Create Temporary and Permanent Redirects with Nginx
 https://www.digitalocean.com/community/tutorials/how-to-create-temporary-and-permanent-redirects-with-nginx
 
-server {
-
-# 301 Redirect for single pages
-
-rewrite /realestate/about.php /realestate/about/ permanent;
+## 301 Redirect for single pages
 
 rewrite /california/san_diego /california/san-diego permanent;
 rewrite /california/los_angeles /california/los-angeles permanent;
