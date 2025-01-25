@@ -78,10 +78,8 @@ const Layout: FC<LayoutProps> = ({
         <Navbar />
         <Showcase />
         <TempBanner message={bannerMessage} />
-        {envIndicator ? (
+        {envIndicator && (
           <span className={styles.environmentIndicator}>{envIndicator}</span>
-        ) : (
-          <span className={styles.environmentIndicator}>Loading...</span>
         )}
         <div className={styles.secondaryNav}>
           {/* <LoginLogout /> */}
