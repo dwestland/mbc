@@ -74,26 +74,33 @@ export default function ImageUploadModal({
     onClose()
   }
 
-  const uploadToServer = () => {
+  const uploadToServer = async () => {
     const body = new FormData()
 
-    // Create unique descriptive title
+    if (!blob) return
+
     const slugifiedTitle = slugify(title)
     const randomSixDigit = getSixDigitRandom()
     const filename = `${slugifiedTitle}-${randomSixDigit}.jpg`
-    handleImageNameChange(filename)
-
-    if (!blob) {
-      return
-    }
 
     body.append('file', blob, filename)
-    fetch('/api/upload', {
-      method: 'POST',
-      body,
-    })
 
-    handleClose()
+    try {
+      const response = await fetch('/api/upload', {
+        method: 'POST',
+        body,
+      })
+
+      if (response.ok) {
+        // Only update the image name and close modal after successful upload
+        handleImageNameChange(filename)
+        handleClose()
+      } else {
+        console.error('Upload failed:', await response.text())
+      }
+    } catch (err) {
+      console.error('Upload error:', err)
+    }
   }
 
   const modalContent = (

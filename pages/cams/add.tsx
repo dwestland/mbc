@@ -93,18 +93,29 @@ const AddCam = () => {
       if (imageName) {
         const imageUrl = process.env.AWS_IMAGE_SRC_ROOT + imageName
         try {
-          const res = await fetch(imageUrl)
-          if (res.ok) {
-            setPreviewImage(res.url)
+          // Add timestamp to prevent caching
+          const timestamp = new Date().getTime()
+          const response = await fetch(`${imageUrl}?t=${timestamp}`)
+          if (response.ok) {
+            // Set the preview image URL with timestamp to force refresh
+            setPreviewImage(`${response.url}?t=${timestamp}`)
           } else {
-            console.error('Image fetch failed:', res.status)
+            console.error('Image fetch failed:', response.status)
+            setPreviewImage('/images/no-image.jpg')
           }
         } catch (err) {
           console.error('Error fetching image:', err)
+          setPreviewImage('/images/no-image.jpg')
         }
       }
     }
-    reloadImage()
+
+    // Add a small delay to ensure S3 has processed the upload
+    const timer = setTimeout(() => {
+      reloadImage()
+    }, 1000)
+
+    return () => clearTimeout(timer)
   }, [imageName])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -198,7 +209,7 @@ const AddCam = () => {
   }
 
   const handleImageNameChange = (newImageName: string) => {
-    setValues({ ...values, imageName: newImageName })
+    setValues((prev) => ({ ...prev, imageName: newImageName }))
   }
 
   const handleTopCamChange = () => {
