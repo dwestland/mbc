@@ -4,13 +4,25 @@ import * as types from '@/utils/types'
 const Sitemap = () => null
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  const host = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mybeachcams.com'
+
+  // Check if the host is stage.mybeachcams.com
+  if (host.includes('stage.mybeachcams.com')) {
+    res.setHeader('Content-Type', 'text/plain')
+    res.write('Sitemap not available for staging environment.')
+    res.end()
+    return {
+      props: {},
+    }
+  }
+
   // Get all cams for dynamic routes
   const camsResponse = await fetch(`${process.env.NEXT_PUBLIC_API}/cams-all`)
   const cams: types.Cams[] = await camsResponse.json()
 
   // Base URL from environment variable
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || 'https:/www.mybeachcams.com'
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://www.mybeachcams.com'
 
   // Current date in ISO format for lastmod
   const currentDate = new Date().toISOString()
@@ -99,7 +111,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         <url>
           <loc>${baseUrl}/detail/${cam.id}</loc>
           <lastmod>${currentDate}</lastmod>
-          <changefreq>Weekly</changefreq>
+          <changefreq>weekly</changefreq>
           <priority>0.6</priority>
         </url>
       `
