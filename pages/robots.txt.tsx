@@ -13,9 +13,7 @@ Disallow: /
 
 # Host
 Host: ${baseUrl}
-
-# Sitemaps
-Sitemap: ${baseUrl}/sitemap.xml`
+`
     : `# *
 User-agent: *
 Allow: /
@@ -27,7 +25,8 @@ Disallow: /hidden
 Host: ${baseUrl}
 
 # Sitemaps
-Sitemap: ${baseUrl}/sitemap.xml`
+Sitemap: ${baseUrl}/sitemap.xml
+`
 
   res.setHeader('Content-Type', 'text/plain')
   res.write(robotsTxt)
