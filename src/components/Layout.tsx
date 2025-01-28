@@ -10,6 +10,7 @@ import Showcase from './Showcase'
 import AdminNav from './AdminNav'
 import Footer from './Footer'
 import TempBanner from './TempBanner'
+import SocialIcons from './SocialIcons'
 
 interface LayoutProps {
   documentTitle: string
@@ -83,8 +84,11 @@ const Layout: FC<LayoutProps> = ({
           <span className={styles.environmentIndicator}>{envIndicator}</span>
         )}
         <div className={styles.secondaryNav}>
-          {/* <LoginLogout /> */}
-          {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
+          <div className={styles.leftNav}>
+            {/* <LoginLogout /> */}
+            {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
+            <SocialIcons />
+          </div>
           <Search />
         </div>
         <div className={styles.container}>

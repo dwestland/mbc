@@ -27,3 +27,19 @@
   font-weight: bold;
   text-align: center;
 }
+
+.secondaryNav {
+  display: flex;
+  justify-content: space-between; /* This will space out the children */
+  align-items: center; /* Center items vertically */
+  margin: 12px auto 0;
+  max-width: 1200px;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.leftNav {
+  display: flex; /* Use flexbox for inline layout */
+  align-items: center; /* Center items vertically */
+  gap: 10px; /* Optional: Add space between LoginLogout and SocialIcons */
+}
