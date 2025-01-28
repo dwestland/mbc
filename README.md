@@ -1,5 +1,33 @@
 # MBC
 
+**Run local dev environment:** (Currently running Node 20.4)
+
+```
+npm run dev
+```
+
+**Open in browser:**
+
+```
+http://localhost:3100
+```
+
+**Login Page:**
+
+```
+http://localhost:3100/login
+```
+
+```
+https://www.mybeachcams.com/login
+```
+
+**Git Clone**
+
+```
+git clone https://github.com/dwestland/mbc.git
+```
+
 ## **Tech Stack**
 
 ### **Frontend**
@@ -54,34 +82,6 @@
 
 **Browse on iPhone**
 http://don.local, http://192.168.l.l4:3100
-
-**Run local dev environment:** (Currently running Node 20.4)
-
-```
-npm run dev
-```
-
-**Open in browser:**
-
-```
-http://localhost:3100
-```
-
-**Login Page::**
-
-```
-http://localhost:3100/login
-```
-
-```
-https://www.mybeachcams.com/login
-```
-
-**Git Clone**
-
-```
-git clone https://github.com/dwestland/mbc.git
-```
 
 **Check for TS, ESLint errors**
 
