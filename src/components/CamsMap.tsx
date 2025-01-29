@@ -99,8 +99,8 @@ const CamsMap = ({ vectors }: Props) => {
                     src={`${imageSrcRoot}${vector.imageName}`}
                     alt={vector.name}
                     style={{ width: '200px', height: 'auto' }}
-                    width={260}
-                    height={195}
+                    width={200}
+                    height={150}
                   />
                 </a>
               </div>
