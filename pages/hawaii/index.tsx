@@ -57,22 +57,22 @@ const StateAreasPage = ({
         <div className="links-container">
           <ul>
             <li>
-              <Link href="/hawaii/kauai/">
+              <Link href="/hawaii/kauai">
                 <a>Kauai Island</a>
               </Link>
             </li>
             <li>
-              <Link href="/hawaii/oahu/">
+              <Link href="/hawaii/oahu">
                 <a>Oahu Island</a>
               </Link>
             </li>
             <li>
-              <Link href="/hawaii/maui/">
+              <Link href="/hawaii/maui">
                 <a>Maui Island</a>
               </Link>
             </li>
             <li>
-              <Link href="/hawaii/bigisland/">
+              <Link href="/hawaii/bigisland">
                 <a>Big Island</a>
               </Link>
             </li>
@@ -113,7 +113,7 @@ const StateAreasPage = ({
         </ShowMoreText>
 
         <h2>
-          <Link href="/hawaii/maui/">Maui Island Webams</Link>
+          <Link href="/hawaii/maui">Maui Island Webams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -138,7 +138,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/hawaii/oahu/">Oahu Island Webams</Link>
+          <Link href="/hawaii/oahu">Oahu Island Webams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -163,7 +163,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/hawaii/bigisland/">Big Island Webams</Link>
+          <Link href="/hawaii/bigisland">Big Island Webams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -189,7 +189,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/hawaii/kauai/">Kauai Island Webams</Link>
+          <Link href="/hawaii/kauai">Kauai Island Webams</Link>
         </h2>
         <ShowMoreText
           lines={2}

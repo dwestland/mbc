@@ -532,7 +532,7 @@ const Edit = ({ cams }: InferGetStaticPropsType<typeof getServerSideProps>) => {
                           {`Can use the following HTML:
                           <b>Bold</b> <br />
                           <p>Paragraph</p>
-                          External anchor: <a href="https://www.westland.net/beachcam/" target="_blank" rel="noreferrer">Beach Cam</a>
+                          External anchor: <a href="https://www.westland.net/beachcam" target="_blank" rel="noreferrer">Beach Cam</a>
                           <span style="color: red; font-size: 20px;">CSS Styles</span>
                           `}
                           <textarea
