@@ -86,7 +86,7 @@ const Layout: FC<LayoutProps> = ({
         <div className={styles.secondaryNav}>
           <div className={styles.leftNav}>
             {/* <LoginLogout /> */}
-            {router.pathname === '/login' ? <LoginLogout /> : <div>&nbsp;</div>}
+            {router.pathname === '/login' ? <LoginLogout /> : <></>}
             <SocialIcons />
           </div>
           <Search />

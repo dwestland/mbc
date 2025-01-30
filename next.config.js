@@ -36,6 +36,11 @@ module.exports = {
         destination: '/california/san-francisco',
         permanent: true,
       },
+      {
+        source: '/florida/southeast-keys',
+        destination: '/florida/florida-keys',
+        permanent: true,
+      },
     ]
   },
 }
