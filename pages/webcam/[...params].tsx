@@ -155,7 +155,7 @@ const Webcam = ({
         </div>
         <AdLeaderboard />
         <h2>
-          <Link href="/hawaii/">
+          <Link href="/hawaii">
             <a target="_blank" rel="noopener">
               More Hawaii Beach Cams
             </a>

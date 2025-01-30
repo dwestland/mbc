@@ -57,22 +57,22 @@ const StateAreasPage = ({
         <div className="links-container">
           <ul>
             <li>
-              <Link href="/california/san-diego/">
+              <Link href="/california/san-diego">
                 <a>San Diego</a>
               </Link>
             </li>
             <li>
-              <Link href="/california/los-angeles/">
+              <Link href="/california/los-angeles">
                 <a>Los Angeles</a>
               </Link>
             </li>
             <li>
-              <Link href="/california/central-coast/">
+              <Link href="/california/central-coast">
                 <a>Central Coast</a>
               </Link>
             </li>
             <li>
-              <Link href="/california/san-francisco/">
+              <Link href="/california/san-francisco">
                 <a>San Francisco</a>
               </Link>
             </li>
@@ -113,7 +113,7 @@ const StateAreasPage = ({
         </ShowMoreText>
 
         <h2>
-          <Link href="/california/los-angeles/">Los Angeles Webcams</Link>
+          <Link href="/california/los-angeles">Los Angeles Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -138,7 +138,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/california/san-diego/">San Diego Webcams</Link>
+          <Link href="/california/san-diego">San Diego Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -163,7 +163,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/california/central-coast/">Central Coast Webcams</Link>
+          <Link href="/california/central-coast">Central Coast Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -191,7 +191,7 @@ const StateAreasPage = ({
         <AdLeaderboard />
 
         <h2>
-          <Link href="/california/san-francisco/">San Francisco Webcams</Link>
+          <Link href="/california/san-francisco">San Francisco Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -352,7 +352,7 @@ const StateAreasPage = ({
               </li>
               <li>
                 <a
-                  href="https://aqicn.org/map/los-angeles/"
+                  href="https://aqicn.org/map/los-angeles"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

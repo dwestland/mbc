@@ -10,7 +10,7 @@ function MoreHawaiiCams({ cams }: types.MoreWebcamProps) {
         (cam, idx) => idx < 7 && <CamCard key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
-        <Link href="/hawaii/bigisland/">
+        <Link href="/hawaii/bigisland">
           <a>
             <h2>
               MORE

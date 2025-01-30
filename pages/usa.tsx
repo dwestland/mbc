@@ -34,67 +34,67 @@ const CountryStatesPage = ({
         <div className="links-container">
           <ul>
             <li>
-              <Link href="/alabama/">Alabama</Link>
+              <Link href="/alabama">Alabama</Link>
             </li>
             <li>
-              <Link href="/california/">California</Link>
+              <Link href="/california">California</Link>
             </li>
             <li>
-              <Link href="/connecticut/">Connecticut</Link>
+              <Link href="/connecticut">Connecticut</Link>
             </li>
             <li>
-              <Link href="/delaware/">Delaware</Link>
+              <Link href="/delaware">Delaware</Link>
             </li>
             <li>
-              <Link href="/florida/">Florida</Link>
+              <Link href="/florida">Florida</Link>
             </li>
             <li>
-              <Link href="/georgia/">Georgia</Link>
+              <Link href="/georgia">Georgia</Link>
             </li>
             <li>
-              <Link href="/hawaii/">Hawaii</Link>
+              <Link href="/hawaii">Hawaii</Link>
             </li>
             <li>
-              <Link href="/louisiana/">Louisiana</Link>
+              <Link href="/louisiana">Louisiana</Link>
             </li>
             <li>
-              <Link href="/maine/">Maine</Link>
+              <Link href="/maine">Maine</Link>
             </li>
             <li>
-              <Link href="/maryland/">Maryland</Link>
+              <Link href="/maryland">Maryland</Link>
             </li>
             <li>
-              <Link href="/massachusetts/">Massachusetts</Link>
+              <Link href="/massachusetts">Massachusetts</Link>
             </li>
             <li>
-              <Link href="/mississippi/">Mississippi</Link>
+              <Link href="/mississippi">Mississippi</Link>
             </li>
             <li>
-              <Link href="/new-hampshire/">New Hampshire</Link>
+              <Link href="/new-hampshire">New Hampshire</Link>
             </li>
             <li>
-              <Link href="/new-jersey/">New Jersey</Link>
+              <Link href="/new-jersey">New Jersey</Link>
             </li>
             <li>
-              <Link href="/new-york/">New York</Link>
+              <Link href="/new-york">New York</Link>
             </li>
             <li>
-              <Link href="/north-carolina/">North Carolina</Link>
+              <Link href="/north-carolina">North Carolina</Link>
             </li>
             <li>
-              <Link href="/oregon/">Oregon</Link>
+              <Link href="/oregon">Oregon</Link>
             </li>
             <li>
-              <Link href="/rhode-island/">Rhode Island</Link>
+              <Link href="/rhode-island">Rhode Island</Link>
             </li>
             <li>
-              <Link href="/south-carolina/">South Carolina</Link>
+              <Link href="/south-carolina">South Carolina</Link>
             </li>
             <li>
-              <Link href="/texas/">Texas</Link>
+              <Link href="/texas">Texas</Link>
             </li>
             <li>
-              <Link href="/washington/">Washington</Link>
+              <Link href="/washington">Washington</Link>
             </li>
           </ul>
         </div>
@@ -132,27 +132,27 @@ const CountryStatesPage = ({
       </div>
 
       <h2>
-        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+        <Link href="/hawaii">Hawaii Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/hawaii/kauai/">
+            <Link href="/hawaii/kauai">
               <a>Kauai Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/oahu/">
+            <Link href="/hawaii/oahu">
               <a>Oahu Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/maui/">
+            <Link href="/hawaii/maui">
               <a>Maui Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/bigisland/">
+            <Link href="/hawaii/bigisland">
               <a>Big Island</a>
             </Link>
           </li>
@@ -166,27 +166,27 @@ const CountryStatesPage = ({
       <AdLeaderboard />
 
       <h2>
-        <Link href="/california/">California Beach Cams</Link>
+        <Link href="/california">California Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/california/san-diego/">
+            <Link href="/california/san-diego">
               <a>San Diego</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/los-angeles/">
+            <Link href="/california/los-angeles">
               <a>Los Angeles</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/central-coast/">
+            <Link href="/california/central-coast">
               <a>Central Coast</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/san-francisco/">
+            <Link href="/california/san-francisco">
               <a>San Francisco</a>
             </Link>
           </li>
@@ -200,37 +200,37 @@ const CountryStatesPage = ({
       <AdLeaderboard />
 
       <h2>
-        <Link href="/florida/">Florida Beach Cams</Link>
+        <Link href="/florida">Florida Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/florida/miami/">
+            <Link href="/florida/miami">
               <a>Miami Beach</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/florida-keys/">
+            <Link href="/florida/florida-keys">
               <a>Florida Keys</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/gulf-coast/">
+            <Link href="/florida/gulf-coast">
               <a>Gulf Coast</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/east-central/">
+            <Link href="/florida/east-central">
               <a>East Central</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/panhandle/">
+            <Link href="/florida/panhandle">
               <a>Panhandle</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/northeast/">
+            <Link href="/florida/northeast">
               <a>Northeast</a>
             </Link>
           </li>

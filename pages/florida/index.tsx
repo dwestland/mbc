@@ -59,32 +59,32 @@ const StateAreasPage = ({
         <div className="links-container">
           <ul>
             <li>
-              <Link href="/florida/miami/">
+              <Link href="/florida/miami">
                 <a>Miami Beach</a>
               </Link>
             </li>
             <li>
-              <Link href="/florida/florida-keys/">
+              <Link href="/florida/florida-keys">
                 <a>Florida Keys</a>
               </Link>
             </li>
             <li>
-              <Link href="/florida/gulf-coast/">
+              <Link href="/florida/gulf-coast">
                 <a>Gulf Coast</a>
               </Link>
             </li>
             <li>
-              <Link href="/florida/east-central/">
+              <Link href="/florida/east-central">
                 <a>East Central</a>
               </Link>
             </li>
             <li>
-              <Link href="/florida/panhandle/">
+              <Link href="/florida/panhandle">
                 <a>Panhandle</a>
               </Link>
             </li>
             <li>
-              <Link href="/florida/northeast/">
+              <Link href="/florida/northeast">
                 <a>Northeast</a>
               </Link>
             </li>
@@ -124,7 +124,7 @@ const StateAreasPage = ({
           </p>
         </ShowMoreText>
         <h2>
-          <Link href="/florida/miami/">Miami Beach Webcams</Link>
+          <Link href="/florida/miami">Miami Beach Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -148,7 +148,7 @@ const StateAreasPage = ({
         />
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/florida-keys/">Florida Keys Webcams</Link>
+          <Link href="/florida/florida-keys">Florida Keys Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -172,7 +172,7 @@ const StateAreasPage = ({
         />
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/gulf-coast/">Gulf Coast Webcams</Link>
+          <Link href="/florida/gulf-coast">Gulf Coast Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -196,7 +196,7 @@ const StateAreasPage = ({
         />
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/east-central/">East Central Webcams</Link>
+          <Link href="/florida/east-central">East Central Webcams</Link>
         </h2>{' '}
         <ShowMoreText
           lines={2}
@@ -220,7 +220,7 @@ const StateAreasPage = ({
         />
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/panhandle/">Panhandle Webcams</Link>
+          <Link href="/florida/panhandle">Panhandle Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -244,7 +244,7 @@ const StateAreasPage = ({
         />
         <AdLeaderboard />
         <h2>
-          <Link href="/florida/northeast/">Northeast Webcams</Link>
+          <Link href="/florida/northeast">Northeast Webcams</Link>
         </h2>
         <ShowMoreText
           lines={2}
@@ -434,7 +434,7 @@ const StateAreasPage = ({
       </div>
       {/* <hr />
       <h2>
-        <Link href="/">More Beach Cams</Link>
+        <Link href="">More Beach Cams</Link>
       </h2>{' '} */}
       <p className="legend">
         <span className="green-dot">&nbsp;</span>MyBeachCams hosted page

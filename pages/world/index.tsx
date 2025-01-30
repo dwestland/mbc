@@ -31,107 +31,107 @@ const WorldPage = ({
         <div className="links-container">
           <ul>
             <li>
-              <Link href="/aruba/">
+              <Link href="/aruba">
                 <a>Aruba</a>
               </Link>
             </li>
             {/* <li>
-              <Link href="/bali/">
+              <Link href="/bali">
                 <a>Bali</a>
               </Link>
             </li> */}
             <li>
-              <Link href="/bermuda/">
+              <Link href="/bermuda">
                 <a>Bermuda</a>
               </Link>
             </li>
             <li>
-              <Link href="/bonaire/">
+              <Link href="/bonaire">
                 <a>Bonaire</a>
               </Link>
             </li>
             <li>
-              <Link href="/curacao/">
+              <Link href="/curacao">
                 <a>Curacao</a>
               </Link>
             </li>
             <li>
-              <Link href="/dominican-republic/">
+              <Link href="/dominican-republic">
                 <a>Dominican Republic</a>
               </Link>
             </li>
             {/* <li>
-              <Link href="/greece/">
+              <Link href="/greece">
                 <a>Greece</a>
               </Link>
             </li> */}
             {/* <li>
-              <Link href="/italy/">
+              <Link href="/italy">
                 <a>Italy</a>
               </Link>
             </li> */}
             <li>
-              <Link href="/jamaica/">
+              <Link href="/jamaica">
                 <a>Jamaica</a>
               </Link>
             </li>
             <li>
-              <Link href="/japan/">
+              <Link href="/japan">
                 <a>Japan</a>
               </Link>
             </li>
             <li>
-              <Link href="/mexico/">
+              <Link href="/mexico">
                 <a>Mexico</a>
               </Link>
             </li>
             {/* <li>
-              <Link href="/netherlands/">
+              <Link href="/netherlands">
                 <a>Netherlands</a>
               </Link>
             </li> */}
             <li>
-              <Link href="/new-zealand/">
+              <Link href="/new-zealand">
                 <a>New Zealand</a>
               </Link>
             </li>
             {/* <li>
-              <Link href="/portugal/">
+              <Link href="/portugal">
                 <a>Portugal</a>
               </Link>
             </li> */}
             <li>
-              <Link href="/sint-maarten/">
+              <Link href="/sint-maarten">
                 <a>Sint Maarten</a>
               </Link>
             </li>
             {/* <li>
-              <Link href="/spain/">
+              <Link href="/spain">
                 <a>Spain</a>
               </Link>
             </li> */}
             <li>
-              <Link href="/st-barts/">
+              <Link href="/st-barts">
                 <a>St. Barts</a>
               </Link>
             </li>
             <li>
-              <Link href="/st-croix/">
+              <Link href="/st-croix">
                 <a>St. Croix</a>
               </Link>
             </li>
             <li>
-              <Link href="/taiwan/">
+              <Link href="/taiwan">
                 <a>Taiwan</a>
               </Link>
             </li>
             <li>
-              <Link href="/thailand/">
+              <Link href="/thailand">
                 <a>Thailand</a>
               </Link>
             </li>
             <li>
-              <Link href="/usa/">
+              <Link href="/usa">
                 <a>United States</a>
               </Link>
             </li>
@@ -185,7 +185,7 @@ const WorldPage = ({
       </div>
 
       <h2>
-        <Link href="/hawaii/">World Webcams</Link>
+        <Link href="/hawaii">World Webcams</Link>
       </h2>
 
       <MoreUSACams
@@ -198,27 +198,27 @@ const WorldPage = ({
       <AdLeaderboard />
 
       <h2>
-        <Link href="/hawaii/">Hawaii Beach Cams</Link>
+        <Link href="/hawaii">Hawaii Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/hawaii/kauai/">
+            <Link href="/hawaii/kauai">
               <a>Kauai Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/oahu/">
+            <Link href="/hawaii/oahu">
               <a>Oahu Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/maui/">
+            <Link href="/hawaii/maui">
               <a>Maui Island</a>
             </Link>
           </li>
           <li>
-            <Link href="/hawaii/bigisland/">
+            <Link href="/hawaii/bigisland">
               <a>Big Island</a>
             </Link>
           </li>
@@ -232,27 +232,27 @@ const WorldPage = ({
       <AdLeaderboard />
 
       <h2>
-        <Link href="/california/">California Beach Cams</Link>
+        <Link href="/california">California Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/california/san-diego/">
+            <Link href="/california/san-diego">
               <a>San Diego</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/los-angeles/">
+            <Link href="/california/los-angeles">
               <a>Los Angeles</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/central-coast/">
+            <Link href="/california/central-coast">
               <a>Central Coast</a>
             </Link>
           </li>
           <li>
-            <Link href="/california/san-francisco/">
+            <Link href="/california/san-francisco">
               <a>San Francisco</a>
             </Link>
           </li>
@@ -266,37 +266,37 @@ const WorldPage = ({
       <AdLeaderboard />
 
       <h2>
-        <Link href="/florida/">Florida Beach Cams</Link>
+        <Link href="/florida">Florida Beach Cams</Link>
       </h2>
       <div className="links-container">
         <ul>
           <li>
-            <Link href="/florida/miami/">
+            <Link href="/florida/miami">
               <a>Miami Beach</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/florida-keys/">
+            <Link href="/florida/florida-keys">
               <a>Florida Keys</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/gulf-coast/">
+            <Link href="/florida/gulf-coast">
               <a>Gulf Coast</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/east-central/">
+            <Link href="/florida/east-central">
               <a>East Central</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/panhandle/">
+            <Link href="/florida/panhandle">
               <a>Panhandle</a>
             </Link>
           </li>
           <li>
-            <Link href="/florida/northeast/">
+            <Link href="/florida/northeast">
               <a>Northeast</a>
             </Link>
           </li>

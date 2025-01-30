@@ -10,7 +10,7 @@ function MoreSanDiegoCams({ cams }: types.MoreWebcamProps) {
         (cam, idx) => idx < 7 && <CamCard key={cam.id} cam={cam} />
       )}
       <div className="more-cams">
-        <Link href="/california/san-diego/">
+        <Link href="/california/san-diego">
           <a>
             <h2>
               MORE
