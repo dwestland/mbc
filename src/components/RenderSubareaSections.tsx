@@ -1,8 +1,12 @@
 import React from 'react'
 import * as types from '@/utils/types'
+// import dynamic from 'next/dynamic'
 import CamCard from './CamCard'
 // import AdLeaderboard from './AdLeaderboard'
-import AdsBanner from './AdsBanner'
+// import AdsBanner from './AdsBanner'
+// const AdsBanner = dynamic(() => import('./AdsBanner'), {
+//   ssr: false,
+// })
 
 interface RenderSubareaSectionsProps {
   pageSections: { subarea: string }[]
@@ -39,12 +43,12 @@ const RenderSubareaSections: React.FC<RenderSubareaSectionsProps> = ({
               ))}
             </div>
             {/* <AdLeaderboard /> */}
-            <AdsBanner
+            {/* <AdsBanner
               data-ad-slot="slotnumber"
               data-full-width-responsive="true"
               data-ad-layout="in-article"
               data-ad-format="fluid"
-            />
+            /> */}
           </div>
         )
       })}
@@ -59,12 +63,12 @@ const RenderSubareaSections: React.FC<RenderSubareaSectionsProps> = ({
             ))}
           </div>
           {/* <AdLeaderboard /> */}
-          <AdsBanner
+          {/* <AdsBanner
             data-ad-slot="slotnumber"
             data-full-width-responsive="true"
             data-ad-layout="in-article"
             data-ad-format="fluid"
-          />
+          /> */}
         </div>
       )}
     </>
