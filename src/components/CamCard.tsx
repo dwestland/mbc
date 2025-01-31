@@ -78,7 +78,7 @@ const CamCard: FC<CamCardProps> = ({ cam }): JSX.Element => {
   }
 
   return (
-    <div className={`${styles.card} bs`}>
+    <div data-auto-ads-block="true" className={`${styles.card} bs`}>
       <div className={styles.imgContainer}>
         {cam.mbcHostedYoutube ? (
           <Link href={cam.webcamUrl}>
