@@ -15,7 +15,11 @@ interface AdsBannerProps {
   //   'data-ad-layout'?: string
 }
 
-const AdBanner = (props: AdsBannerProps) => {
+const AdBanner = ({
+  'data-ad-slot': adSlot,
+  'data-ad-format': adFormat,
+  'data-full-width-responsive': fullWidthResponsive,
+}: AdsBannerProps) => {
   // eslint-disable-next-line consistent-return
   useEffect(() => {
     const handleRouteChange = () => {
@@ -59,8 +63,9 @@ const AdBanner = (props: AdsBannerProps) => {
       }}
       data-adtest="on"
       data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...props}
+      data-ad-slot={adSlot}
+      data-ad-format={adFormat}
+      data-full-width-responsive={fullWidthResponsive}
     />
   )
 }
