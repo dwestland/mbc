@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react'
 
+declare global {
+  // eslint-disable-next-line no-unused-vars
+  interface Window {
+    adsbygoogle: any[]
+  }
+}
+
 const AdLeaderboard = () => {
   useEffect(() => {
     try {
