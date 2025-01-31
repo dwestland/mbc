@@ -1,7 +1,7 @@
 import React from 'react'
 import * as types from '@/utils/types'
 import CamCard from './CamCard'
-import AdBanner from './AdBanner'
+import AdLeaderboard from './AdLeaderboard'
 
 interface RenderSubareaSectionsProps {
   pageSections: { subarea: string }[]
@@ -37,12 +37,7 @@ const RenderSubareaSections: React.FC<RenderSubareaSectionsProps> = ({
                 <CamCard key={cam.id} cam={cam} />
               ))}
             </div>
-            <AdBanner
-              data-ad-slot="slotnumber"
-              data-full-width-responsive="true"
-              data-ad-layout="in-article"
-              data-ad-format="fluid"
-            />
+            <AdLeaderboard />
           </div>
         )
       })}
@@ -56,12 +51,7 @@ const RenderSubareaSections: React.FC<RenderSubareaSectionsProps> = ({
               <CamCard key={cam.id} cam={cam} />
             ))}
           </div>
-          <AdBanner
-            data-ad-slot="slotnumber"
-            data-full-width-responsive="true"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-          />
+          <AdLeaderboard />
         </div>
       )}
     </>
