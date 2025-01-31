@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
 
-interface AdsBannerProps {
+interface AdBannerProps {
   'data-ad-slot': string
   'data-ad-format': string
   'data-full-width-responsive': string
-  // 'data-ad-layout'?: string
 }
 
-const AdBanner = (props: AdsBannerProps) => {
+const AdBanner = (props: AdBannerProps) => {
   useEffect(() => {
     try {
       ;(window.adsbygoogle = window.adsbygoogle || []).push({})
