@@ -2,6 +2,7 @@ import Router from 'next/router'
 import { useEffect } from 'react'
 
 declare global {
+  // eslint-disable-next-line no-unused-vars
   interface Window {
     adsbygoogle: unknown[]
   }
@@ -11,10 +12,11 @@ interface AdsBannerProps {
   'data-ad-slot': string
   'data-ad-format': string
   'data-full-width-responsive': string
-  'data-ad-layout'?: string
+  //   'data-ad-layout'?: string
 }
 
 const AdBanner = (props: AdsBannerProps) => {
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
     const handleRouteChange = () => {
       const intervalId = setInterval(() => {
@@ -57,6 +59,7 @@ const AdBanner = (props: AdsBannerProps) => {
       }}
       data-adtest="on"
       data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADS_CLIENT_ID}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
   )
