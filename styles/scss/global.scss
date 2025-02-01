@@ -160,31 +160,42 @@ form {
 .links-container {
   border: 1.5px solid var(--text-link-color);
   padding: 15px 25px;
-  // border-radius: 4px;
   margin: 10px 0;
   font-size: 18px;
   font-weight: 800;
 }
+
 .links-container ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 30px; /* Vertical gap 15px, Horizontal gap 30px */
+  justify-content: flex-start; /* Align items to the start */
 }
+
 .links-container li {
+  flex: 0 0 calc((100% - 90px) / 4); /* Fixed width for 4 columns, accounting for 3 gaps (30px each) */
   line-height: 16px;
-  margin: 0px;
+  margin: 0;
 }
-@media (max-width: 768px) {
-  .links-container ul {
-    grid-template-columns: repeat(2, 1fr);
+
+@media (max-width: 992px) {
+  .links-container li {
+    flex: 0 0 calc((100% - 60px) / 3); /* Fixed width for 3 columns, accounting for 2 gaps */
   }
 }
+
+@media (max-width: 768px) {
+  .links-container li {
+    flex: 0 0 calc((100% - 30px) / 2); /* Fixed width for 2 columns, accounting for 1 gap */
+  }
+}
+
 @media (max-width: 480px) {
-  .links-container ul {
-    grid-template-columns: 1fr;
+  .links-container li {
+    flex: 0 0 100%; /* Full width for 1 column */
   }
 }
 
