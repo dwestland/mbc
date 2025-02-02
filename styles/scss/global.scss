@@ -260,10 +260,6 @@ form {
 .ad {
   height: 350px;
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center; // Does not effect AdSense ads
-  // Still looking for a way to horizontally center the ad
 }
 
 @media (max-width: 768px) {
